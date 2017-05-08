@@ -8,6 +8,7 @@
 /.vagrant
 Homestead.json
 Homestead.yaml
+/app/Providers/AppServiceProvider*
 =======
 vendor/
 node_modules/
