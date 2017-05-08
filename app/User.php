@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name','first_surname', 'email', 'password',
     ];
 
     /**
@@ -26,4 +26,40 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Get the plan for the user
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function plan()
+    {
+        return $this->belongsTo('App\Plan');
+    }
+
+    /**
+     * Get the address for the user
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+
+    public function address()
+    {
+        return $this->belongsTo('App\Address');
+    }
+
+    /**
+     * Get the intolerant ingredients has the user
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function ingredients()
+    {
+        return $this->belongsToMany('App\Ingredient');
+    }
+
+    /**
+     * Get the deliveries of the user
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function deliveries(){
+        return $this->hasMany('App\Delivery');
+    }
 }
