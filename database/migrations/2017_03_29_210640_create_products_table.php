@@ -17,6 +17,7 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('name',150);
             $table->decimal('price',5,2);
+            $table->text('description');
             $table->date('expiration_date');
             $table->string('dimension')->nullable();
             $table->unsignedInteger('weight')->comment('gramos/litros');
