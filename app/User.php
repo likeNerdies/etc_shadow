@@ -62,4 +62,11 @@ class User extends Authenticatable
     public function deliveries(){
         return $this->hasMany('App\Delivery');
     }
+    /**
+     * Get the allergies has the ingredient
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function allergies(){
+        return $this->belongsToMany('App\Allergy');
+    }
 }
