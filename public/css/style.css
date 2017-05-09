@@ -1,0 +1,55 @@
+#nav-container {
+    background-image: url("../img/background.jpeg");
+    height: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.navbar {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0);
+
+}
+
+.nav-link, .navbar-brand{
+  color: white !important;
+}
+
+#sec1, #sec2, #sec3 {
+    height: 400px;
+    margin-top: 50px;
+}
+
+.b{
+    background-color: blue;
+}
+
+.br{
+    background-color: brown;
+}
+
+.y{
+    background-color: yellow;
+}
+
+.b,.br,.y{
+    height: 350px;
+    margin-top: 25px;
+}
+
+.margin-content-image{
+    margin-top: 20px;
+}
+
+.content-image{
+    padding-top: 20px;
+    padding-bottom: 11px;
+    background-color: orange;
+}
+
+.content{
+    padding: 10px 15px 5px 15px;
+    line-height: 35px;
+}
