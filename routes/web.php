@@ -61,6 +61,14 @@ Route::prefix('/products')->group(function (){
 
     Route::post('/store','product\ProductController@store'); //añadir restriccion solo admin puede añadir products
 
+    Route::get('/{product}','product\ProductController@show');
 
+    Route::get('/create','product\ProductController@create'); //añadir restriccion solo admin puede crear
+
+    Route::get('/{product}/edit','product\ProductController@edit'); //añadir restriccion solo admin puede editar products
+
+    Route::put('/{product}','product\ProductController@update'); //añadir restriccion solo admin puede editar products
+
+    Route::delete('/{product}','product\ProductController@delete'); //añadir restriccion solo admin puede eliminar products
 
 });
