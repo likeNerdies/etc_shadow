@@ -46,8 +46,21 @@ Route::prefix('/user/panel')->group(function(){//user panel route
 
 });//end user panel route
 
-
+//ROUTE PLANS
 Route::prefix('/plan')->group(function (){
     Route::get('/','plan\PlanController@index')->name('plan');
     Route::post('/','plan\PlanController@store')->name('plan');
+});
+//END ROUTE PLANS
+
+
+//ROUTE Productos
+Route::prefix('/products')->group(function (){
+
+    Route::get('/','product\ProductController@index');
+
+    Route::post('/store','product\ProductController@store'); //añadir restriccion solo admin puede añadir products
+
+
+
 });

@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     /**
+     * @var array
+     */
+    protected $fillable=[
+            'name', 'price','description','expiration_date','dimension','weight','real_weight','stock','vegetarian','vegan','organic'
+        ];
+    /**
      * Get the provider of the product
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
