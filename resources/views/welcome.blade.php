@@ -1,7 +1,9 @@
 @extends('layouts.app')
+
 @section('title')
-Welcome
+  Welcome
 @endsection
+
 @section('content')
 <div id="nav-container">
   <nav class="navbar navbar-toggleable-md navbar-light bg-faded container-fluid fixed-top" data-spy="affix">
@@ -15,7 +17,7 @@ Welcome
           <a class="nav-link page-scroll" href="#sec1">About</a>
         </li>
         <li class="nav-item  px-5">
-          <a class="nav-link page-scroll" href="#sec2">Shop flow</a>
+          <a class="nav-link page-scroll" href="#sec2">How it works</a>
         </li>
         <li class="nav-item  px-5">
           <a class="nav-link page-scroll" href="#sec3">Plans</a>
@@ -42,25 +44,29 @@ Welcome
       </ul>
     </div>
   </nav>
-</div>
-<div class="container-fluid">
+</div><!-- / nav-container -->
+
+<div class="container">
+
   <div class="row">
     <div id="sec1" class="col-sm-12">
       <h2 class="text-center pt-2">About us</h2>
     </div>
   </div>
+
   <div class="row">
     <div id="sec2" class="col-sm-12">
       <h2 class="text-center pt-2">Shopping flow</h2>
     </div>
   </div>
+
   <div class="row">
     <div id="sec3" class="col-sm-12">
       <h2 class="text-center pt-2">Plans</h2>
+
       <div class="row">
-        <div class="col-sm-4 text-center">
+        <div class="col-md-4 col-sm-12 text-center">
           <div class="row justify-content-center">
-            <div class="col-sm-9 margin-content-image">
               <div class="content-image">
                 <div class="image">
                   <img src="/img/groceries.png" alt="">
@@ -69,13 +75,11 @@ Welcome
                   <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus delectus dolor velit itaque, expedita ratione qui atque porro recusandae adipisci? Repellendus inventore esse quae ipsa nisi odit in aliquid cumque.</p>
                 </div>
               </div>
-            </div>
           </div>
-
         </div>
-        <div class="col-sm-4 text-center">
+
+        <div class="col-md-4 col-sm-12 text-center">
           <div class="row justify-content-center">
-            <div class="col-sm-9 margin-content-image">
               <div class="content-image">
                 <div class="image">
                   <img src="/img/check-mark.png" alt="">
@@ -84,12 +88,10 @@ Welcome
                   <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus delectus dolor velit itaque, expedita ratione qui atque porro recusandae adipisci? Repellendus inventore esse quae ipsa nisi odit in aliquid cumque.</p>
                 </div>
               </div>
-            </div>
           </div>
         </div>
-        <div class="col-sm-4 text-center">
+        <div class="col-md-4 col-sm-12 text-center lastBlock">
           <div class="row justify-content-center">
-            <div class="col-sm-9 margin-content-image">
               <div class="content-image">
                 <div class="image">
                   <img src="/img/trucking.png" alt="">
@@ -98,18 +100,16 @@ Welcome
                   <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus delectus dolor velit itaque, expedita ratione qui atque porro recusandae adipisci? Repellendus inventore esse quae ipsa nisi odit in aliquid cumque.</p>
                 </div>
               </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-
-
-
-
+  </div><!-- / plans -->
+</div><!-- / container -->
 @endsection
+
+<!-- Aquí hi ha el footer -->
+
 @section('scriptsPersonalizados')
   <script src="/js/welcome_script.js"></script>
 @endsection

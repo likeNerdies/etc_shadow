@@ -1,3 +1,12 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
 #nav-container {
     background-image: url("../img/background.jpeg");
     height: 500px;
@@ -8,9 +17,7 @@
 }
 
 .navbar {
-    width: 100%;
     background-color: rgba(255, 255, 255, 0);
-
 }
 
 .nav-link, .navbar-brand{
@@ -22,21 +29,18 @@
     margin-top: 50px;
 }
 
-.b{
-    background-color: blue;
+/* Footer */
+#footer {
+  margin-top: 50px;
+  padding-top: 10%;
+  padding-bottom: 10%!important;
+  background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/ep_naturalwhite.png");
+  position: relative;
 }
 
-.br{
-    background-color: brown;
-}
-
-.y{
-    background-color: yellow;
-}
-
-.b,.br,.y{
-    height: 350px;
-    margin-top: 25px;
+.fa {
+  font-size: 50px;
+  margin-right: 15px;
 }
 
 .margin-content-image{
@@ -46,10 +50,33 @@
 .content-image{
     padding-top: 20px;
     padding-bottom: 11px;
-    background-color: orange;
 }
 
 .content{
     padding: 10px 15px 5px 15px;
     line-height: 35px;
+}
+
+@media (max-width: 768px) {
+  #footer {
+    margin-top: 500px;
+  }
+
+  .lastBlock {
+  }
+
+  h4 {
+    color: red;
+  }
+
+}
+
+@media (min-width: 768px) {
+  #footer {
+    margin-top: 15%;
+  }
+
+  h4 {
+    color: blue;
+  }
 }

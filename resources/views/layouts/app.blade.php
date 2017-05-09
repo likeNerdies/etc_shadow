@@ -21,9 +21,9 @@
 <body>-->
 
 @yield('content')
-@include('layouts.scripts')
-@yield('scriptsPersonalizados')
-<!--<script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>{{--JQUERY version 3.2.1 min--}}
-<script src="{{ asset('js/scripts.js') }}"></script>{{--Scripts js personalizados--}}-->
 
 @include('layouts.foot')
+
+
+<!--<script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>{{--JQUERY version 3.2.1 min--}}
+<script src="{{ asset('js/scripts.js') }}"></script>{{--Scripts js personalizados--}}-->
