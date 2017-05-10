@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ingredient extends Model
 {
+    protected $fillable=[
+        'name','info',
+    ];
     /**
      * Get the products has the ingredient
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
