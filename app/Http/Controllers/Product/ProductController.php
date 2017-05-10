@@ -42,7 +42,8 @@ class ProductController extends Controller
      */
     public function store(UploadProduct $request)
     {
-        DB::transaction(function () {//iniciando transaccion
+
+        DB::transaction(function ($request)use ($request) {//iniciando transaccion
             $product = App\Product::create($request->all());//guardando producto
             if ($request->hasFile('photos')) {//si existen fotos
                 foreach ($request->photos as $photo) {//recorriendo todas las fotos
@@ -51,13 +52,14 @@ class ProductController extends Controller
                     App\Image::create([
                         'path' => $path,
                         'size' => Storage::size($path),
-                        'extension' => pathinfo($path, PATHINFO_EXTENSION),
+                        //'extension' => pathinfo($path, PATHINFO_EXTENSION),
+                        'extension'=>$photo->extension(),
                         'product_id' => $product->id
                     ]);
                 }
-                $product->categories()->attach($request->categories);//guardando relacion con categorias y productos
-                $product->ingredients()->attach($request->ingredients);//guardando relacion con ingredientes y productos
             }
+            $product->categories()->sync($request->categories);//guardando relacion con categorias y productos
+            $product->ingredients()->attach($request->ingredients);//guardando relacion con ingredientes y productos
         });
         return redirect('product.index');
     }
@@ -97,7 +99,7 @@ class ProductController extends Controller
      */
     public function update(UploadProduct $request, $id)
     {
-        DB::transaction(function (UploadProduct $request, $id) {//iniciando transaccion
+        DB::transaction(function ( $request, $id)use ($request,$id) {//iniciando transaccion
             $product = App\Product::findOrFail($id);
             $product->name = $request->name;
             $product->price = $request->price;
@@ -136,7 +138,6 @@ class ProductController extends Controller
                         'product_id' => $product->id
                     ]);
                 }
-                $product->ingredients()->attach($request->ingredients);//guardando relacion con ingredientes y productos
             }
             $product->ingredients()->sync($request->ingredients);//eliminando antiguas relaciones y guardando nuevas relaciones con ingredientes y productos
             $product->categories()->sync($request->categories);//eliminando antiguas relaciones y guardando nuevas relaciones con categorias y productos
