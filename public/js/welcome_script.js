@@ -1,8 +1,14 @@
     $(document).on('scroll', function (e) {
         var opacity = $(document).scrollTop() / 500;
         $('.navbar').css('background-color', 'rgba(255, 255, 255,'+opacity);
-    });
+        if($(document).scrollTop()==0){
+            $('.navbar').css('box-shadow', '');
+        }else{
+            $('.navbar').css('box-shadow', '0px '+opacity+'px 10px #888888');
+        }
 
+    });
+    console.log($(document).scrollTop());
     // jQuery for page scrolling feature - requires jQuery Easing plugin
     $(document).on('click', 'a.page-scroll', function(event) {
         var $anchor = $(this);
@@ -11,6 +17,7 @@
             scrollTop: ($($anchor.attr('href')).offset().top - 50)
         }, 1250, 'easeInOutExpo');
         event.preventDefault();
+
     });
 
     // Highlight the top nav as scrolling occurs
