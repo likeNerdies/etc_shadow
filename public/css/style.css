@@ -11,12 +11,12 @@ h2 {
 
 /* NAVBAR */
 #nav-container {
-    background-image: url("https://images.pexels.com/photos/94687/pexels-photo-94687.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb");
+    background-image: url("/img/header-background.jpeg");
     height: 500px;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: center;
+    background-position: bottom;
 }
 
 .navbar {
@@ -43,6 +43,10 @@ h2 {
   color: #fff;
   background-color: #F05F40;
   transition: all .35s;
+}
+.btn-seeProducts a{
+   text-decoration: none;
+    color: white;
 }
 
 .margin-content-image{
@@ -78,10 +82,23 @@ h2 {
 
 /* For navbar */
 @media (max-width: 768px) {
+    nav{
+        background-color: rgb(255,255,255) !important;
+    }
     .navbar-nav{
-        flex-direction:row;
         justify-content: center;
         padding-bottom: 5%;
+
+    }
+    li.nav-item{
+        padding-left: 0 !important;
+        //background-color: #888a85;
+    }
+
+    .log-reg{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
     }
 }
 
