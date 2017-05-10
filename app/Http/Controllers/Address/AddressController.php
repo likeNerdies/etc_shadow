@@ -102,7 +102,7 @@ class AddressController extends Controller
         $address->country=$request->country;
         $address->save();
         $user=Auth::user();
-        $user->address_id=$address->id;
+        $user->address_id=$address->id;//associate modificar en un futuro
         $user->save();
         return redirect()->back();
 

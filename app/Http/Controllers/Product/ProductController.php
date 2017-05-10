@@ -30,7 +30,8 @@ class ProductController extends Controller
     public function create()
     {
         $ingredients=App\Ingredient::all();
-        return view ('product.create',compact('ingredients'));
+        $categories=App\Category::all();
+        return view ('product.create',compact(['ingredients','categories']));
     }
 
     /**
@@ -54,6 +55,7 @@ class ProductController extends Controller
                         'product_id' => $product->id
                     ]);
                 }
+                $product->categories()->attach($request->categories);//guardando relacion con categorias y productos
                 $product->ingredients()->attach($request->ingredients);//guardando relacion con ingredientes y productos
             }
         });
@@ -136,7 +138,8 @@ class ProductController extends Controller
                 }
                 $product->ingredients()->attach($request->ingredients);//guardando relacion con ingredientes y productos
             }
-            $product->ingredients()->sync($request->ingredients);//guardando relacion con ingredientes y productos
+            $product->ingredients()->sync($request->ingredients);//eliminando antiguas relaciones y guardando nuevas relaciones con ingredientes y productos
+            $product->categories()->sync($request->categories);//eliminando antiguas relaciones y guardando nuevas relaciones con categorias y productos
 
             $product->save();
         });

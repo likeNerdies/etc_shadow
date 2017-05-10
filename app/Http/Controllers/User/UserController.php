@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 use Auth;
+use App;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\UpdatePersonalInfo;
@@ -64,5 +65,21 @@ class UserController extends Controller
     }
     public function destroymenu(){
         return view('user.panel.destroy-user');
+    }
+
+    /**
+     * user subsrcibing to plan
+     * @param Request $request
+     */
+    public function subscribeToPlan(Request $request){
+        //simple for now
+        //añadir transaction con pago visa
+        //comprobar si ya tiene plan
+        //si no paga un mes, se quita la subscripcion
+        $user = Auth::user();
+        //$user->plan_id=$request->plan_id;
+        $plan=App\Plan::findOrFail($request->plan_id);
+        $user->plan()->associate($plan);
+        $user->save();
     }
 }
