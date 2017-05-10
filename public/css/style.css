@@ -11,12 +11,12 @@ h2 {
 
 /* NAVBAR */
 #nav-container {
-    background-image: url("https://images.pexels.com/photos/94687/pexels-photo-94687.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb");
+    background-image: url("/img/header-background.jpeg");
     height: 500px;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: center;
+    background-position: bottom;
 }
 
 .navbar {
