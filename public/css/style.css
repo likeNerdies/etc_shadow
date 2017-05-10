@@ -44,6 +44,10 @@ h2 {
   background-color: #F05F40;
   transition: all .35s;
 }
+.btn-seeProducts a{
+   text-decoration: none;
+    color: white;
+}
 
 .margin-content-image{
     margin-top: 20px;

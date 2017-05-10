@@ -50,70 +50,72 @@
 
 <div class="container">
 
-  <div id="shoppingFlow" class="row section">
-    <div id="sec2" class="col-sm-12">
-      <h2 class="text-center pt-2 mb-5">Shopping flow</h2>
-      <div class="row">
-        <div class="col-md-3 col-sm-12 text-center">
-          <div class="row justify-content-center">
-              <div class="content-image">
-                <div class="image mb-1">
-                  <img src="/img/groceries.png" alt="">
-                </div>
-                <div class="content">
-                  <p class="text-justify text-center">First go see our products!</p>
-                  <button class="mt-3  btn btn-primary page-scroll btn-seeProducts" type="button" name="button">See our products</button>
-                </div>
-              </div>
-          </div>
-        </div>
 
-        <div class="col-md-3 col-sm-12 text-center">
-          <div class="row justify-content-center">
-              <div class="content-image">
-                <div class="image mb-1">
-                  <img src="/img/oat.png" alt="">
-                </div>
-                <div class="content">
-                  <p class="text-justify text-center">Choose the ingredients you don't like or your allergic at</p>
-                </div>
-              </div>
-          </div>
-        </div>
-
-        <div class="col-md-3 col-sm-12 text-center">
-          <div class="row justify-content-center">
-              <div class="content-image">
-                <div class="image mb-1">
-                  <img src="/img/check-mark.png" alt="">
-                </div>
-                <div class="content">
-                  <p class="text-justify text-center">Subscribe and choose the plan you want</p>
-                </div>
-              </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-12 text-center">
-          <div class="row justify-content-center">
-              <div class="content-image">
-                <div class="image mb-1">
-                  <img src="/img/trucking.png" alt="">
-                </div>
-                <div class="content">
-                  <p class="text-justify text-center">And you got it right at your sweet home!</p>
-                </div>
-              </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div><!-- / shopping flow -->
 
   <div class="row section">
     <div id="sec3" class="col-sm-12">
       <h2 class="text-center pt-2">Plans</h2>
     </div>
   </div><!-- / plans -->
+
+  <div id="shoppingFlow" class="row section">
+    <div id="sec2" class="col-sm-12">
+      <h2 class="text-center pt-2 mb-5">Shopping flow</h2>
+      <div class="row">
+        <div class="col-md-3 col-sm-12 text-center">
+          <div class="row justify-content-center">
+            <div class="content-image">
+              <div class="image mb-1">
+                <img class="sr-icons" src="/img/groceries.png" alt="">
+              </div>
+              <div class="content">
+                <p class="text-justify text-center">First go see our products!</p>
+                <button class="mt-3  btn btn-primary page-scroll btn-seeProducts sr-btn" type="button" name="button"><a href="/products">See our products</a></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-12 text-center">
+          <div class="row justify-content-center">
+            <div class="content-image">
+              <div class="image mb-1">
+                <img class="sr-icons" src="/img/oat.png" alt="">
+              </div>
+              <div class="content">
+                <p class="text-justify text-center">Choose the ingredients you don't like or your allergic at</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-12 text-center">
+          <div class="row justify-content-center">
+            <div class="content-image">
+              <div class="image mb-1">
+                <img class="sr-icons" src="/img/check-mark.png" alt="">
+              </div>
+              <div class="content">
+                <p class="text-justify text-center">Subscribe and choose the plan you want</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-12 text-center">
+          <div class="row justify-content-center">
+            <div class="content-image">
+              <div class="image mb-1">
+                <img class="sr-icons" src="/img/trucking.png" alt="">
+              </div>
+              <div class="content">
+                <p class="text-justify text-center">And you got it right at your sweet home!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- / shopping flow -->
 
   <div id="aboutUs" class="row section">
     <div id="sec1" class="col-sm-12 text-center">

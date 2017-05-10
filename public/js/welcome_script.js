@@ -24,3 +24,14 @@
         $(".navbar-toggler:visible").click()
     });
 
+    //scrollReveal
+    window.$sr= ScrollReveal();
+    $sr.reveal(".sr-icons", {
+        duration: 600,
+        scale: .3,
+        distance: "0px"
+    }, 200);
+    $sr.reveal(".sr-btn",{
+        duration: 1e3,
+        delay: 200
+    });
