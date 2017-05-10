@@ -18,6 +18,7 @@ class CreatePlansTable extends Migration
             $table->increments('id');
             $table->string('name',100);
             $table->decimal('price',5,2);
+            $table->text('description');
             $table->timestamps();
         });
     }
