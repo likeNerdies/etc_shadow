@@ -14,17 +14,17 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mr-auto mt-2 mt-md-0 mx-auto">
         <li class="nav-item px-5">
-          <a class="nav-link page-scroll" href="#sec1">About</a>
+          <a class="nav-link only page-scroll" href="#sec1">About</a>
         </li>
         <li class="nav-item  px-5">
-          <a class="nav-link page-scroll" href="#sec2">How it works</a>
+          <a class="nav-link only page-scroll" href="#sec2">How it works</a>
         </li>
         <li class="nav-item  px-5">
-          <a class="nav-link page-scroll" href="#sec3">Plans</a>
+          <a class="nav-link only page-scroll" href="#sec3">Plans</a>
         </li>
       </ul>
 
-      <ul class="navbar-nav">
+      <ul class="navbar-nav log-reg">
         @if (Route::has('login'))
         @if (Auth::check())
         <li class="nav-item dropdown mr-2"> <!--if time, modify-->
@@ -38,6 +38,7 @@
           </div>
         </li>
         @else
+
         <li class="nav-item  px-1"><button class="btn btn-info" data-toggle="modal" data-target="#modalLogin">Login</button></li><!--tocar buttons--><!--tambe includes register i login del modals-->
         <li class="nav-item  px-1"><button class="btn btn-info" data-toggle="modal" data-target="#modalRegister">Register</button></li><!--tocar buttons-->
           @endif

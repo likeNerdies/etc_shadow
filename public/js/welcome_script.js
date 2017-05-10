@@ -20,7 +20,7 @@
     });
 
     // Collapse before action (tablets, phones)
-    $(".navbar-collapse ul li a").click(function() {
+    $(".navbar-collapse ul li .only").click(function() {
         $(".navbar-toggler:visible").click()
     });
 
