@@ -25,7 +25,7 @@ body {
 }
 
 #sec1, #sec2, #sec3 {
-    height: 400px;
+    /*height: 400px;*/
     margin-top: 50px;
 }
 
@@ -66,12 +66,12 @@ body {
 
 }
 
-  #footer {
+  /*#footer {
     margin-top: 500px;
   }
 
   .lastBlock {
-  }
+  }*/
 
   h4 {
     color: red;
