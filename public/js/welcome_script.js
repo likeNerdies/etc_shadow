@@ -19,8 +19,8 @@
         offset: 51
     });
 
-
-    $('#hamburger, .navbar-collapse ul li a').click(function() {
-        $('div.collapse').slideToggle("easeInOutExpo");
+    // Collapse before action (tablets, phones)
+    $(".navbar-collapse ul li a").click(function() {
+        $(".navbar-toggler:visible").click()
     });
 
