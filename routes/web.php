@@ -46,20 +46,34 @@ Route::prefix('/user/panel')->group(function(){//user panel route
 
 });//end user panel route
 
-//ROUTE PLANS
-Route::prefix('/plan')->group(function (){
-    Route::get('/','plan\PlanController@index')->name('plan');
-    Route::post('/','plan\PlanController@store')->name('plan');
-});
-//END ROUTE PLANS
 
 
-//ROUTE Productos
+//ROUTE Plans
+Route::prefix('/plans')->group(function (){
+
+    Route::get('/','plan\PlanController@index');
+
+    Route::post('/','plan\PlanController@store'); //añadir restriccion solo admin puede añadir products
+
+    Route::get('/{plan}','plan\PlanController@show');
+
+    Route::get('/create','plan\PlanController@create'); //añadir restriccion solo admin puede crear
+
+    Route::get('/{plan}/edit','plan\PlanController@edit'); //añadir restriccion solo admin puede editar products
+
+    Route::put('/{plan}','plan\PlanController@update'); //añadir restriccion solo admin puede editar products
+
+    Route::delete('/{plan}','plan\PlanController@delete'); //añadir restriccion solo admin puede eliminar products
+
+});//end ROUTE Plans
+
+
+//ROUTE Products
 Route::prefix('/products')->group(function (){
 
     Route::get('/','product\ProductController@index');
 
-    Route::post('/store','product\ProductController@store'); //añadir restriccion solo admin puede añadir products
+    Route::post('/','product\ProductController@store'); //añadir restriccion solo admin puede añadir products
 
     Route::get('/{product}','product\ProductController@show');
 
@@ -71,4 +85,4 @@ Route::prefix('/products')->group(function (){
 
     Route::delete('/{product}','product\ProductController@delete'); //añadir restriccion solo admin puede eliminar products
 
-});
+});//end ROUTE Products

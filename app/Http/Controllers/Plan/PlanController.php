@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Plan;
 use App;use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Plan\PlanValidation;
 
 class PlanController extends Controller
 {
@@ -14,7 +15,8 @@ class PlanController extends Controller
      */
     public function index()
     {
-        return view ('plan.plan');
+        $plans=App\Plan::all();//pasamos todoos ls planes a la vista plan/index.blade.php
+        return view ('plan.index',compact('plans'));
     }
 
     /**
@@ -24,27 +26,19 @@ class PlanController extends Controller
      */
     public function create()
     {
-        //
+        return view('plan.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\Plan\PlanValidation  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PlanValidation $request)
     {
-        $this->validate($request,[
-            'plan_id'=>[
-                'required',
-                'regex:/[1-3]/'
-            ],
-        ]);
-        $user=Auth::user();
-        $user->plan_id=$request->plan_id;
-        $user->save();
-        return redirect()->back();
+        $plan=App\Plan::create($request->all());
+        return redirect('plan.index');
     }
 
     /**
@@ -55,7 +49,9 @@ class PlanController extends Controller
      */
     public function show($id)
     {
-        //
+        $plan = App\Plan::findOrFail($id);
+        //carpeta plan, dentro show.blade.php
+        return view('plan.show', compact('plan'));
     }
 
     /**
@@ -66,19 +62,25 @@ class PlanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $plan = App\Plan::findOrFail($id);
+        //carpeta plan, dentro edit.blade.php
+        return view('plan.edit', compact('plan'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\Plan\PlanValidation  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PlanValidation $request, $id)
     {
-        //
+        $plan=App\Plan::findOrFail($id);
+        $plan->name=$request->name;
+        $plan->price=$request->price;
+        $plan->save();
+        return redirect('plan.index');
     }
 
     /**
@@ -89,6 +91,8 @@ class PlanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $plan = App\Plan::findOrFail($id);
+        $plan->delete();
+        return redirect('/');
     }
 }

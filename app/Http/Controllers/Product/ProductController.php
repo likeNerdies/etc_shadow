@@ -57,6 +57,7 @@ class ProductController extends Controller
                 $product->ingredients()->attach($request->ingredients);//guardando relacion con ingredientes y productos
             }
         });
+        return redirect('product.index');
     }
 
     /**
@@ -139,6 +140,7 @@ class ProductController extends Controller
 
             $product->save();
         });
+        return redirect('product.index');
     }
 
     /**
