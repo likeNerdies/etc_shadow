@@ -21,7 +21,7 @@ body {
 }
 
 .nav-link, .navbar-brand{
-  color: white !important;
+  color: black !important;
 }
 
 #sec1, #sec2, #sec3 {
@@ -58,6 +58,14 @@ body {
 }
 
 @media (max-width: 768px) {
+    .navbar-nav{
+        flex-direction:row;
+        justify-content: center;
+        padding-bottom: 5%;
+    }
+
+}
+
   #footer {
     margin-top: 500px;
   }

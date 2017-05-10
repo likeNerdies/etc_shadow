@@ -1,8 +1,7 @@
-$(document).on('scroll', function (e) {
-    var opacity = $(document).scrollTop() / 500;
-    $('.navbar').css('background-color', 'rgba(255, 255, 255,'+opacity);
-    $('.nav-link').css('color','black', 'important');
-});
+    $(document).on('scroll', function (e) {
+        var opacity = $(document).scrollTop() / 500;
+        $('.navbar').css('background-color', 'rgba(255, 255, 255,'+opacity);
+    });
 
     // jQuery for page scrolling feature - requires jQuery Easing plugin
     $(document).on('click', 'a.page-scroll', function(event) {
@@ -19,3 +18,9 @@ $(document).on('scroll', function (e) {
         target: '.fixed-top',
         offset: 51
     });
+
+
+    $('#hamburger, .navbar-collapse ul li a').click(function() {
+        $('div.collapse').slideToggle("easeInOutExpo");
+    });
+

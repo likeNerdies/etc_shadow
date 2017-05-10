@@ -7,7 +7,7 @@
 @section('content')
 <div id="nav-container">
   <nav class="navbar navbar-toggleable-md navbar-light bg-faded container-fluid fixed-top" data-spy="affix">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <button id="hamburger" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="#">Brand</a>
@@ -23,6 +23,7 @@
           <a class="nav-link page-scroll" href="#sec3">Plans</a>
         </li>
       </ul>
+
       <ul class="navbar-nav">
         @if (Route::has('login'))
         @if (Auth::check())
@@ -37,9 +38,9 @@
           </div>
         </li>
         @else
-        <li class="nav-item  px-1"><a class="nav-link" href="">Login</a></li>
-        <li class="nav-item  px-1"><a class="nav-link" href="">Register</a> </li>
-        @endif
+        <li class="nav-item  px-1"><button class="btn btn-info" data-toggle="modal" data-target="#modalLogin">Login</button></li><!--tocar buttons--><!--tambe includes register i login del modals-->
+        <li class="nav-item  px-1"><button class="btn btn-info" data-toggle="modal" data-target="#modalRegister">Register</button></li><!--tocar buttons-->
+          @endif
         @endif
       </ul>
     </div>
@@ -105,6 +106,10 @@
       </div>
     </div>
   </div><!-- / plans -->
+  @if(!Auth::check())
+    @include('layouts.register')
+    @include('layouts.login')
+  @endif
 </div><!-- / container -->
 @endsection
 
