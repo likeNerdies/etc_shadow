@@ -1,3 +1,5 @@
+<a href="/categories">categories</a>
+
 <div class="wrapper">
 
 
@@ -8,6 +10,7 @@
 	Tip 2: you can also add an image using data-image tag
 
 -->
+
 
 <div class="sidebar-wrapper">
 	<div class="logo">

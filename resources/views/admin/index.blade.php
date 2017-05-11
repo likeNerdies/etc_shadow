@@ -29,7 +29,7 @@
                 @include('admin.layouts.sidebar')
             </div>
             <div class="col-md-9">
-                <!--@yield('panel-right');-->
+                @yield('panel-right')
             </div>
         </div>
     </div>
