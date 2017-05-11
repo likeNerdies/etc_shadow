@@ -43,7 +43,7 @@ class ProductController extends Controller
     public function store(UploadProduct $request)
     {
 
-        DB::transaction(function ($request)use ($request) {//iniciando transaccion
+        DB::transaction(function ()use ($request) {//iniciando transaccion
             $product = App\Product::create($request->all());//guardando producto
             if ($request->hasFile('photos')) {//si existen fotos
                 foreach ($request->photos as $photo) {//recorriendo todas las fotos
@@ -99,7 +99,7 @@ class ProductController extends Controller
      */
     public function update(UploadProduct $request, $id)
     {
-        DB::transaction(function ( $request, $id)use ($request,$id) {//iniciando transaccion
+        DB::transaction(function ()use ($request,$id) {//iniciando transaccion
             $product = App\Product::findOrFail($id);
             $product->name = $request->name;
             $product->price = $request->price;

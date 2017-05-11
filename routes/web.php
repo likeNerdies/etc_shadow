@@ -87,6 +87,7 @@ Route::prefix('/products')->group(function () {
 
 });//end ROUTE Products
 
+
 //Route Categories
 Route::prefix('/categories')->group(function () {
 
@@ -118,3 +119,11 @@ Route::prefix('/ingredients')->group(function () {
     Route::delete('/{ingredient}', 'ingredient\IngredientController@delete'); //añadir restriccion solo admin puede eliminar products
 
 });//end Route Ingredients
+
+// Admin routes
+Route::prefix('/admin')->group(function () {
+  Route::get('/', function() {
+    return view('admin.index');
+  });
+});
+
