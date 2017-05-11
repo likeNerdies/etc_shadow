@@ -42,7 +42,6 @@ class ProductController extends Controller
      */
     public function store(UploadProduct $request)
     {
-
         DB::transaction(function ()use ($request) {//iniciando transaccion
             $product = App\Product::create($request->all());//guardando producto
             if ($request->hasFile('photos')) {//si existen fotos
@@ -60,6 +59,7 @@ class ProductController extends Controller
             }
             $product->categories()->sync($request->categories);//guardando relacion con categorias y productos
             $product->ingredients()->attach($request->ingredients);//guardando relacion con ingredientes y productos
+            $product->brand_id=$request->brand_id;
         });
         return redirect('product.index');
     }
@@ -141,7 +141,7 @@ class ProductController extends Controller
             }
             $product->ingredients()->sync($request->ingredients);//eliminando antiguas relaciones y guardando nuevas relaciones con ingredientes y productos
             $product->categories()->sync($request->categories);//eliminando antiguas relaciones y guardando nuevas relaciones con categorias y productos
-
+            $product->brand_id=$request->brand_id;
             $product->save();
         });
         return redirect('product.index');
