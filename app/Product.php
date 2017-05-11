@@ -13,12 +13,12 @@ class Product extends Model
             'name', 'price','description','expiration_date','dimension','weight','real_weight','stock','vegetarian','vegan','organic'
         ];
     /**
-     * Get the provider of the product
+     * Get the brand of the product
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function providers()
+    public function brand()
     {
-        return $this->belongsToMany('App\Provider');
+        return $this->belongsTo('App\Brand');
     }
 
 
