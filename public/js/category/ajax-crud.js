@@ -46,11 +46,12 @@ $(document).ready(function() {
 
     //create new category / update existing category
     $("#btn-save").click(function (e) {
+      //$.ajaxSetup
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
             }
-        })
+        });
 
         e.preventDefault();
 
@@ -79,7 +80,7 @@ $(document).ready(function() {
             url: my_url,
             data: formData,
             dataType: 'json',
-            success: function (data) {
+            done: function (data) { // success:
                 console.log(data);
 
                 var category = '<tr id="category' + data.id + '"><td>' + data.id + '</td><td>' + data.name + '</td><td>' + data.info + '</td><td>' + data.created_at + '</td>';
@@ -103,4 +104,4 @@ $(document).ready(function() {
         });
     });
 
-}
+});
