@@ -7,20 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Address extends Model
 {
     /**
-     * Get the provider of the address
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function providers()
-    {
-        return $this->belongsTo('App\Provider');
-    }
-
-    /**
      * Get the user of the address
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function users()
+    public function user()
     {
-        return $this->hasOne('App\User');
+        return $this->belongsTo('App\User');
     }
 }
