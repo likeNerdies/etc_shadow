@@ -55,6 +55,13 @@ $(document).ready(function(){
 $('body').on('touchstart.dropdown', '.dropdown-menu', function (e) { e.stopPropagation(); });
 });
 
+//toggle menu
+$('.parent').children().click(function(){
+    $(this).children('.child').slideToggle('easeInOutExpo');
+}).children('.child').click(function (event) {
+    event.stopPropagation();
+});
+
 // activate collapse right menu when the windows is resized
 $(window).resize(function(){
     if($(window).width() <= 991){

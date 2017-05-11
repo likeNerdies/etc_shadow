@@ -2,3 +2,15 @@
   overflow: hidden!important;
   height: auto!important;
 }
+.parent a{
+  text-decoration: none;
+}
+
+.child{
+  display: none;
+  list-style: none;
+}
+
+.child li p{
+  text-decoration:none;
+}
