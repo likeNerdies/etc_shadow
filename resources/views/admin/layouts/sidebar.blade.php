@@ -32,7 +32,7 @@
 						</li>
 						<li>
 							<p>
-								<a href="{{ route('categories.index') }}">Categories</a>
+								<a href="/admin/categories">Categories</a>
 							</p>
 						</li>
 					</ul>

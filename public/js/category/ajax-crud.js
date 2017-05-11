@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  var url = "/categories";
+  var url = "categories";
 
   //display modal form for category editing
     $('.open-modal').click(function() {
@@ -63,7 +63,7 @@ $(document).ready(function() {
         var state = $('#btn-save').val();
 
         var type = "POST"; //for creating new resource
-        var category_id = $('#category_id').val();;
+        var category_id = $('#category_id').val();
         var my_url = url;
 
         if (state == "update"){
