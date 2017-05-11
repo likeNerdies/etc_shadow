@@ -91,3 +91,9 @@ Route::prefix('/products')->group(function () {
 
 });//end ROUTE Products
 
+// Admin routes
+Route::prefix('/admin')->group(function () {
+  Route::get('/', function() {
+    return view('admin.index');
+  });
+});
