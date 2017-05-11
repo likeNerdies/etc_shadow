@@ -119,5 +119,10 @@ Route::group(['prefix' => 'admin'/*,'middleware' => 'auth','admin'*/], function 
     //Route Allergies
     Route::resource('/allergies','allergy\AllergyController');
     //end ROUTE Allergies
+
+    //Route Transporters
+    Route::resource('/transporters','transporter\TransporterController');
+    //end Route Transporters
+    
 });//END ADMIN GROUP ROUTES
 

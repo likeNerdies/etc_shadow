@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Transporter extends Model
 {
     protected $fillable=[
-        'name','cif','phone_numberW'
+        'name','cif','phone_number'
     ];
     /**
      * Get the deliveries of the transporter

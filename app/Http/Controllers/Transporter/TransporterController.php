@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Transporter;
-
+use App;
+use App\Http\Requests\Transporter\StoreValidation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,28 +15,20 @@ class TransporterController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $transporters=App\Transporter::paginate(9);
+        return view('admin.transporter.index');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\Transporter\StoreValidation  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreValidation $request)
     {
-        //
+        $transporter=App\Transporter::create($request->all());
+        return $transporter;
     }
 
     /**
@@ -46,30 +39,26 @@ class TransporterController extends Controller
      */
     public function show($id)
     {
-        //
+        $transporter=App\Transporter::findOrFail($id);
+        return $transporter;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\Transporter\StoreValidation  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreValidation $request, $id)
     {
-        //
+        $transporter=App\Transporter::findOrFail($id);
+        $transporter->name=$request->name;
+        $transporter->cif=$request->cif;
+        $transporter->phone_number=$request->phone_number;
+        $transporter->save;
+        return $transporter;
     }
 
     /**
@@ -80,6 +69,8 @@ class TransporterController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $transporter=App\Transporter::findOrFail($id);
+        $transporter->delete();
+        return $transporter;
     }
 }
