@@ -18,17 +18,7 @@ class IngredientController extends Controller
     public function index()
     {
         $ingredients = App\Ingredient::all();
-        return view('ingredient.index', compact("ingredients"));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('ingredient.create');
+        return view('admin.ingredient.index', compact("ingredients"));
     }
 
     /**
@@ -45,7 +35,7 @@ class IngredientController extends Controller
             $ingredient->image_path = $path;
             $ingredient->save();
         }
-        return redirect()->back();
+        return $ingredient;
     }
 
     /**
@@ -57,20 +47,9 @@ class IngredientController extends Controller
     public function show($id)
     {
         $ingredient = App\Ingredient::findOrFail($id);
-        return view('ingredient.show', compact('ingredient'));
+        return $ingredient;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $ingredient = App\Ingredient::findOrFail($id);
-        return view('ingredient.edit', compact('ingredient'));
-    }
 
     /**
      * Update the specified resource in storage.
@@ -92,7 +71,7 @@ class IngredientController extends Controller
             $ingredient->image_path = $path;
             $ingredient->save();
         }
-        return redirect()->back();
+        return $ingredient;
     }
 
     /**
@@ -105,7 +84,7 @@ class IngredientController extends Controller
     {
         $ingredient = App\Ingredient::findOrFail($id);
         $ingredient->delete();
-        return redirect()->back();
+        return $ingredient;
 
     }
 }

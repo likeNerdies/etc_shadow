@@ -88,9 +88,33 @@ Route::prefix('/products')->group(function () {
 });//end ROUTE Products
 
 //Route Categories
-Route::resource('/categories','category\CategoryController');
-//end Route Categories
+Route::prefix('/categories')->group(function () {
+
+    Route::get('/', 'category\CategoryController@index'); //añadir restriccion admin
+
+    Route::post('/', 'category\CategoryController@store'); //añadir restriccion solo admin puede añadir products
+
+    Route::get('/{category}', 'category\CategoryController@show');
+
+    Route::put('/{category}', 'category\CategoryController@update'); //añadir restriccion solo admin puede editar products
+
+    Route::delete('/{category}', 'category\CategoryController@delete'); //añadir restriccion solo admin puede eliminar products
+
+
+});//end Route Categories
+
 
 //Route Ingredients
-Route::resource('/ingredients','ingredient\IngredientController');
-//end Route Ingredients
+Route::prefix('/ingredients')->group(function () {
+
+    Route::get('/', 'ingredient\IngredientController@index'); //añadir restriccion admin
+
+    Route::post('/', 'ingredient\IngredientController@store'); //añadir restriccion solo admin puede añadir products
+
+    Route::get('/{ingredient}', 'ingredient\IngredientController@show');
+
+    Route::put('/{ingredient}', 'ingredient\IngredientController@update'); //añadir restriccion solo admin puede editar products
+
+    Route::delete('/{ingredient}', 'ingredient\IngredientController@delete'); //añadir restriccion solo admin puede eliminar products
+
+});//end Route Ingredients
