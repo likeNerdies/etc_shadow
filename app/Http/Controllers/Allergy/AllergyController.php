@@ -16,7 +16,7 @@ class AllergyController extends Controller
      */
     public function index()
     {
-        $allergies=App\Allergy::all();
+        $allergies=App\Allergy::paginate(9);
         return view('admin.allergy.index',compact('allergies'));
     }
 

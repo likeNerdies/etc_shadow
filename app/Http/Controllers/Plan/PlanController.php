@@ -15,7 +15,7 @@ class PlanController extends Controller
      */
     public function index()
     {
-        $plans=App\Plan::all();//pasamos todoos ls planes a la vista plan/index.blade.php
+        $plans=App\Plan::paginate(9);//pasamos todoos ls planes a la vista plan/index.blade.php
         return view ('plan.index',compact('plans'));
     }
 

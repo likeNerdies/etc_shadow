@@ -17,8 +17,7 @@ class IngredientController extends Controller
      */
     public function index()
     {
-        $ingredients = App\Ingredient::all();
-        $allergies=App\Allergy::all();
+        $ingredients = App\Ingredient::paginate(9);
         return view('admin.ingredient.index', compact(["ingredients","allergies"]));
     }
 

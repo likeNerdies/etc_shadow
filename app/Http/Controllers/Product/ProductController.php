@@ -18,21 +18,21 @@ class ProductController extends Controller
     public function index()
     {
         $products = App\Product::paginate(9);
-        //carpeta product, dentro index.blade.php (sera el index de productos)
-        return view('product.index', compact('products'));
+        return view('admin.product.index', compact('products'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
-     */
+     *
     public function create()
     {
         $ingredients=App\Ingredient::all();
         $categories=App\Category::all();
         return view ('product.create',compact(['ingredients','categories']));
     }
+    */
 
     /**
      * Store a newly created resource in storage.
@@ -42,6 +42,7 @@ class ProductController extends Controller
      */
     public function store(UploadProduct $request)
     {
+        $product="";
         DB::transaction(function ()use ($request) {//iniciando transaccion
             $product = App\Product::create($request->all());//guardando producto
             if ($request->hasFile('photos')) {//si existen fotos
@@ -61,7 +62,7 @@ class ProductController extends Controller
             $product->ingredients()->attach($request->ingredients);//guardando relacion con ingredientes y productos
             $product->brand_id=$request->brand_id;
         });
-        return redirect('product.index');
+        return $product;
     }
 
     /**
@@ -73,22 +74,9 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = App\Product::findOrFail($id);
-        //carpeta product, dentro show.blade.php
-        return view('product.show', compact('product'));
+        return $product;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $product = App\Product::findOrFail($id);
-        //carpeta product, dentro edit.blade.php
-        return view('product.edit', compact('product'));
-    }
 
     /**
      * Update the specified resource in storage.
@@ -99,6 +87,7 @@ class ProductController extends Controller
      */
     public function update(UploadProduct $request, $id)
     {
+        $product="";
         DB::transaction(function ()use ($request,$id) {//iniciando transaccion
             $product = App\Product::findOrFail($id);
             $product->name = $request->name;
@@ -144,7 +133,7 @@ class ProductController extends Controller
             $product->brand_id=$request->brand_id;
             $product->save();
         });
-        return redirect('product.index');
+        return $product;
     }
 
     /**
@@ -155,6 +144,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
+        $product="";
         DB::transaction(function ($id) {//iniciando transaccion
             $product = App\Product::findOrFail($id);
             //deleting all images
@@ -164,7 +154,8 @@ class ProductController extends Controller
                 Storage::delete($image->path);
             }
             $product->delete();
-            return redirect('/');
+
         });
+        return $product;
     }
 }
