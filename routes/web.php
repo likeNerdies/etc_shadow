@@ -84,10 +84,13 @@ Route::prefix('/products')->group(function () {
 
     Route::delete('/{product}', 'product\ProductController@delete'); //añadir restriccion solo admin puede eliminar products
 
-    //Route Categories
-    //preguntar a Albert si categoria ira fuera de esta ruta (products) o a dentro. y Ingredients??
-    Route::resource('/categories','category\CategoryController');
-    //end Route Categories
 
 });//end ROUTE Products
 
+//Route Categories
+Route::resource('/categories','category\CategoryController');
+//end Route Categories
+
+//Route Ingredients
+Route::resource('/ingredients','ingredient\IngredientController');
+//end Route Ingredients
