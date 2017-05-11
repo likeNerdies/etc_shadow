@@ -43,7 +43,7 @@ class User extends Authenticatable
 
     public function address()
     {
-        return $this->belongsTo('App\Address');
+        return $this->hasOne('App\Address');
     }
 
     /**
