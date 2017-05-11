@@ -18,7 +18,8 @@ class IngredientController extends Controller
     public function index()
     {
         $ingredients = App\Ingredient::all();
-        return view('admin.ingredient.index', compact("ingredients"));
+        $allergies=App\Allergy::all();
+        return view('admin.ingredient.index', compact(["ingredients","allergies"]));
     }
 
     /**
@@ -29,12 +30,16 @@ class IngredientController extends Controller
      */
     public function store(StoreValidation $request)
     {
-        $ingredient = App\Ingredient::create($request->all);
-        if ($request->hasFile('photo')) {//si existen fotos
-            $path = Storage::putFile('public/ingredient_images', $request->photo);//guardando fotos en el directorio storage/app/public/ingredient_images
-            $ingredient->image_path = $path;
-            $ingredient->save();
-        }
+        $ingredient="";
+        DB::transaction(function ()use ($request,$ingredient) {//iniciando transaccion
+            $ingredient = App\Ingredient::create($request->all);
+            if ($request->hasFile('photo')) {//si existen fotos
+                $path = Storage::putFile('public/ingredient_images', $request->photo);//guardando fotos en el directorio storage/app/public/ingredient_images
+                $ingredient->image_path = $path;
+                $ingredient->allergies()->attach($request->allergies);
+                $ingredient->save();
+            }
+        });
         return $ingredient;
     }
 
@@ -60,17 +65,20 @@ class IngredientController extends Controller
      */
     public function update(StoreValidation $request, $id)
     {
-        $ingredient = App\Ingredient::findOrFail($id);
-        $ingredient->name = $request->name;
-        $ingredient->info = $request->info;
-        if ($request->hasFile('photo')) {//si existen fotos
-            if ($ingredient->image_path != null) {
-                Storage::delete($ingredient->image_path);
+        $ingredient="";
+        DB::transaction(function ()use ($request,$ingredient,$id) {//iniciando transaccion
+            $ingredient = App\Ingredient::findOrFail($id);
+            $ingredient->name = $request->name;
+            $ingredient->info = $request->info;
+            if ($request->hasFile('photo')) {//si existen fotos
+                if ($ingredient->image_path != null) {
+                    Storage::delete($ingredient->image_path);
+                }
+                $path = Storage::putFile('public/ingredient_images', $request->photo);//guardando fotos en el directorio storage/app/public/ingredient_images
+                $ingredient->image_path = $path;
+                $ingredient->save();
             }
-            $path = Storage::putFile('public/ingredient_images', $request->photo);//guardando fotos en el directorio storage/app/public/ingredient_images
-            $ingredient->image_path = $path;
-            $ingredient->save();
-        }
+        });
         return $ingredient;
     }
 

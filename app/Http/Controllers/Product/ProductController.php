@@ -57,7 +57,7 @@ class ProductController extends Controller
                     ]);
                 }
             }
-            $product->categories()->sync($request->categories);//guardando relacion con categorias y productos
+            $product->categories()->attach($request->categories);//guardando relacion con categorias y productos
             $product->ingredients()->attach($request->ingredients);//guardando relacion con ingredientes y productos
             $product->brand_id=$request->brand_id;
         });

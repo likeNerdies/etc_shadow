@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Ingredient;
+namespace App\Http\Requests\Allergy;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,10 +24,7 @@ class StoreValidation extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'info'=>'',
-            'image'=>'image|mimes:jpeg,bmp,png|max:3000',
-            'allergies'=>'numeric'
+            'name'=>'required'
         ];
     }
 }

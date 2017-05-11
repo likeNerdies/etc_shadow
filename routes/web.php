@@ -43,87 +43,81 @@ Route::prefix('/user/panel')->group(function () {//user panel route
         Route::put('/address', 'address\AddressController@updateUserAddress')->name('user-address');
     });//end user panel my data route
 
-
 });//end user panel route
 
 
-//ROUTE Plans
-Route::prefix('/plans')->group(function () {
+//ROUTE GROUP FOR ADMIN
+Route::group(['prefix' => 'admin'/*,'middleware' => 'auth','admin'*/], function () {
 
-    Route::get('/', 'plan\PlanController@index');
-
-    Route::post('/', 'plan\PlanController@store'); //añadir restriccion solo admin puede añadir plans
-
-    Route::get('/{plan}', 'plan\PlanController@show');
-
-    Route::get('/create', 'plan\PlanController@create'); //añadir restriccion solo admin puede crear
-
-    Route::get('/{plan}/edit', 'plan\PlanController@edit'); //añadir restriccion solo admin puede editar plans
-
-    Route::put('/{plan}', 'plan\PlanController@update'); //añadir restriccion solo admin puede editar plans
-
-    Route::delete('/{plan}', 'plan\PlanController@delete'); //añadir restriccion solo admin puede eliminar plans
-
-});//end ROUTE Plans
-
+    Route::get('/', function () {
+        return view('admin.index');
+    });
+    //ROUTE Plans
+    Route::resource('/plans', 'plan\PlanController');
+    /*
+    Route::prefix('/plans')->group(function () {
+          Route::get('/', 'plan\PlanController@index');
+          Route::post('/', 'plan\PlanController@store');
+          Route::get('/{plan}', 'plan\PlanController@show');
+          Route::get('/create', 'plan\PlanController@create');
+          Route::get('/{plan}/edit', 'plan\PlanController@edit');
+          Route::put('/{plan}', 'plan\PlanController@update');
+          Route::delete('/{plan}', 'plan\PlanController@delete');
+      });//end ROUTE Plans
+  */
 
 //ROUTE Products
-Route::prefix('/products')->group(function () {
+    Route::resource('/products', 'product\ProductController');
+    /*
+    Route::prefix('/products')->group(function () {
+        Route::get('/', 'product\ProductController@index');
+        Route::post('/', 'product\ProductController@store');
+        Route::get('/{product}', 'product\ProductController@show');
+        Route::get('/create', 'product\ProductController@create');
+        Route::get('/{product}/edit', 'product\ProductController@edit');
+        Route::put('/{product}', 'product\ProductController@update');
+        Route::delete('/{product}', 'product\ProductController@delete');
+    });//end ROUTE Products
 
-    Route::get('/', 'product\ProductController@index');
-
-    Route::post('/', 'product\ProductController@store'); //añadir restriccion solo admin puede añadir products
-
-    Route::get('/{product}', 'product\ProductController@show');
-
-    Route::get('/create', 'product\ProductController@create'); //añadir restriccion solo admin puede crear
-
-    Route::get('/{product}/edit', 'product\ProductController@edit'); //añadir restriccion solo admin puede editar products
-
-    Route::put('/{product}', 'product\ProductController@update'); //añadir restriccion solo admin puede editar products
-
-    Route::delete('/{product}', 'product\ProductController@delete'); //añadir restriccion solo admin puede eliminar products
-
-
-});//end ROUTE Products
-
-
+*/
 //Route Categories
-Route::prefix('/categories')->group(function () {
-
-    Route::get('/', 'category\CategoryController@index'); //añadir restriccion admin
-
-    Route::post('/', 'category\CategoryController@store'); //añadir restriccion solo admin puede añadir products
-
-    Route::get('/{category}', 'category\CategoryController@show');
-
-    Route::put('/{category}', 'category\CategoryController@update'); //añadir restriccion solo admin puede editar products
-
-    Route::delete('/{category}', 'category\CategoryController@delete'); //añadir restriccion solo admin puede eliminar products
-
-
-});//end Route Categories
-
+    Route::resource('/categories', 'category\CategoryController');
+    /*
+    Route::prefix('/categories')->group(function () {
+        Route::get('/', 'category\CategoryController@index');
+        Route::post('/', 'category\CategoryController@store');
+        Route::get('/{category}', 'category\CategoryController@show');
+        Route::put('/{category}', 'category\CategoryController@update');
+        Route::delete('/{category}', 'category\CategoryController@delete');
+    });//end Route Categories
+*/
 
 //Route Ingredients
-Route::prefix('/ingredients')->group(function () {
+    Route::resource('/ingredients', 'ingredient\IngredientController');
+    /*
+    Route::prefix('/ingredients')->group(function () {
+        Route::get('/', 'ingredient\IngredientController@index');
+        Route::post('/', 'ingredient\IngredientController@store');
+        Route::get('/{ingredient}', 'ingredient\IngredientController@show');
+        Route::put('/{ingredient}', 'ingredient\IngredientController@update');
+        Route::delete('/{ingredient}', 'ingredient\IngredientController@delete');
+    });//end Route Ingredients
+    */
 
-    Route::get('/', 'ingredient\IngredientController@index'); //añadir restriccion admin
+//Route Brands
+    Route::resource('/brands', 'brand\BrandController');
+    /*
+    Route::prefix('/brands')->group(function () {
+        Route::get('/', 'brand\BrandController@index');
+        Route::post('/', 'brand\BrandController@store');
+        Route::get('/{brand}', 'brand\BrandController@show');
+        Route::put('/{brand}', 'brand\BrandController@update');
+        Route::delete('/{brand}', 'brand\BrandController@delete');
+    });//end Route  Brands
+    */
 
-    Route::post('/', 'ingredient\IngredientController@store'); //añadir restriccion solo admin puede añadir products
-
-    Route::get('/{ingredient}', 'ingredient\IngredientController@show');
-
-    Route::put('/{ingredient}', 'ingredient\IngredientController@update'); //añadir restriccion solo admin puede editar products
-
-    Route::delete('/{ingredient}', 'ingredient\IngredientController@delete'); //añadir restriccion solo admin puede eliminar products
-
-});//end Route Ingredients
-
-// Admin routes
-Route::prefix('/admin')->group(function () {
-  Route::get('/', function() {
-    return view('admin.index');
-  });
-});
+    //Route Allergies
+    Route::resource('/allergies','allergy\AllergyController');
+    //end ROUTE Allergies
+});//END ADMIN GROUP ROUTES
 

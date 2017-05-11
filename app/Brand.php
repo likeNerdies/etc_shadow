@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Brand extends Model
 {
+    protected $fillable=[
+        'name','info'
+    ];
     /**
      * Get the Products for the Brand
      */
