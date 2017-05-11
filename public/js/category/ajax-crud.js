@@ -46,7 +46,6 @@ $(document).ready(function() {
 
     //create new category / update existing category
     $("#btn-save").click(function (e) {
-      //$.ajaxSetup
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')

@@ -1,4 +1,3 @@
-<a href="/categories">categories</a>
 
 <div class="wrapper">
 
@@ -32,8 +31,9 @@
 							<p>Ingredients</p>
 						</li>
 						<li>
-							<a href="#"></a>
-							<p>Categories</p>
+							<p>
+								<a href="{{ route('categories.index') }}">Categories</a>
+							</p>
 						</li>
 					</ul>
 				</li>
@@ -96,24 +96,4 @@
 
 <script src="/js/jquery-3.2.1.min.js" type="text/javascript"></script>
 
-<!--<script src="/js/admin/chartist.min.js"></script>-->
-
-<!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>-->
 <script src="/js/admin/light-bootstrap-dashboard.js"></script>
-
-<!--<script type="text/javascript">
-$(document).ready(function(){
-
-demo.initChartist();
-
-$.notify({
-icon: 'pe-7s-gift',
-message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
-
-},{
-type: 'info',
-timer: 4000
-});
-
-});
-</script>-->
