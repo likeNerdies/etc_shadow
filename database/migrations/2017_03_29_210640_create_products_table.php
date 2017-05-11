@@ -26,7 +26,7 @@ class CreateProductsTable extends Migration
             $table->boolean('vegetarian')->nullable()->default(0);
             $table->boolean('vegan')->nullable()->default(0);
             $table->boolean('organic')->nullable()->default(0);
-            $table->foreign('brand_id')->nullable()->unsigned();
+            $table->integer('brand_id')->nullable()->unsigned();
             $table->timestamps();
         });
         Schema::table('products', function (Blueprint $table) {
