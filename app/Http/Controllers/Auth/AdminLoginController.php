@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\Admin\LoginValidation;
 use App\Http\Controllers\Controller;
+use Auth;
 
 class AdminLoginController extends Controller
 {
