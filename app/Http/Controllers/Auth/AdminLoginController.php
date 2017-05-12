@@ -17,7 +17,7 @@ class AdminLoginController extends Controller
      * Show login form for admin
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function showLoginFomr(){
+    public function showLoginForm(){
         return view('admin.login');
     }
     /**

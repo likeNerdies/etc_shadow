@@ -45,12 +45,12 @@ Route::prefix('/user/panel')->group(function () {//user panel route
 
 //ROUTE LOGIN FOR ADMIN
 
-Route::get('/admin/login','auth\AdminLoginController@showLoginForm')->name('admin.login');
-//Route::post('/admin/login','auth\AdminLoginController@login');
+Route::get('/admin/login', 'auth\AdminLoginController@showLoginForm')->name('admin.login');
+Route::post('/admin/login', 'auth\AdminLoginController@login')->name('admin.login');
 //END ROUTE LOGIN ADMIN
 
 //ROUTE GROUP FOR ADMIN
-Route::group(['prefix' => 'admin','middleware' => 'auth:admin',], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin',], function () {
 
     Route::get('/', 'admin\AdminController@index')->name('admin.dashboard');
     //ROUTE Plans
@@ -82,17 +82,17 @@ Route::group(['prefix' => 'admin','middleware' => 'auth:admin',], function () {
 
 */
 //Route Categories
-  /*  Route::resource('/categories', 'category\CategoryController');*/
+    Route::resource('/categories', 'category\CategoryController');
 
-    Route::prefix('/categories')->group(function () {
-        Route::get('/', 'category\CategoryController@index');
-        Route::post('/', 'category\CategoryController@store');
-        Route::get('/{category}', 'category\CategoryController@show');
-        Route::put('/{category}', 'category\CategoryController@update');
-        Route::delete('/{category}', 'category\CategoryController@delete');
-    });//end Route Categories
-
-//Route Ingredients
+    /*    Route::prefix('/categories')->group(function () {
+           Route::get('/', 'category\CategoryController@index');
+           Route::post('/', 'category\CategoryController@store');
+           Route::get('/{category}', 'category\CategoryController@show');
+           Route::put('/{category}', 'category\CategoryController@update');
+           Route::delete('/{category}', 'category\CategoryController@delete');
+       });//end Route Categories
+   */
+    //Route Ingredients
     Route::resource('/ingredients', 'ingredient\IngredientController');
     /*
     Route::prefix('/ingredients')->group(function () {
@@ -117,11 +117,11 @@ Route::group(['prefix' => 'admin','middleware' => 'auth:admin',], function () {
     */
 
     //Route Allergies
-    Route::resource('/allergies','allergy\AllergyController');
+    Route::resource('/allergies', 'allergy\AllergyController');
     //end ROUTE Allergies
 
     //Route Transporters
-    Route::resource('/transporters','transporter\TransporterController');
+    Route::resource('/transporters', 'transporter\TransporterController');
     //end Route Transporters
 
 });//END ADMIN GROUP ROUTES
