@@ -82,8 +82,8 @@ Route::group(['prefix' => 'admin','middleware' => 'auth:admin',], function () {
 
 */
 //Route Categories
-    Route::resource('/categories', 'category\CategoryController');
-    /*
+  /*  Route::resource('/categories', 'category\CategoryController');*/
+
     Route::prefix('/categories')->group(function () {
         Route::get('/', 'category\CategoryController@index');
         Route::post('/', 'category\CategoryController@store');
@@ -91,7 +91,6 @@ Route::group(['prefix' => 'admin','middleware' => 'auth:admin',], function () {
         Route::put('/{category}', 'category\CategoryController@update');
         Route::delete('/{category}', 'category\CategoryController@delete');
     });//end Route Categories
-*/
 
 //Route Ingredients
     Route::resource('/ingredients', 'ingredient\IngredientController');
@@ -126,4 +125,3 @@ Route::group(['prefix' => 'admin','middleware' => 'auth:admin',], function () {
     //end Route Transporters
 
 });//END ADMIN GROUP ROUTES
-

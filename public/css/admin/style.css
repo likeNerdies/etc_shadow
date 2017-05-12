@@ -14,3 +14,7 @@
 .child li p{
   text-decoration:none;
 }
+
+.nav {
+  display: block;
+}
