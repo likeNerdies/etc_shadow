@@ -4,6 +4,8 @@
 
 <h2 class="text-center">Categories</h2>
 
+<div class="error" role="alert"></div>
+
 <button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Category</button>
 
 <div class="">
@@ -21,7 +23,7 @@
     <tbody id="category-list" name="category-list">
       @foreach ($categories as $category)
       <tr id="category{{$category->id}}">
-        <td>{{$category->id}}</td>
+        <td id="id">{{$category->id}}</td>
         <td>{{$category->name}}</td>
         <td>{{$category->info}}</td>
         <td>{{$category->created_at}}</td>

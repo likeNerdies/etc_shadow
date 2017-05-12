@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  var url = "categories";
+  var url = "/admin/categories";
 
   //display modal form for category editing
     $('.open-modal').click(function() {
@@ -8,8 +8,7 @@ $(document).ready(function() {
 
         $.get(url + '/' + category_id, function (data) {
             //success data
-            console.log(data);
-            $('#c').val(data.id);
+            $('#id').val(data.id);
             $('#name').val(data.name);
             $('#info').val(data.info);
             $('#btn-save').val("update");
@@ -28,18 +27,23 @@ $(document).ready(function() {
     //delete category and remove it from list
     $('.delete-category').click(function() {
         var category = $(this).val();
-
+        console.log("category: " + category);
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
         $.ajax({
-
             type: "DELETE",
             url: url + '/' + category,
             success: function (data) {
                 console.log(data);
-
                 $("#category" + category).remove();
             },
             error: function (data) {
-                console.log('Error:', data);
+                //console.log('Error:', data);
+                $('.error').addClass("alert alert-danger");
+                $('.error').html("<strong>Oh snap!</strong> Refresh the page and try again.");
             }
         });
     });
@@ -63,10 +67,11 @@ $(document).ready(function() {
         var state = $('#btn-save').val();
 
         var type = "POST"; //for creating new resource
-        var category_id = $('#category_id').val();
+        var category_id = $('#id').val();
         var my_url = url;
 
         if (state == "update"){
+          console.log("update");
             type = "PUT"; //for updating existing resource
             my_url += '/' + category_id;
         }
@@ -74,12 +79,11 @@ $(document).ready(function() {
         console.log(formData);
 
         $.ajax({
-
             type: type,
             url: my_url,
             data: formData,
             dataType: 'json',
-            done: function (data) { // success:
+            success: function (data) { // success:
                 console.log(data);
 
                 var category = '<tr id="category' + data.id + '"><td>' + data.id + '</td><td>' + data.name + '</td><td>' + data.info + '</td><td>' + data.created_at + '</td>';
@@ -95,10 +99,12 @@ $(document).ready(function() {
 
                 $('#formCategories').trigger("reset");
 
-                $('#myModal').modal('hide')
+                $('#myModal').modal("hide");
             },
             error: function (data) {
-                console.log('Error:', data);
+                //console.log('Error:', data);
+                $('.error').addClass("alert alert-danger");
+                $('.error').html("<strong>Oh snap!</strong> Refresh the page and try again.");
             }
         });
     });
