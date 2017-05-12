@@ -1,6 +1,6 @@
-.sidebar {
-  overflow: hidden!important;
-  height: auto!important;
+.sidebar-wrapper{
+  background: rgba(0,0,0,.1);
+  height: 100vh;
 }
 .parent a{
   text-decoration: none;
@@ -16,5 +16,12 @@
 }
 
 .nav {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  padding-top:10%;
 }
+.aux{
+
+}
+
+
