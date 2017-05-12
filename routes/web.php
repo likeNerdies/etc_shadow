@@ -13,14 +13,11 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('index');
 
 //rutas para la autenticacion
 Auth::routes();
 
-
-//controladorHOME ruta-             El usuario será redirigido a la página principal despu
-Route::get('/home', 'HomeController@index');
 
 Route::prefix('/user/panel')->group(function () {//user panel route
 
@@ -46,12 +43,16 @@ Route::prefix('/user/panel')->group(function () {//user panel route
 });//end user panel route
 
 
-//ROUTE GROUP FOR ADMIN
-Route::group(['prefix' => 'admin'/*,'middleware' => 'auth','admin'*/], function () {
+//ROUTE LOGIN FOR ADMIN
 
-    Route::get('/', function () {
-        return view('admin.index');
-    });
+Route::get('/admin/login','auth\AdminLoginController@showLoginForm')->name('admin.login');
+//Route::post('/admin/login','auth\AdminLoginController@login');
+//END ROUTE LOGIN ADMIN
+
+//ROUTE GROUP FOR ADMIN
+Route::group(['prefix' => 'admin','middleware' => 'auth:admin',], function () {
+
+    Route::get('/', 'admin\AdminController@index')->name('admin.dashboard');
     //ROUTE Plans
     Route::resource('/plans', 'plan\PlanController');
     /*
@@ -123,6 +124,6 @@ Route::group(['prefix' => 'admin'/*,'middleware' => 'auth','admin'*/], function 
     //Route Transporters
     Route::resource('/transporters','transporter\TransporterController');
     //end Route Transporters
-    
+
 });//END ADMIN GROUP ROUTES
 
