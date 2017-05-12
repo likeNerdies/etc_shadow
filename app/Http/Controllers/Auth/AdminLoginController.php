@@ -7,7 +7,6 @@ use App\Http\Requests\Admin\LoginValidation;
 use App\Http\Controllers\Controller;
 use Auth;
 
-
 class AdminLoginController extends Controller
 {
     public function __construct()
