@@ -9,23 +9,28 @@
 				<ul class="nav parent">
 					<li>
 						<a href="#">
-							<p>Catalogo</p>
+							<p>Catalogue</p>
 						</a>
 						<ul class="child">
 							<li>
 								<p>
-									<a href="#">Productos</a>
+									<a href="/admin/products">Products</a>
 								</p>
 							</li>
 							<li>
 
 								<p>
-									<a href="#">Ingredients</a>
+									<a href="/admin/ingredients">Ingredients</a>
 								</p>
 							</li>
 							<li>
 								<p>
 									<a href="/admin/categories">Categories</a>
+								</p>
+							</li>
+							<li>
+								<p>
+									<a href="/admin/brands">Brands</a>
 								</p>
 							</li>
 						</ul>
