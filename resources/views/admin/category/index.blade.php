@@ -72,6 +72,5 @@
 </div>
 
 <script src="{{asset('/js/category/ajax-crud.js')}}"></script>
-<script src="{{asset('/fonts/Pe-icon-7-stroke.woff')}}"></script>
 
 @endsection
