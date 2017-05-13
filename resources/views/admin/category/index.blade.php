@@ -2,7 +2,7 @@
 
 @section('panel-right')
 
-<h2 class="text-center">Categories</h2>
+<h2 class="text-center pd-11">Categories</h2>
 
 <div class="error" role="alert"></div>
 

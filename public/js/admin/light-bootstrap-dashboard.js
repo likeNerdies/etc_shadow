@@ -62,6 +62,11 @@ $('.parent').children().click(function(){
     event.stopPropagation();
 });
 
+$('.child').children().click(function(){
+    alert("heuu");
+    //$(this).show();
+});
+
 // activate collapse right menu when the windows is resized
 $(window).resize(function(){
     if($(window).width() <= 991){

@@ -15,15 +15,13 @@
   <link href="/css/admin/animate.min.css" rel="stylesheet"/>
 
   <!--  Light Bootstrap Table core CSS    -->
-  <link href="/css/admin/light-bootstrap-dashboard.css" rel="stylesheet"/>
+  <link href="/css/admin/style.css" rel="stylesheet"/>
 
   <!--     Fonts and icons     -->
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-  <link href="{{asset('/css/admin/pe-icon-7-stroke.css')}}" rel="stylesheet" />
 
   <title>Admin panel</title>
-
 </head>
 <body>
   <div class="container-fluid">

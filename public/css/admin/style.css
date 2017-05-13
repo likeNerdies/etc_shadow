@@ -1,6 +1,9 @@
-.sidebar {
-  overflow: hidden!important;
-  height: auto!important;
+.container-fluid{
+  padding-left: 0px;
+}
+.sidebar-wrapper{
+  background: rgb(0,1,12);
+  height: 100vh;
 }
 .parent a{
   text-decoration: none;
@@ -16,5 +19,51 @@
 }
 
 .nav {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  padding-top:10%;
+}
+.aux{
+  padding-left: 15%;
+  padding-top:11.5%;
+}
+
+.pd-11{
+  padding-top:37px;
+}
+.nav li a p{
+  color: whitesmoke;
+  font-size: 21px;
+}
+
+.nav li ul li p a{
+  font-size: 18px;
+  color: white;
+}
+
+.logo h2{
+  color: white;
+}
+#btn-add, .open-modal, .delete-category{
+  background: white;
+}
+#btn-add{
+  border: 2px solid #0275d8;
+  color: #0275d8;
+}
+
+#btn-add:hover{
+  background: #0275d8;
+  color: white;
+}
+
+
+.open-modal{
+  border: 2px solid #f0ad4e;
+  color: #f0ad4e;
+}
+
+.delete-category{
+  border: 2px solid #d9534f;
+  color: #d9534f;
 }
