@@ -125,3 +125,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin',], function () {
     //end Route Transporters
 
 });//END ADMIN GROUP ROUTES
+
+
+//search route
+
+Route::get('/search/category','search\SearchController@category')->middleware('auth:admin')->name('search.category');
+//
