@@ -10,6 +10,7 @@
 
 <div class="">
   <!-- Table-to-load-the-data Part -->
+  <input type="text" id="search" class="form-control" placeholder="search">
   <table class="table">
     <thead>
       <tr>
@@ -35,7 +36,7 @@
       @endforeach
     </tbody>
   </table> <!-- End of Table-to-load-the-data Part -->
-
+{{$categories->links()}}
   <!-- Modal (Pop up when detail button clicked) -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">

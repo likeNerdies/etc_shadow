@@ -112,6 +112,37 @@ $(document).ready(function() {
         });
     });
 
+    $('#search').on('keyup',function () {
+       $value=$(this).val();
+        if($value!=''){
+       $.ajax({
+            type:'get',
+            url:'/search/category',
+            data:{'category':$value},
+           success:function(data){
+                if(data.length==0){
+                    $('#category-list').empty();
+                    $('#category-list').append('<p class="text-center">No results found</p>')
+                }else{
+                    $('#category-list').empty();
+                    for (i=0;i<data.length;i++){
+                        var category = '<tr id="category' + data[i].id + '"><td>' + data[i].id + '</td><td>' + data[i].name + '</td><td>' + data[i].info + '</td><td>' + data[i].created_at + '</td>';
+                        category += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].id + '">Edit</button>';
+                        category += '<button class="btn btn-danger btn-xs btn-delete delete-category" value="' + data[i].id + '">Delete</button></td></tr>';
+                        $('#category-list').append(category);
+                    }
+
+                }
+           },
+           error:function (data) {
+               console.log(data);
+           }
+       });
+        }else{
+            //todo
+        }
+    });
+
 });
 
 
