@@ -16,8 +16,8 @@ class BrandController extends Controller
      */
     public function index()
     {
-        $brand=App\Brand::paginate(9);
-        return view('admin.brand.index', compact("brand"));
+        $brands = App\Brand::paginate(9);
+        return view('admin.brand.index', compact("brands"));
     }
 
     /**
@@ -28,7 +28,7 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        $brand=App\Brand::create($request->all());
+        $brand = App\Brand::create($request->all());
         return $brand;
     }
 
@@ -40,7 +40,7 @@ class BrandController extends Controller
      */
     public function show($id)
     {
-        $brand=App\Brand::all();
+        $brand = App\Brand::findOrFail($id);
         return $brand;
     }
 
@@ -52,11 +52,11 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreValidation $request, $id)
     {
-        $brand=App\Brand::find($id);
-        $brand->name=$request->name;
-        $brand->info=$request->brand;
+        $brand=App\Brand::findOrFail($id);
+        $brand->name = $request->name;
+        $brand->info = $request->info;
         $brand->save();
         return $brand;
     }
@@ -69,7 +69,8 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        $brand=App\Brand::find($id);
+        $brand = App\Brand::findOrFail($id);
+        $brand->delete();
         return $brand;
     }
 }

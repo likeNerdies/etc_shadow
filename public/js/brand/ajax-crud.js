@@ -112,4 +112,35 @@ $(document).ready(function() {
         });
     });
 
+    $('#search').on('keyup',function () {
+       $value=$(this).val();
+        if($value!=''){
+       $.ajax({
+            type:'get',
+            url:'/search/brand',
+            data:{'brand':$value},
+           success:function(data){
+                if(data.length==0){
+                    $('#brand-list').empty();
+                    $('#brand-list').append('<p class="text-center">No results found</p>')
+                }else{
+                    $('#brand-list').empty();
+                    for (i=0;i<data.length;i++){
+                        var brand = '<tr id="brand' + data[i].id + '"><td>' + data[i].id + '</td><td>' + data[i].name + '</td><td>' + data[i].info + '</td><td>' + data[i].created_at + '</td>';
+                        brand += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].id + '">Edit</button>';
+                        brand += '<button class="btn btn-danger btn-xs btn-delete delete-brand" value="' + data[i].id + '">Delete</button></td></tr>';
+                        $('#brand-list').append(brand);
+                    }
+
+                }
+           },
+           error:function (data) {
+               console.log(data);
+           }
+       });
+        }else{
+            //todo
+        }
+    });
+
 });
