@@ -2,7 +2,7 @@
 
 	<div class="sidebar">
 		<div class="sidebar-wrapper">
-			<div class="logo">
+			<div class="logo pd-11">
 				<h2 class="text-center">No Name</h2>
 			</div>
 			<div class="aux">
@@ -13,11 +13,15 @@
 						</a>
 						<ul class="child">
 							<li>
-								<p><a href="#">Productos</a></p>
+								<p>
+									<a href="#">Productos</a>
+								</p>
 							</li>
 							<li>
-								<a href="#"></a>
-								<p>Ingredients</p>
+
+								<p>
+									<a href="#">Ingredients</a>
+								</p>
 							</li>
 							<li>
 								<p>
