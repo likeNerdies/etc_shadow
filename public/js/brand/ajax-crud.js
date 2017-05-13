@@ -106,8 +106,8 @@ $(document).ready(function() {
             },
             error: function (data) {
                 //console.log('Error:', data);
-                $('.error').addClass("alert alert-danger");
-                $('.error').html("<strong>Oh snap!</strong> Refresh the page and try again.");
+                $('#ajaxerror').addClass("alert alert-danger");
+                $('#ajaxerror').html("<strong>Oh snap!</strong> Refresh the page and try again.");
             }
         });
     });
@@ -120,6 +120,7 @@ $(document).ready(function() {
             url:'/search/brand',
             data:{'brand':$value},
            success:function(data){
+                console.log(data)
                 if(data.length==0){
                     $('#brand-list').empty();
                     $('#brand-list').append('<p class="text-center">No results found</p>')

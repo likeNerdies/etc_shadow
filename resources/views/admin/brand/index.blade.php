@@ -1,5 +1,5 @@
 @extends('admin.index')
-@section('title','products')
+@section('title','brands')
 @section('panel-right')
 
 <h2 class="text-center">Brands</h2>
@@ -7,7 +7,7 @@
 <div class="error" role="alert"></div>
 
 <button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Brand</button>
-
+<input type="text" id="search" class="form-control" placeholder="search">
 <div class="">
   <!-- Table-to-load-the-data Part -->
   <table class="table">
@@ -44,6 +44,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
           <h4 class="modal-title" id="myModalLabel">Brand Editor</h4>
         </div>
+        <div id="ajaxerror"></div>
         <div class="modal-body">
           <form id="formBrands" name="formBrands" class="form-horizontal" novalidate="">
             {{ csrf_field() }}
