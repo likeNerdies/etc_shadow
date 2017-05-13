@@ -1,5 +1,5 @@
 @extends('admin.index')
-
+@section('title','products')
 @section('panel-right')
 
 <h2 class="text-center">Categories</h2>
@@ -71,7 +71,11 @@
   </div>
 </div>
 
-<script src="{{asset('/js/category/ajax-crud.js')}}"></script>
-<!--<script src="{{asset('/fonts/Pe-icon-7-stroke.woff')}}"></script>-->
+
+@endsection
+
+@section('scripts')
+  <script src="{{asset('/js/category/ajax-crud.js')}}"></script>
+  <!--<script src="{{asset('/fonts/Pe-icon-7-stroke.woff')}}"></script>-->
 
 @endsection

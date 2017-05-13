@@ -3,7 +3,8 @@ $(document).ready(function() {
   var url = "/admin/categories";
 
   //display modal form for category editing
-    $('.open-modal').click(function() {
+    $(document).on('click', '.open-modal', function(e) {
+   // $('.open-modal').click(function() {
         var category_id = $(this).val();
 
         $.get(url + '/' + category_id, function (data) {
@@ -18,14 +19,16 @@ $(document).ready(function() {
     });
 
     //display modal form for creating new category
-    $('#btn-add').click(function() {
+    $(document).on('click', '#btn-add', function(e) {
+   // $('#btn-add').click(function() {
         $('#btn-save').val("add");
         $('#formCategories').trigger("reset");
         $('#myModal').modal('show');
     });
 
     //delete category and remove it from list
-    $('.delete-category').click(function() {
+    $(document).on('click', '.delete-category', function(e) {
+   // $('.delete-category').click(function() {
         var category = $(this).val();
         console.log("category: " + category);
         $.ajaxSetup({
