@@ -2,7 +2,7 @@
 
 @section('panel-right')
 
-<h2 class="text-center pd-11">Categories</h2>
+<h2 class="text-center">Categories</h2>
 
 <div class="error" role="alert"></div>
 
@@ -72,5 +72,6 @@
 </div>
 
 <script src="{{asset('/js/category/ajax-crud.js')}}"></script>
+<!--<script src="{{asset('/fonts/Pe-icon-7-stroke.woff')}}"></script>-->
 
 @endsection

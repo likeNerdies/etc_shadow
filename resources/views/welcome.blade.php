@@ -140,5 +140,5 @@
 <!-- Aquí hi ha el footer -->
 
 @section('scriptsPersonalizados')
-  <script src="/js/welcome_script.js"></script>
+  <script src="/js/welcome/welcome_script.js"></script>
 @endsection

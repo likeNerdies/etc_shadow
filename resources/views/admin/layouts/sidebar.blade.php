@@ -88,6 +88,5 @@
 	</div>
 </div>
 
-<script src="/js/jquery-3.2.1.min.js" type="text/javascript"></script>
-
-<script src="/js/admin/light-bootstrap-dashboard.js"></script>
+<script src="{{asset('/js/libraries/jquery/jquery-3.2.1.js')}}"></script>
+<script src="{{asset('/js/admin/light-bootstrap-dashboard.js')}}"></script>
