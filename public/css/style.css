@@ -11,12 +11,12 @@ h2 {
 
 /* NAVBAR */
 #nav-container {
-    background-image: url("/img/header-background.jpeg");
-    height: 500px;
+    background-image: url("/img/etc_shadow4.jpg");
+    height: 700px; /* Canviar per algo responsive, tota la pantalla */
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: bottom;
+    /*background-position: bottom;*/
 }
 
 .nav_out {
@@ -30,7 +30,7 @@ h2 {
 }
 
 .nav-link, .navbar-brand{
-  color: white !important;
+  //color: white !important;
 }
 
 /* CONTENT */
@@ -49,9 +49,11 @@ h2 {
   font-weight: 700;
   text-transform: uppercase;
   color: #fff;
-  background-color: #F05F40;
+  //background-color: #F05F40;
+  background-color: #FB6A5D;
   transition: all .35s;
 }
+
 .btn-seeProducts a{
     text-decoration: none;
     color: white;
