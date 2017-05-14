@@ -1,97 +1,32 @@
-<div class="wrapper">
+<!-- sidebar -->
+		<div class="col-sm-12 sidebar-offcanvas" id="sidebar">
+			<ul class="nav" id="menu">
+				<li class="nav-item">
+					<a class="nav-link" href="#">
+						<i class="fa fa-book mr-2" aria-hidden="true"></i>Catalog
+					</a>
+					<!--<ul class="nav">
+						<li class="nav-item"><a class="nav-link" href="">View One</a></li>
+						<li class="nav-item"><a class="nav-link" href="">View Two</a></li>
+					</ul>-->
+				</li>
 
-	<div class="sidebar">
-		<div class="sidebar-wrapper">
-			<div class="logo pd-11">
-				<h2 class="text-center">No Name</h2>
-			</div>
-			<div class="aux">
-				<ul class="nav parent">
-					<li>
-						<a href="#">
-							<p>Catalogue</p>
+				<li class="nav-item">
+						<a class="nav-link" href="#">
+							<i class="fa fa-shopping-basket mr-2" aria-hidden="true"></i>Plans
 						</a>
-						<ul class="child">
-							<li>
-								<p>
-									<a href="/admin/products">Products</a>
-								</p>
-							</li>
-							<li>
-
-								<p>
-									<a href="/admin/ingredients">Ingredients</a>
-								</p>
-							</li>
-							<li>
-								<p>
-									<a href="/admin/categories">Categories</a>
-								</p>
-							</li>
-							<li>
-								<p>
-									<a href="/admin/brands">Brands</a>
-								</p>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="#">
-							<p>Plans</p>
-						</a>
-						<ul class="child">
-							<li>
-								<p><a href="">Plan 1</a></p>
-							</li>
-							<li>
-								<p><a href="">Plan 2</a></p>
-							</li>
-							<li>
-								<p><a href="">Plan 3</a></p>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="#">
-							<p>Transport</p>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<p>Users</p>
-						</a>
-						<ul class="child">
-							<li>
-								<p><a href="">Users</a></p>
-							</li>
-							<li>
-								<p><a href="">Allergies</a></p>
-							</li>
-						</ul>
-					</li>
-
-					<li>
-						<a href="#">
-							<p>Configuration</p>
-						</a>
-					</li>
-					<!--<li>
-						<a href="#">
-							<i class="pe-7s-map-marker"></i>
-							<p>Maps</p>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<i class="pe-7s-bell"></i>
-							<p>Notifications</p>
-						</a>
-					</li>-->
-				</ul>
-			</div>
+						<!--<ul class="nav nav-stacked collapse left-submenu" id="item1">
+							<li class="nav-item"><a class="nav-link" href="">View One</a></li>
+							<li class="nav-item"><a class="nav-link" href="">View Two</a></li>
+						</ul>-->
+				</li>
+				<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-truck mr-2" aria-hidden="true"></i>Transport</a></li>
+				<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-users mr-2" aria-hidden="true"></i>Users</a></li>
+				<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-cogs mr-2" aria-hidden="true"></i>Configuration</a></li>
+			</ul>
 		</div>
-	</div>
-</div>
+		<!-- /sidebar -->
+
 
 <script src="{{asset('/js/libraries/jquery/jquery-3.2.1.js')}}"></script>
 <script src="{{asset('/js/admin/light-bootstrap-dashboard.js')}}"></script>

@@ -33,13 +33,21 @@
   <title>@yield('title')</title>
 </head>
 <body>
-  <div class="container-fluid">
+  <div class="wrapper container-fluid">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-sm-12">
+        <div class="navButton">
+          <a class="btn btn-default toggle-element pull-right"><i class="fa fa-bars" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="row row-offcanvas row-offcanvas-left">
+      <div class="col-md-3 px-0">
         @include('admin.layouts.sidebar')
       </div>
-      <div class="col-md-9 mt-5">
-        @yield('right-panel')
+
+      <div class="col-md-9 col-xs-12 mt-5">
+        @yield('panel-right')
       </div>
     </div>
   </div>
@@ -47,7 +55,6 @@
   <script src="{{asset('/js/libraries/jquery/jquery-3.2.1.js')}}"></script>
   <script src="{{asset('/js/libraries/tether/tether.js')}}"></script><!-- IMPORTANT: Always before the bootstrap file -->
   <script src="{{asset('/js/libraries/bootstrap4/bootstrap.js')}}"></script>
-
   @yield('scripts');
   <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>-->
   <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>-->
