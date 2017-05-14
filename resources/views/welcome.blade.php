@@ -50,10 +50,11 @@
 
 <div class="container">
 
-  <div class="row section">
-    <div id="plans" class="col-sm-12">
-      <h2 class="text-center pt-2">Plans</h2>
-      <div class="plansCarousel" class="carousel slide" data-ride="carousel">
+  <div class="row justify-content-center section"><!-- Plans -->
+
+    <div id="plans" class="">
+      <h2 class="text-center">Subscribe to our plans</h2>
+      <div id="plansCarousel" class="carousel slide ml-4" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#plansCarousel" data-slide-to="0" class="active"></li>
           <li data-target="#plansCarousel" data-slide-to="1"></li>
@@ -61,24 +62,24 @@
         </ol>
         <div class="carousel-inner" role="listbox">
           <div class="carousel-item active">
-            <img class="d-block img-fluid" src="/img/etc_shadow2.jpg" alt="Plan 'Charming'">
+            <img class="d-block img-fluid" src="/img/prova2.png" alt="Plan 'Charming'">
           </div>
-          <div class="carousel-item active">
-            <img class="d-block img-fluid" src="/img/etc_shadow2.jpg" alt="Plan 'Pro'">
+          <div class="carousel-item">
+            <img class="d-block img-fluid" src="/img/prova2.png" alt="Plan 'Pro'">
           </div>
-          <div class="carousel-item active">
-            <img class="d-block img-fluid" src="/img/etc_shadow2.jpg" alt="Plan 'Premium'">
+          <div class="carousel-item">
+            <img class="d-block img-fluid" src="/img/prova2.png" alt="Plan 'Premium'">
           </div>
         </div>
         <a class="carousel-control-prev" href="#plansCarousel" role="button" data-slide="prev">
-          <span class="carousel-control-prev-con" aria-hidden="true"></span>
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
         </a>
         <a class="carousel-control-next" href="#plansCarousel" role="button" data-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
-      </div>
+      </div><!-- / carousel -->
     </div>
   </div><!-- / plans -->
 
