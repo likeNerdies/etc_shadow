@@ -21,9 +21,10 @@ $('.child').children().mouseleave(function () {
     $(this).css('background','');
 });
 
-console.log($(window).width());
-$(window).resize(function(){
-    if($(window).width() < 766 ){
+console.log("adsasdasd" + $(document).width());
+
+$(window).on("resize", function(){
+    if($(document).width() < 766 ){
         $('.navButton').show();
         $('.toggle-element').show();
     }else{

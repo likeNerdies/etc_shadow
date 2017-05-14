@@ -5,6 +5,14 @@
   margin-left: 0 !important;
 }
 
+span > p {
+  display: inline-block;
+  padding-top: -0.5%;
+  padding-left: 2.5%;
+  font-size: 22px;
+  font-weight: 500;
+}
+
 .parent a{
   text-decoration: none;
 }
@@ -12,6 +20,7 @@
 .child{
   display: none;
   list-style: none;
+  margin-left: 12.5%;
 }
 
 .nav > li{

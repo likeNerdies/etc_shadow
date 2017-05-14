@@ -37,7 +37,7 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="navButton">
-          <span class="text-left"><p>No Name</p></span>
+          <span class="text-left px-2 mt-2"><p>No Name</p></span>
           <a class="btn btn-default toggle-element pull-right"><i class="fa fa-bars" aria-hidden="true"></i></a>
         </div>
       </div>
