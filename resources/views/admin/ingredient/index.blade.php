@@ -3,7 +3,7 @@
 @section('styles')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet"/>
 @endsection
-@section('panel-right')
+@section('right-panel')
     <h2 class="text-center">Ingredients</h2>
 
     <div class="error" role="alert"></div>
