@@ -2,12 +2,7 @@
 @section('title','products')
 @section('right-panel')
 
-<<<<<<< HEAD
 <h2 class="text-center pd-37">Categories</h2>
-=======
-  <h2>Categories</h2>
->>>>>>> 4080103579fa934f9f08acc263adc08baeb88565
-
   <div class="error" role="alert"></div>
 
   <div class="d-flex justify-content-end mt-5">
@@ -16,10 +11,8 @@
     <input type="text" id="search" class="form-control" placeholder="Search..."></div>
   </div>
 
-<<<<<<< HEAD
-<div class="">
+<div class="mt-5">
   <!-- Table-to-load-the-data Part -->
-  <input type="text" id="search" class="form-control my-2" placeholder="search">
   <table class="table">
     <thead>
       <tr>

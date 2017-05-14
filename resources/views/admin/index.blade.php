@@ -47,7 +47,7 @@
       </div>
 
       <div class="col-md-9 col-xs-12 mt-5">
-        @yield('panel-right')
+        @yield('right-panel')
       </div>
     </div>
   </div>

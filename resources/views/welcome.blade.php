@@ -53,6 +53,7 @@
   <div class="row section">
     <div id="plans" class="col-sm-12">
       <h2 class="text-center pt-2">Plans</h2>
+
     </div>
   </div><!-- / plans -->
 
