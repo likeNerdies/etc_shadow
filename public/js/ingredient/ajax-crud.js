@@ -9,9 +9,14 @@ $(document).ready(function() {
 
         $.get(url + '/' + ingredient_id, function (data) {
             //success data
-            $('#id').val(data.id);
-            $('#name').val(data.name);
-            $('#info').val(data.info);
+            $('#id').val(data.ingredient.id);
+            $('#name').val(data.ingredient.name);
+            $('#info').val(data.ingredient.info);
+            if(data.allergies.length!=0){//adding initial options
+                for(i=0;i<data.allergies.length;i++){
+                    $('#tag_list').append("<option selected='selected' value='"+data.allergies[i].id+"'>"+data.allergies[i].name+"</option>");
+                }
+            }
             $('#btn-save').val("update");
 
             $('#myModal').modal('show');

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Ingredient\StoreValidation;
 use DB;
+use Mockery\Exception;
 
 class IngredientController extends Controller
 {
@@ -69,7 +70,11 @@ class IngredientController extends Controller
     public function show($id)
     {
         $ingredient = App\Ingredient::findOrFail($id);
-        return $ingredient;
+        $retorn = [
+            "ingredient" => $ingredient,
+            "allergies" => $ingredient->allergies
+        ];
+        return $retorn;
     }
 
 
@@ -83,7 +88,11 @@ class IngredientController extends Controller
     public function update(StoreValidation $request, $id)
     {
         $ingredient = "";
-        DB::transaction(function () use ($request, $ingredient, $id) {//iniciando transaccion
+        $retorn=[];
+       // DB::transaction(function () use ($request, $ingredient, $id) {//iniciando transaccion
+        $updated=true;
+        try{
+            DB::beginTransaction();
             $ingredient = App\Ingredient::findOrFail($id);
             $ingredient->name = $request->name;
             $ingredient->info = $request->info;
@@ -93,10 +102,26 @@ class IngredientController extends Controller
                 }
                 $path = Storage::putFile('public/ingredient_images', $request->photo);//guardando fotos en el directorio storage/app/public/ingredient_images
                 $ingredient->image_path = $path;
-                $ingredient->save();
             }
-        });
-        return $ingredient;
+            $ingredient->allergies()->sync($request->allergies);
+            $ingredient->save();
+            DB::commit();
+        }catch(Exception $e){
+            DB::rollBack();
+            $updated=false;
+        }
+       // });
+        if($updated){
+            $retorn=[
+              "ingredient"=>$ingredient,
+              "allergies"=>$ingredient->allergies
+            ];
+        }else{
+            $retorn=[
+              "success"=>false
+            ];
+        }
+        return $retorn;
     }
 
     /**

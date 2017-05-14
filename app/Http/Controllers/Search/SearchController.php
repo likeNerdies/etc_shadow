@@ -49,7 +49,7 @@ class SearchController extends Controller
     public function ingredient(Request $request, Ingredient $ingredient)
     {
         $retorn = [];
-      //  if ($request->ajax() && $request->has('ingredient')) {
+       if ($request->ajax() && $request->has('ingredient')) {
             $ing = $ingredient->where('id', '=',  $request->ingredient)
                 ->orWhere('name', 'like', '%' . $request->ingredient . '%')
                 ->get();
@@ -60,9 +60,9 @@ class SearchController extends Controller
                 ];
             }
 
-       // } else {
+        } else {
             //todo
-      //  }
+        }
         return $retorn;
     }
 
