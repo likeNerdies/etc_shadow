@@ -7,6 +7,11 @@
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
   <meta name="viewport" content="width=device-width" />
 
+
+  <!-- Right panel CSS -->
+  <link rel="stylesheet" href="/css/admin/right_panel.css">
+
+
   <!-- Bootstrap 4 -->
   <link rel="stylesheet" href="/css/libraries/bootstrap4/bootstrap.min.css">
 
@@ -24,16 +29,26 @@
   <!--<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">-->
 
   @yield('styles')
+
+
   <title>@yield('title')</title>
 </head>
 <body>
-  <div class="container-fluid">
+  <div class="wrapper container-fluid">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-sm-12">
+        <div class="navButton">
+          <a class="btn btn-default toggle-element pull-right"><i class="fa fa-bars" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="row row-offcanvas row-offcanvas-left">
+      <div class="col-md-3 px-0">
         @include('admin.layouts.sidebar')
       </div>
-      <div class="col-md-9">
-        @yield('panel-right')
+
+      <div class="col-md-9 col-xs-12 mt-5">
+        @yield('right-panel')
       </div>
     </div>
   </div>
@@ -41,7 +56,6 @@
   <script src="{{asset('/js/libraries/jquery/jquery-3.2.1.js')}}"></script>
   <script src="{{asset('/js/libraries/tether/tether.js')}}"></script><!-- IMPORTANT: Always before the bootstrap file -->
   <script src="{{asset('/js/libraries/bootstrap4/bootstrap.js')}}"></script>
-
   @yield('scripts');
   <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>-->
   <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>-->

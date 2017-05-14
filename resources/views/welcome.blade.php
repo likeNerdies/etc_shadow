@@ -13,14 +13,14 @@
     <a class="navbar-brand" href="#">Brand</a>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mr-auto mt-2 mt-md-0 mx-auto">
+        <li class="nav-item  px-5">
+          <a class="nav-link only page-scroll" href="#howitworks">How it works</a>
+        </li>
         <li class="nav-item px-5">
-          <a class="nav-link only page-scroll" href="#sec1">Plans</a>
+          <a class="nav-link only page-scroll" href="#plans">Plans</a>
         </li>
         <li class="nav-item  px-5">
-          <a class="nav-link only page-scroll" href="#sec2">How it works</a>
-        </li>
-        <li class="nav-item  px-5">
-          <a class="nav-link only page-scroll" href="#sec3">About</a>
+          <a class="nav-link only page-scroll" href="#about">About</a>
         </li>
       </ul>
 
@@ -50,14 +50,8 @@
 
 <div class="container">
 
-  <div class="row section">
-    <div id="sec3" class="col-sm-12">
-      <h2 class="text-center pt-2">Plans</h2>
-    </div>
-  </div><!-- / plans -->
-
-  <div id="shoppingFlow" class="row section">
-    <div id="sec2" class="col-sm-12">
+  <div id="shoppingFlow" class="row section"><!-- Shopping flow -->
+    <div id="howitworks" class="col-sm-12">
       <h2 class="text-center pt-2 mb-5">Shopping flow</h2>
       <div class="row">
         <div class="col-md-3 col-sm-12 text-center">
@@ -115,8 +109,43 @@
     </div>
   </div><!-- / shopping flow -->
 
-  <div id="aboutUs" class="row section">
-    <div id="sec1" class="col-sm-12 text-center">
+  <div class="row justify-content-center section"><!-- Plans -->
+    <div id="plans" class="">
+      <h2 class="text-center">Subscribe to our plans</h2>
+      <div id="plansCarousel" class="carousel slide ml-4" data-ride="carousel">
+        <ol class="carousel-indicators text-info">
+          <li data-target="#plansCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#plansCarousel" data-slide-to="1"></li>
+          <li data-target="#plansCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <div class="carousel-item active">
+            <img class="d-block img-fluid" src="/img/prova2.png" alt="Our plans">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block img-fluid" src="/img/slide2.png" alt="Plan 'Charming'">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block img-fluid" src="/img/pro.png" alt="Plan 'Pro'">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block img-fluid" src="/img/premium.png" alt="Plan 'Premium'">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#plansCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#plansCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div><!-- / carousel -->
+    </div>
+  </div><!-- / plans -->
+
+  <div id="aboutUs" class="row section"><!-- About us -->
+    <div id="about" class="col-sm-12 text-center">
       <h2 class="pt-2">About us</h2>
       <div class="row">
         <div class="side1 mt-5 col-md-6 col-sm-12">
@@ -128,12 +157,13 @@
         </div>
       </div>
     </div>
-  </div><!-- / About us -->
+  </div><!-- / about us -->
 
   @if(!Auth::check())
     @include('layouts.register')
     @include('layouts.login')
   @endif
+
 </div><!-- / container -->
 @endsection
 
