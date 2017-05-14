@@ -2,7 +2,7 @@
 @section('title','products')
 @section('panel-right')
 
-<h2 class="text-center">Categories</h2>
+<h2 class="text-center pd-37">Categories</h2>
 
 <div class="error" role="alert"></div>
 
@@ -10,7 +10,7 @@
 
 <div class="">
   <!-- Table-to-load-the-data Part -->
-  <input type="text" id="search" class="form-control" placeholder="search">
+  <input type="text" id="search" class="form-control my-2" placeholder="search">
   <table class="table">
     <thead>
       <tr>
@@ -29,8 +29,8 @@
         <td>{{$category->info}}</td>
         <td>{{$category->created_at}}</td>
         <td>
-          <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$category->id}}">Edit</button>
-          <button class="btn btn-danger btn-xs btn-delete delete-category" value="{{$category->id}}">Delete</button>
+          <button class="btn btn-warning btn-xs open-modal" value="{{$category->id}}">Edit</button>
+          <button class="btn btn-danger btn-xs delete-category" value="{{$category->id}}">Delete</button>
         </td>
       </tr>
       @endforeach
