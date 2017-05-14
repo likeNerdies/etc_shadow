@@ -7,6 +7,7 @@ use App;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Ingredient\StoreValidation;
+use DB;
 
 class IngredientController extends Controller
 {
@@ -18,7 +19,7 @@ class IngredientController extends Controller
     public function index()
     {
         $ingredients = App\Ingredient::paginate(9);
-        return view('admin.ingredient.index', compact(["ingredients","allergies"]));
+        return view('admin.ingredient.index', compact(["ingredients"]));
     }
 
     /**
@@ -29,17 +30,34 @@ class IngredientController extends Controller
      */
     public function store(StoreValidation $request)
     {
-        $ingredient="";
-        DB::transaction(function ()use ($request,$ingredient) {//iniciando transaccion
-            $ingredient = App\Ingredient::create($request->all);
+        $inserted = true;
+        $ingredient = "";
+        try {
+            $ingredient = App\Ingredient::create($request->all());
+            DB::beginTransaction();
             if ($request->hasFile('photo')) {//si existen fotos
                 $path = Storage::putFile('public/ingredient_images', $request->photo);//guardando fotos en el directorio storage/app/public/ingredient_images
                 $ingredient->image_path = $path;
-                $ingredient->allergies()->attach($request->allergies);
-                $ingredient->save();
             }
-        });
-        return $ingredient;
+            $ingredient->allergies()->attach($request->allergies);
+            $ingredient->save();
+            DB::commit();
+        } catch (Exception $e) {
+            DB::rollBack();
+            $inserted = false;
+        }
+        $retorn = [];
+        if ($inserted) {
+            $retorn = [
+                "ingredient" => $ingredient,
+                "allergies" => $ingredient->allergies
+            ];
+        } else {
+            $retorn = [
+                "success" => false,
+            ];
+        }
+        return $retorn;
     }
 
     /**
@@ -64,8 +82,8 @@ class IngredientController extends Controller
      */
     public function update(StoreValidation $request, $id)
     {
-        $ingredient="";
-        DB::transaction(function ()use ($request,$ingredient,$id) {//iniciando transaccion
+        $ingredient = "";
+        DB::transaction(function () use ($request, $ingredient, $id) {//iniciando transaccion
             $ingredient = App\Ingredient::findOrFail($id);
             $ingredient->name = $request->name;
             $ingredient->info = $request->info;

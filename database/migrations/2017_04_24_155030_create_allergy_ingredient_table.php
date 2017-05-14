@@ -20,8 +20,8 @@ class CreateAllergyIngredientTable extends Migration
             $table->timestamps();
         });
         Schema::table('allergy_ingredient',function (Blueprint $table){
-            $table->foreign('ingredient_id')->references('id')->on('ingredients');
-            $table->foreign('allergy_id')->references('id')->on('allergies');
+            $table->foreign('ingredient_id')->references('id')->on('ingredients')->onDelete('cascade');
+            $table->foreign('allergy_id')->references('id')->on('allergies')->onDelete('cascade');
         });
     }
 
