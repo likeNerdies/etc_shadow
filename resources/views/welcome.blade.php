@@ -53,7 +53,32 @@
   <div class="row section">
     <div id="plans" class="col-sm-12">
       <h2 class="text-center pt-2">Plans</h2>
-
+      <div class="plansCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#plansCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#plansCarousel" data-slide-to="1"></li>
+          <li data-target="#plansCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <div class="carousel-item active">
+            <img class="d-block img-fluid" src="/img/etc_shadow2.jpg" alt="Plan 'Charming'">
+          </div>
+          <div class="carousel-item active">
+            <img class="d-block img-fluid" src="/img/etc_shadow2.jpg" alt="Plan 'Pro'">
+          </div>
+          <div class="carousel-item active">
+            <img class="d-block img-fluid" src="/img/etc_shadow2.jpg" alt="Plan 'Premium'">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#plansCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-con" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#plansCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
     </div>
   </div><!-- / plans -->
 
