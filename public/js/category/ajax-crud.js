@@ -52,7 +52,8 @@ $(document).ready(function() {
     });
 
     //create new category / update existing category
-    $("#btn-save").click(function (e) {
+    $(document).on('click', '#btn-save', function(e) {
+   // $("#btn-save").click(function (e) {
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -106,8 +107,8 @@ $(document).ready(function() {
             },
             error: function (data) {
                 //console.log('Error:', data);
-                $('.error').addClass("alert alert-danger");
-                $('.error').html("<strong>Oh snap!</strong> Refresh the page and try again.");
+                $('#ajaxerror').addClass("alert alert-danger");
+                $('#ajaxerror').html("<strong>Oh snap!</strong> Refresh the page and try again.");
             }
         });
     });

@@ -6,7 +6,12 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
   <meta name="viewport" content="width=device-width" />
+
   @yield('styles')
+
+  <!-- Right panel CSS -->
+  <link rel="stylesheet" href="/css/admin/right_panel.css">
+
   <!-- Bootstrap 4 -->
   <link rel="stylesheet" href="/css/libraries/bootstrap4/bootstrap.min.css">
 
@@ -25,7 +30,6 @@
   <!--<link href="/css/admin/style.css" rel="stylesheet" />-->
   <!--<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">-->
 
-
   <title>@yield('title')</title>
 </head>
 <body>
@@ -41,7 +45,8 @@
       <div class="col-md-3 px-0">
         @include('admin.layouts.sidebar')
       </div>
-      <div class="col-md-9 col-xs-12">
+
+      <div class="col-md-9 col-xs-12 mt-5">
         @yield('panel-right')
       </div>
     </div>
