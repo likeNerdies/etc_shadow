@@ -9,7 +9,7 @@ $('.parent').children().mouseover(function(){
 
 });
 
-/*$('.parent').children().mouseleave(function(){
+$('.parent').children().mouseleave(function(){
     $(this).css('background','');
 });
 
@@ -19,7 +19,7 @@ $('.child').children().mouseover(function () {
 
 $('.child').children().mouseleave(function () {
     $(this).css('background','');
-});*/
+});
 
 console.log($(window).width());
 $(window).resize(function(){
