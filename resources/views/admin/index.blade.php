@@ -37,7 +37,7 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="navButton">
-          <span class="text-left px-2 mt-2"><p>No Name</p></span>
+          <span class="text-left brand-team pull-left">No Name</span>
           <a class="btn btn-default toggle-element pull-right"><i class="fa fa-bars" aria-hidden="true"></i></a>
         </div>
       </div>
@@ -47,7 +47,7 @@
         @include('admin.layouts.sidebar')
       </div>
 
-      <div class="col-md-9 col-xs-12 mt-5">
+      <div class="col-md-9 col-xs-12 mt-5 aux-margin">
         @yield('right-panel')
       </div>
     </div>

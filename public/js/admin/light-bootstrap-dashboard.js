@@ -1,38 +1,29 @@
-$('.parent').children().mouseover(function(){
-    console.log($(this).children().length);
-    if($(this).children('.child').is(':hidden')){
-        $(this).css('background','rgba(255,255,255,.4)');
+$('.parent').children().on({
+    mouseover:function () {
+        if($(this).children('.child').is(':hidden')){
+            $(this).css('background','rgba(255,255,255,.2)');
+        }
+        if($(this).children().length == 1){
+            $(this).css('background','rgba(255,255,255,.2)');
+        }
+    },
+    mouseleave:function () {
+        $(this).css('background','');
     }
-    if($(this).children().length == 1){
-        $(this).css('background','rgba(255,255,255,.4)');
-    }
-
 });
 
-$('.parent').children().mouseleave(function(){
+$('.parent').children().click(function(){
     $(this).css('background','');
 });
 
-$('.child').children().mouseover(function () {
-    $(this).css('background','rgba(255,255,255,.4)');
-});
-
-$('.child').children().mouseleave(function () {
-    $(this).css('background','');
-});
-
-console.log("adsasdasd" + $(document).width());
-
-$(window).on("resize", function(){
-    if($(document).width() < 766 ){
-        $('.navButton').show();
-        $('.toggle-element').show();
-    }else{
-        $('.navButton').hide();
-        $('.toggle-element').hide();
+$('.child').children().on({
+    mouseover:function(){
+        $(this).css('background','rgba(255,255,255,.2)');
+    },
+    mouseleave:function () {
+        $(this).css('background','');
     }
 });
-
 
 $('.toggle-element').click(function(){
     $('#sidebar').slideToggle("easeInOutExpo");
@@ -49,10 +40,8 @@ $('.parent').children().click(function(){
     event.stopPropagation();
 });
 
-$('.parent').children().click(function(){
-    $(this).css('background','');
-});
 
+/*
 $('.child').children().click(function(){
     //$(this).show();
-});
+});*/

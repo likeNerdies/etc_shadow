@@ -1,12 +1,15 @@
 <!-- sidebar -->
-		<div class="col-sm-12 sidebar-offcanvas pt-5" id="sidebar">
-			<ul class="nav parent" id="menu">
+		<div class="col-sm-12 sidebar-offcanvas" id="sidebar">
+			<div class="brand-name">
+				<h2 class="text-center mt-5">No Name</h2>
+			</div>
+			<ul class="nav parent pt-4" id="menu">
 				<li class="nav-item">
 					<a class="nav-link" href="#">
 						<i class="fa fa-book mr-2" aria-hidden="true"></i>Catalog
 					</a>
 					<ul class="nav child">
-						<li class="nav-item"><a class="nav-link" href=""><i class="fa fa-angle-right mr-2" aria-hidden="true"></i>Categories</a></li>
+						<li class="nav-item"><a class="nav-link" href="/admin/categories"><i class="fa fa-angle-right mr-2" aria-hidden="true"></i>Categories</a></li>
 						<li class="nav-item"><a class="nav-link" href=""><i class="fa fa-angle-right mr-2" aria-hidden="true"></i>Ingredients</a></li>
 						<li class="nav-item"><a class="nav-link" href=""><i class="fa fa-angle-right mr-2" aria-hidden="true"></i>Products</a></li>
 					</ul>
