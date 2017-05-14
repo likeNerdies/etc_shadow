@@ -121,6 +121,7 @@ class ProductController extends Controller
         // DB::transaction(function () use ($request, $id) {//iniciando transaccion
         $inserted = false;
         if ($request->ajax()) {
+            DB::beginTransaction();
             try {
                 $product = App\Product::findOrFail($id);
                 $product->name = $request->name;

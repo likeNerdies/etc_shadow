@@ -27,7 +27,7 @@ class StoreValidation extends FormRequest
             'name' => 'required',
             'info'=>'',
             'image'=>'image|mimes:jpeg,bmp,png|max:3000',
-            'allergies'=>'numeric'
+            'allergies'=>''
         ];
     }
 }

@@ -75,11 +75,11 @@
           <button type="button" class="btn btn-primary" id="btn-save" value="add">Save changes</button>
           <input type="hidden" id="category_id" name="category_id" value="0">
         </div>
-        
+
       </div><!-- / modal-content -->
 
     </div>
-  </div>
+  </div><!-- / modal -->
 </div>
 
 

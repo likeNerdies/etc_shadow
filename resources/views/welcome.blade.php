@@ -113,20 +113,23 @@
     <div id="plans" class="">
       <h2 class="text-center">Subscribe to our plans</h2>
       <div id="plansCarousel" class="carousel slide ml-4" data-ride="carousel">
-        <ol class="carousel-indicators">
+        <ol class="carousel-indicators text-info">
           <li data-target="#plansCarousel" data-slide-to="0" class="active"></li>
           <li data-target="#plansCarousel" data-slide-to="1"></li>
           <li data-target="#plansCarousel" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
           <div class="carousel-item active">
-            <img class="d-block img-fluid" src="/img/prova2.png" alt="Plan 'Charming'">
+            <img class="d-block img-fluid" src="/img/prova2.png" alt="Our plans">
           </div>
           <div class="carousel-item">
-            <img class="d-block img-fluid" src="/img/prova2.png" alt="Plan 'Pro'">
+            <img class="d-block img-fluid" src="/img/slide2.png" alt="Plan 'Charming'">
           </div>
           <div class="carousel-item">
-            <img class="d-block img-fluid" src="/img/prova2.png" alt="Plan 'Premium'">
+            <img class="d-block img-fluid" src="/img/pro.png" alt="Plan 'Pro'">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block img-fluid" src="/img/premium.png" alt="Plan 'Premium'">
           </div>
         </div>
         <a class="carousel-control-prev" href="#plansCarousel" role="button" data-slide="prev">
@@ -168,4 +171,5 @@
 
 @section('scriptsPersonalizados')
   <script src="/js/welcome/welcome_script.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 @endsection
