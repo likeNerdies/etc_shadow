@@ -1,24 +1,24 @@
 <!-- sidebar -->
 		<div class="col-sm-12 sidebar-offcanvas" id="sidebar">
-			<ul class="nav" id="menu">
+			<ul class="nav parent" id="menu">
 				<li class="nav-item">
 					<a class="nav-link" href="#">
 						<i class="fa fa-book mr-2" aria-hidden="true"></i>Catalog
 					</a>
-					<!--<ul class="nav">
+					<ul class="nav child">
 						<li class="nav-item"><a class="nav-link" href="">View One</a></li>
 						<li class="nav-item"><a class="nav-link" href="">View Two</a></li>
-					</ul>-->
+					</ul>
 				</li>
 
 				<li class="nav-item">
 						<a class="nav-link" href="#">
 							<i class="fa fa-shopping-basket mr-2" aria-hidden="true"></i>Plans
 						</a>
-						<!--<ul class="nav nav-stacked collapse left-submenu" id="item1">
+						<ul class="nav nav-stacked collapse child" id="item1">
 							<li class="nav-item"><a class="nav-link" href="">View One</a></li>
 							<li class="nav-item"><a class="nav-link" href="">View Two</a></li>
-						</ul>-->
+						</ul>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-truck mr-2" aria-hidden="true"></i>Transport</a></li>
 				<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-users mr-2" aria-hidden="true"></i>Users</a></li>

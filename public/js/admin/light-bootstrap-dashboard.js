@@ -21,23 +21,9 @@ $('.child').children().mouseleave(function () {
     $(this).css('background','');
 });*/
 
-
-//test
-
-/* off-canvas sidebar toggle
-$('[data-toggle=offcanvas]').click(function() {
-    $('.row-offcanvas').toggleClass('active');
-    $('span.collapse').toggleClass('in');
-});
-
-$('[data-toggle=offcanvas-in]').click(function() {
-    $('.row-offcanvas').addClass('active');
-    $('span.collapse').addClass('in');
-});
- */
 console.log($(window).width());
 $(window).resize(function(){
-    if($(window).width() < 766){
+    if($(window).width() < 766 ){
         $('.navButton').show();
         $('.toggle-element').show();
     }else{
@@ -50,10 +36,12 @@ $(window).resize(function(){
 $('.toggle-element').click(function(){
     $('#sidebar').slideToggle("easeInOutExpo");
 });
+
+
+
 //toggle menu
 
-
-/*$('.parent').children().click(function(){
+$('.parent').children().click(function(){
     $(this).children('.child').slideToggle('easeInOutExpo');
 
 }).children('.child').click(function (event) {
@@ -67,4 +55,3 @@ $('.parent').children().click(function(){
 $('.child').children().click(function(){
     //$(this).show();
 });
-*/

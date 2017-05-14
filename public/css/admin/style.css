@@ -22,17 +22,6 @@
   text-decoration:none;
 }
 
-.nav {
-  display: flex;
-  flex-direction: column;
-  padding-top:17%;
-}
-
-.aux{
-  padding-left: 15%;
-  padding-top:11.5%;
-}
-
 .pd-37{
   padding-top:37px;
 }
