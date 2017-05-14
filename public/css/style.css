@@ -73,6 +73,11 @@ h2 {
     line-height: 35px;
 }
 
+/*  Plans */
+.carousel-indicators li {
+  color: black!important;
+}
+
 /*  ~ Product index ~ */
 
 .product-box {
