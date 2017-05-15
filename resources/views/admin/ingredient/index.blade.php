@@ -46,7 +46,7 @@
                         @endforeach
                       @endif
                     </td>
-                    <td></td>
+                    <td id="ingredient-img"><img src="{{$ingredient->getPublicImgUrl($ingredient->image_path)}}" width="165" height="110"></td>
                     <td>{{$ingredient->created_at}}</td>
                     <td>
                       <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$ingredient->id}}">Edit</button>
@@ -96,7 +96,16 @@
                 <select id="tag_list" name="allergies[]" class="form-control" multiple></select>
               </div>
 
+
+                {{--test--}}
+                {{--end test--}}
             </form>
+              <form id="formImage" class="formImage"  class="form-horizontal" novalidate="" enctype="multipart/form-data">
+                  <div class="form-group">
+                      <label for="image">Upload images</label>
+                      <input type="file" class="image btn btn-info" id="image" name="image" >
+                  </div>
+              </form>
           </div>
 
           <div class="modal-footer">
@@ -114,4 +123,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <script src="{{asset('/js/ingredient/ajax-crud.js')}}"></script>
     <!--<script src="{{asset('/fonts/Pe-icon-7-stroke.woff')}}"></script>-->
+
 @endsection

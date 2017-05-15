@@ -94,6 +94,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin',], function () {
    */
     //Route Ingredients
     Route::resource('/ingredients', 'ingredient\IngredientController');
+    Route::post('/ingredients/{id}/image', 'ingredient\IngredientController@storeImage');
+    Route::get('/ingredients/{id}/image', 'ingredient\IngredientController@showPicture');
     /*
     Route::prefix('/ingredients')->group(function () {
         Route::get('/', 'ingredient\IngredientController@index');
