@@ -15,8 +15,8 @@ class TransporterController extends Controller
      */
     public function index()
     {
-        $transporters=App\Transporter::paginate(9);
-        return view('admin.transporter.index');
+        $transporters = App\Transporter::paginate(9);
+        return view('admin.transporter.index', compact('transporters'));
     }
 
     /**
@@ -27,7 +27,8 @@ class TransporterController extends Controller
      */
     public function store(StoreValidation $request)
     {
-        $transporter=App\Transporter::create($request->all());
+        //return response()->json(["tr"=>$request->name]);
+        $transporter = App\Transporter::create($request->all());
         return $transporter;
     }
 
@@ -39,7 +40,7 @@ class TransporterController extends Controller
      */
     public function show($id)
     {
-        $transporter=App\Transporter::findOrFail($id);
+        $transporter = App\Transporter::findOrFail($id);
         return $transporter;
     }
 
@@ -53,11 +54,12 @@ class TransporterController extends Controller
      */
     public function update(StoreValidation $request, $id)
     {
+    //  return response()->json(["id"=>$request->name]);
         $transporter=App\Transporter::findOrFail($id);
         $transporter->name=$request->name;
         $transporter->cif=$request->cif;
         $transporter->phone_number=$request->phone_number;
-        $transporter->save;
+        $transporter->save();
         return $transporter;
     }
 

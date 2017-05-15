@@ -9,7 +9,7 @@
 
 
   <!-- Right panel CSS -->
-  <link rel="stylesheet" href="/css/admin/right_panel.css">
+  <!--<link rel="stylesheet" href="/css/admin/right_panel.css">-->
 
 
   <!-- Bootstrap 4 -->
