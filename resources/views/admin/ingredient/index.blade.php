@@ -39,14 +39,18 @@
                     <td>{{$ingredient->info}}</td>
                     <td>
                       @if(count($ingredient->allergies)==0)
-                        This ingredient has no alergies
+
                       @else
                         @foreach($ingredient->allergies as $allergy)
                           <p>{{$allergy->name}}</p>
                         @endforeach
                       @endif
                     </td>
-                    <td id="ingredient-img"><img src="{{$ingredient->getPublicImgUrl($ingredient->image_path)}}" width="165" height="110"></td>
+                      @if($ingredient->image_path==null)
+                          <td id="ingredient-img"></td>
+                      @else
+                          <td id="ingredient-img"><img src="{{$ingredient->getPublicImgUrl($ingredient->image_path)}}" width="165" height="110"></td>
+                      @endif
                     <td>{{$ingredient->created_at}}</td>
                     <td>
                       <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$ingredient->id}}">Edit</button>

@@ -118,17 +118,26 @@ $(document).ready(function () {
             success: function (data) { // success:
                 insertImg(e,data.ingredient.id,type);
                 console.log(data);
+                //info
+                var ingredient = '<tr id="ingredient' + data.ingredient.id + '"><td>' + data.ingredient.id + '</td><td>' + data.ingredient.name + '</td>';
+                if(data.ingredient.info==null){
+                    ingredient+=' <td></td>';
+                }else{
+                    ingredient+=' <td>' + data.ingredient.info + '</td>';
+                }
 
-                var ingredient = '<tr id="ingredient' + data.ingredient.id + '"><td>' + data.ingredient.id + '</td><td>' + data.ingredient.name + '</td><td>' + data.ingredient.info + '</td>';
+                //allergies
                 ingredient += '<td>';
                 if (data.allergies.length == 0) {
-                    ingredient += '<p>This ingredient has no allergies</p>';
+                    ingredient += '<p></p>';
                 } else {
                     for (i = 0; i < data.allergies.length; i++) {
                         ingredient += '<p>' + data.allergies[i].name + '</p>';
                     }
                 }
                 ingredient += '</td>';
+
+
                 ingredient += '<td id="ingredient-img"></td>';//for images
                 ingredient += '<td>' + data.ingredient.created_at + '</td><td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.ingredient.id + '">Edit</button>';
                 ingredient += '<button class="btn btn-danger btn-xs btn-delete delete-ingredient" value="' + data.ingredient.id + '">Delete</button></td></tr>';
