@@ -63,7 +63,7 @@ class SearchController extends Controller
         } else {
             //todo
         }
-        return $retorn;
+        return response()->json($retorn);
     }
 
     /**

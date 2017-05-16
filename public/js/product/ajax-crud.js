@@ -27,7 +27,7 @@ $(document).ready(function () {
     $(document).on('click', '#btn-add', function (e) {
         // $('#btn-add').click(function() {
         $('#btn-save').val("add");
-        $('#formIngredients').trigger("reset");
+        $('#formProducts').trigger("reset");
         $('#myModal').modal('show');
     });
 
@@ -116,14 +116,14 @@ $(document).ready(function () {
             data: formData,
             dataType: 'json',
             success: function (data) { // success:
-                insertImg(e,data.ingredient.id,type);
+                insertImg(e, data.ingredient.id, type);
                 console.log(data);
                 //info
                 var ingredient = '<tr id="ingredient' + data.ingredient.id + '"><td>' + data.ingredient.id + '</td><td>' + data.ingredient.name + '</td>';
-                if(data.ingredient.info==null){
-                    ingredient+=' <td></td>';
-                }else{
-                    ingredient+=' <td>' + data.ingredient.info + '</td>';
+                if (data.ingredient.info == null) {
+                    ingredient += ' <td></td>';
+                } else {
+                    ingredient += ' <td>' + data.ingredient.info + '</td>';
                 }
 
                 //allergies
@@ -213,7 +213,7 @@ $(document).ready(function () {
 
 
     //search allergies
-    $('#tag_list').select2({
+    $('#ingredient_list').select2({
         placeholder: "Choose allergies...",
         minimumInputLength: 1,
         ajax: {
@@ -233,7 +233,28 @@ $(document).ready(function () {
         }
     });
 
-    function insertImg(e,id,type) {
+    //search allergies
+    $('#category-list').select2({
+        placeholder: "Choose allergies...",
+        minimumInputLength: 1,
+        ajax: {
+            url: "/search/allergySelect",
+            dataType: 'json',
+            data: function (params) {
+                return {
+                    q: $.trim(params.term)
+                };
+            },
+            processResults: function (data) {
+                return {
+                    results: data
+                };
+            },
+            cache: true
+        }
+    });
+
+    function insertImg(e, id, type) {
         if (document.getElementById("image").value != "") {
             $.ajaxSetup({
                 headers: {
@@ -247,37 +268,37 @@ $(document).ready(function () {
                 type: "POST",
                 contentType: false,
                 processData: false,
-                url:  "/admin/ingredients/"+id+"/image",
+                url: "/admin/ingredients/" + id + "/image",
                 data: formData,
                 dataType: 'json',
                 success: function (data) { // success:
 
-                $('#ingredient'+id+' > #ingredient-img').replaceWith("<td id='ingredient-img'><img width='165' height='110' src='"+data.ingredient+"'></td>");
+                    $('#ingredient' + id + ' > #ingredient-img').replaceWith("<td id='ingredient-img'><img width='165' height='110' src='" + data.ingredient + "'></td>");
 
 
-/*  var ingredient = '<tr id="ingredient' + data.ingredient.id + '"><td>' + data.ingredient.id + '</td><td>' + data.ingredient.name + '</td><td>' + data.ingredient.info + '</td>';
-                    ingredient += '<td>';
-                    if (data.allergies.length == 0) {
-                        ingredient += '<p>This ingredient has no allergies</p>';
-                    } else {
-                        for (i = 0; i < data.allergies.length; i++) {
-                            ingredient += '<p>' + data.allergies[i].name + '</p>';
-                        }
-                    }
-                    ingredient += '</td>';
-                    ingredient += '<td></td>';
-                    ingredient += '<td>' + data.ingredient.created_at + '</td><td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.ingredient.id + '">Edit</button>';
-                    ingredient += '<button class="btn btn-danger btn-xs btn-delete delete-ingredient" value="' + data.ingredient.id + '">Delete</button></td></tr>';
-*/
-                /*    if (state == "add") { //if user added a new record
-                        $('#ingredient-list').append(ingredient);
-                    } else { //if user updated an existing record
-                        $("#ingredient" + ingredient_id).replaceWith(ingredient);
-                    }
+                    /*  var ingredient = '<tr id="ingredient' + data.ingredient.id + '"><td>' + data.ingredient.id + '</td><td>' + data.ingredient.name + '</td><td>' + data.ingredient.info + '</td>';
+                     ingredient += '<td>';
+                     if (data.allergies.length == 0) {
+                     ingredient += '<p>This ingredient has no allergies</p>';
+                     } else {
+                     for (i = 0; i < data.allergies.length; i++) {
+                     ingredient += '<p>' + data.allergies[i].name + '</p>';
+                     }
+                     }
+                     ingredient += '</td>';
+                     ingredient += '<td></td>';
+                     ingredient += '<td>' + data.ingredient.created_at + '</td><td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.ingredient.id + '">Edit</button>';
+                     ingredient += '<button class="btn btn-danger btn-xs btn-delete delete-ingredient" value="' + data.ingredient.id + '">Delete</button></td></tr>';
+                     */
+                    /*    if (state == "add") { //if user added a new record
+                     $('#ingredient-list').append(ingredient);
+                     } else { //if user updated an existing record
+                     $("#ingredient" + ingredient_id).replaceWith(ingredient);
+                     }
 
-                    $('#formIngredients').trigger("reset");
+                     $('#formIngredients').trigger("reset");
 
-                    $('#myModal').modal("hide");*/
+                     $('#myModal').modal("hide");*/
                 },
                 error: function (data) {
                     console.log('Error:', data);

@@ -45,19 +45,25 @@
                     <td class="media-480-delete">{{$ingredient->info}}</td>
                     <td class="media-480-delete">
                       @if(count($ingredient->allergies)==0)
-                        This ingredient has no alergies
+
                       @else
                         @foreach($ingredient->allergies as $allergy)
                           <p>{{$allergy->name}}</p>
                         @endforeach
                       @endif
                     </td>
-                    <td></td>
+
                     <td class="media-480-delete">{{$ingredient->created_at}}</td>
-                    <td>
-                      <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$ingredient->id}}">Edit</button>
-                      <button class="btn btn-danger btn-xs btn-delete delete-ingredient" value="{{$ingredient->id}}">Delete</button>
-                    </td>
+
+                      @if($ingredient->image_path==null)
+                          <td id="ingredient-img"></td>
+                      @else
+                          <td id="ingredient-img"><img src="{{$ingredient->getPublicImgUrl($ingredient->image_path)}}" width="165" height="110"></td>
+                      @endif
+                      <td>
+                          <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$ingredient->id}}">Edit</button>
+                          <button class="btn btn-danger btn-xs btn-delete delete-ingredient" value="{{$ingredient->id}}">Delete</button>
+                      </td>
                   </tr>
               @endforeach
             </tbody>
@@ -82,7 +88,7 @@
             <form id="formIngredients" name="formIngredients" class="form-horizontal" novalidate="">
               {{ csrf_field() }}
               <div class="form-group error">
-                <label for="inputCategory" class="col-sm-3 control-label">Name</label>
+                <label for="name" class="col-sm-3 control-label">Name</label>
                 <div class="col-sm-9">
                   <input type="text" class="form-control has-error" id="name" name="name"
                   placeholder="Category name" value="">
@@ -102,7 +108,16 @@
                 <select id="tag_list" name="allergies[]" class="form-control" multiple></select>
               </div>
 
+
+                {{--test--}}
+                {{--end test--}}
             </form>
+              <form id="formImage" class="formImage"  class="form-horizontal" novalidate="" enctype="multipart/form-data">
+                  <div class="form-group">
+                      <label for="image">Upload images</label>
+                      <input type="file" class="image btn btn-info" id="image" name="image" >
+                  </div>
+              </form>
           </div>
 
           <div class="modal-footer">
@@ -120,4 +135,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <script src="{{asset('/js/ingredient/ajax-crud.js')}}"></script>
     <!--<script src="{{asset('/fonts/Pe-icon-7-stroke.woff')}}"></script>-->
+
 @endsection

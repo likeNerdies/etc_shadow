@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Ingredient\StoreValidation;
 use DB;
-use Mockery\Exception;
+use Intervention\Image\ImageManagerStatic as Image;
+use Response;
 
 class IngredientController extends Controller
 {
@@ -31,15 +32,14 @@ class IngredientController extends Controller
      */
     public function store(StoreValidation $request)
     {
+
+        // return response()->json(["name"=>$request->name]);
+        // return response()->json(["hasfile"=>$request->hasFile('photo')]);
         $inserted = true;
         $ingredient = "";
         try {
-            $ingredient = App\Ingredient::create($request->all());
             DB::beginTransaction();
-            if ($request->hasFile('photo')) {//si existen fotos
-                $path = Storage::putFile('public/ingredient_images', $request->photo);//guardando fotos en el directorio storage/app/public/ingredient_images
-                $ingredient->image_path = $path;
-            }
+            $ingredient = App\Ingredient::create($request->all());
             $ingredient->allergies()->attach($request->allergies);
             $ingredient->save();
             DB::commit();
@@ -58,7 +58,48 @@ class IngredientController extends Controller
                 "success" => false,
             ];
         }
-        return $retorn;
+        return response()->json($retorn);
+    }
+
+    /**
+     * Store a newly image resource in storage.
+     *
+     * @param  Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function storeImage(Request $request, $id)
+    {
+        //return response()->json(["fichero"=>$request->hasFile('image')]);
+        $inserted = true;
+        $path="";
+        try {
+            DB::beginTransaction();
+            //  $img = Image::make( $request->image);
+            $ingredient = App\Ingredient::findOrFail($id);
+            if($ingredient->image_path!=null){
+                Storage::delete($ingredient->image_path);
+            }
+            if ($request->hasFile('image')) {//si existen fotos
+                $path = Storage::putFile('public/ingredient_images', $request->image);//guardando fotos en el directorio storage/app/public/product_images
+                $ingredient->image_path = $path;
+            }
+            $ingredient->save();
+            DB::commit();
+        } catch (Exception $e) {
+            DB::rollBack();
+            $inserted = false;
+        }
+        $retorn = [];
+        if ($inserted) {
+            $retorn = [
+                "ingredient" => Storage::url($path)
+            ];
+        } else {
+            $retorn = [
+                "success" => false,
+            ];
+        }
+        return response()->json($retorn);
     }
 
     /**
@@ -74,7 +115,7 @@ class IngredientController extends Controller
             "ingredient" => $ingredient,
             "allergies" => $ingredient->allergies
         ];
-        return $retorn;
+        return response()->json($retorn);
     }
 
 
@@ -87,41 +128,35 @@ class IngredientController extends Controller
      */
     public function update(StoreValidation $request, $id)
     {
+        // return response()->json(["name"=>$request->name]);
         $ingredient = "";
-        $retorn=[];
-       // DB::transaction(function () use ($request, $ingredient, $id) {//iniciando transaccion
-        $updated=true;
-        try{
+        $retorn = [];
+        // DB::transaction(function () use ($request, $ingredient, $id) {//iniciando transaccion
+        $updated = true;
+        try {
             DB::beginTransaction();
             $ingredient = App\Ingredient::findOrFail($id);
             $ingredient->name = $request->name;
             $ingredient->info = $request->info;
-            if ($request->hasFile('photo')) {//si existen fotos
-                if ($ingredient->image_path != null) {
-                    Storage::delete($ingredient->image_path);
-                }
-                $path = Storage::putFile('public/ingredient_images', $request->photo);//guardando fotos en el directorio storage/app/public/ingredient_images
-                $ingredient->image_path = $path;
-            }
             $ingredient->allergies()->sync($request->allergies);
             $ingredient->save();
             DB::commit();
-        }catch(Exception $e){
+        } catch (Exception $e) {
             DB::rollBack();
-            $updated=false;
+            $updated = false;
         }
-       // });
-        if($updated){
-            $retorn=[
-              "ingredient"=>$ingredient,
-              "allergies"=>$ingredient->allergies
+        // });
+        if ($updated) {
+            $retorn = [
+                "ingredient" => $ingredient,
+                "allergies" => $ingredient->allergies
             ];
-        }else{
-            $retorn=[
-              "success"=>false
+        } else {
+            $retorn = [
+                "success" => false
             ];
         }
-        return $retorn;
+        return response()->json($retorn);
     }
 
     /**
@@ -133,6 +168,7 @@ class IngredientController extends Controller
     public function destroy($id)
     {
         $ingredient = App\Ingredient::findOrFail($id);
+        Storage::delete($ingredient->image_path);
         $ingredient->delete();
         return $ingredient;
 

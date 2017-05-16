@@ -2,7 +2,7 @@
 @section('styles')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 @endsection
-@section('panel-right')
+@section('right-panel')
 <div>
 
 </div>
@@ -34,12 +34,13 @@
         allergie : {{$allergy->name}}
     @endforeach
 @endforeach
-    <form method="post" action="/admin/ingredients">
+    <form method="post" action="/admin/ingredients" enctype="multipart/form-data">
         <input type="text" name="name">
         <div class="form-group">
             <label for="tag_list">Tags:</label>
             <select id="tag_list" name="allergies[]" class="form-control" multiple></select>
         </div>
+        <input type="file" name="photo" value="select a file">
         <input type="submit" value="sub">
         {{csrf_field()}}
     </form>

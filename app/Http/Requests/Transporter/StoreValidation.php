@@ -29,7 +29,7 @@ class StoreValidation extends FormRequest
                 'required',
                /* 'regex:/^[a-zA-Z\' ]+$/'*/
             ),
-            'phone_number'=>'required|numeric|min:9|max:9'
+            'phone_number'=>'required|numeric'
         ];
     }
 }

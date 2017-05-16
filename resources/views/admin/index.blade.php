@@ -9,7 +9,7 @@
 
 
   <!-- Right panel CSS -->
-  <link rel="stylesheet" href="/css/admin/right_panel.css">
+  <!--<link rel="stylesheet" href="/css/admin/right_panel.css">-->
 
 
   <!-- Bootstrap 4 -->
@@ -47,6 +47,7 @@
   <script src="{{asset('/js/libraries/tether/tether.js')}}"></script><!-- IMPORTANT: Always before the bootstrap file -->
   <script src="{{asset('/js/libraries/bootstrap4/bootstrap.js')}}"></script>
   <script src="{{asset('/js/admin/light-bootstrap-dashboard.js')}}"></script>
+
   @yield('scripts')
   <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>-->
   <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>-->
