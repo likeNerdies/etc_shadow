@@ -90,7 +90,7 @@ $(document).ready(function() {
             success: function (data) { // success:
                 console.log(data);
 
-                var category = '<tr id="category' + data.id + '"><td>' + data.id + '</td><td>' + data.name + '</td><td>' + data.info + '</td><td>' + data.created_at + '</td>';
+                var category = '<tr id="category' + data.id + '"><td>' + data.id + '</td><td>' + data.name + '</td><td>' + data.info + '</td><td class="media-480-delete">' + data.created_at + '</td>';
                 category += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '">Edit</button>';
                 category += '<button class="btn btn-danger btn-xs btn-delete delete-category" value="' + data.id + '">Delete</button></td></tr>';
 

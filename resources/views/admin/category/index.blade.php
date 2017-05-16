@@ -2,43 +2,52 @@
 @section('title','categories')
 @section('right-panel')
 
-<h2>Categories</h2>
 
-<div class="error" role="alert"></div>
+  <h2 class="text-left mt-4">Categories</h2>
 
-<div class="d-flex justify-content-end mt-5">
-  <div class="mr-auto"><button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Category</button></div>
-  <div class="col-md-6"><!--<i class="fa fa-search" aria-hidden="true"></i>-->
-  <input type="text" id="search" class="form-control" placeholder="Search..."></div>
-</div>
+  <div class="error" role="alert"></div>
 
-<div class="mt-5">
-  <!-- Table-to-load-the-data Part -->
-  <table class="table">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Info</th>
-        <th>Created at</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody id="category-list" name="category-list">
-      @foreach ($categories as $category)
-      <tr id="category{{$category->id}}">
-        <td id="id">{{$category->id}}</td>
-        <td>{{$category->name}}</td>
-        <td>{{$category->info}}</td>
-        <td>{{$category->created_at}}</td>
-        <td>
-          <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$category->id}}">Edit</button>
-          <button class="btn btn-danger btn-xs btn-delete delete-category" value="{{$category->id}}">Delete</button>
-        </td>
-      </tr>
-      @endforeach
-    </tbody>
-  </table> <!-- End of Table-to-load-the-data Part -->
+  <div class="row mt-4">
+    <div class="col-md-6 col-12 mt-4"><!--<i class="fa fa-search" aria-hidden="true"></i>-->
+      <input type="text" id="search" class="form-control" placeholder="Search...">
+    </div>
+
+    <div id="add" class="col-md-6 col-12 mt-4">
+      <button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Category</button>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <!-- Table-to-load-the-data Part -->
+    <div class="col-12 col-md-11">
+      <table class="table mt-4">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Info</th>
+          <th class="media-480-delete">Created at</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody id="category-list" name="category-list">
+        @foreach ($categories as $category)
+          <tr id="category{{$category->id}}">
+            <td id="id">{{$category->id}}</td>
+            <td>{{$category->name}}</td>
+            <td>{{$category->info}}</td>
+            <td class="media-480-delete">{{$category->created_at}}</td>
+            <td>
+              <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$category->id}}">Edit</button>
+              <button class="btn btn-danger btn-xs btn-delete delete-category" value="{{$category->id}}">Delete</button>
+            </td>
+          </tr>
+        @endforeach
+        </tbody>
+      </table> <!-- End of Table-to-load-the-data Part -->
+   </div>
+
+  </div>
 
   <!-- Modal (Pop up when detail button clicked) -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

@@ -6,28 +6,34 @@
 @section('right-panel')
 
 
-    <h2>Ingredients</h2>
+    <h2 class="text-left mt-4">Ingredients</h2>
 
 
     <div class="error" role="alert"></div>
 
-    <div class="d-flex justify-content-end mt-5">
-      <div class="mr-auto"><button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Ingredients</button></div>
-      <div class="col-md-6"><!--<i class="fa fa-search" aria-hidden="true"></i>-->
-      <input type="text" id="search" class="form-control" placeholder="Search..."></div>
+    <div class="row mt-4">
+        <div class="col-md-6 col-12 mt-4"><!--<i class="fa fa-search" aria-hidden="true"></i>-->
+            <input type="text" id="search" class="form-control" placeholder="Search...">
+        </div>
+
+        <div id="add" class="col-md-6 col-12 mt-4">
+            <button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Ingredient</button>
+        </div>
     </div>
 
-    <div class="mt-5">
+
+    <div class="row mt-2">
         <!-- Table-to-load-the-data Part -->
-        <table class="table">
+        <div class="col-12 col-md-11">
+        <table class="table mt-4">
             <thead>
             <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Info</th>
-                <th>Allergies</th>
+                <th class="media-480-delete">Info</th>
+                <th class="media-480-delete">Allergies</th>
                 <th>Images</th>
-                <th>Created at</th>
+                <th class="media-480-delete">Created at</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -36,8 +42,8 @@
                   <tr id="ingredient{{$ingredient->id}}">
                     <td id="id">{{$ingredient->id}}</td>
                     <td>{{$ingredient->name}}</td>
-                    <td>{{$ingredient->info}}</td>
-                    <td>
+                    <td class="media-480-delete">{{$ingredient->info}}</td>
+                    <td class="media-480-delete">
                       @if(count($ingredient->allergies)==0)
                         This ingredient has no alergies
                       @else
@@ -47,7 +53,7 @@
                       @endif
                     </td>
                     <td></td>
-                    <td>{{$ingredient->created_at}}</td>
+                    <td class="media-480-delete">{{$ingredient->created_at}}</td>
                     <td>
                       <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$ingredient->id}}">Edit</button>
                       <button class="btn btn-danger btn-xs btn-delete delete-ingredient" value="{{$ingredient->id}}">Delete</button>
@@ -56,7 +62,7 @@
               @endforeach
             </tbody>
         </table> <!-- End of Table-to-load-the-data Part -->
-
+        </div>
     {{$ingredients->links()}}
 
     <!-- Modal (Pop up when detail button clicked) -->
