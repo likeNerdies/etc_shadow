@@ -29,17 +29,17 @@ class UploadProduct extends FormRequest
                     'required',
                     'regex:/^[a-zA-Z\' ]+$/'
                 ),
-            'price' =>
+           /* 'price' =>
                 array(
                     'required',
-                    'regex:/(^([0-9]{2,})$)/'
-                ),
+                    'regex:/(^([0-9]{1,})$)/'
+                ),*/
             'description' => 'required',
-            'exdate' => 'required|date',
+            'expiration_date' => 'required|date',
             'weight' =>
                 array(
                     'required',
-                    'regex:/(^([0-9]{2,})$)/'
+                    'regex:/(^([0-9]{1,})$)/'
                 ),
             'vegetarian'=>'numeric|min:0|max:1',
             'vegan'=>'numeric|min:0|max:1',
@@ -52,11 +52,11 @@ class UploadProduct extends FormRequest
             'ingredients'  => 'required|array|min:1',//input type hidden ingredients
 
         ];
-        $photos = count($this->input('photos'));
+       /* $photos = count($this->input('photos'));
         foreach (range(0, $photos) as $index) {
             $rules['photos.' . $index] = 'required|image|mimes:jpeg,bmp,png|max:5000';
         }
-
+*/
         return $rules;
     }
 }

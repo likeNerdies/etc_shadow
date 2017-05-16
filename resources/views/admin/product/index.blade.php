@@ -1,7 +1,7 @@
 @extends('admin.index')
 @section('title','products')
 @section('styles')
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 @endsection
 @section('right-panel')
 
@@ -70,12 +70,10 @@
                       {{-----------------------------}}
 
                     <td>
-                      @if(count($product->categories)==0)
-
-                      @else
-                        @foreach($product->cateogries as $cateogry)
-                          <p>{{$cateogry->name}}</p>
-                        @endforeach
+                      @if(count($product->categories)>0)
+                            @foreach($product->categories as $category)
+                                <p>{{$category->name}}</p>
+                            @endforeach
                       @endif
                     </td>
 
@@ -107,17 +105,15 @@
             aria-hidden="true">×</span></button>
             <h4 class="modal-title" id="myModalLabel">Product Editor</h4>
         </div>
-
         <div id="ajaxerror"></div>
-
           <div class="modal-body">
             <form id="formProducts" name="formProducts" class="form-horizontal" novalidate="">
               {{ csrf_field() }}
-              <div class="form-group error">
+              <div class="form-group">
                 <label for="name" class="col-sm-3 control-label">Name</label>
                 <div class="col-sm-9">
                   <input type="text" class="form-control has-error" id="name" name="name"
-                  placeholder="Category name" value="">
+                  placeholder="Product name" value="">
                 </div>
               </div>
 
@@ -138,7 +134,7 @@
                 <div class="form-group">
                     <label for="expiration_date" class="col-sm-3 control-label">Expiration Date</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="expiration_date" name="expiration_date" placeholder="date" value="">
+                        <input type="text" class="form-control" id="expiration_date" name="expiration_date" placeholder="expiration date" value="">
                     </div>
                 </div>
 
@@ -158,17 +154,20 @@
 
 
                 <div class="form-group">
-                    <label for="ingredient_list">Allergies</label>
+                    <label for="ingredient_list">Ingredients</label>
                     <select id="ingredient_list" name="ingredients[]" class="form-control" multiple></select>
                 </div>
 
                 <div class="form-group">
-                    <label for="category_list">Allergies</label>
+                    <label for="category_list">Categories</label>
                     <select id="category_list" name="categories[]" class="form-control" multiple></select>
                 </div>
 
                 <div class="form-group">
                     <select class="custom-select" id="brand_id" name="brand_id">
+                        @foreach($brands as $brand)
+                            <option value="{{$brand->id}}">{{$brand->name}}</option>
+                        @endforeach
 
                     </select>
                 </div>
@@ -183,7 +182,7 @@
                     <div class="card card-block">
 
                         <div class="form-group">
-                            <label for="dimension" class="col-sm-3 control-label">Expiration Date</label>
+                            <label for="dimension" class="col-sm-3 control-label">Dimension</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="dimension" name="dimension" placeholder="dimension of the product" value="">
                             </div>
