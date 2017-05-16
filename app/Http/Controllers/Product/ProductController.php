@@ -44,7 +44,7 @@ class ProductController extends Controller
     public function store(UploadProduct $request)
     {
         $fotoinserted = array();//lo usaremos para guardar los path de los imagenes insertados
-        if ($request->ajax()) {
+      //  if ($request->ajax()) {
             DB::beginTransaction();
             $product = "";
             $inserted = false;
@@ -88,11 +88,11 @@ class ProductController extends Controller
                 ]);
             }
             return $product;
-        } else {
+        /* } else {
             return response()->json([
                 'error' => 'method only accepts ajax request'
             ]);
-        }
+        }*/
     }
 
     /**
@@ -120,8 +120,8 @@ class ProductController extends Controller
         $product = "";
         // DB::transaction(function () use ($request, $id) {//iniciando transaccion
         $inserted = false;
-        if ($request->ajax()) {
-            DB::beginTransaction();
+     //   if ($request->ajax()) {
+        DB::beginTransaction();
             try {
                 $product = App\Product::findOrFail($id);
                 $product->name = $request->name;
@@ -179,11 +179,11 @@ class ProductController extends Controller
             }
             return $product;
 
-        } else {
+       /* } else {
             return response()->json([
                 'error' => 'method only accepts ajax request'
             ]);
-        }
+        }*/
     }
 
     /**
