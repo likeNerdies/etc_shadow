@@ -53,6 +53,7 @@ Route::post('/admin/login', 'auth\AdminLoginController@login')->name('admin.logi
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin',], function () {
 
     Route::get('/', 'admin\AdminController@index')->name('admin.dashboard');
+    Route::get('/configuration', 'admin\AdminController@configuration')->name('admin.configuration');
     //ROUTE Plans
     Route::resource('/plans', 'plan\PlanController');
     /*
