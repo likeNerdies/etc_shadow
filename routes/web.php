@@ -54,6 +54,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin',], function () {
 
     Route::get('/', 'admin\AdminController@index')->name('admin.dashboard');
     Route::get('/configuration', 'admin\AdminController@configuration')->name('admin.configuration');
+    Route::put('/update', 'admin\AdminController@update')->name('admin.update');
+
+
+
+    Route::get('/admin-users', 'admin\AdminController@adminUsers')->name('admin.adminUsers');
+    Route::get('/admin-users/{id}', 'admin\AdminController@show')->name('admin.adminUserShow');
+    Route::delete('/admin-users/{id}', 'admin\AdminController@delete')->name('admin.adminUserDelete');
+    Route::post('/admin-users', 'admin\AdminController@store')->name('admin.adminUserStore');
+    Route::put('/admin-users/{id}', 'admin\AdminController@updateAdminUser')->name('admin.adminUserUpdate');
+
     //ROUTE Plans
     Route::resource('/plans', 'plan\PlanController');
     /*
@@ -128,6 +138,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin',], function () {
     //Route Transporters
     Route::resource('/transporters', 'transporter\TransporterController');
     //end Route Transporters
+
+
+    //Route Clients
+    Route::prefix('/clients')->group(function () {
+        Route::get('/', 'brand\BrandController@index');
+        Route::post('/', 'brand\BrandController@store');
+        Route::get('/{client}', 'brand\BrandController@show');
+        Route::put('/{client}', 'brand\BrandController@update');
+        Route::delete('/{client}', 'brand\BrandController@delete');
+    });
+    //end Route Client
 
 });//END ADMIN GROUP ROUTES
 
