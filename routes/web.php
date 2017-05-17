@@ -154,6 +154,8 @@ Route::prefix('/search')->group(function (){
 
     Route::get('/plan','search\SearchController@plan')->middleware('auth:admin')->name('search.plan');
 
+    Route::get('/allergy','search\SearchController@allergy')->middleware('auth:admin')->name('search.allergy');
+
 });
 
 

@@ -19,6 +19,21 @@ class SearchController extends Controller
      * busqueda ajax para plan
      * @param Request $request
      */
+    public function allergy(Request $request, Allergy $plan)
+    {
+        $retorn = "";
+        if ($request->ajax() && $request->has('allergy')) {
+            $retorn = $plan->where('id', '=', $request->allergy)
+                ->orWhere('name', 'like', '%' . $request->allergy . '%')->get();
+        } else {
+            //todo
+        }
+        return $retorn;
+    }
+    /**
+     * busqueda ajax para plan
+     * @param Request $request
+     */
     public function plan(Request $request, Plan $plan)
     {
         $retorn = "";
