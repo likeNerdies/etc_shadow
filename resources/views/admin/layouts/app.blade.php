@@ -11,7 +11,6 @@
     <!-- Right panel CSS -->
     <!--<link rel="stylesheet" href="/css/admin/right_panel.css">-->
 
-
     <!-- Bootstrap 4 -->
     <link rel="stylesheet" href="/css/libraries/bootstrap4/bootstrap.min.css">
 
@@ -47,6 +46,8 @@
 <script src="{{asset('/js/libraries/tether/tether.js')}}"></script><!-- IMPORTANT: Always before the bootstrap file -->
 <script src="{{asset('/js/libraries/bootstrap4/bootstrap.js')}}"></script>
 <script src="{{asset('/js/admin/light-bootstrap-dashboard.js')}}"></script>
+
+<script src="{{asset('/js/validations/validator.js')}}"></script>
 
 @yield('scripts')
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>-->

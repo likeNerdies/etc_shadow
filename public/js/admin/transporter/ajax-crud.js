@@ -123,7 +123,6 @@ $(document).ready(function() {
                 } else {
                   msg = "<p>There was an internal error. Contact with the amdin.</p>"
                 }
-
             }
         });
     });
