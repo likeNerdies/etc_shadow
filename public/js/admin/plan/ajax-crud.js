@@ -1,28 +1,28 @@
 $(document).ready(function() {
 
-  var url = "/admin/transporters";
+  var url = "/admin/plans";
 
-  // CANVIAR PER PLANS
+
 
   //display modal form for transporter editing
     $(document).on('click', '.open-modal', function(e) {
    // $('.open-modal').click(function() {
-        var transporter_id = $(this).val();
-        console.log("transporter_id: " + transporter_id);
+        var plan_id = $(this).val();
+        console.log("transporter_id: " + plan_id);
 
-        $.get(url + '/' + transporter_id, function (data) {
+        $.get(url + '/' + plan_id, function (data) {
             //success data
             $('#id').val(data.id);
             $('#name').val(data.name);
-            $('#cif').val(data.cif);
-            $('#phone_number').val(data.phone_number);
+            $('#price').val(data.cif);
+            $('#info').val(data.info);
             $('#btn-save').val("update");
 
             $('#myModal').modal('show');
         })
     });
 
-    //display modal form for creating new transporter
+    //display modal form for creating new plan
     $(document).on('click', '#btn-add', function(e) {
    // $('#btn-add').click(function() {
         $('#btn-save').val("add");
@@ -31,10 +31,10 @@ $(document).ready(function() {
     });
 
     //delete transporter and remove it from list
-    $(document).on('click', '.delete-transporter', function(e) {
-   // $('.delete-transporter').click(function() {
-        var transporter = $(this).val();
-        console.log("transporter: " + transporter);
+    $(document).on('click', '.delete-plan', function(e) {
+   // $('.delete-plan').click(function() {
+        var plan = $(this).val();
+        console.log("plan: " + plan);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -42,10 +42,10 @@ $(document).ready(function() {
         });
         $.ajax({
             type: "DELETE",
-            url: url + '/' + transporter,
+            url: url + '/' + plan,
             success: function (data) {
                 console.log(data);
-                $("#transporter" + transporter).remove();
+                $("#plan" + plan).remove();
             },
             error: function (data) {
                 //console.log('Error:', data);
@@ -67,22 +67,22 @@ $(document).ready(function() {
 
         var formData = {
             name: $('#name').val(),
-            cif: $('#cif').val(),
-            phone_number: $('#phone_number').val(),
+            price: $('#price').val(),
+            info: $('#info').val(),
         }
 
         //used to determine the http verb to use [add=POST], [update=PUT]
         var state = $('#btn-save').val();
 
         var type = "POST"; //for creating new resource
-        var transporter_id = $('#id').val();
-        console.log("id: " +transporter_id);
+        var plan_id = $('#id').val();
+        console.log("id: " +plan_id);
         var my_url = url;
 
         if (state == "update"){
           console.log("update");
             type = "PUT"; //for updating existing resource
-            my_url += '/' + transporter_id;
+            my_url += '/' + plan_id;
         }
         console.log("URL:"+my_url);
         console.log(formData);
@@ -95,18 +95,25 @@ $(document).ready(function() {
             success: function (data) { // success:
                 console.log(data);
 
-                var transporter = '<tr id="transporter' + data.id + '"><td>' + data.id + '</td><td>' + data.name + '</td><td>' + data.cif + '</td><td>' + data.phone_number + '</td>';
-                transporter += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '">Edit</button>';
-                transporter += '<button class="btn btn-danger btn-xs btn-delete delete-transporter" value="' + data.id + '">Delete</button></td></tr>';
+                var plan = '<tr id="plan' + data.id + '"><td id="id">' + data.id + '</td><td>' + data.name + '</td><td>' + data.price + '</td>';
+
+                    if(data.info!=null){
+                        plan+='<td>' + data.info + '</td>';
+                    }else{
+                        plan+='<td></td>';
+                    }
+
+                plan += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '">Edit</button>';
+                plan += '<button class="btn btn-danger btn-xs btn-delete delete-plan" value="' + data.id + '">Delete</button></td></tr>';
 
                 if (state == "add"){ //if user added a new record
-                    $('#transporter-list').append(transporter);
+                    $('#plan-list').append(plan);
                 }else{ //if user updated an existing record
 
-                    $("#transporter" + transporter_id).replaceWith( transporter );
+                    $("#plan" + plan_id).replaceWith( plan );
                 }
 
-                $('#formTransporters').trigger("reset");
+                $('#formPlans').trigger("reset");
 
                 $('#myModal').modal("hide");
             },
@@ -123,20 +130,29 @@ $(document).ready(function() {
         if($value!=''){
        $.ajax({
             type:'get',
-            url:'/search/transporter',
-            data:{'transporter':$value},
+            url:'/search/plan',
+            data:{'plan':$value},
            success:function(data){
                 console.log(data)
                 if(data.length==0){
-                    $('#transporter-list').empty();
-                    $('#transporter-list').append('<p class="text-center">No results found</p>')
+                    $('#plan-list').empty();
+                    $('#plan-list').append('<p class="text-center">No results found</p>')
                 }else{
-                    $('#transporter-list').empty();
+                    $('#plan-list').empty();
                     for (i=0;i<data.length;i++){
-                        var transporter = '<tr id="transporter' + data[i].id + '"><td>' + data[i].id + '</td><td>' + data[i].name + '</td><td>' + data[i].cif + '</td><td>' + data[i].phone_number + '</td>';
-                        transporter += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].id + '">Edit</button>';
-                        transporter += '<button class="btn btn-danger btn-xs btn-delete delete-transporter" value="' + data[i].id + '">Delete</button></td></tr>';
-                        $('#transporter-list').append(transporter);
+
+                        var plan = '<tr id="plan' + data[i].id + '"><td id="id">' + data[i].id + '</td><td>' + data[i].name + '</td><td>' + data[i].price + '</td>';
+
+                        if(data.info!=null){
+                            plan+='<td>' + data[i].info + '</td>';
+                        }else{
+                            plan+='<td></td>';
+                        }
+
+                        plan += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].id + '">Edit</button>';
+                        plan += '<button class="btn btn-danger btn-xs btn-delete delete-plan" value="' + data[i].id + '">Delete</button></td></tr>';
+
+                        $('#plan-list').append(plan);
                     }
 
                 }

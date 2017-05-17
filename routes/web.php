@@ -132,7 +132,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin',], function () {
 });//END ADMIN GROUP ROUTES
 
 
-//search route
+//search routes
 
 Route::prefix('/search')->group(function (){
 
@@ -151,6 +151,10 @@ Route::prefix('/search')->group(function (){
     Route::get('/brandSelect','search\SearchController@brandSelect')->middleware('auth:admin')->name('search.brandSelect');
 
     Route::get('/product','search\SearchController@product')->middleware('auth:admin')->name('search.product');
+
+    Route::get('/plan','search\SearchController@plan')->middleware('auth:admin')->name('search.plan');
+
+    Route::get('/allergy','search\SearchController@allergy')->middleware('auth:admin')->name('search.allergy');
 
 });
 
