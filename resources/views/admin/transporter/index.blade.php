@@ -1,5 +1,8 @@
+
 @extends('admin.layouts.app')
+
 @section('title','Transporters')
+
 @section('right-panel')
 
 <h2>Transporters</h2>
@@ -7,9 +10,9 @@
 <div class="error" role="alert"></div>
 
 <div class="d-flex justify-content-end mt-5">
-  <div class="mr-auto"><button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Category</button></div>
-  <div class="col-md-6"><!--<i class="fa fa-search" aria-hidden="true"></i>-->
-  <input type="text" id="search" class="form-control" placeholder="Search..."></div>
+  <div class="mr-auto"><button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Transporter</button></div>
+  <div class="col-md-6">
+  <input type="text" id="search" class="form-control" placeholder="Search by ID or name"></div>
 </div>
 
 <div class="mt-5">
@@ -60,21 +63,21 @@
             <div class="form-group error">
               <label for="inputTransporter" class="col-sm-3 control-label">Name</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control has-error" id="name" name="name" placeholder="Laura" value="">
+                <input type="text" class="form-control has-error" id="name" name="name" placeholder="Laura" value="" onblur="validateName(this)">
               </div>
             </div>
 
             <div class="form-group">
               <label for="cif" class="col-sm-3 control-label">CIF</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" id="cif" name="cif" placeholder="A12345678" value="">
+                <input type="text" class="form-control" id="cif" name="cif" placeholder="A12345678" value="" onblur="validateCIF(this)">
               </div>
             </div>
 
             <div class="form-group">
               <label for="phone_number" class="col-sm-5 control-label">Phone number</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="123456789" value="">
+                <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="123456789" value="" onblur=validatePhone(this)>
               </div>
             </div>
           </form>
@@ -95,7 +98,7 @@
 @endsection
 
 @section('scripts')
-  <script src="{{asset('/js/admin/transporter/ajax-crud.js')}}"></script>
-  <!--<script src="{{asset('/fonts/Pe-icon-7-stroke.woff')}}"></script>-->
+
+<script src="{{asset('/js/admin/transporter/ajax-crud.js')}}"></script>
 
 @endsection

@@ -24,12 +24,12 @@ class StoreValidation extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required|min:2',
+            'name'=>'required|min:3',
             'cif'=>array(
                 'required',
                 'regex:/^[a-zA-Z][0-9]{8}$/',
             ),
-            'phone_number'=>'required|numeric'
+            'phone_number'=>'required|digits:9'
         ];
     }
 }

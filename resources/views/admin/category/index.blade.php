@@ -1,7 +1,8 @@
 @extends('admin.layouts.app')
 @section('title','categories')
 @section('right-panel')
-<div class="wrapper-content">
+
+  <div class="wrapper-content">
 
   <h2 class="text-left mt-4">Categories</h2>
 
@@ -10,8 +11,8 @@
 
 
   <div class="row mt-4">
-    <div class="col-md-6 col-12 mt-4"><!--<i class="fa fa-search" aria-hidden="true"></i>-->
-      <input type="text" id="search" class="form-control" placeholder="Search...">
+    <div class="col-md-6 col-12 mt-4">
+      <input type="text" id="search" class="form-control" placeholder="Search by ID or name">
     </div>
 
     <div id="add" class="col-md-6 col-12 mt-4">
@@ -74,16 +75,16 @@
           <form id="formCategories" name="formCategories" class="form-horizontal" novalidate="">
             {{ csrf_field() }}
             <div class="form-group error">
-              <label for="inputCategory" class="col-sm-3 control-label">Name</label>
+              <label for="name" class="col-sm-3 control-label">Name</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control has-error" id="name" name="name" placeholder="Category name" value="">
+                <input type="text" class="form-control has-error" id="name" name="name" placeholder="Dairy" value="" onblur="validateName(this)">
               </div>
             </div>
 
             <div class="form-group">
-              <label for="inputEmail3" class="col-sm-3 control-label">Info</label>
+              <label for="info" class="col-sm-3 control-label">Info</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" id="info" name="info" placeholder="Info" value="">
+                <textarea  class="form-control" name="info" rows="5" cols="38" placeholder="" onblur="validateName(this)"></textarea>
               </div>
             </div>
           </form>
@@ -105,6 +106,4 @@
 
 @section('scripts')
   <script src="{{asset('/js/admin/category/ajax-crud.js')}}"></script>
-  <!--<script src="{{asset('/fonts/Pe-icon-7-stroke.woff')}}"></script>-->
-
 @endsection

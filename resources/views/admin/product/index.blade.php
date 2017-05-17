@@ -1,22 +1,24 @@
 @extends('admin.layouts.app')
+
 @section('title','products')
+
 @section('styles')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 @endsection
-@section('right-panel')
 
+@section('right-panel')
 
     <h2 class="text-left mt-4">Products</h2>
 
     <div class="error" role="alert"></div>
 
     <div class="row mt-4">
-        <div class="col-md-6 col-12 mt-4"><!--<i class="fa fa-search" aria-hidden="true"></i>-->
-            <input type="text" id="search" class="form-control" placeholder="Search...">
+        <div class="col-md-6 col-12 mt-4">
+            <input type="text" id="search" class="form-control" placeholder="Search by ID or name">
         </div>
 
         <div id="add" class="col-md-6 col-12 mt-4">
-            <button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Category</button>
+            <button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Product</button>
         </div>
     </div>
 
@@ -121,46 +123,44 @@
               <div class="form-group">
                 <label for="name" class="col-sm-3 control-label">Name</label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control has-error" id="name" name="name"
-                  placeholder="Product name" value="">
+                  <input type="text" class="form-control has-error" id="name" name="name" placeholder="Cashew drink" value="" onblur="validateName(this)">
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="price" class="col-sm-3 control-label">Price</label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" id="price" name="price" placeholder="price example: 31.95" value="">
+                  <input type="text" class="form-control" id="price" name="price" placeholder="price example: 31.95" value="" onblur="validatePrice(this)">
                 </div>
               </div>
 
                 <div class="form-group">
                     <label for="description" class="col-sm-3 control-label">Description</label>
                     <div class="col-sm-9">
-                        <textarea class="form-control" rows="5" id="description" name="description" placeholder="description of the product"></textarea>
+                        <textarea class="form-control" rows="5" cols="38" id="description" name="description" placeholder="description of the product" onblur="validateName(this)"></textarea>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="expiration_date" class="col-sm-3 control-label">Expiration Date</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="expiration_date" name="expiration_date" placeholder="expiration date" value="">
+                        <input type="date" class="form-control" id="expiration_date" name="expiration_date" placeholder="09/02/2018"  value="" onblur="validateExpDate(this)">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="weight" class="col-sm-3 control-label">Weight</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="weight" name="weight" placeholder="weight of kg/l the product example : 2.65" value="">
+                        <input type="text" class="form-control" id="weight" name="weight" placeholder="weight of kg/l the product example : 2.65" value="" onblur="validateWeight(this)">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="stock" class="col-sm-3 control-label">Stock</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="stock" name="stock" placeholder="stock units" value="">
+                        <input type="number" class="form-control" id="stock" name="stock" placeholder="13" value="" onblur="validateStock(this)">
                     </div>
                 </div>
-
 
                 <div class="form-group">
                     <label for="ingredient_list">Ingredients</label>
@@ -181,8 +181,6 @@
                     </select>
                 </div>
 
-
-
             {{--OPTIONAL DATA--}}
 
                 <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapseformoptionaldata" aria-expanded="false" aria-controls="collapseformoptionaldata">Click me to add option data</button>
@@ -193,14 +191,14 @@
                         <div class="form-group">
                             <label for="dimension" class="col-sm-3 control-label">Dimension</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="dimension" name="dimension" placeholder="dimension of the product" value="">
+                                <input type="text" class="form-control" id="dimension" name="dimension" placeholder="" value=""><!-- afegir exemple -->
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="real_weight" class="col-sm-3 control-label">Real weight</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="real_weight" name="real_weight" placeholder="weight of the product example kg/l : 2.65" value="">
+                                <input type="text" class="form-control" id="real_weight" name="real_weight" placeholder="weight of the product example kg/l : 2.65" value="" onblur="validateWeight(this)">
                             </div>
                         </div>
 

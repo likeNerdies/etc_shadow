@@ -38,7 +38,7 @@ class PlanController extends Controller
     public function store(PlanValidation $request)
     {
         $plan=App\Plan::create($request->all());
-        return redirect('plan.index');
+        return $plan;
     }
 
     /**
