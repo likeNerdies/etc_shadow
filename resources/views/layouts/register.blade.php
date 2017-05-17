@@ -7,7 +7,7 @@ aria-hidden="true">
 
       <!-- Header -->
       <div class="modal-header">
-        <h4 class="modal-title" id="modalRegisterLabel">Register</h4>
+        <h4 class="modal-title" id="modalRegisterLabel">@lang('login.register')</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -21,7 +21,7 @@ aria-hidden="true">
 
           {{--  <div class="form-group row{{ $errors->has('name') ? ' has-error' : '' }}">--}}
             <div class="form-group" id="register-name">
-              <label for="name" class="control-label float-left">Name</label>
+              <label for="name" class="control-label float-left">@lang('login.name')</label>
 
               <div>
                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}"
@@ -41,7 +41,7 @@ aria-hidden="true">
 
             {{-- <div class="form-group row{{ $errors->has('first_surname') ? ' has-error' : '' }}">--}}
               <div class="form-group" id="register-surname">
-                <label for="name" class="control-label float-left">Surname</label>
+                <label for="name" class="control-label float-left">@lang('login.surname')</label>
 
                 <div>
                   <input id="first_surname" type="text" class="form-control" name="first_surname"
@@ -61,7 +61,7 @@ aria-hidden="true">
 
               <div class="form-group" id="register-email">
                 {{-- <div class="form-group row{{ $errors->has('email') ? ' has-error' : '' }}">--}}
-                  <label for="email" class="control-label float-left">E-Mail Address</label>
+                  <label for="email" class="control-label float-left">@lang('login.email')</label>
 
                   <div>
                     <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}"
@@ -102,7 +102,7 @@ aria-hidden="true">
                   </div>
                 </div>--}}
                 <div class="form-group" id="register-password">
-                  <label for="password" class="control-label float-left">Password</label>
+                  <label for="password" class="control-label float-left">@lang('login.password')</label>
                   <input class="form-control" id="password" name="password" placeholder="***********" required="" title="Please enter your password" type="password" value="">
                   <span class="help-block">
                     <strong id="register-errors-password"></strong>
@@ -111,7 +111,7 @@ aria-hidden="true">
 
                 </div>
                 <div class="form-group">
-                  <label class="control-label float-left" for="password-confirm">Confirm Password</label>
+                  <label class="control-label float-left" for="password-confirm">@lang('login.passwordConfirm')</label>
                   <input class="form-control" id="password-confirm" name="password_confirmation" placeholder="***********" type="password">
                   <span class="help-block"><strong id="form-errors-password-confirm"></strong></span>
                 </div>
@@ -119,7 +119,7 @@ aria-hidden="true">
                 <div class="form-group">
                   <div class="text-right">
                     <button type="submit" class="btn btn-primary">
-                      Register
+                      @lang('login.register')
                     </button>
                   </div>
                 </div>

@@ -5,7 +5,7 @@
 
       <!-- Header -->
       <div class="modal-header">
-        <h4 class="modal-title" id="modalLoginLabel">Login</h4>
+        <h4 class="modal-title" id="modalLoginLabel">@lang('login.login')</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -18,7 +18,7 @@
           {{ csrf_field() }}
           <div class="form-group" id="email-div">
             {{--    <div class="form-group row{{ $errors->has('email') ? ' has-error' : '' }}">--}}
-              <label for="email" class="control-label float-left">E-Mail Address</label>
+              <label for="email" class="control-label float-left">@lang('login.email')</label>
 
               <div class="">
                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
@@ -37,9 +37,9 @@
 
             <div class="form-group" id="password-div">
               {{--   <div class="form-group row{{ $errors->has('password') ? ' has-error' : '' }}"> --}}
-                <label for="password" class="control-label float-left">Password</label>
+                <label for="password" class="control-label float-left">@lang('login.password')</label>
                 <a class="btn btn-link float-right forgottenPassword" href="">
-                  Forgot Your Password?
+                  @lang('login.passwordForgot')?
                 </a>
                 <div>
                   <input id="password" type="password" class="form-control" name="password" required>
@@ -64,7 +64,7 @@
                 <div class="text-left">
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                      <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> @lang('login.rememberMe')
                     </label>
                   </div>
                 </div>
@@ -73,7 +73,7 @@
               <div class="form-group">
                 <div class="text-right">
                   <button type="submit" class="btn btn-primary">
-                    Login
+                    @lang('login.login')
                   </button>
                 </div>
               </div>
