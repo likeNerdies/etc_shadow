@@ -16,7 +16,7 @@ class PlanController extends Controller
     public function index()
     {
         $plans=App\Plan::paginate(9);//pasamos todoos ls planes a la vista plan/index.blade.php
-        return view ('plan.index',compact('plans'));
+        return view ('admin.plan.index', compact('plans'));
     }
 
     /**
@@ -51,7 +51,8 @@ class PlanController extends Controller
     {
         $plan = App\Plan::findOrFail($id);
         //carpeta plan, dentro show.blade.php
-        return view('plan.show', compact('plan'));
+        //return view('plan.show', compact('plan'));
+        return $plan;
     }
 
     /**
@@ -60,12 +61,12 @@ class PlanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    /*public function edit($id)
     {
         $plan = App\Plan::findOrFail($id);
         //carpeta plan, dentro edit.blade.php
         return view('plan.edit', compact('plan'));
-    }
+    }*/
 
     /**
      * Update the specified resource in storage.
@@ -80,7 +81,8 @@ class PlanController extends Controller
         $plan->name=$request->name;
         $plan->price=$request->price;
         $plan->save();
-        return redirect('plan.index');
+        //return redirect('plan.index');
+        return $plan;
     }
 
     /**
@@ -93,6 +95,7 @@ class PlanController extends Controller
     {
         $plan = App\Plan::findOrFail($id);
         $plan->delete();
-        return redirect('/');
+        //return redirect('/');
+        return $plan;
     }
 }
