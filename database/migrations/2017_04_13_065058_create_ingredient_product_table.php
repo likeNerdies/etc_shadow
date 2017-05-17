@@ -20,8 +20,8 @@ class CreateIngredientProductTable extends Migration
             $table->timestamps();
         });
         Schema::table('ingredient_product', function (Blueprint $table) {
-            $table->foreign('ingredient_id')->references('id')->on('ingredients');
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('ingredient_id')->references('id')->on('ingredients')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
 

@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Storage;
 class Ingredient extends Model
 {
     protected $fillable=[
@@ -33,5 +33,8 @@ class Ingredient extends Model
      */
     public function allergies(){
         return $this->belongsToMany('App\Allergy');
+    }
+    public function getPublicImgUrl($url){
+        return Storage::url($url);
     }
 }
