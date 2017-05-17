@@ -1,3 +1,53 @@
+/*<JUST TEST DASHBOARD>*/
+
+#wrapper-dashboard{
+
+}
+
+
+#breadcrumb-wrapper{
+  position: relative;
+  top: .5px;
+  background: rgba(255,255,255, .4);
+}
+p{
+  margin-bottom: 0px;
+}
+#breadcrumb p{
+  padding: 12.25px 0;
+}
+
+#title{
+  position: relative;
+  top:50%;
+}
+
+.box-info, #graphic-one, #graphic-two, #best-sellers, #feedback{
+  width: 100%;
+  padding: 15px 15px 30px;
+  margin:10% auto;
+}
+
+.bg-blue{
+  background: blue;
+}
+
+.bg-red{
+  background: red;
+}
+
+.bg-yellow{
+  background: yellow;
+}
+
+.bg-green{
+  background: green;
+}
+
+/* </JUST TEST DASHBOARD>*/
+
+
+
 /*STYLE SIDEBAR*/
 
 #wrapper{
@@ -6,27 +56,28 @@
   width:70%;
   height:100%;
   top:0px;
-  left:30%;
+  left:26.5%;
 }
 
 .nav-side-menu {
   overflow: auto;
-  font-family: verdana;
-  font-size: 12px;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
   font-weight: 200;
-  background-color: #2e353d;
+  background-color: rgba(29,43,59, .9);
   position: fixed;
   top: 0px;
   width: 20%;
   height: 100%;
-  color: #e1ffff;
+  color: white;
 }
 .nav-side-menu .brand {
-  background-color: #23282e;
+  background-color: #00c9b4;
   line-height: 50px;
   display: block;
   text-align: center;
-  font-size: 14px;
+  font-size: 22px;
+  font-weight: 500;
 }
 .nav-side-menu .toggle-btn {
   display: none;
@@ -97,15 +148,15 @@
   vertical-align: middle;
 }
 .nav-side-menu li {
-  padding-left: 0px;
+  padding:7px 0;
   border-left: 3px solid #2e353d;
   border-bottom: 1px solid #23282e;
 }
-.nav-side-menu li a {
+.nav-side-menu a li  {
   text-decoration: none;
   color: #e1ffff;
 }
-.nav-side-menu li a i {
+.nav-side-menu a li i {
   padding-left: 10px;
   width: 20px;
   padding-right: 20px;
@@ -173,6 +224,8 @@
     width: 40px;
     text-align: center;
   }
+
+
   .brand {
     text-align: left !important;
     font-size: 22px;

@@ -1,44 +1,50 @@
-@extends('admin.index')
-@section('title','brands')
+@extends('admin.layouts.app')
+@section('title','Brands')
 @section('right-panel')
 
-<h2>Brands</h2>
+  <h2 class="text-left mt-4">Brands</h2>
 
-<div class="error" role="alert"></div>
+  <div class="error" role="alert"></div>
 
-<div class="d-flex justify-content-end mt-5">
-  <div class="mr-auto"><button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Brand</button></div>
-  <div class="col-md-6"><!--<i class="fa fa-search" aria-hidden="true"></i>-->
-  <input type="text" id="search" class="form-control" placeholder="Search..."></div>
-</div>
+  <div class="row mt-4">
+    <div class="col-md-6 col-12 mt-4"><!--<i class="fa fa-search" aria-hidden="true"></i>-->
+      <input type="text" id="search" class="form-control" placeholder="Search...">
+    </div>
 
-<div class="mt-5">
+    <div id="add" class="col-md-6 col-12 mt-4">
+      <button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Category</button>
+    </div>
+  </div>
+
+  <div class="row mt-2">
   <!-- Table-to-load-the-data Part -->
-  <table class="table">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Info</th>
-        <th>Created at</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody id="brand-list" name="brand-list">
-      @foreach ($brands as $brand)
-      <tr id="brand{{$brand->id}}">
-        <td id="id">{{$brand->id}}</td>
-        <td>{{$brand->name}}</td>
-        <td>{{$brand->info}}</td>
-        <td>{{$brand->created_at}}</td>
-        <td>
-          <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$brand->id}}">Edit</button>
-          <button class="btn btn-danger btn-xs btn-delete delete-brand" value="{{$brand->id}}">Delete</button>
-        </td>
-      </tr>
-      @endforeach
-    </tbody>
-  </table> <!-- End of Table-to-load-the-data Part -->
+    <div class="col-12 col-md-11">
+      <table class="table mt-4">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Info</th>
+          <th class="media-480-delete">Created at</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="brand-list" name="brand-list">
+        @foreach ($brands as $brand)
+        <tr id="brand{{$brand->id}}">
+          <td id="id">{{$brand->id}}</td>
+          <td>{{$brand->name}}</td>
+          <td>{{$brand->info}}</td>
+          <td class="media-480-delete">{{$brand->created_at}}</td>
+          <td>
+            <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$brand->id}}">Edit</button>
+            <button class="btn btn-danger btn-xs btn-delete delete-brand" value="{{$brand->id}}">Delete</button>
+          </td>
+        </tr>
+        @endforeach
+      </tbody>
+      </table>
+    </div><!-- End of Table-to-load-the-data Part -->
 
   <!-- Modal (Pop up when detail button clicked) -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

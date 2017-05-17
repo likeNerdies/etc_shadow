@@ -1,48 +1,3 @@
-<!--<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<a class="navbar-brand" href="#">Navbar</a>
-
-	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav mr-auto parent">
-			<li class="nav-item">
-				<a class="nav-link" href="#"><i class="fa fa-book mr-2" aria-hidden="true"></i>Catalog</a>
-				<ul class="child">
-					<li class="nav-item"><a class="nav-link" href="/admin/categories"><i class="fa fa-angle-right mr-2" aria-hidden="true"></i>Categories</a></li>
-					<li class="nav-item"><a class="nav-link" href=""><i class="fa fa-angle-right mr-2" aria-hidden="true"></i>Ingredients</a></li>
-					<li class="nav-item"><a class="nav-link" href=""><i class="fa fa-angle-right mr-2" aria-hidden="true"></i>Products</a></li>
-				</ul>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#"><i class="fa fa-shopping-basket mr-2" aria-hidden="true"></i>Plans</a>
-				<ul class="child">
-					<li class="nav-item"><a class="nav-link" href=""><i class="fa fa-angle-right mr-2" aria-hidden="true"></i>Plan 1</a></li>
-					<li class="nav-item"><a class="nav-link" href=""><i class="fa fa-angle-right mr-2" aria-hidden="true"></i>Plan 2</a></li>
-					<li class="nav-item"><a class="nav-link" href=""><i class="fa fa-angle-right mr-2" aria-hidden="true"></i>Plan 3</a></li>
-				</ul>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">
-					<i class="fa fa-truck mr-2" aria-hidden="true"></i>Transport
-				</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#"><i class="fa fa-users mr-2" aria-hidden="true"></i>Users</a>
-				<ul class="child">
-					<li class="nav-item"><a class="nav-link" href=""><i class="fa fa-angle-right mr-2" aria-hidden="true"></i>Users</a></li>
-					<li class="nav-item"><a class="nav-link" href=""><i class="fa fa-angle-right mr-2" aria-hidden="true"></i>Allergies</a></li>
-				</ul>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">
-					<i class="fa fa-cogs mr-2" aria-hidden="true"></i>Configuration
-				</a>
-			</li>
-		</ul>
-	</div>
-</nav>-->
-
 <div class="nav-side-menu">
 	<div class="brand">No Name</div>
 	<i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
@@ -50,50 +5,51 @@
 	<div class="menu-list">
 
 		<ul id="menu-content" class="menu-content collapse out">
-			<li>
-				<a href="/admin">
-					<i class="fa fa-dashboard fa-lg mr-2"></i> Dashboard
-				</a>
-			</li>
 
-			<li data-toggle="collapse" data-target="#products" class="collapsed">
-				<a href="#"><i class="fa fa-book mr-2" aria-hidden="true"></i>Catalogue<span class="arrow"></span></a>
-			</li>
+			<a href="/admin">
+				<li><i class="fa fa-dashboard fa-lg mr-2"></i> Dashboard</li>
+			</a>
+
+			<a href="#">
+				<li data-toggle="collapse" data-target="#products" class="collapsed">
+					<i class="fa fa-book mr-2" aria-hidden="true"></i>Catalogue<span class="arrow"></span>
+				</li>
+			</a>
+
 			<ul class="sub-menu collapse" id="products">
-				<li><a href="/admin/products">Products</a></li>
-				<li><a href="/admin/brands">Brands</a></li>
-				<li><a href="/admin/ingredients">Ingredients</a></li>
-				<li><a href="/admin/categories">Categories</a></li>
-				<li><a href="/admin/allergies">Allergies</a></li>
+				<a href="/admin/products"><li>Products</li></a>
+				<a href="/admin/brands"><li>Brands</li></a>
+				<a href="/admin/ingredients"><li>Ingredients</li></a>
+				<a href="/admin/categories"><li>Categories</li></a>
+				<a href="/admin/allergies"><li>Allergies</li></a>
 			</ul>
 
-
-			<li>
-				<a href="/admin/plans">
+			<a href="/admin/plans">
+				<li>
 					<i class="fa fa-shopping-basket mr-2" aria-hidden="true"></i>Plans
-				</a>
-			</li>
+				</li>
+			</a>
 
-
-			<li>
-				<a href="/admin/transporters">
+			<a href="/admin/transporters">
+				<li>
 					<i class="fa fa-truck mr-2" aria-hidden="true"></i>Transport
-				</a>
-			</li>
+				</li>
+			</a>
 
 
-			<li>
-				<a href="/admin/clients"><!-- ESTA RUTA NO EXISTE -->
+
+			<a href="/admin/clients"><!-- ESTA RUTA NO EXISTE -->
+				<li>
 					<i class="fa fa-users fa-lg mr-2"></i> Clients
-				</a>
-			</li>
+				</li>
+			</a>
 
-
-			<li>
-				<a href="/admin/configuration"><!-- ESTA RUTA NO EXISTE -->
+			<a href="/admin/configuration"><!-- ESTA RUTA NO EXISTE -->
+				<li>
 					<i class="fa fa-cogs mr-2" aria-hidden="true"></i>Configuration
-				</a>
-			</li>
+				</li>
+			</a>
+
 		</ul>
 	</div>
 </div>
