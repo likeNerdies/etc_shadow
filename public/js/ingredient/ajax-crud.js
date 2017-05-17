@@ -252,7 +252,7 @@ $(document).ready(function () {
                 dataType: 'json',
                 success: function (data) { // success:
 
-                $('#ingredient'+id+' > #ingredient-img').replaceWith("<td id='ingredient-img'><img width='165' height='110' src='"+data.ingredient+"'></td>");
+                $('#ingredient'+id+' > #ingredient-img').replaceWith("<td id='ingredient-img'><img width='165' height='110' src='"+data.image_path+"'></td>");
 
 
 /*  var ingredient = '<tr id="ingredient' + data.ingredient.id + '"><td>' + data.ingredient.id + '</td><td>' + data.ingredient.name + '</td><td>' + data.ingredient.info + '</td>';

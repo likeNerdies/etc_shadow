@@ -5,50 +5,51 @@
 	<div class="menu-list">
 
 		<ul id="menu-content" class="menu-content collapse out">
-			<li>
-				<a href="/admin">
-					<i class="fa fa-dashboard fa-lg mr-2"></i> Dashboard
-				</a>
-			</li>
 
-			<li data-toggle="collapse" data-target="#products" class="collapsed">
-				<a href="#"><i class="fa fa-book mr-2" aria-hidden="true"></i>Catalogue<span class="arrow"></span></a>
-			</li>
+			<a href="/admin">
+				<li><i class="fa fa-dashboard fa-lg mr-2"></i> Dashboard</li>
+			</a>
+
+			<a href="#">
+				<li data-toggle="collapse" data-target="#products" class="collapsed">
+					<i class="fa fa-book mr-2" aria-hidden="true"></i>Catalogue<span class="arrow"></span>
+				</li>
+			</a>
+
 			<ul class="sub-menu collapse" id="products">
-				<li><a href="/admin/products">Products</a></li>
-				<li><a href="/admin/brands">Brands</a></li>
-				<li><a href="/admin/ingredients">Ingredients</a></li>
-				<li><a href="/admin/categories">Categories</a></li>
-				<li><a href="/admin/allergies">Allergies</a></li>
+				<a href="/admin/products"><li>Products</li></a>
+				<a href="/admin/brands"><li>Brands</li></a>
+				<a href="/admin/ingredients"><li>Ingredients</li></a>
+				<a href="/admin/categories"><li>Categories</li></a>
+				<a href="/admin/allergies"><li>Allergies</li></a>
 			</ul>
 
-
-			<li>
-				<a href="/admin/plans">
+			<a href="/admin/plans">
+				<li>
 					<i class="fa fa-shopping-basket mr-2" aria-hidden="true"></i>Plans
-				</a>
-			</li>
+				</li>
+			</a>
 
-
-			<li>
-				<a href="/admin/transporters">
+			<a href="/admin/transporters">
+				<li>
 					<i class="fa fa-truck mr-2" aria-hidden="true"></i>Transport
-				</a>
-			</li>
+				</li>
+			</a>
 
 
-			<li>
-				<a href="/admin/clients"><!-- ESTA RUTA NO EXISTE -->
+
+			<a href="/admin/clients"><!-- ESTA RUTA NO EXISTE -->
+				<li>
 					<i class="fa fa-users fa-lg mr-2"></i> Clients
-				</a>
-			</li>
+				</li>
+			</a>
 
-
-			<li>
-				<a href="/admin/configuration"><!-- ESTA RUTA NO EXISTE -->
+			<a href="/admin/configuration"><!-- ESTA RUTA NO EXISTE -->
+				<li>
 					<i class="fa fa-cogs mr-2" aria-hidden="true"></i>Configuration
-				</a>
-			</li>
+				</li>
+			</a>
+
 		</ul>
 	</div>
 </div>

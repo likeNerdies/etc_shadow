@@ -92,7 +92,7 @@ class IngredientController extends Controller
         $retorn = [];
         if ($inserted) {
             $retorn = [
-                "ingredient" => Storage::url($path)
+                "image_path" => Storage::url($path)
             ];
         } else {
             $retorn = [

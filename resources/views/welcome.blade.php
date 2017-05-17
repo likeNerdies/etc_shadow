@@ -24,17 +24,17 @@
         </li>
       </ul>
 
-      <ul class="navbar-nav log-reg">
+      <ul class="navbar-nav log-re">
         @if (Route::has('login'))
         @if (Auth::check())
         <li class="nav-item dropdown mr-2">
           <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown link
+            {{Auth::user()->name}}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something</a>
+            <a class="dropdown-item" href="/user/panel/profile">My profile</a>
+            <a class="dropdown-item" href="#">Change my plan</a>
+            <a class="dropdown-item" href="#">Logout</a>
           </div>
         </li>
         @else

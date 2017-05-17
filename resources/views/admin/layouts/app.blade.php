@@ -21,7 +21,7 @@
     <link href="/css/admin/style.css" rel="stylesheet"/>
     <!--  Fonts and icons -->
     <link rel="stylesheet" href="/css/libraries/font-awesome-4.7.0/css/font-awesome.min.css">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">-->
     <!--<link rel="icon" type="image/png" href="assets/img/favicon.ico">-->

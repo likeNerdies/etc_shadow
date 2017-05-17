@@ -1,5 +1,5 @@
-@extends('admin.index')
-@section('title','ingredients')
+@extends('admin.layouts.app')
+@section('title','Ingredients')
 @section('styles')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet"/>
 @endsection

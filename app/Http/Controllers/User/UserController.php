@@ -21,7 +21,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('user.panel.profile');
+        $user = Auth::user();
+        return view('user.panel.profile', compact("user")); // Clara
     }
 
     /**

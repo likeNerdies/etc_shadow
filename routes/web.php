@@ -70,6 +70,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin',], function () {
 
 //ROUTE Products
     Route::resource('/products', 'product\ProductController');
+    Route::post('/products/{id}/image', 'product\ProductController@storeImage');
+    Route::get('/products/{id}/image', 'product\ProductController@showPicture');
     /*
     Route::prefix('/products')->group(function () {
         Route::get('/', 'product\ProductController@index');
@@ -133,6 +135,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin',], function () {
 //search route
 
 Route::prefix('/search')->group(function (){
+
     Route::get('/category','search\SearchController@category')->middleware('auth:admin')->name('search.category');
 
     Route::get('/brand','search\SearchController@brand')->middleware('auth:admin')->name('search.brand');
@@ -140,6 +143,14 @@ Route::prefix('/search')->group(function (){
     Route::get('/allergySelect','search\SearchController@allergySelect')->middleware('auth:admin')->name('search.allergySelect');
 
     Route::get('/ingredient','search\SearchController@ingredient')->middleware('auth:admin')->name('search.ingredient');
+
+    Route::get('/categorySelect','search\SearchController@categorySelect')->middleware('auth:admin')->name('search.categorySelect');
+
+    Route::get('/ingredientSelect','search\SearchController@IngredientSelect')->middleware('auth:admin')->name('search.ingredientSelect');
+
+    Route::get('/brandSelect','search\SearchController@brandSelect')->middleware('auth:admin')->name('search.brandSelect');
+
+    Route::get('/product','search\SearchController@product')->middleware('auth:admin')->name('search.product');
 
 });
 
