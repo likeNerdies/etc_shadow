@@ -6,9 +6,11 @@ use App\Allergy;
 use App\Category;
 use App\Brand;
 use App\Ingredient;
+use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Response;
+use App;
 
 class SearchController extends Controller
 {
@@ -37,7 +39,7 @@ class SearchController extends Controller
         $retorn = "";
         if ($request->ajax() && $request->has('brand')) {
             $retorn = $brand->where('id', '=', $request->brand)
-            ->where('name', 'like', '%' . $request->brand . '%')->get();
+                ->where('name', 'like', '%' . $request->brand . '%')->get();
         } else {
             //todo
         }
@@ -60,6 +62,35 @@ class SearchController extends Controller
                 $retorn[$i] = [
                     "ingredient" => $ing[$i],
                     "allergies" => $ing[$i]->allergies
+                ];
+            }
+
+        } else {
+            //todo
+        }
+        return response()->json($retorn);
+    }
+
+    /**
+     * busqueda ajax para product
+     * @param Request $request
+     */
+    public function product(Request $request, Product $product)
+    {
+
+        $retorn = [];
+        if ($request->ajax() && $request->has('product')) {
+            $prod = $product->where('id', '=', $request->product)
+                ->orWhere('name', 'like', '%' . $request->product . '%')
+                ->get();
+            for ($i = 0; $i < count($prod); $i++) {
+                $retorn[$i] = [
+                    "product" => $prod[$i],
+                    "ingredients" => $prod[$i]->ingredients,
+                    "categories" => $prod[$i]->categories,
+                    "brand" => $prod[$i]->brand,
+                    "brands" => App\Brand::all(),
+                    "images" => $prod[$i]->images,
                 ];
             }
 

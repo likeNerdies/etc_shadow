@@ -70,6 +70,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin',], function () {
 
 //ROUTE Products
     Route::resource('/products', 'product\ProductController');
+    Route::post('/products/{id}/image', 'product\ProductController@storeImage');
+    Route::get('/products/{id}/image', 'product\ProductController@showPicture');
     /*
     Route::prefix('/products')->group(function () {
         Route::get('/', 'product\ProductController@index');
@@ -147,6 +149,8 @@ Route::prefix('/search')->group(function (){
     Route::get('/ingredientSelect','search\SearchController@IngredientSelect')->middleware('auth:admin')->name('search.ingredientSelect');
 
     Route::get('/brandSelect','search\SearchController@brandSelect')->middleware('auth:admin')->name('search.brandSelect');
+
+    Route::get('/product','search\SearchController@product')->middleware('auth:admin')->name('search.product');
 
 });
 

@@ -51,15 +51,15 @@ $(document).ready(function () {
             }
 
             if(data.product.vegan==1){
-                $('#vegetarian').prop('checked', true);
+                $('#vegan').prop('checked', true);
             }else{
-                $('#vegetarian').prop('checked', false);
+                $('#vegan').prop('checked', false);
             }
 
             if(data.product.organic==1){
-                $('#vegetarian').prop('checked', true);
+                $('#organic').prop('checked', true);
             }else{
-                $('#vegetarian').prop('checked', false);
+                $('#organic').prop('checked', false);
             }
 
             $('#btn-save').val("update");
@@ -184,7 +184,7 @@ $(document).ready(function () {
             my_url += '/' + product_id;
         }
 
-        console.log(formData);
+        //console.log(formData);
 
         $.ajax({
             type: type,
@@ -195,41 +195,37 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (data) { // success:
                 console.log(data);
-                /*insertImg(e, data.ingredient.id, type);
+                insertImg(e, data.product.id, type);
 
                 //info
-                var ingredient = '<tr id="ingredient' + data.ingredient.id + '"><td>' + data.ingredient.id + '</td><td>' + data.ingredient.name + '</td>';
-                if (data.ingredient.info == null) {
-                    ingredient += ' <td></td>';
+                var product = '<tr id="product' + data.product.id + '"><td>' + data.product.id + '</td><td>' + data.product.name + '</td><td>'+data.product.price+'</td><td>'+data.product.expiration_date+'</td>';
+                product+='<td>'+data.product.weight+'</td><td>'+data.product.stock+'</td>';
+                if (data.categories.length == 0 || data.categories.length == null) {
+                    product += ' <td></td>';
                 } else {
-                    ingredient += ' <td>' + data.ingredient.info + '</td>';
-                }
-
-                //allergies
-                ingredient += '<td>';
-                if (data.allergies.length == 0) {
-                    ingredient += '<p></p>';
-                } else {
-                    for (i = 0; i < data.allergies.length; i++) {
-                        ingredient += '<p>' + data.allergies[i].name + '</p>';
+                    product+='<td>';
+                    for(i=0;i<data.categories.length;i++){
+                        product += ' <p>' + data.categories[i].name + '</p>';
                     }
+                    product+='</td>';
+
                 }
-                ingredient += '</td>';
 
 
-                ingredient += '<td id="ingredient-img"></td>';//for images
-                ingredient += '<td>' + data.ingredient.created_at + '</td><td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.ingredient.id + '">Edit</button>';
-                ingredient += '<button class="btn btn-danger btn-xs btn-delete delete-ingredient" value="' + data.ingredient.id + '">Delete</button></td></tr>';
+
+               // product += '<td id="product-img"></td>';//for images
+                product += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.product.id + '">Edit</button>';
+                product += '<button class="btn btn-danger btn-xs btn-delete delete-product" value="' + data.product.id + '">Delete</button></td></tr>';
 
                 if (state == "add") { //if user added a new record
-                    $('#ingredient-list').append(ingredient);
+                    $('#product-list').append(product);
                 } else { //if user updated an existing record
-                    $("#ingredient" + ingredient_id).replaceWith(ingredient);
+                    $("#product" + product_id).replaceWith(product);
                 }
 
-                $('#formIngredients').trigger("reset");
+                $('#formProducts').trigger("reset");
 
-                $('#myModal').modal("hide");*/
+                $('#myModal').modal("hide");
             },
             error: function (data) {
                 console.log('Error:', data);
@@ -245,38 +241,36 @@ $(document).ready(function () {
         if ($value != '') {
             $.ajax({
                 type: 'get',
-                url: '/search/ingredient',
-                data: {'ingredient': $value},
+                url: '/search/product',
+                data: {'product': $value},
                 success: function (data) {
                     console.log(data)
                     if (data.length == 0) {
-                        $('#ingredient-list').empty();
-                        $('#ingredient-list').append('<p class="text-center">No results found</p>')
+                        $('#product-list').empty();
+                        $('#product-list').append('<p class="text-center">No results found</p>')
                     } else {
-                        $('#ingredient-list').empty();
+                        $('#product-list').empty();
                         for (i = 0; i < data.length; i++) {
-
-                        }
-                        for (i = 0; i < data.length; i++) {
-                            var ingredient = '<tr id="ingredient' + data[i].ingredient.id + '"><td>' + data[i].ingredient.id + '</td><td>' + data[i].ingredient.name + '</td>';
-                            if (data[i].ingredient.info == null) {
-                                ingredient += '<td></td>';
+                            var product = '<tr id="product' + data[i].product.id + '"><td>' + data[i].product.id + '</td><td>' + data[i].product.name + '</td><td>'+data[i].product.price+'</td><td>'+data[i].product.expiration_date+'</td>';
+                            product+='<td>'+data[i].product.weight+'</td><td>'+data[i].product.stock+'</td>';
+                            if (data[i].categories.length == 0 || data[i].categories.length == null) {
+                                product += ' <td></td>';
                             } else {
-                                ingredient += '<td>' + data[i].ingredient.info + '</td>';
-                            }
-                            ingredient += '<td>';
-                            if (data[i].allergies.length == 0) {
-                                ingredient += '<p>This ingredient has no allergies</p>';
-                            } else {
-                                for (j = 0; j < data[i].allergies.length; j++) {
-                                    ingredient += '<p>' + data[i].allergies[j].name + '</p>';
+                                product+='<td>';
+                                for(j=0;j<data[i].categories.length;j++){
+                                    product += ' <p>' + data[i].categories[j].name + '</p>';
                                 }
+                                product+='</td>';
+
                             }
-                            ingredient += '</td>';
-                            ingredient += '<td id="ingredient-img"></td>';//for images
-                            ingredient += '<td>' + data[i].created_at + '</td><td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].id + '">Edit</button>';
-                            ingredient += '<button class="btn btn-danger btn-xs btn-delete delete-ingredient" value="' + data[i].id + '">Delete</button></td></tr>';
-                            $('#ingredient-list').append(ingredient);
+
+
+
+                            // product += '<td id="product-img"></td>';//for images
+                            product += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].product.id + '">Edit</button>';
+                            product += '<button class="btn btn-danger btn-xs btn-delete delete-product" value="' + data[i].product.id + '">Delete</button></td></tr>';
+
+                            $('#product-list').append(product);
                         }
 
                     }
@@ -343,17 +337,20 @@ $(document).ready(function () {
             });
             e.preventDefault();
             var formData = new FormData();
-            formData.append('image', document.getElementById('image').files[0]);
+           // console.log( document.getElementById('image').files[0]);
+            formData.append('image[]', document.getElementById('image').files[0]);
+            formData.append('image[]', document.getElementById('image').files[1]);
+            formData.append('image[]', document.getElementById('image').files[2]);
             $.ajax({
                 type: "POST",
                 contentType: false,
                 processData: false,
-                url: "/admin/ingredients/" + id + "/image",
+                url: "/admin/products/" + id + "/image",
                 data: formData,
                 dataType: 'json',
                 success: function (data) { // success:
-
-                    $('#ingredient' + id + ' > #ingredient-img').replaceWith("<td id='ingredient-img'><img width='165' height='110' src='" + data.ingredient + "'></td>");
+                console.log(data);
+                   // $('#ingredient' + id + ' > #ingredient-img').replaceWith("<td id='ingredient-img'><img width='165' height='110' src='" + data.ingredient + "'></td>");
 
                 },
                 error: function (data) {

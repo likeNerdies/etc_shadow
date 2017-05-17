@@ -226,7 +226,7 @@
               <form id="formImage" class="formImage"  class="form-horizontal" novalidate="" enctype="multipart/form-data">
                   <div class="form-group">
                       <label for="image">Upload images</label>
-                      <input type="file" class="image btn btn-info" id="image" name="image" >
+                      <input type="file" class="image btn btn-info" id="image" name="image[]" multiple >
                   </div>
               </form>
           </div>

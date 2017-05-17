@@ -47,6 +47,7 @@ class ProductController extends Controller
     {
         $product = "";
         $inserted = false;
+        $retorn=[];
         try {
 
             DB::beginTransaction();
@@ -62,35 +63,83 @@ class ProductController extends Controller
             DB::rollBack();
         }
         if (!$inserted) {
-            return response()->json([
+            $retorn=[
                 'error' => "Failed inserting model in database"
-            ]);
+            ];
+        }else{
+            $retorn = [
+                "product" => $product,
+                "ingredients" => $product->ingredients,
+                "categories" => $product->categories,
+                "brand" => $product->brand,
+                "brands" => App\Brand::all(),
+                "images" => $product->images,
+            ];
         }
-        return $product;
+        return response()->json($retorn);
     }
 
-    /*
+    /**
+     * Store a newly image resource in storage.
      *
-     *
-     *
-     *storeimge
-     *  if ($request->hasFile('photos')) {//si existen fotos
-                $i = 0;
-                foreach ($request->photos as $photo) {//recorriendo todas las fotos
-                    $path = Storage::putFile('public/product_images', $photo);//guardando fotos en el directorio storage/app/public/product_images
-                    $fotoinserted[$i] = $path;
-                    // $filename = $photo->store('photos');//guardando fotos
-                    App\Image::create([
-                        'path' => $path,
-                        'size' => Storage::size($path),
-                        //'extension' => pathinfo($path, PATHINFO_EXTENSION),
-                        'extension' => $photo->extension(),
-                        'product_id' => $product->id
-                    ]);
-                    $i++;
+     * @param  Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function storeImage(Request $request, $id)
+    {
+       // return response()->json(["fichero"=>$request->image]);
+        $inserted = true;
+        $path="";
+        $image_path=[];
+        try {
+            DB::beginTransaction();
+            //  $img = Image::make( $request->image);
+            $product = App\Product::findOrFail($id);
+            //deleting old images
+            $oldImages = $product->images;
+            if($oldImages!=null){
+                foreach ($oldImages as $oldImage) {
+                    Storage::delete($oldImage->path);
+                    $oldImage->delete();
                 }
             }
-     */
+
+            //adding new images
+           // if ($request->hasFile('image')) {//si existen fotos
+                foreach ($request->image as $photo) {//recorriendo todas las fotos
+               // return response()->json(["fichero"=>count($request->image)]);
+                    $path = Storage::putFile('public/product_images', $photo);//guardando fotos en el directorio storage/app/public/product_images
+                    $image_path[]=Storage::url($path);
+                    // $filename = $photo->store('photos');//guardando fotos
+                    App\Image::create([
+                        'name'=>$photo->getClientOriginalName(),
+                        'path' => $path,
+                        'size' => Storage::size($path),
+                        'extension' => pathinfo($path, PATHINFO_EXTENSION),
+                        'product_id' => $product->id
+                    ]);
+                }
+           // }
+
+
+            DB::commit();
+        } catch (Exception $e) {
+            DB::rollBack();
+            $inserted = false;
+            //delete inserted files
+        }
+        $retorn = [];
+        if ($inserted) {
+            $retorn = [
+                "image_path" =>$image_path
+            ];
+        } else {
+            $retorn = [
+                "success" => false,
+            ];
+        }
+        return response()->json($retorn);
+    }
 
     /**
      * Display the specified resource.
@@ -126,6 +175,7 @@ class ProductController extends Controller
         // DB::transaction(function () use ($request, $id) {//iniciando transaccion
         $inserted = false;
         //   if ($request->ajax()) {
+        $retorn=[];
         DB::beginTransaction();
         try {
             $product = App\Product::findOrFail($id);
@@ -146,30 +196,9 @@ class ProductController extends Controller
             if (isset($request->organic)) {
                 $product->organic = $request->organic;
             }
-
-            //deleting old images
-            $oldImages = $product->images;
-
-            foreach ($oldImages as $oldImage) {
-                Storage::delete($oldImage->path);
-            }
-
-            //adding new images
-            if ($request->hasFile('photos')) {//si existen fotos
-                foreach ($request->photos as $photo) {//recorriendo todas las fotos
-                    $path = Storage::putFile('public/product_images', $photo);//guardando fotos en el directorio storage/app/public/product_images
-                    // $filename = $photo->store('photos');//guardando fotos
-                    App\Image::create([
-                        'path' => $path,
-                        'size' => Storage::size($path),
-                        'extension' => pathinfo($path, PATHINFO_EXTENSION),
-                        'product_id' => $product->id
-                    ]);
-                }
-            }
             $product->ingredients()->sync($request->ingredients);//eliminando antiguas relaciones y guardando nuevas relaciones con ingredientes y productos
             $product->categories()->sync($request->categories);//eliminando antiguas relaciones y guardando nuevas relaciones con categorias y productos
-            $product->brand_id = $request->brand_id;
+            $product->brand()->associate($request->brand_id);
             $product->save();
             //  });
             DB::commit();
@@ -178,17 +207,20 @@ class ProductController extends Controller
             DB::rollBack();
         }
         if (!$inserted) {
-            return response()->json([
-                'error' => 'Failed updating model in database'
-            ]);
+            $retorn=[
+                'error' => "Failed inserting model in database"
+            ];
+        }else{
+            $retorn = [
+                "product" => $product,
+                "ingredients" => $product->ingredients,
+                "categories" => $product->categories,
+                "brand" => $product->brand,
+                "brands" => App\Brand::all(),
+                "images" => $product->images,
+            ];
         }
-        return $product;
-
-        /* } else {
-             return response()->json([
-                 'error' => 'method only accepts ajax request'
-             ]);
-         }*/
+        return response()->json($retorn);
     }
 
     /**
