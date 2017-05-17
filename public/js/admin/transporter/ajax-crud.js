@@ -46,9 +46,9 @@ $(document).ready(function() {
                 $("#transporter" + transporter).remove();
             },
             error: function (data) {
-                //console.log('Error:', data);
+                console.log('Error:', data);
                 $('.error').addClass("alert alert-danger");
-                $('.error').html("<strong>Oh snap!</strong> Refresh the page and try again.");
+                $('.error').html("<p>There was an internal error.</p>");
             }
         });
     });
@@ -109,9 +109,21 @@ $(document).ready(function() {
                 $('#myModal').modal("hide");
             },
             error: function (data) {
-                console.log('Error:', data);
+                //console.log('Error:', data);
                 $('#ajaxerror').addClass("alert alert-danger");
-                $('#ajaxerror').html("<strong>Oh snap!</strong> Refresh the page and try again.");
+                var msg;
+
+                if (data.status == 422){
+                  msg = "<ul>";
+                  for (var key in data.responseJSON) {
+                    msg += "<li>"+data.responseJSON[key]+"</li>";
+                  }
+                  msg += "</ul>";
+                  $('#ajaxerror').html(msg);
+                } else {
+                  msg = "<p>There was an internal error. Contact with the amdin.</p>"
+                }
+
             }
         });
     });

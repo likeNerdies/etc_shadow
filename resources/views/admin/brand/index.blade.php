@@ -51,7 +51,7 @@
         </div>
 
         <div id="ajaxerror"></div>
-        
+
         <div class="modal-body">
           <form id="formBrands" name="formBrands" class="form-horizontal" novalidate="">
             {{ csrf_field() }}
@@ -65,7 +65,8 @@
             <div class="form-group">
               <label for="inputEmail3" class="col-sm-3 control-label">Info</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" id="info" name="info" placeholder="Info" value="">
+                <!--<input type="text" class="form-control" id="info" name="info" placeholder="Info" value="">-->
+                <textarea name="info" id="info" type="text" rows="2" cols="80"></textarea>
               </div>
             </div>
           </form>

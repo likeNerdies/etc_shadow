@@ -27,7 +27,7 @@ class StoreValidation extends FormRequest
             'name'=>'required|min:2',
             'cif'=>array(
                 'required',
-               /* 'regex:/^[a-zA-Z\' ]+$/'*/
+                'regex:/^[a-zA-Z][0-9]{8}$/',
             ),
             'phone_number'=>'required|numeric'
         ];

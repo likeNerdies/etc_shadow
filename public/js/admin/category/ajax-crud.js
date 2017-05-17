@@ -46,7 +46,7 @@ $(document).ready(function() {
             error: function (data) {
                 //console.log('Error:', data);
                 $('.error').addClass("alert alert-danger");
-                $('.error').html("<strong>Oh snap!</strong> Refresh the page and try again.");
+                $('.error').html("<p>" + data.responseText + "</p>");
             }
         });
     });
@@ -106,9 +106,9 @@ $(document).ready(function() {
                 $('#myModal').modal("hide");
             },
             error: function (data) {
-                //console.log('Error:', data);
+                console.log('Error:', data);
                 $('#ajaxerror').addClass("alert alert-danger");
-                $('#ajaxerror').html("<strong>Oh snap!</strong> Refresh the page and try again.");
+                $('#ajaxerror').html("<p>" + data.responseText + "</p>");
             }
         });
     });
@@ -145,5 +145,3 @@ $(document).ready(function() {
     });
 
 });
-
-
