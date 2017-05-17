@@ -250,7 +250,7 @@
 
 @section('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-    <script src="{{asset('/js/product/ajax-crud.js')}}"></script>
+    <script src="{{asset('/js/admin/product/ajax-crud.js')}}"></script>
     <!--<script src="{{asset('/fonts/Pe-icon-7-stroke.woff')}}"></script>-->
 
 @endsection

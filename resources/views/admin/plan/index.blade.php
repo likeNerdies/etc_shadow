@@ -83,7 +83,7 @@
 @endsection
 
 @section('scripts')
-  <script src="{{asset('/js/plan/ajax-crud.js')}}"></script>
+  <script src="{{asset('/js/admin/plan/ajax-crud.js')}}"></script>
   <!--<script src="{{asset('/fonts/Pe-icon-7-stroke.woff')}}"></script>-->
 
 @endsection
