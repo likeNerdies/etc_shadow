@@ -20,14 +20,16 @@
         <th>ID</th>
         <th>Name</th>
         <th>Price</th>
+        <th>Info</th>
       </tr>
     </thead>
     <tbody id="plan-list" name="plan-list">
       @foreach ($plans as $plan)
-      <tr id="$plan{{$plan->id}}">
+      <tr id="plan{{$plan->id}}">
         <td id="id">{{$plan->id}}</td>
         <td>{{$plan->name}}</td>
         <td>{{$plan->price}}</td>
+        <td>{{$plan->info}}</td>
         <td>
           <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$plan->id}}">Edit</button>
           <button class="btn btn-danger btn-xs btn-delete delete-plan" value="{{$plan->id}}">Delete</button>
@@ -52,7 +54,7 @@
         <div class="modal-body">
           <form id="formPlans" name="formPlans" class="form-horizontal" novalidate="">
             {{ csrf_field() }}
-            <div class="form-group error">
+            <div class="form-group">
               <label for="name" class="col-sm-3 control-label">Name</label>
               <div class="col-sm-9">
                 <input type="text" class="form-control has-error" id="name" name="name" placeholder="Plan name" value="">
@@ -62,9 +64,19 @@
             <div class="form-group">
               <label for="price" class="col-sm-3 control-label">Price</label>
               <div class="col-sm-9">
-                <input type="number" class="form-control" id="price" name="price" placeholder="Price" value="">
+                <input type="text" class="form-control" id="price" name="price" placeholder="Price" value="">
               </div>
             </div>
+
+            <div class="form-group">
+              <label for="info" class="col-sm-3 control-label">Info</label>
+              <div class="col-sm-9">
+                <textarea class="form-control" id="info" rows="5"></textarea>
+              </div>
+            </div>
+
+
+
           </form>
         </div>
 

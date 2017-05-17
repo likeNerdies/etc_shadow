@@ -7,6 +7,7 @@ use App\Category;
 use App\Brand;
 use App\Ingredient;
 use App\Product;
+use App\Plan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Response;
@@ -14,6 +15,21 @@ use App;
 
 class SearchController extends Controller
 {
+    /**
+     * busqueda ajax para plan
+     * @param Request $request
+     */
+    public function plan(Request $request, Plan $plan)
+    {
+        $retorn = "";
+        if ($request->ajax() && $request->has('plan')) {
+            $retorn = $plan->where('id', '=', $request->plan)
+                ->orWhere('name', 'like', '%' . $request->plan . '%')->get();
+        } else {
+            //todo
+        }
+        return $retorn;
+    }
     /**
      * busqueda ajax para category
      * @param Request $request
@@ -159,4 +175,6 @@ class SearchController extends Controller
         }
         return \Response::json($formatted_tags);
     }
+
+
 }

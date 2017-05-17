@@ -10,7 +10,7 @@ class Plan extends Model
      * @var array
      */
     protected $fillable=[
-      'name','price'
+      'name','price','info'
     ];
     /**
      * Get users for the plan
