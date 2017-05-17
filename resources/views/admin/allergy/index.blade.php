@@ -7,7 +7,7 @@
   <div class="error" role="alert"></div>
 
   <div class="row mt-4">
-    <div class="col-md-6 col-12 mt-4"><!--<i class="fa fa-search" aria-hidden="true"></i>-->
+    <div class="col-md-6 col-12 mt-4">
       <input type="text" id="search" class="form-control" placeholder="Search by ID or name">
     </div>
 
@@ -62,7 +62,7 @@
             <div class="form-group error">
               <label for="name" class="col-sm-3 control-label">Name</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control has-error" id="name" name="name" placeholder="Allergy name" value="">
+                <input type="text" class="form-control has-error" id="name" name="name" placeholder="Peanut allergy" value="" onblur="validateName(this)">
               </div>
             </div>
           </form>
@@ -75,7 +75,6 @@
     </div>
   </div>
 </div>
-
 
 @endsection
 

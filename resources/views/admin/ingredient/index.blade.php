@@ -12,8 +12,8 @@
     <div class="error" role="alert"></div>
 
     <div class="row mt-4">
-        <div class="col-md-6 col-12 mt-4"><!--<i class="fa fa-search" aria-hidden="true"></i>-->
-            <input type="text" id="search" class="form-control" placeholder="Search...">
+        <div class="col-md-6 col-12 mt-4">
+            <input type="text" id="search" class="form-control" placeholder="Search by ID or name">
         </div>
 
         <div id="add" class="col-md-6 col-12 mt-4">
@@ -91,34 +91,33 @@
               <div class="form-group error">
                 <label for="name" class="col-sm-3 control-label">Name</label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control has-error" id="name" name="name"
-                  placeholder="Category name" value="">
+                  <input type="text" class="form-control has-error" id="name" name="name" placeholder="Wheat flour" value="" onblur="validateName(this)">
+
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="info" class="col-sm-3 control-label">Info</label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" id="info" name="info" placeholder="Info"
-                  value="">
+                  <input type="text" class="form-control" id="info" name="info" placeholder=" "value="" onblur="validateName(this)">
                 </div>
               </div>
 
-              <div class="form-group">
+              <div class="form-group  col-xs-12">
                 <label for="tag_list">Allergies</label>
-                <select id="tag_list" name="allergies[]" class="form-control" multiple></select>
+                  <select id="tag_list" name="allergies[]" class="input-group input-group-lg form-group" multiple></select>
               </div>
 
+              {{--test--}}
+              {{--end test--}}
 
-                {{--test--}}
-                {{--end test--}}
             </form>
-              <form id="formImage" class="formImage"  class="form-horizontal" novalidate="" enctype="multipart/form-data">
-                  <div class="form-group">
-                      <label for="image">Upload images</label>
-                      <input type="file" class="image btn btn-info" id="image" name="image" >
-                  </div>
-              </form>
+            <form id="formImage" class="formImage"  class="form-horizontal" novalidate="" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="image">Upload images</label>
+                    <input type="file" class="image btn btn-info" id="image" name="image" >
+                </div>
+            </form>
           </div>
 
           <div class="modal-footer">
@@ -135,6 +134,4 @@
 @section('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <script src="{{asset('/js/admin/ingredient/ajax-crud.js')}}"></script>
-    <!--<script src="{{asset('/fonts/Pe-icon-7-stroke.woff')}}"></script>-->
-
 @endsection

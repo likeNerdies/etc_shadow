@@ -7,8 +7,8 @@
   <div class="error" role="alert"></div>
 
   <div class="row mt-4">
-    <div class="col-md-6 col-12 mt-4"><!--<i class="fa fa-search" aria-hidden="true"></i>-->
-      <input type="text" id="search" class="form-control" placeholder="Search...">
+    <div class="col-md-6 col-12 mt-4">
+      <input type="text" id="search" class="form-control" placeholder="Search by ID or name">
     </div>
 
     <div id="add" class="col-md-6 col-12 mt-4">
@@ -62,17 +62,16 @@
           <form id="formBrands" name="formBrands" class="form-horizontal" novalidate="">
             {{ csrf_field() }}
             <div class="form-group error">
-              <label for="inputBrand" class="col-sm-3 control-label">Name</label>
+              <label for="name" class="col-sm-3 control-label">Name</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control has-error" id="name" name="name" placeholder="Brand name" value="">
+                <input type="text" class="form-control has-error" id="name" name="name" placeholder="Rude Health" value="" onblur="validateName(this)">
               </div>
             </div>
 
             <div class="form-group">
-              <label for="inputEmail3" class="col-sm-3 control-label">Info</label>
+              <label for="info" class="col-sm-3 control-label">Info</label>
               <div class="col-sm-9">
-                <!--<input type="text" class="form-control" id="info" name="info" placeholder="Info" value="">-->
-                <textarea name="info" id="info" type="text" rows="2" cols="80"></textarea>
+                <textarea name="info" id="info" type="text" rows="5" cols="38" onblur="validateName(this)"></textarea>
               </div>
             </div>
           </form>

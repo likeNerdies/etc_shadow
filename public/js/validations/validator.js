@@ -1,5 +1,5 @@
 function validateName(name) {
-  var regex = /\w{3,}/gi;
+  var regex = /[a-zA-Z]{3,}/gi;
   if (!(name.value).match(regex)) {
     name.style.borderColor = "#a94442";
   } else {
@@ -23,4 +23,18 @@ function validatePhone(phone) {
   } else {
     phone.style.borderColor = "#5cb85c";
   }
+}
+
+function validatePrice(price) {
+  var regex = /\d+[,|.]?/;
+  if (!(price.value).match(regex)) {
+    price.style.borderColor = "#a94442";
+  } else {
+    price.style.borderColor = "#5cb85c";
+  }
+}
+
+
+function validateExpDate(date) {
+  
 }
