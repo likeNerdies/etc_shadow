@@ -14,13 +14,13 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mr-auto mt-2 mt-md-0 mx-auto">
         <li class="nav-item  px-5">
-          <a class="nav-link only page-scroll" href="#howitworks">How it works</a>
+          <a class="nav-link only page-scroll" href="#howitworks">@lang('welcome.howitworks')</a>
         </li>
         <li class="nav-item px-5">
-          <a class="nav-link only page-scroll" href="#plans">Plans</a>
+          <a class="nav-link only page-scroll" href="#plans">@lang('welcome.plans')</a>
         </li>
         <li class="nav-item  px-5">
-          <a class="nav-link only page-scroll" href="#about">About</a>
+          <a class="nav-link only page-scroll" href="#about">@lang('welcome.about')</a>
         </li>
       </ul>
 
@@ -39,8 +39,8 @@
         </li>
         @else
 
-        <li class="nav-item  px-1"><button class="btn btn-info" data-toggle="modal" data-target="#modalLogin">Login</button></li><!--tocar buttons--><!--tambe includes register i login del modals-->
-        <li class="nav-item  px-1"><button class="btn btn-info" data-toggle="modal" data-target="#modalRegister">Register</button></li><!--tocar buttons-->
+        <li class="nav-item  px-1"><button class="btn btn-info" data-toggle="modal" data-target="#modalLogin">@lang('login.login')</button></li><!--tocar buttons--><!--tambe includes register i login del modals-->
+        <li class="nav-item  px-1"><button class="btn btn-info" data-toggle="modal" data-target="#modalRegister">@lang('login.register')</button></li><!--tocar buttons-->
           @endif
         @endif
       </ul>
