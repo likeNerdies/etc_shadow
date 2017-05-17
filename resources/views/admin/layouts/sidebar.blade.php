@@ -50,6 +50,15 @@
 				</li>
 			</a>
 
+			<form action="/logout" method="post">
+				{{ csrf_field() }}
+				<a class="logout-btn" href="#"><!--  -->
+					<li>
+						<i class="fa fa-sign-out mr-2" aria-hidden="true"></i>Log out
+					</li>
+				</a>
+			</form>
+
 		</ul>
 	</div>
 </div>

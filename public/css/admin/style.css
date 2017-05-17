@@ -1,7 +1,11 @@
 /*<JUST TEST DASHBOARD>*/
 
-#wrapper-dashboard{
-
+.wrapper-content{
+  width:90%;
+  height: 100vh;
+  position: relative;
+  top:10%;
+  left:3%;
 }
 
 
@@ -24,25 +28,42 @@ p{
 
 .box-info, #graphic-one, #graphic-two, #best-sellers, #feedback{
   width: 100%;
+  margin: 10% auto;
+  border: 1px solid #e7ecf1;
+  background: ghostwhite;
+}
+
+.box-info{
+  padding: 15px 15px 70px;
+}
+
+#graphic-one, #graphic-two, #best-sellers, #feedback{
   padding: 15px 15px 30px;
-  margin:10% auto;
 }
 
-.bg-blue{
-  background: blue;
+.display .number{
+  display: inline-block;
+  float:left;
 }
 
-.bg-red{
-  background: red;
+.display .number h3{
+  margin: 0 0 2px;
+  padding: 0;
+  font-size: 30px;
+  font-weight: 400;
+  color: #2AB4C0!important;
 }
 
-.bg-yellow{
-  background: yellow;
+.display .icon{
+  display: inline-block;
+  float: right;
+  padding: 7px 0 0;
 }
 
-.bg-green{
-  background: green;
+.display .icon i {
+  color: #cbd4e0;
 }
+
 
 /* </JUST TEST DASHBOARD>*/
 
@@ -53,10 +74,11 @@ p{
 #wrapper{
   overflow: auto;
   position: relative;
-  width:70%;
-  height:100%;
+  width:80%;
+  height:100vh; /*TO CHECK*/
   top:0px;
-  left:26.5%;
+  left:20%;
+  background: #e9ecf3;
 }
 
 .nav-side-menu {
@@ -78,6 +100,7 @@ p{
   text-align: center;
   font-size: 22px;
   font-weight: 500;
+  box-shadow: 0px 4px 24px #151212;
 }
 .nav-side-menu .toggle-btn {
   display: none;
@@ -164,6 +187,7 @@ p{
 .nav-side-menu li:hover {
   border-left: 3px solid #d19b3d;
   background-color: #4f5b69;
+  box-shadow: 0px 4px 10px #151212;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
   -o-transition: all 1s ease;
@@ -171,30 +195,9 @@ p{
   transition: all 1s ease;
 }
 
-#btn-add, .open-modal, .delete-category{
-  background: white;
-}
 
-#btn-add{
-  border: 2px solid #0275d8;
-  color: #0275d8;
-}
-
-#btn-add:hover{
-  background: #0275d8;
-  color: white;
-}
-
-.open-modal{
-  padding-left: 25px;
-  padding-right: 25px ;
-  border: 2px solid #f0ad4e;
-  color: #f0ad4e;
-}
-
-.delete-category{
-  border: 2px solid #d9534f;
-  color: #d9534f;
+tr > th, tr > td{
+  text-align: center !important;
 }
 
 @media (max-width: 767px) {
@@ -206,10 +209,18 @@ p{
     top:2%;
     left:0;
   }
+
+  .wrapper-content{
+    width:100%;
+    position: relative;
+    top:10%;
+    left:0;
+  }
+
   .nav-side-menu {
     position: relative;
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
   }
   .nav-side-menu .toggle-btn {
     display: block;
@@ -225,6 +236,9 @@ p{
     text-align: center;
   }
 
+  .table td, .table th{
+    padding: .7rem;
+  }
 
   .brand {
     text-align: left !important;
@@ -237,10 +251,97 @@ p{
     text-align: center !important;
   }
 
+  #content-top, #content-center, #content-bottom{
+    margin-top: 8%;
+  }
+
+  .box-info, #graphic-one, #graphic-two, #best-sellers, #feedback{
+    margin: 2% auto !important;
+  }
+
+  #menu-content a:last-child{
+    display: block;
+  }
+
+  .media-767-delete{
+    display: none !important;
+  }
+
 }
 @media (min-width: 767px) {
   .nav-side-menu .menu-list .menu-content {
     display: block;
+  }
+
+  #menu-content a:last-child{
+    display: none;
+  }
+
+  #btn-add, .open-modal, .delete-category{
+    background: white;
+  }
+
+  #btn-add{
+    border: 2px solid #0275d8;
+    color: #0275d8;
+  }
+
+  #btn-add:hover{
+    background: #0275d8;
+    color: white;
+  }
+
+  .btn-detail{
+    padding-left: 25px;
+    padding-right: 25px ;
+    border: 2px solid #f0ad4e;
+    color: #f0ad4e;
+  }
+
+  .btn-delete{
+    border: 2px solid #d9534f;
+    color: #d9534f;
+  }
+
+  .logout-wrapper{
+    position: fixed;
+    z-index: 10104;
+    top: 50%;
+    right: 55px;
+    margin-top: -240px;
+    height: 60px;
+    width: 60px;
+    background: #00c9b4;
+    border-radius: 50%!important;
+  }
+
+  .logout-btn{
+    position: absolute;
+    z-index: 10121;
+    top: 25%;
+    right: -18.75px;
+    height: 60px;
+    width: 60px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-decoration: none;
+    color: white;
+  }
+
+
+
+  .logout-wrapper:hover{
+    -webkit-box-shadow: 5px;
+    -moz-box-shadow: 5px;
+    box-shadow: 5px 5px 14px #888888
+  }
+
+  .logout-btn:hover{
+    color: white;
+  }
+
+  .fa-2x {
+    font-size: 1.72em !important;
   }
 }
 

@@ -43,7 +43,20 @@
     </div>
 </div>
 
+<!-- <FLOATING LOG OUT BUTTON> -->
+<div class="logout-wrapper">
+    <form class="floating-form" action="/logout" method="post">
+        {{ csrf_field() }}
+        <a class="logout-btn"  href="#">
+            <i class="fa fa-sign-out media-767-delete fa-2x" aria-hidden="true"></i>
+        </a>
+    </form>
+</div>
+<!-- </FLOATING LOG OUT BUTTON> -->
+
+
 <script src="{{asset('/js/libraries/jquery/jquery-3.2.1.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script src="{{asset('/js/libraries/tether/tether.js')}}"></script><!-- IMPORTANT: Always before the bootstrap file -->
 <script src="{{asset('/js/libraries/bootstrap4/bootstrap.js')}}"></script>
 <script src="{{asset('/js/admin/light-bootstrap-dashboard.js')}}"></script>

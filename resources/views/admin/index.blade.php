@@ -16,18 +16,55 @@
     </div>
     <div id="content-top" class="row">
         <div class="col-md-4 col-12">
-            <div class="box-info bg-red">
-                <p class="text-center">Info</p>
+            <div class="box-info">
+                <div class="display">
+                    <div class="number">
+                        <h3>
+                            <span>7800</span>
+                            <small>€</small>
+                        </h3>
+                        <small>TOTAL PROFIT</small>
+                    </div>
+
+                    <div class="icon">
+                        <i class="fa fa-pie-chart fa-2x" aria-hidden="true"></i>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-md-4 col-12">
-            <div class="box-info bg-blue">
-                <p class="text-center">Info</p>
+            <div class="box-info">
+                <div class="display">
+                    <div class="number">
+                        <h3>
+                            <span>1000</span>
+
+                        </h3>
+                        <small>TOTAL USERS</small>
+                    </div>
+
+                    <div class="icon">
+                        <i class="fa fa fa-users fa-2x" aria-hidden="true"></i>
+                    </div>
+                </div>
+
             </div>
         </div>
         <div class="col-md-4 col-12">
-            <div class="box-info bg-yellow">
-                <p class="text-center">Info</p>
+            <div class="box-info">
+                <div class="display">
+                    <div class="number">
+                        <h3>
+                            <span>50</span>
+                            <small>u</small>
+                        </h3>
+                        <small>TO SEND</small>
+                    </div>
+
+                    <div class="icon">
+                        <i class="fa fa-paper-plane fa-2x" aria-hidden="true"></i>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -63,6 +100,9 @@
             </div>
         </div>
     </div>
+
+
+
 
 @endsection
 

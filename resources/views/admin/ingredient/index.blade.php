@@ -5,7 +5,7 @@
 @endsection
 @section('right-panel')
 
-
+<div class="wrapper-content">
     <h2 class="text-left mt-4">Ingredients</h2>
 
 
@@ -25,51 +25,56 @@
     <div class="row mt-2">
         <!-- Table-to-load-the-data Part -->
         <div class="col-12 col-md-11">
-        <table class="table mt-4">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th class="media-480-delete">Info</th>
-                <th class="media-480-delete">Allergies</th>
-                <th>Images</th>
-                <th class="media-480-delete">Created at</th>
-                <th>Actions</th>
-            </tr>
-            </thead>
-            <tbody id="ingredient-list" name="ingredient-list">
-              @foreach ($ingredients as $ingredient)
-                  <tr id="ingredient{{$ingredient->id}}">
-                    <td id="id">{{$ingredient->id}}</td>
-                    <td>{{$ingredient->name}}</td>
-                    <td class="media-480-delete">{{$ingredient->info}}</td>
-                    <td class="media-480-delete">
-                      @if(count($ingredient->allergies)==0)
+            <table class="table mt-4">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th class="media-480-delete">Info</th>
+                    <th class="media-480-delete">Allergies</th>
+                    <th>Images</th>
+                    <th class="media-480-delete">Created at</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody id="ingredient-list" name="ingredient-list">
+                @foreach ($ingredients as $ingredient)
+                    <tr id="ingredient{{$ingredient->id}}">
+                        <td id="id">{{$ingredient->id}}</td>
+                        <td>{{$ingredient->name}}</td>
+                        <td class="media-480-delete">{{$ingredient->info}}</td>
+                        <td class="media-480-delete">
+                            @if(count($ingredient->allergies)==0)
 
-                      @else
-                        @foreach($ingredient->allergies as $allergy)
-                          <p>{{$allergy->name}}</p>
-                        @endforeach
-                      @endif
-                    </td>
+                            @else
+                                @foreach($ingredient->allergies as $allergy)
+                                    <p>{{$allergy->name}}</p>
+                                @endforeach
+                            @endif
+                        </td>
 
-                      @if($ingredient->image_path==null)
-                          <td id="ingredient-img"></td>
-                      @else
-                          <td id="ingredient-img"><img class="img-thumbnail" src="{{$ingredient->getPublicImgUrl($ingredient->image_path)}}" width="48.2"></td>
-                      @endif
+                        @if($ingredient->image_path==null)
+                            <td id="ingredient-img"></td>
+                        @else
+                            <td id="ingredient-img"><img class="img-thumbnail" src="{{$ingredient->getPublicImgUrl($ingredient->image_path)}}" width="48.2"></td>
+                        @endif
 
-                      <td class="media-480-delete">{{$ingredient->created_at}}</td>
+                        <td class="media-480-delete">{{$ingredient->created_at}}</td>
 
-                      <td>
-                          <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$ingredient->id}}">Edit</button>
-                          <button class="btn btn-danger btn-xs btn-delete delete-ingredient" value="{{$ingredient->id}}">Delete</button>
-                      </td>
-                  </tr>
-              @endforeach
-            </tbody>
-        </table> <!-- End of Table-to-load-the-data Part -->
+                        <td>
+                            <button class="btn btn-warning btn-xs btn-detail open-modal hidden-sm-down" value="{{$ingredient->id}}">Edit</button>
+                            <button class="btn btn-warning hidden-md-up" value="{{$ingredient->id}}"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+
+                            <button class="btn btn-danger btn-xs btn-delete delete-category hidden-sm-down" value="{{$ingredient->id}}">Delete</button>
+                            <button class="btn btn-danger hidden-md-up" value="{{$ingredient->id}}"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table> <!-- End of Table-to-load-the-data Part -->
         </div>
+</div>
+
     {{$ingredients->links()}}
 
     <!-- Modal (Pop up when detail button clicked) -->

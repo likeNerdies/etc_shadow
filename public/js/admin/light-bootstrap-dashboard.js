@@ -1,4 +1,20 @@
 $(document).ready(function () {
+    //draggable log out
+    $('.logout-wrapper').draggable({
+        stop: function(event, ui) {
+            // event.toElement is the element that was responsible
+            // for triggering this event. The handle, in case of a draggable.
+            $( event.originalEvent.target ).one('click', function(e){
+                e.stopImmediatePropagation();
+            } );
+        }
+    });
+
+    //submit form
+    $('.logout-btn').click(function (event) {
+        $('.floating-form').submit();
+        event.preventDefault();
+    });
 
     $('.parent').children().on({
         mouseover:function () {

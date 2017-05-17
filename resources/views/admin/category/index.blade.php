@@ -1,11 +1,13 @@
 @extends('admin.layouts.app')
 @section('title','categories')
 @section('right-panel')
-
+<div class="wrapper-content">
 
   <h2 class="text-left mt-4">Categories</h2>
 
   <div class="error" role="alert"></div>
+
+
 
   <div class="row mt-4">
     <div class="col-md-6 col-12 mt-4"><!--<i class="fa fa-search" aria-hidden="true"></i>-->
@@ -19,7 +21,7 @@
 
   <div class="row mt-2">
     <!-- Table-to-load-the-data Part -->
-    <div class="col-12 col-md-11">
+    <div class="col-12">
       <table class="table mt-4">
         <thead>
         <tr>
@@ -38,16 +40,23 @@
             <td>{{$category->info}}</td>
             <td class="media-480-delete">{{$category->created_at}}</td>
             <td>
-              <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$category->id}}">Edit</button>
-              <button class="btn btn-danger btn-xs btn-delete delete-category" value="{{$category->id}}">Delete</button>
+              <button class="btn btn-warning btn-xs btn-detail open-modal hidden-sm-down" value="{{$category->id}}">Edit</button>
+              <button class="btn btn-warning hidden-md-up open-modal" value="{{$category->id}}"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+
+              <button class="btn btn-danger btn-xs btn-delete delete-category hidden-sm-down" value="{{$category->id}}">Delete</button>
+              <button class="btn btn-danger hidden-md-up delete-category" value="{{$category->id}}"><i class="fa fa-trash" aria-hidden="true"></i></button>
             </td>
           </tr>
         @endforeach
         </tbody>
       </table> <!-- End of Table-to-load-the-data Part -->
-   </div>
+    </div>
 
   </div>
+</div>
+
+
+
 
   <!-- Modal (Pop up when detail button clicked) -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
