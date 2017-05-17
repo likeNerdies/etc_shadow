@@ -1,4 +1,4 @@
-@extends('admin.index')
+@extends('admin.layouts.app')
 @section('title','products')
 @section('styles')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
@@ -6,93 +6,99 @@
 @section('right-panel')
 
 
-    <h2>Products</h2>
-
+    <h2 class="text-left mt-4">Categories</h2>
 
     <div class="error" role="alert"></div>
 
-    <div class="d-flex justify-content-end mt-5">
-      <div class="mr-auto"><button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Products</button></div>
-      <div class="col-md-6"><!--<i class="fa fa-search" aria-hidden="true"></i>-->
-      <input type="text" id="search" class="form-control" placeholder="Search..."></div>
+    <div class="row mt-4">
+        <div class="col-md-6 col-12 mt-4"><!--<i class="fa fa-search" aria-hidden="true"></i>-->
+            <input type="text" id="search" class="form-control" placeholder="Search...">
+        </div>
+
+        <div id="add" class="col-md-6 col-12 mt-4">
+            <button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Category</button>
+        </div>
     </div>
 
-    <div class="mt-5">
-        <!-- Table-to-load-the-data Part -->
-        <table class="table">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Pice</th>
-                <th>Expiration Date</th>
-                <th>Weight</th>
-                <th>Stock</th>
-                <th>Category</th>
-                <th>Actions</th>
-            </tr>
-            </thead>
-            <tbody id="product-list" name="product-list">
-              @foreach ($products as $product)
-                  <tr id="product{{$product->id}}">
-                    <td id="id">{{$product->id}}</td>
-                    <td>{{$product->name}}</td>
-                    <td>{{$product->price}}</td>
-                   {{-- <td>{{$product->description}}</td>--}}
-                    <td>{{$product->expiration_date}}</td>
-                    {{-----------------------
-                      @if($product->dimension==null)
-                          <td></td>
-                      @else
-                          <td>{{$product->dimension}}</td>
-                      @endif
-                       ----}}
-                      {{------------------------}}
-                      @if($product->weight==null)
-                          <td id="$product-img"></td>
-                      @else
-                          <td>{{$product->weight}}</td>
-                      @endif
+    <div class="row mt-2">
+        <div class="col-12 col-md-11">
+            <!-- Table-to-load-the-data Part -->
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Expiration Date</th>
+                    <th>Weight</th>
+                    <th>Stock</th>
+                    <th>Category</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody id="product-list" name="product-list">
+                  @foreach ($products as $product)
+                      <tr id="product{{$product->id}}">
+                        <td id="id">{{$product->id}}</td>
+                        <td>{{$product->name}}</td>
+                        <td>{{$product->price}}</td>
+                       {{-- <td>{{$product->description}}</td>--}}
+                        <td>{{$product->expiration_date}}</td>
+                        {{-----------------------
+                          @if($product->dimension==null)
+                              <td></td>
+                          @else
+                              <td>{{$product->dimension}}</td>
+                          @endif
+                           ----}}
+                          {{------------------------}}
+                          @if($product->weight==null)
+                              <td id="$product-img"></td>
+                          @else
+                              <td>{{$product->weight}}</td>
+                          @endif
 
-                      {{-------------
-                      @if($product->real_weight==null)
-                          <td id="$product-img"></td>
-                      @else
-                          <td>{{$product->real_weight}}</td>
-                      @endif
-                        --------------}}
-                      {{----------------
-                      @if($product->stock==null)
-                          <td id="$product-img"></td>
-                      @else----------default 0 stock--}}
-                          <td>{{$product->stock}}</td>
-                    {{--  @endif --}}
-                      {{-----------------------------}}
+                          {{-------------
+                          @if($product->real_weight==null)
+                              <td id="$product-img"></td>
+                          @else
+                              <td>{{$product->real_weight}}</td>
+                          @endif
+                            --------------}}
+                          {{----------------
+                          @if($product->stock==null)
+                              <td id="$product-img"></td>
+                          @else----------default 0 stock--}}
+                              <td>{{$product->stock}}</td>
+                        {{--  @endif --}}
+                          {{-----------------------------}}
 
-                    <td>
-                      @if(count($product->categories)>0)
-                            @foreach($product->categories as $category)
-                                <p>{{$category->name}}</p>
+                        <td>
+                          @if(count($product->categories)==0)
+
+                          @else
+                            @foreach($product->cateogries as $cateogry)
+                              <p>{{$cateogry->name}}</p>
                             @endforeach
-                      @endif
-                    </td>
+                          @endif
+                        </td>
 
 
-                  {{--    @if($ingredient->image_path==null)
-                          <td id="ingredient-img"></td>
-                      @else
-                          <td id="ingredient-img"><img src="{{$ingredient->getPublicImgUrl($ingredient->image_path)}}" width="165" height="110"></td>
-                      @endif
-                      --}}
-                    <td>
-                      <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$product->id}}">Edit</button>
-                      <button class="btn btn-danger btn-xs btn-delete delete-product" value="{{$product->id}}">Delete</button>
-                    </td>
-                  </tr>
-              @endforeach
-            </tbody>
-        </table> <!-- End of Table-to-load-the-data Part -->
-
+                      {{--    @if($ingredient->image_path==null)
+                              <td id="ingredient-img"></td>
+                          @else
+                              <td id="ingredient-img"><img src="{{$ingredient->getPublicImgUrl($ingredient->image_path)}}" width="165" height="110"></td>
+                          @endif
+                          --}}
+                        <td>
+                          <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$product->id}}">Edit</button>
+                          <button class="btn btn-danger btn-xs btn-delete delete-product" value="{{$product->id}}">Delete</button>
+                        </td>
+                      </tr>
+                  @endforeach
+                </tbody>
+            </table> <!-- End of Table-to-load-the-data Part -->
+        </div>
     {{$products->links()}}
 
     <!-- Modal (Pop up when detail button clicked) -->

@@ -1,4 +1,4 @@
-@extends('admin.index')
+@extends('admin.layouts.app')
 @section('title','categories')
 @section('right-panel')
 

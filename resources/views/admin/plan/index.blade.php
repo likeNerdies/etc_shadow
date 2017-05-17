@@ -1,5 +1,5 @@
-@extends('admin.index')
-@section('title','plans')
+@extends('admin.layouts.app')
+@section('title','Plans')
 @section('right-panel')
 
 <h2>Plans</h2>

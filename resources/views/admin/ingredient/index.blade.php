@@ -1,5 +1,5 @@
-@extends('admin.index')
-@section('title','ingredients')
+@extends('admin.layouts.app')
+@section('title','Ingredients')
 @section('styles')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet"/>
 @endsection
@@ -53,13 +53,14 @@
                       @endif
                     </td>
 
-                    <td class="media-480-delete">{{$ingredient->created_at}}</td>
-
                       @if($ingredient->image_path==null)
                           <td id="ingredient-img"></td>
                       @else
-                          <td id="ingredient-img"><img src="{{$ingredient->getPublicImgUrl($ingredient->image_path)}}" width="165" height="110"></td>
+                          <td id="ingredient-img"><img class="img-thumbnail" src="{{$ingredient->getPublicImgUrl($ingredient->image_path)}}" width="48.2"></td>
                       @endif
+
+                      <td class="media-480-delete">{{$ingredient->created_at}}</td>
+
                       <td>
                           <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$ingredient->id}}">Edit</button>
                           <button class="btn btn-danger btn-xs btn-delete delete-ingredient" value="{{$ingredient->id}}">Delete</button>
