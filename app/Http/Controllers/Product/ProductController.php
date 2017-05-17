@@ -20,8 +20,8 @@ class ProductController extends Controller
     public function index()
     {
         $products = App\Product::paginate(9);
-        $brands=App\Brand::all();
-        return view('admin.product.index', compact(['products','brands']));
+        $brands = App\Brand::all();
+        return view('admin.product.index', compact(['products', 'brands']));
     }
 
     /**
@@ -47,7 +47,7 @@ class ProductController extends Controller
     {
         $product = "";
         $inserted = false;
-        $retorn=[];
+        $retorn = [];
         try {
 
             DB::beginTransaction();
@@ -63,10 +63,10 @@ class ProductController extends Controller
             DB::rollBack();
         }
         if (!$inserted) {
-            $retorn=[
+            $retorn = [
                 'error' => "Failed inserting model in database"
             ];
-        }else{
+        } else {
             $retorn = [
                 "product" => $product,
                 "ingredients" => $product->ingredients,
@@ -87,51 +87,52 @@ class ProductController extends Controller
      */
     public function storeImage(Request $request, $id)
     {
-       // return response()->json(["fichero"=>$request->image]);
+        // return response()->json(["fichero"=>$request->image]);
         $inserted = true;
-        $path="";
-        $image_path=[];
+        $path = "";
+        $image_path = [];
         try {
             DB::beginTransaction();
             //  $img = Image::make( $request->image);
-            $product = App\Product::findOrFail($id);
-            //deleting old images
-            $oldImages = $product->images;
-            if($oldImages!=null){
-                foreach ($oldImages as $oldImage) {
-                    Storage::delete($oldImage->path);
-                    $oldImage->delete();
+            if ($request->hasFile('image')) {//si existen fotos
+                $product = App\Product::findOrFail($id);
+                //deleting old images
+                $oldImages = $product->images;
+                if ($oldImages != null) {
+                    foreach ($oldImages as $oldImage) {
+                        Storage::delete($oldImage->path);
+                        $oldImage->delete();
+                    }
                 }
-            }
 
-            //adding new images
-           // if ($request->hasFile('image')) {//si existen fotos
+                //adding new images
+
                 foreach ($request->image as $photo) {//recorriendo todas las fotos
-               // return response()->json(["fichero"=>count($request->image)]);
+                    // return response()->json(["fichero"=>count($request->image)]);
                     $path = Storage::putFile('public/product_images', $photo);//guardando fotos en el directorio storage/app/public/product_images
-                    $image_path[]=Storage::url($path);
+                    $image_path[] = Storage::url($path);
                     // $filename = $photo->store('photos');//guardando fotos
                     App\Image::create([
-                        'name'=>$photo->getClientOriginalName(),
+                        'name' => $photo->getClientOriginalName(),
                         'path' => $path,
                         'size' => Storage::size($path),
                         'extension' => pathinfo($path, PATHINFO_EXTENSION),
                         'product_id' => $product->id
                     ]);
                 }
-           // }
+            }
 
 
             DB::commit();
         } catch (Exception $e) {
             DB::rollBack();
             $inserted = false;
-            //delete inserted files
+            //delete inserted files-----------------todo
         }
         $retorn = [];
         if ($inserted) {
             $retorn = [
-                "image_path" =>$image_path
+                "image_path" => $image_path
             ];
         } else {
             $retorn = [
@@ -175,7 +176,7 @@ class ProductController extends Controller
         // DB::transaction(function () use ($request, $id) {//iniciando transaccion
         $inserted = false;
         //   if ($request->ajax()) {
-        $retorn=[];
+        $retorn = [];
         DB::beginTransaction();
         try {
             $product = App\Product::findOrFail($id);
@@ -207,10 +208,10 @@ class ProductController extends Controller
             DB::rollBack();
         }
         if (!$inserted) {
-            $retorn=[
+            $retorn = [
                 'error' => "Failed inserting model in database"
             ];
-        }else{
+        } else {
             $retorn = [
                 "product" => $product,
                 "ingredients" => $product->ingredients,
@@ -232,8 +233,8 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $deleted = "";
-       // DB::transaction(function ($id) {//iniciando transaccion
-        try{
+        // DB::transaction(function ($id) {//iniciando transaccion
+        try {
             DB::beginTransaction();
             $product = App\Product::findOrFail($id);
             //deleting all images
@@ -245,11 +246,11 @@ class ProductController extends Controller
             }
             $product->delete();
             DB::commit();
-        }catch(Exception $e){
+        } catch (Exception $e) {
             DB::rollBack();
-            $deleted=false;
+            $deleted = false;
         }
         //  });
-        return response()->json(["deleted"=>$deleted]);
+        return response()->json(["deleted" => $deleted]);
     }
 }
