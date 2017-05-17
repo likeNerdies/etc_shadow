@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\UpdatePersonalInfo;
+use App\Http\Requests\Admin\StoreValidation;
 use Auth;
 use App;
 use Hash;
@@ -40,7 +41,7 @@ class AdminController extends Controller
      * Update information of admin user
      * @param Request $request
      */
-    public function update(UpdatePersonalInfo $request)
+    public function update(StoreValidation $request)
     {
         $user = Auth::user();
         $user->dni = $request->dni;
@@ -57,7 +58,7 @@ class AdminController extends Controller
      * Update information of admin user
      * @param Request $request
      */
-    public function updateAdminUser(UpdatePersonalInfo $request,$id)
+    public function updateAdminUser(StoreValidation $request,$id)
     {
         $user = App\Admin::findOrFail($id);
         $user->dni = $request->dni;
@@ -67,6 +68,7 @@ class AdminController extends Controller
         $user->email = $request->email;
         $user->password= Hash::make($request->password);
         $user->phone_number = $request->phone_number;
+        $user->can_create = $request->can_create;
         $user->save();
         return $user;
 
@@ -98,12 +100,20 @@ class AdminController extends Controller
     }
 
     /**
-     * @param Request $request
-     * @return array
+     * @param StoreValidation $request
+     * @return mixed
      */
-    public function store(Request $request){
-        $request->password=Hash::make($request->password);
-        $user=App\Admin::create($request->all());
+    public function store(StoreValidation $request){
+        $user=App\Admin::create([
+            'dni'=>$request->dni,
+            'name'=>$request->name,
+            'first_surname'=>$request->first_surname,
+            'second_surname'=>$request->second_surname,
+            'email'=>$request->email,
+            'password'=>bcrypt($request->password),
+            'phone_number'=>$request->phone_number,
+            'can_create'=>$request->can_create
+        ]);
         return $user;
     }
 

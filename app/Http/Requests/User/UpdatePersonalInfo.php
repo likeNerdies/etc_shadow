@@ -24,7 +24,7 @@ class UpdatePersonalInfo extends FormRequest
     public function rules()
     {
         return [
-            'dni'=>'nullable|min:9|max:9',
+            'dni'=>'nullable|unique:users,dni|min:9|max:9',
             'name' => 'required|min:2|max:100',
             'first_surname'=>'required|min:2|max:100',
             'second_surname'=>'nullable',
