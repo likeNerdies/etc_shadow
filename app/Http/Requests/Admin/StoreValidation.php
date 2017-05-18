@@ -50,11 +50,12 @@ class StoreValidation extends FormRequest
                     'regex:/[a-zA-Z]{3,100}/i'
                 ),
             'email' => 'required|email|unique:admins,email,' . Auth::user()->id,//esto evita que de 'error' de email repetido para el mismo usuario
-            'password' => 'required|min:8|confirmed',
+           // 'password' => 'required|min:8|confirmed',
             'phone_number'=>
                 array(
-                    'nullable|numeric',
-                    'regex:/\d{9}'
+                    'nullable',
+                    'numeric',
+                    'regex:/\d{9}/'
                 ),
         ];
     }
