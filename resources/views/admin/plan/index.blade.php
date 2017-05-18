@@ -1,44 +1,55 @@
 @extends('admin.layouts.app')
 @section('title','Plans')
 @section('right-panel')
+  <div class="wrapper-content">
 
-<h2>Plans</h2>
+    <h2 class="text-left mt-4">Plans</h2>
 
-<div class="error" role="alert"></div>
+    <div class="error" role="alert"></div>
 
-<div class="d-flex justify-content-end mt-5">
-  <div class="mr-auto"><button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Plan</button></div>
-  <div class="col-md-6"><!--<i class="fa fa-search" aria-hidden="true"></i>-->
-  <input type="text" id="search" class="form-control" placeholder="Search..."></div>
-</div>
 
-<div class="mt-5">
-  <!-- Table-to-load-the-data Part -->
-  <table class="table">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Info</th>
-      </tr>
-    </thead>
-    <tbody id="plan-list" name="plan-list">
-      @foreach ($plans as $plan)
-      <tr id="plan{{$plan->id}}">
-        <td id="id">{{$plan->id}}</td>
-        <td>{{$plan->name}}</td>
-        <td>{{$plan->price}}</td>
-        <td>{{$plan->info}}</td>
-        <td>
-          <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$plan->id}}">Edit</button>
-          <button class="btn btn-danger btn-xs btn-delete delete-plan" value="{{$plan->id}}">Delete</button>
-        </td>
-      </tr>
-      @endforeach
-    </tbody>
-  </table> <!-- End of Table-to-load-the-data Part -->
 
+    <div class="row mt-4">
+      <div class="col-md-6 col-12 mt-4">
+        <input type="text" id="search" class="form-control" placeholder="Search by ID or name">
+      </div>
+
+      <div id="add" class="col-md-6 col-12 mt-4">
+        <button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Plan</button>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <!-- Table-to-load-the-data Part -->
+      <div class="col-12">
+        <table class="table mt-4">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Info</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="plan-list" name="plan-list">
+            @foreach ($plans as $plan)
+              <tr id="plan{{$plan->id}}">
+                <td id="id">{{$plan->id}}</td>
+                <td>{{$plan->name}}</td>
+                <td>{{$plan->price}}</td>
+                <td>{{$plan->info}}</td>
+                <td>
+                  <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$plan->id}}">Edit</button>
+                  <button class="btn btn-danger btn-xs btn-delete delete-plan" value="{{$plan->id}}">Delete</button>
+                </td>
+              </tr>
+            @endforeach
+          </tbody>
+        </table> <!-- End of Table-to-load-the-data Part -->
+      </div>
+    </div>
+  </div>
   <!-- Modal (Pop up when detail button clicked) -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">

@@ -39,10 +39,10 @@
               <td class="media-480-delete">{{$brand->created_at}}</td>
               <td>
                 <button class="btn btn-warning btn-xs btn-detail open-modal hidden-sm-down" value="{{$brand->id}}">Edit</button>
-                <button class="btn btn-warning hidden-md-up" value="{{$brand->id}}"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                <button class="btn btn-warning hidden-md-up open-modal" value="{{$brand->id}}"><i class="fa fa-pencil" aria-hidden="true"></i></button>
 
                 <button class="btn btn-danger btn-xs btn-delete delete-category hidden-sm-down" value="{{$brand->id}}">Delete</button>
-                <button class="btn btn-danger hidden-md-up" value="{{$brand->id}}"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                <button class="btn btn-danger hidden-md-up delete-category" value="{{$brand->id}}"><i class="fa fa-trash" aria-hidden="true"></i></button>
               </td>
             </tr>
           @endforeach

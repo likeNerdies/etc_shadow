@@ -31,9 +31,9 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th class="media-480-delete">Info</th>
-                    <th class="media-480-delete">Allergies</th>
+                    <th class="media-767-delete">Allergies</th>
                     <th>Images</th>
-                    <th class="media-480-delete">Created at</th>
+                    <th class="media-767-delete">Created at</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
@@ -43,7 +43,7 @@
                         <td id="id">{{$ingredient->id}}</td>
                         <td>{{$ingredient->name}}</td>
                         <td class="media-480-delete">{{$ingredient->info}}</td>
-                        <td class="media-480-delete">
+                        <td class="media-767-delete">
                             @if(count($ingredient->allergies)==0)
 
                             @else
@@ -56,17 +56,17 @@
                         @if($ingredient->image_path==null)
                             <td id="ingredient-img"></td>
                         @else
-                            <td id="ingredient-img"><img class="img-thumbnail" src="{{$ingredient->getPublicImgUrl($ingredient->image_path)}}" width="48.2"></td>
+                            <td id="ingredient-img"><img class="img-thumbnail" src="{{$ingredient->getPublicImgUrl($ingredient->image_path)}}" width="48.2" height="48.2"></td>
                         @endif
 
-                        <td class="media-480-delete">{{$ingredient->created_at}}</td>
+                        <td class="media-767-delete">{{$ingredient->created_at}}</td>
 
                         <td>
                             <button class="btn btn-warning btn-xs btn-detail open-modal hidden-sm-down" value="{{$ingredient->id}}">Edit</button>
-                            <button class="btn btn-warning hidden-md-up" value="{{$ingredient->id}}"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                            <button class="btn btn-warning hidden-md-up open-modal" value="{{$ingredient->id}}"><i class="fa fa-pencil" aria-hidden="true"></i></button>
 
                             <button class="btn btn-danger btn-xs btn-delete delete-category hidden-sm-down" value="{{$ingredient->id}}">Delete</button>
-                            <button class="btn btn-danger hidden-md-up" value="{{$ingredient->id}}"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                            <button class="btn btn-danger hidden-md-up delete-category" value="{{$ingredient->id}}"><i class="fa fa-trash" aria-hidden="true"></i></button>
                         </td>
                     </tr>
                 @endforeach

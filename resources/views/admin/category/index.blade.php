@@ -4,26 +4,26 @@
 
   <div class="wrapper-content">
 
-  <h2 class="text-left mt-4">Categories</h2>
+          <h2 class="text-left mt-4">Categories</h2>
 
-  <div class="error" role="alert"></div>
+          <div class="error" role="alert"></div>
 
 
 
-  <div class="row mt-4">
-    <div class="col-md-6 col-12 mt-4">
-      <input type="text" id="search" class="form-control" placeholder="Search by ID or name">
-    </div>
+          <div class="row mt-4">
+            <div class="col-md-6 col-12 mt-4">
+              <input type="text" id="search" class="form-control" placeholder="Search by ID or name">
+            </div>
 
-    <div id="add" class="col-md-6 col-12 mt-4">
-      <button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Category</button>
-    </div>
-  </div>
+            <div id="add" class="col-md-6 col-12 mt-4">
+              <button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Category</button>
+            </div>
+          </div>
 
-  <div class="row mt-2">
-    <!-- Table-to-load-the-data Part -->
-    <div class="col-12">
-      <table class="table mt-4">
+          <div class="row mt-2">
+            <!-- Table-to-load-the-data Part -->
+            <div class="col-12">
+              <table class="table mt-4">
         <thead>
         <tr>
           <th>ID</th>

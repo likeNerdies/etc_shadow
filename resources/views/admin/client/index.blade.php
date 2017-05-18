@@ -2,73 +2,77 @@
 @section('title','Clients')
 @section('right-panel')
 
-    <h2>Clients</h2>
+        <div class="wrapper-content">
 
-    <div class="error" role="alert"></div>
+            <h2 class="text-left mt-4">Clients</h2>
 
-    <div class="d-flex justify-content-end mt-5">
+            <div class="error" role="alert"></div>
 
 
 
-      {{-- @if(Auth::user()->can_create)
-        <div class="mr-auto"><button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Client</button></div>
-        @endif
---}}
-        <div class="col-md-6"><!--<i class="fa fa-search" aria-hidden="true"></i>-->
-            <input type="text" id="search" class="form-control" placeholder="Search by ID or name"></div>
-    </div>
+            <div class="row mt-4">
+                <div class="col-md-6 col-12 mt-4">
+                    <input type="text" id="search" class="form-control" placeholder="Search by ID or name">
+                </div>
+            </div>
 
-    <div class="mt-5">
-        <!-- Table-to-load-the-data Part -->
-        <table class="table">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>DNI</th>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>Email</th>
-                <th>Phone Number</th>
-                <th>Plan</th>
-                @if(Auth::user()->can_create)
-                <th>Actions</th>
-                @endif
-            </tr>
-            </thead>
-            <tbody id="client-list" name="client-list">
-            @foreach ($clients as $client)
-                <tr id="client{{$client->id}}">
-                    <td id="id">{{$client->id}}</td>
-                    @if($client->dni==null)
-                        <td></td>
-                    @else
-                        <td>{{$client->dni}}</td>
-                    @endif
-                    <td>{{$client->name}}</td>
-                    <td>{{$client->first_surname}}</td>
-                    <td>{{$client->email}}</td>
-                    @if($client->phone_number==null)
-                        <td></td>
-                    @else
-                        <td>{{$client->phone_number}}</td>
-                    @endif
+            <div class="row mt-2">
+                <!-- Table-to-load-the-data Part -->
+                <div class="col-12">
+                    <table class="table mt-4">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th class="media-480-delete">DNI</th>
+                                <th>Name</th>
+                                <th class="media-480-delete">Surname</th>
+                                <th class="media-480-delete">Email</th>
+                                <th class="media-480-delete">Phone Number</th>
+                                <th>Plan</th>
+                                @if(Auth::user()->can_create)
+                                    <th>Actions</th>
+                                @endif
+                            </tr>
+                        </thead>
+                        <tbody id="client-list" name="client-list">
+                            @foreach ($clients as $client)
+                                <tr id="client{{$client->id}}">
+                                    <td id="id">{{$client->id}}</td>
+                                    @if($client->dni==null)
+                                        <td class="media-480-delete"></td>
+                                    @else
+                                        <td class="media-480-delete">{{$client->dni}}</td>
+                                    @endif
+                                    <td>{{$client->name}}</td>
+                                    <td class="media-480-delete">{{$client->first_surname}}</td>
+                                    <td class="media-480-delete">{{$client->email}}</td>
+                                    @if($client->phone_number==null)
+                                        <td class="media-480-delete"></td>
+                                    @else
+                                        <td class="media-480-delete">{{$client->phone_number}}</td>
+                                    @endif
 
-                    @if($client->plan==null)
-                        <td>Without plan</td>
-                    @else
-                        <td>Plan : {{$client->plan->name}}</td>
-                    @endif
-                    @if(Auth::user()->can_create)
-                    <td>
-                        <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$client->id}}">Edit</button>
-                        <button class="btn btn-danger btn-xs btn-delete delete-client" value="{{$client->id}}">Delete</button>
-                    </td>
-                    @endif
-                </tr>
-            @endforeach
-            </tbody>
-        </table> <!-- End of Table-to-load-the-data Part -->
+                                    @if($client->plan==null)
+                                        <td>Without plan</td>
+                                    @else
+                                        <td>Plan : {{$client->plan->name}}</td>
+                                    @endif
+                                    @if(Auth::user()->can_create)
+                                        <td>
+                                            <button class="btn btn-warning btn-xs btn-detail open-modal hidden-sm-down" value="{{$client->id}}">Edit</button>
+                                            <button class="btn btn-warning hidden-md-up open-modal" value="{{$client->id}}"><i class="fa fa-pencil" aria-hidden="true"></i></button>
 
+                                            <button class="btn btn-danger btn-xs btn-delete delete-category hidden-sm-down" value="{{$client->id}}">Delete</button>
+                                            <button class="btn btn-danger hidden-md-up delete-category" value="{{$client->id}}"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                        </td>
+                                    @endif
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table> <!-- End of Table-to-load-the-data Part -->
+                </div>
+            </div>
+        </div>
         <!-- Modal (Pop up when detail button clicked) -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
