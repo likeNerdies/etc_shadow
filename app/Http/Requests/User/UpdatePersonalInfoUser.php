@@ -24,12 +24,33 @@ class UpdatePersonalInfoUser extends FormRequest
     public function rules()
     {
         return [
-            'dni'=>'nullable|unique:users,dni|min:9|max:9',
-            'name' => 'required|min:2|max:100',
-            'first_surname'=>'required|min:2|max:100',
-            'second_surname'=>'nullable',
-            'email' => 'sometimes|required|email|unique:users,email,',//todo modicacion en email---unique problem while updating from admin-client
-            'phone_number'=>'nullable|max:11',
+          'dni'=>
+              array(
+                  'nullable',
+                  'regex:/^\d{8}[aA-zZ]{1}$/',
+                  'unique:admins,dni,'.Auth::user()->id
+              ),
+          'name' =>
+              array(
+                  'required',
+                  'regex:/[a-zA-Z]{3,100}/i'
+              ),
+          'first_surname'=>
+              array(
+                  'required',
+                  'regex:/[a-zA-Z]{3,100}/i'
+              ),
+          'second_surname'=>
+              array(
+                  'nullable',
+                  'regex:/[a-zA-Z]{3,100}/i'
+              ),
+          'email' => 'required|email|unique:admins,email,' . Auth::user()->id,//esto evita que de 'error' de email repetido para el mismo usuario
+          'phone_number'=>
+              array(
+                  'nullable|numeric',
+                  'regex:/\d{9}'
+              ),
         ];
     }
 }

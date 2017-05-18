@@ -1,4 +1,5 @@
 function validateName(name) {
+  console.log(name.required);
   var regex = /[a-zA-Z]{3,100}/i;
   if (!(name.value).match(regex)) {
     name.style.borderColor = "#a94442";
@@ -59,5 +60,23 @@ function validateExpDate(date) {
     date.style.borderColor = "#a94442";
   } else {
     date.style.borderColor = "#5cb85c";
+  }
+}
+
+function validateDNI(dni) {
+  var regex = /^\d{8}[aA-zZ]{1}$/;
+  if (!(dni.value).match(regex)) {
+    dni.style.borderColor = "#a94442";
+  } else {
+    dni.style.borderColor = "#5cb85c";
+  }
+}
+
+function valideEmail(email) {
+  var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  if (!(email.value).match(regex)) {
+    email.style.borderColor = "#a94442";
+  } else {
+    email.style.borderColor = "#5cb85c";
   }
 }

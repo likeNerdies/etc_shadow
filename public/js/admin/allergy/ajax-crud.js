@@ -114,10 +114,10 @@ $(document).ready(function() {
                   msg += "<li>"+data.responseJSON[key]+"</li>";
                 }
                 msg += "</ul>";
-                $('#ajaxerror').html(msg);
               } else {
-                msg = "<p>There was an internal error. Contact with the amdin.</p>"
+                msg = "<p>There was an internal error. Contact with the admin.</p>";
               }
+              $('#ajaxerror').html(msg);
             }
         });
     });
