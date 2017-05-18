@@ -54,9 +54,11 @@ class AdminController extends Controller
         return redirect()->back();
 
     }
-    /**
-     * Update information of admin user
-     * @param Request $request
+
+    /**Update information of admin user
+     * @param StoreValidation $request
+     * @param $id
+     * @return mixed
      */
     public function updateAdminUser(StoreValidation $request,$id)
     {

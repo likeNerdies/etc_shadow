@@ -142,11 +142,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin',], function () {
 
     //Route Clients
     Route::prefix('/clients')->group(function () {
-        Route::get('/', 'brand\BrandController@index');
-        Route::post('/', 'brand\BrandController@store');
-        Route::get('/{client}', 'brand\BrandController@show');
-        Route::put('/{client}', 'brand\BrandController@update');
-        Route::delete('/{client}', 'brand\BrandController@delete');
+        Route::get('/', 'user\UserController@adminIndex');
+        Route::post('/', 'user\UserController@adminStore');
+        Route::get('/{client}', 'user\UserController@adminShow');
+        Route::put('/{client}', 'user\UserController@adminUpdate');
+        Route::delete('/{client}', 'user\UserController@adminDelete');
     });
     //end Route Client
 

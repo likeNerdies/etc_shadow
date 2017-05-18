@@ -28,11 +28,11 @@ class StoreValidation extends FormRequest
     public function rules()
     {
         return [
-            'dni'=>'nullable|unique:admins,dni|min:9|max:9',
+            'dni'=>'nullable|min:9|max:9|unique:admins,dni,'.Auth::user()->id,
             'name' => 'required|min:2|max:100',
             'first_surname'=>'required|min:2|max:100',
             'second_surname'=>'nullable',
-            'email' => 'required|email|unique:admins,email,' . Auth::user()->id,//esto evita que de 'error' de email repetido
+            'email' => 'required|email|unique:admins,email,' . Auth::user()->id,//esto evita que de 'error' de email repetido para el mismo usuario
             'password' => 'required|min:8|confirmed',
             'phone_number'=>'nullable|numeric',
         ];
