@@ -44,7 +44,6 @@ Route::prefix('/user/panel')->group(function () {//user panel route
 
 
 //ROUTE LOGIN FOR ADMIN
-
 Route::get('/admin/login', 'auth\AdminLoginController@showLoginForm')->name('admin.login');
 Route::post('/admin/login', 'auth\AdminLoginController@login')->name('admin.login');
 //END ROUTE LOGIN ADMIN

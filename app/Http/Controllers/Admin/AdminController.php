@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\StoreValidation;
 use Auth;
 use App;
 use Hash;
+
 class AdminController extends Controller
 {
     public function __construct()
@@ -23,7 +24,81 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        //return date("m");
+        $totalUsers=App\User::all()->count();
+        $boxToSend=App\User::has('plan')->get()->count();
+
+
+        $profit=[];
+        try{
+            //calculando total ganancias
+            $charming=App\Plan::find(1)->value('price');
+            $pro =App\Plan::find(1)->value('price');
+            $premium =App\Plan::find(1)->value('price');
+
+            $usersCharming=App\User::whereHas('plan', function ($query) {
+                $query->where('id', '=', 1);
+            })->get()->count();
+
+            $usersPro=App\User::whereHas('plan', function ($query) {
+                $query->where('id', '=', 2);
+            })->get()->count();
+
+            $usersPremium=App\User::whereHas('plan', function ($query) {
+                $query->where('id', '=', 3);
+            })->get()->count();
+            $profit=[
+                "charming"=>$charming*$usersCharming,
+                "pro"=>$pro*$usersPro,
+                "premium"=>$premium*$usersPremium,
+            ];
+        }catch(Exception $e){
+            $profit=[
+                "charming"=>0,
+                "pro"=>0,
+                "premium"=>0,
+            ];
+        }
+
+        //--end calculando total ganancias
+
+        //getting current month subscribers
+        $monthlySubscribers=[];
+        try{
+            $usersCharming=App\User::whereHas('plan', function ($query) {
+                $query->where('id', '=', 1)
+                    ->whereMonth('subscribed_at',date("m"));
+            })->get()->count();
+
+            $usersPro=App\User::whereHas('plan', function ($query) {
+                $query->where('id', '=', 2)
+                    ->whereMonth('subscribed_at',date("m"));
+            })->get()->count();
+
+            $usersPremium=App\User::whereHas('plan', function ($query) {
+                $query->where('id', '=', 3)
+                    ->whereMonth('subscribed_at',date("m"));
+            })->get()->count();
+
+            $monthlySubscribers=[
+                "usersCharming"=>$usersCharming,
+                "usersPro"=>$usersPro,
+                "usersPremium"=>$usersPremium
+            ];
+        }catch (Exception $e){
+            $monthlySubscribers=[
+                "usersCharming"=>0,
+                "usersPro"=>0,
+                "usersPremium"=>0
+            ];
+        }
+
+
+
+        //--end getting current month subscribers
+
+
+        return view('admin.index',compact(['totalUsers','boxToSend','profit','monthlySubscribers']));
     }
 
     public function configuration()

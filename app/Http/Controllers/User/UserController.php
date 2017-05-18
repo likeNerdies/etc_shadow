@@ -87,6 +87,7 @@ class UserController extends Controller
         //$user->plan_id=$request->plan_id;
         $plan = App\Plan::findOrFail($request->plan_id);
         $user->plan()->associate($plan);
+        $user->subscribed_at = date("Y-m-d");
         $user->save();
     }
 
@@ -116,6 +117,7 @@ class UserController extends Controller
         ];
         return $retorn;
     }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -126,32 +128,32 @@ class UserController extends Controller
     {
         $user = App\User::findOrFail($id);
         $user->delete();
-         return $user;
+        return $user;
     }
 
     /**
      * @param Request $request
      */
-    public function adminUpdate(UpdatePersonalInfoUser $request,$id)
+    public function adminUpdate(UpdatePersonalInfoUser $request, $id)
     {
-       // return response()->json(["plan---------"=>$request->plan]);
-        $client =App\User::findOrFail($id);
+        // return response()->json(["plan---------"=>$request->plan]);
+        $client = App\User::findOrFail($id);
         $client->dni = $request->dni;
         $client->name = $request->name;
         $client->first_surname = $request->first_surname;
         $client->second_surname = $request->second_surname;
         $client->email = $request->email;
         $client->phone_number = $request->phone_number;
-        if(isset($request->plan)){
+        if (isset($request->plan)) {
             $client->plan()->associate($request->plan);
+            $client->subscribed_at = date("Y-m-d");
         }
         $client->save();
-        $retorn=[
-          "client"=>$client,
-          "plan"=>$client->plan
+        $retorn = [
+            "client" => $client,
+            "plan" => $client->plan
         ];
         return $retorn;
-
     }
 
 
