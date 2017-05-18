@@ -14,7 +14,7 @@
       </div>
 
       <div id="add" class="col-md-6 col-12 mt-4">
-        <button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Allergie</button>
+        <button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Allergy</button>
       </div>
     </div>
 

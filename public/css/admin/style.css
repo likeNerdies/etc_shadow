@@ -273,7 +273,7 @@ tr > th, tr > td{
     display: block;
   }
 
-  #menu-content a:last-child{
+  #menu-content > form > a:last-child{
     display: none;
   }
 
