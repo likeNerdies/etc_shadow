@@ -24,7 +24,11 @@ class StoreValidation extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required|min:3',
+            'name'=>
+                array(
+                    'required',
+                    'regex:/[a-zA-Z]{3100,}/i'
+                ),
             'cif'=>array(
                 'required',
                 'regex:/^[a-zA-Z][0-9]{8}$/',

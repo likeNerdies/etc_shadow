@@ -108,7 +108,7 @@
 
     <!-- Modal (Pop up when detail button clicked) -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
 
       <div class="modal-content">
         <div class="modal-header">
@@ -118,45 +118,45 @@
         </div>
         <div id="ajaxerror"></div>
           <div class="modal-body">
-            <form id="formProducts" name="formProducts" class="form-horizontal" novalidate="">
+            <form id="formProducts" name="formProducts" class="form-inline d-flex justify-content-center" novalidate="">
               {{ csrf_field() }}
-              <div class="form-group">
-                <label for="name" class="col-sm-3 control-label">Name</label>
-                <div class="col-sm-9">
+              <div class="form-group col-sm-4">
+                <label for="name" class="control-label">Name</label>
+                <div class="">
                   <input type="text" class="form-control has-error" id="name" name="name" placeholder="Cashew drink" value="" onblur="validateName(this)">
                 </div>
               </div>
 
-              <div class="form-group">
-                <label for="price" class="col-sm-3 control-label">Price</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" id="price" name="price" placeholder="price example: 31.95" value="" onblur="validatePrice(this)">
+              <div class="form-group col-sm-4">
+                <label for="price" class="control-label">Price</label>
+                <div class="">
+                  <input type="text" class="form-control" id="price" name="price" placeholder="5.95" value="" onblur="validatePrice(this)">
                 </div>
               </div>
 
-                <div class="form-group">
-                    <label for="description" class="col-sm-3 control-label">Description</label>
-                    <div class="col-sm-9">
+                <div class="form-group col-sm-8 mt-4">
+                    <label for="description" class="control-label">Description</label>
+                    <div class="">
                         <textarea class="form-control" rows="5" cols="38" id="description" name="description" placeholder="description of the product" onblur="validateName(this)"></textarea>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="expiration_date" class="col-sm-3 control-label">Expiration Date</label>
+                    <label for="expiration_date" class="col-sm-9 control-label">Expiration Date</label>
                     <div class="col-sm-9">
-                        <input type="date" class="form-control" id="expiration_date" name="expiration_date" placeholder="09/02/2018"  value="" onblur="validateExpDate(this)">
+                        <input type="date" class="form-control" id="expiration_date" name="expiration_date" placeholder="09/02/2018"  value="" onblur="validateExpDate(this)" />
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="weight" class="col-sm-3 control-label">Weight</label>
+                    <label for="weight" class="col-sm-9 control-label">Weight (in grams)</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="weight" name="weight" placeholder="weight of kg/l the product example : 2.65" value="" onblur="validateWeight(this)">
+                        <input type="text" class="form-control" id="weight" name="weight" placeholder="1200" value="" onblur="validateWeight(this)">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="stock" class="col-sm-3 control-label">Stock</label>
+                    <label for="stock" class="col-sm-9 control-label">Stock</label>
                     <div class="col-sm-9">
                         <input type="number" class="form-control" id="stock" name="stock" placeholder="13" value="" onblur="validateStock(this)">
                     </div>
@@ -189,16 +189,16 @@
                     <div class="card card-block">
 
                         <div class="form-group">
-                            <label for="dimension" class="col-sm-3 control-label">Dimension</label>
+                            <label for="dimension" class="col-sm-9 control-label">Dimension (lengthxwidthxheight) in cm</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="dimension" name="dimension" placeholder="" value=""><!-- afegir exemple -->
+                                <input type="text" class="form-control" id="dimension" name="dimension" placeholder="10x5x25" value=""><!-- afegir exemple -->
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="real_weight" class="col-sm-3 control-label">Real weight</label>
+                            <label for="real_weight" class="col-sm-9 control-label">Real weight (in grams)</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="real_weight" name="real_weight" placeholder="weight of the product example kg/l : 2.65" value="" onblur="validateWeight(this)">
+                                <input type="text" class="form-control" id="real_weight" name="real_weight" placeholder="1300" value="" onblur="validateWeight(this)">
                             </div>
                         </div>
 
@@ -221,10 +221,8 @@
                             </label>
                         </div>
 
-
-
-                    </div>
-                </div>
+                    </div><!-- / card -->
+                </div><!-- / collapse -->
 
                 {{--END OPTION DATA--}}
                 {{--test--}}
@@ -252,6 +250,4 @@
 @section('scripts')
     <script src="{{asset('/js/libraries/select2/js/select2.js')}}"></script>
     <script src="{{asset('/js/admin/product/ajax-crud.js')}}"></script>
-    <!--<script src="{{asset('/fonts/Pe-icon-7-stroke.woff')}}"></script>-->
-
 @endsection

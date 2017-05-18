@@ -27,19 +27,23 @@ class UploadProduct extends FormRequest
             'name' =>
                 array(
                     'required',
-                    'regex:/^[a-zA-Z\' ]+$/'
+                    'regex:/[a-zA-Z]{3,100}/i'
                 ),
-           /* 'price' =>
+            'price' =>
                 array(
                     'required',
-                    'regex:/(^([0-9]{1,})$)/'
-                ),*/
-            'description' => 'required',
+                    'regex:/^\d{1,2}[,|.]\d{1,2}$/'
+                ),
+            'description' =>
+                array(
+                    'required',
+                    'regex:/[a-zA-Z]{3,100}/i'
+                ),
             'expiration_date' => 'required|date',
             'weight' =>
                 array(
                     'required',
-                    'regex:/(^([0-9]{1,})$)/'
+                    'regex:/\d{3,4}/'
                 ),
             'vegetarian'=>'numeric|min:0|max:1',
             'vegan'=>'numeric|min:0|max:1',
@@ -47,7 +51,7 @@ class UploadProduct extends FormRequest
             'stock' =>
                 array(
                     'required',
-                    'regex:/(^([0-9]){0,}$)/'
+                    'regex:/(\d+)/'
                 ),
             'ingredients'  => 'required|array|min:1',//input type hidden ingredients
 
