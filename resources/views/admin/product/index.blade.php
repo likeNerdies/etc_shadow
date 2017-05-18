@@ -125,42 +125,42 @@
               <div class="form-group col-sm-4">
                 <label for="name" class="control-label">Name</label>
                 <div class="">
-                  <input type="text" class="form-control has-error" id="name" name="name" placeholder="Cashew drink" value="" onblur="validateName(this)">
+                  <input type="text" class="form-control has-error" id="name" name="name" placeholder="Cashew drink" value="" required onblur="validateName(this)" />
                 </div>
               </div>
 
               <div class="form-group col-sm-4">
                 <label for="price" class="control-label">Price</label>
                 <div class="">
-                  <input type="text" class="form-control" id="price" name="price" placeholder="5.95" value="" onblur="validatePrice(this)">
+                  <input type="text" class="form-control" id="price" name="price" placeholder="5.95" value="" required onblur="validatePrice(this)" />
                 </div>
               </div>
 
                 <div class="form-group col-sm-8 mt-4">
                     <label for="description" class="control-label">Description</label>
                     <div class="">
-                        <textarea class="form-control" rows="5" cols="38" id="description" name="description" placeholder="description of the product" onblur="validateName(this)"></textarea>
+                        <textarea class="form-control" rows="5" cols="38" id="description" name="description" placeholder="description of the product" required onblur="validateName(this)"></textarea>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="expiration_date" class="col-sm-9 control-label">Expiration Date</label>
                     <div class="col-sm-9">
-                        <input type="date" class="form-control" id="expiration_date" name="expiration_date" placeholder="09/02/2018"  value="" onblur="validateExpDate(this)" />
+                        <input type="date" class="form-control" id="expiration_date" name="expiration_date" placeholder="09/02/2018"  value="" required onblur="validateExpDate(this)" />
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="weight" class="col-sm-9 control-label">Weight (in grams)</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="weight" name="weight" placeholder="1200" value="" onblur="validateWeight(this)">
+                        <input type="text" class="form-control" id="weight" name="weight" placeholder="1200" value="" required onblur="validateWeight(this)" />
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="stock" class="col-sm-9 control-label">Stock</label>
                     <div class="col-sm-9">
-                        <input type="number" class="form-control" id="stock" name="stock" placeholder="13" value="" onblur="validateStock(this)">
+                        <input type="number" class="form-control" id="stock" name="stock" placeholder="13" value="" required=" "onblur="validateStock(this)" />
                     </div>
                 </div>
 
@@ -193,32 +193,32 @@
                         <div class="form-group">
                             <label for="dimension" class="col-sm-9 control-label">Dimension (lengthxwidthxheight) in cm</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="dimension" name="dimension" placeholder="10x5x25" value=""><!-- afegir exemple -->
+                                <input type="text" class="form-control" id="dimension" name="dimension" placeholder="10x5.80x25" value="" onblur="validateDimensions(this)"><!-- afegir exemple -->
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="real_weight" class="col-sm-9 control-label">Real weight (in grams)</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="real_weight" name="real_weight" placeholder="1300" value="" onblur="validateWeight(this)">
+                                <input type="text" class="form-control" id="real_weight" name="real_weight" placeholder="1300" value="" onblur="validateWeight(this)" />
                             </div>
                         </div>
 
                         <div class="form-check">
                             <label class="form-check-label" for="vegetarian">
-                                <input class="form-check-input" type="checkbox" value="1" id="vegetarian" name="vegetarian">
+                                <input class="form-check-input" type="checkbox" value="1" id="vegetarian" name="vegetarian" />
                                Vegetarian
                             </label>
                         </div>
                         <div class="form-check">
                             <label class="form-check-label" for="vegan">
-                                <input class="form-check-input" type="checkbox" value="1" id="vegan" name="vegan">
+                                <input class="form-check-input" type="checkbox" value="1" id="vegan" name="vegan" />
                                 Vegan
                             </label>
                         </div>
                         <div class="form-check">
                             <label class="form-check-label" for="organic">
-                                <input class="form-check-input" type="checkbox" value="1" id="organic" name="organic">
+                                <input class="form-check-input" type="checkbox" value="1" id="organic" name="organic" />
                                 Organic
                             </label>
                         </div>

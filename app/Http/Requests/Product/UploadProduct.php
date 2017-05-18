@@ -53,6 +53,12 @@ class UploadProduct extends FormRequest
                     'required',
                     'regex:/(\d+)/'
                 ),
+            /* Clara: 18/05 */
+            'dimensions' =>
+                array(
+                    'nullable',
+                    'regex:/^\d{1,2}([,.]\d{1,2})?x\d{1,2}([,.]\d{1,2})x\d{1,2}([,.]\d{1,2})?$/'
+                ),
             'ingredients'  => 'required|array|min:1',//input type hidden ingredients
 
         ];

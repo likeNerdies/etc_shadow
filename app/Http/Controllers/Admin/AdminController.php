@@ -28,6 +28,7 @@ class AdminController extends Controller
         $totalUsers=App\User::all()->count();
         $boxToSend=App\User::has('plan')->get()->count();
 
+      
 
         $profit=[];
         try{

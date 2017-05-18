@@ -6,6 +6,7 @@ $(document).ready(function () {
     $(document).on('click', '.open-modal', function (e) {
         // $('.open-modal').click(function() {
         var client_id = $(this).val();
+        console.log("client_id edit: " + client_id);
 
         $.get(url + '/' + client_id, function (data) {
             //success data
@@ -104,7 +105,7 @@ $(document).ready(function () {
         var my_url = url;
 
         if (state == "update") {
-            console.log("update");
+            console.log("update: " + client_id);
             type = "PUT"; //for updating existing resource
             my_url += '/' + client_id;
         }
@@ -135,11 +136,11 @@ $(document).ready(function () {
                 } else {
                     client += '<td>Without plan</td>';
                 }
-                client += '<td><button class="btn btn-warning btn-xs btn-detail open-modal  hidden-sm-down" value="' + data.id + '">Edit</button>';
-                client += '<button class="btn btn-warning hidden-md-up open-modal" value="'+ data.id +'"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
+                client += '<td><button class="btn btn-warning btn-xs btn-detail open-modal  hidden-sm-down" value="' + data.client.id + '">Edit</button>';
+                client += '<button class="btn btn-warning hidden-md-up open-modal" value="'+ data.client.id +'"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
 
-                client += '<button class="btn btn-danger btn-xs btn-delete delete-allergy  hidden-sm-down" value="' + data.id + '">Delete</button></td></tr>';
-                client += '<button class="btn btn-danger hidden-md-up delete-category" value="' + data.id + '"><i class="fa fa-trash" aria-hidden="true"></i></button>';
+                client += '<button class="btn btn-danger btn-xs btn-delete delete-allergy  hidden-sm-down" value="' + data.client.id + '">Delete</button></td></tr>';
+                client += '<button class="btn btn-danger hidden-md-up delete-category" value="' + data.client.id + '"><i class="fa fa-trash" aria-hidden="true"></i></button>';
 
 
                 if (state == "add") { //if user added a new record

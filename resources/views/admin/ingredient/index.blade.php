@@ -96,7 +96,7 @@
               <div class="form-group error">
                 <label for="name" class="col-sm-3 control-label">Name</label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control has-error" id="name" name="name" placeholder="Wheat flour" value="" onblur="validateName(this)">
+                  <input type="text" class="form-control has-error" id="name" name="name" placeholder="Wheat flour" value="" required onblur="validateName(this)" />
 
                 </div>
               </div>
@@ -104,7 +104,7 @@
               <div class="form-group">
                 <label for="info" class="col-sm-3 control-label">Info</label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" id="info" name="info" placeholder=" "value="" onblur="validateName(this)">
+                  <input type="text" class="form-control" id="info" name="info" placeholder=" "value="" required onblur="validateName(this)" />
                 </div>
               </div>
 

@@ -34,6 +34,11 @@ class PlanValidation extends FormRequest
                     'required',
                     'regex:/^\d{1,2}[,|.]\d{1,2}$/'
                 ),
+              'info'=>
+                  array(
+                      'required',
+                      'regex:/[a-zA-Z]{3,100}/i'
+                  ),
         ];
     }
 }
