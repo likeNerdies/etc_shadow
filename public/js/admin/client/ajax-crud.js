@@ -18,12 +18,18 @@ $(document).ready(function () {
             $('#phone_number').val(data.phone_number);
             $('#plan').append("<option value=''>No plan</option>");
             if (data.plans.length != 0) {//adding initial options
+                console.log(data.plans)
                 for (i = 0; i < data.plans.length; i++) {
-                    if(data.plan!=null)
-                    if (data.plan.id == data.plans[i].id)
-                        $('#plan').append("<option selected='selected' value='" + data.plans[i].id + "'>" + data.plans[i].name + "</option>");
-                    else
+                    if(data.plan!=null){
+                        if (data.plan.id == data.plans[i].id){
+                            $('#plan').append("<option selected='selected' value='" + data.plans[i].id + "'>" + data.plans[i].name + "</option>");
+                        }else{
+                            $('#plan').append("<option value='" + data.plans[i].id + "'>" + data.plans[i].name + "</option>");
+                        }
+                    }else{
                         $('#plan').append("<option value='" + data.plans[i].id + "'>" + data.plans[i].name + "</option>");
+                    }
+
                 }
             }
 
@@ -125,7 +131,7 @@ $(document).ready(function () {
                     client += '<td></td>';
                 }
                 if (data.plan != null) {
-                    client += '<td>' + data.plan.name + '</td>';
+                    client += '<td>Plan : ' + data.plan.name + '</td>';
                 } else {
                     client += '<td>Without plan</td>';
                 }
@@ -178,7 +184,7 @@ $(document).ready(function () {
                                 client += '<td></td>';
                             }
                             if (data[i].plan != null) {
-                                client += '<td>' + data[i].plan.name + '</td>';
+                                client += '<td>Plan : ' + data[i].plan.name + '</td>';
                             } else {
                                 client += '<td>Without plan</td>';
                             }

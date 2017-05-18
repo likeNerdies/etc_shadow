@@ -7,6 +7,7 @@ use App;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\UpdatePersonalInfo;
+use App\Http\Requests\User\UpdatePersonalInfoUser;
 
 class UserController extends Controller
 {
@@ -131,8 +132,9 @@ class UserController extends Controller
     /**
      * @param Request $request
      */
-    public function adminUpdate(UpdatePersonalInfo $request,$id)
+    public function adminUpdate(UpdatePersonalInfoUser $request,$id)
     {
+       // return response()->json(["plan---------"=>$request->plan]);
         $client =App\User::findOrFail($id);
         $client->dni = $request->dni;
         $client->name = $request->name;
@@ -140,8 +142,9 @@ class UserController extends Controller
         $client->second_surname = $request->second_surname;
         $client->email = $request->email;
         $client->phone_number = $request->phone_number;
-        if($request->plan!=null)
-        $client->plan->associate($request->plan);
+        if(isset($request->plan)){
+            $client->plan()->associate($request->plan);
+        }
         $client->save();
         $retorn=[
           "client"=>$client,
