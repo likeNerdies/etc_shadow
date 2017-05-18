@@ -19,6 +19,7 @@ $(document).ready(function () {
             $('#plan').append("<option value=''>No plan</option>");
             if (data.plans.length != 0) {//adding initial options
                 for (i = 0; i < data.plans.length; i++) {
+                    if(data.plan!=null)
                     if (data.plan.id == data.plans[i].id)
                         $('#plan').append("<option selected='selected' value='" + data.plans[i].id + "'>" + data.plans[i].name + "</option>");
                     else
@@ -111,29 +112,34 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (data) { // success:
                 console.log(data);
-                var admin = '<tr id="admin' + data.id + '"><td id="id">' + data.id + '</td>';
-                if (data.dni != null) {
-                    admin += '<td>' + data.dni + '</td>';
+                var client = '<tr id="client' + data.client.id + '"><td id="id">' + data.client.id + '</td>';
+                if (data.client.dni != null) {
+                    client += '<td>' + data.client.dni + '</td>';
                 } else {
-                    admin += '<td></td>';
+                    client += '<td></td>';
                 }
-                admin += '<td>' + data.name + '</td><td>' + data.first_surname + '</td><td>' + data.email + '</td>';
-                if (data.phone_number != null) {
-                    admin += '<td>' + data.phone_number + '</td>';
+                client += '<td>' + data.client.name + '</td><td>' + data.client.first_surname + '</td><td>' + data.client.email + '</td>';
+                if (data.client.phone_number != null) {
+                    client += '<td>' + data.client.phone_number + '</td>';
                 } else {
-                    admin += '<td></td>';
+                    client += '<td></td>';
                 }
-                admin += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '">Edit</button>';
-                admin += '<button class="btn btn-danger btn-xs btn-delete delete-admin" value="' + data.id + '">Delete</button></td></tr>';
+                if (data.plan != null) {
+                    client += '<td>' + data.plan.name + '</td>';
+                } else {
+                    client += '<td>Without plan</td>';
+                }
+                client += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.client.id + '">Edit</button>';
+                client += '<button class="btn btn-danger btn-xs btn-delete delete-client" value="' + data.client.id + '">Delete</button></td></tr>';
 
                 if (state == "add") { //if user added a new record
-                    $('#admin-list').append(admin);
+                    $('#client-list').append(client);
                 } else { //if user updated an existing record
 
-                    $("#admin" + admin_id).replaceWith(admin);
+                    $("#client" + client_id).replaceWith(client);
                 }
 
-                $('#formCategories').trigger("reset");
+                $('#formClients').trigger("reset");
 
                 $('#myModal').modal("hide");
             },
@@ -150,19 +156,35 @@ $(document).ready(function () {
         if ($value != '') {
             $.ajax({
                 type: 'get',
-                url: '/search/category',
-                data: {'category': $value},
+                url: '/search/client',
+                data: {'client': $value},
                 success: function (data) {
                     if (data.length == 0) {
-                        $('#category-list').empty();
-                        $('#category-list').append('<p class="text-center">No results found</p>')
+                        $('#client-list').empty();
+                        $('#client-list').append('<p class="text-center">No results found</p>')
                     } else {
-                        $('#category-list').empty();
+                        $('#client-list').empty();
                         for (i = 0; i < data.length; i++) {
-                            var category = '<tr id="category' + data[i].id + '"><td>' + data[i].id + '</td><td>' + data[i].name + '</td><td>' + data[i].info + '</td><td>' + data[i].created_at + '</td>';
-                            category += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].id + '">Edit</button>';
-                            category += '<button class="btn btn-danger btn-xs btn-delete delete-category" value="' + data[i].id + '">Delete</button></td></tr>';
-                            $('#category-list').append(category);
+                            var client = '<tr id="client' + data[i].client.id + '"><td id="id">' + data[i].client.id + '</td>';
+                            if (data[i].client.dni != null) {
+                                client += '<td>' + data[i].client.dni + '</td>';
+                            } else {
+                                client += '<td></td>';
+                            }
+                            client += '<td>' + data[i].client.name + '</td><td>' + data[i].client.first_surname + '</td><td>' + data[i].client.email + '</td>';
+                            if (data[i].client.phone_number != null) {
+                                client += '<td>' + data[i].client.phone_number + '</td>';
+                            } else {
+                                client += '<td></td>';
+                            }
+                            if (data[i].plan != null) {
+                                client += '<td>' + data[i].plan.name + '</td>';
+                            } else {
+                                client += '<td>Without plan</td>';
+                            }
+                            client += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].client.id + '">Edit</button>';
+                            client += '<button class="btn btn-danger btn-xs btn-delete delete-client" value="' + data[i].client.id + '">Delete</button></td></tr>';
+                            $('#client-list').append(client);
                         }
 
                     }

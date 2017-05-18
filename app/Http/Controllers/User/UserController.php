@@ -106,7 +106,7 @@ class UserController extends Controller
 
     public function adminShow($id)
     {
-        $client = App\User::findOrFailc($id);
+        $client = App\User::findOrFail($id);
         $plans = App\Plan::all();
         $retorn = [
             "client" => $client,
@@ -127,5 +127,29 @@ class UserController extends Controller
         $user->delete();
          return $user;
     }
+
+    /**
+     * @param Request $request
+     */
+    public function adminUpdate(UpdatePersonalInfo $request,$id)
+    {
+        $client =App\User::findOrFail($id);
+        $client->dni = $request->dni;
+        $client->name = $request->name;
+        $client->first_surname = $request->first_surname;
+        $client->second_surname = $request->second_surname;
+        $client->email = $request->email;
+        $client->phone_number = $request->phone_number;
+        if($request->plan!=null)
+        $client->plan->associate($request->plan);
+        $client->save();
+        $retorn=[
+          "client"=>$client,
+          "plan"=>$client->plan
+        ];
+        return $retorn;
+
+    }
+
 
 }

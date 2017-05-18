@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Search;
-
+use App\User;
 use App\Allergy;
 use App\Category;
 use App\Brand;
@@ -16,6 +16,27 @@ use App;
 
 class SearchController extends Controller
 {
+    /**
+     * busqueda ajax para client
+     * @param Request $request
+     */
+    public function client(Request $request, User $user)
+    {
+        $retorn = [];
+        if ($request->ajax() && $request->has('client')) {
+            $clients = $user->where('id', '=', $request->client)
+                ->orWhere('name', 'like', '%' . $request->client . '%')->get();
+            for ($i = 0; $i < count($clients); $i++) {
+                $retorn[$i] = [
+                    "client" => $clients[$i],
+                    "plan" => $clients[$i]->plan
+                ];
+            }
+        } else {
+            //todo
+        }
+        return $retorn;
+    }
     /**
      * busqueda ajax para admin
      * @param Request $request

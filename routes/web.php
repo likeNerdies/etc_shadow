@@ -143,7 +143,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin',], function () {
     //Route Clients
     Route::prefix('/clients')->group(function () {
         Route::get('/', 'user\UserController@adminIndex');
-        Route::post('/', 'user\UserController@adminStore');
+       // Route::post('/', 'user\UserController@adminStore');
         Route::get('/{client}', 'user\UserController@adminShow');
         Route::put('/{client}', 'user\UserController@adminUpdate');
         Route::delete('/{client}', 'user\UserController@adminDelete');
@@ -178,6 +178,8 @@ Route::prefix('/search')->group(function (){
     Route::get('/allergy','search\SearchController@allergy')->middleware('auth:admin')->name('search.allergy');
 
     Route::get('/admin','search\SearchController@admin')->middleware('auth:admin')->name('search.admin');
+
+    Route::get('/client','search\SearchController@client')->middleware('auth:admin')->name('search.client');
 
 });
 
