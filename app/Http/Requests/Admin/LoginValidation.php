@@ -24,7 +24,7 @@ class LoginValidation extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email|unique:admins,email,' . Auth::user()->id,//esto evita que de 'error' de email repetido para el mismo usuario
+            'email' => 'required|email',
             'password'=>'required|min:8|max:23'
         ];
     }

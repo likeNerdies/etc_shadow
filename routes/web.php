@@ -180,6 +180,9 @@ Route::prefix('/search')->group(function (){
 
     Route::get('/client','search\SearchController@client')->middleware('auth:admin')->name('search.client');
 
+    Route::get('/currentMonthSubs','search\SearchController@getCurrentMonthSubscribers')->middleware('auth:admin')->name('search.currentMonthSubscribers');
+
+
 });
 
 
