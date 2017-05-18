@@ -58,7 +58,7 @@
           <div class="row justify-content-center">
             <div class="content-image">
               <div class="image mb-1">
-                <img class="sr-icons" src="/img/groceries.png" alt="">
+                <img class="sr-icons" src="/img/welcome/shopping-flow/groceries.png" alt="">
               </div>
               <div class="content">
                 <p class="text-justify text-center">First go see our products!</p>
@@ -72,7 +72,7 @@
           <div class="row justify-content-center">
             <div class="content-image">
               <div class="image mb-1">
-                <img class="sr-icons" src="/img/oat.png" alt="">
+                <img class="sr-icons" src="/img/welcome/shopping-flow/oat.png" alt="">
               </div>
               <div class="content">
                 <p class="text-justify text-center">Choose the ingredients you don't like or your allergic at</p>
@@ -85,7 +85,7 @@
           <div class="row justify-content-center">
             <div class="content-image">
               <div class="image mb-1">
-                <img class="sr-icons" src="/img/check-mark.png" alt="">
+                <img class="sr-icons" src="/img/welcome/shopping-flow/check-mark.png" alt="">
               </div>
               <div class="content">
                 <p class="text-justify text-center">Subscribe and choose the plan you want</p>
@@ -97,7 +97,7 @@
           <div class="row justify-content-center">
             <div class="content-image">
               <div class="image mb-1">
-                <img class="sr-icons" src="/img/trucking.png" alt="">
+                <img class="sr-icons" src="/img/welcome/shopping-flow/trucking.png" alt="">
               </div>
               <div class="content">
                 <p class="text-justify text-center">And you got it right at your sweet home!</p>
@@ -120,16 +120,16 @@
         </ol>
         <div class="carousel-inner" role="listbox">
           <div class="carousel-item active">
-            <img class="d-block img-fluid" src="/img/prova2.png" alt="Our plans">
+            <img class="d-block img-fluid" src="/img/welcome/plans/prova2.png" alt="Our plans">
           </div>
           <div class="carousel-item">
-            <img class="d-block img-fluid" src="/img/slide2.png" alt="Plan 'Charming'">
+            <img class="d-block img-fluid" src="/img/welcome/plans/slide2.png" alt="Plan 'Charming'">
           </div>
           <div class="carousel-item">
-            <img class="d-block img-fluid" src="/img/pro.png" alt="Plan 'Pro'">
+            <img class="d-block img-fluid" src="/img/welcome/plans/pro.png" alt="Plan 'Pro'">
           </div>
           <div class="carousel-item">
-            <img class="d-block img-fluid" src="/img/premium.png" alt="Plan 'Premium'">
+            <img class="d-block img-fluid" src="/img/welcome/plans/premium.png" alt="Plan 'Premium'">
           </div>
         </div>
         <a class="carousel-control-prev" href="#plansCarousel" role="button" data-slide="prev">
