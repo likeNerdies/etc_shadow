@@ -6,7 +6,7 @@
     <h2 class="text-left mt-4">Plans</h2>
 
     <div class="error" role="alert"></div>
-    
+
 
     <div class="row mt-4">
       <div class="col-md-6 col-12 mt-4">
