@@ -150,19 +150,30 @@ $(document).ready(function() {
         if($value!=''){
        $.ajax({
             type:'get',
-            url:'/search/category',
-            data:{'category':$value},
+            url:'/search/admin',
+            data:{'admin':$value},
            success:function(data){
                 if(data.length==0){
-                    $('#category-list').empty();
-                    $('#category-list').append('<p class="text-center">No results found</p>')
+                    $('#admin-list').empty();
+                    $('#admin-list').append('<p class="text-center">No results found</p>')
                 }else{
-                    $('#category-list').empty();
+                    $('#admin-list').empty();
                     for (i=0;i<data.length;i++){
-                        var category = '<tr id="category' + data[i].id + '"><td>' + data[i].id + '</td><td>' + data[i].name + '</td><td>' + data[i].info + '</td><td>' + data[i].created_at + '</td>';
-                        category += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].id + '">Edit</button>';
-                        category += '<button class="btn btn-danger btn-xs btn-delete delete-category" value="' + data[i].id + '">Delete</button></td></tr>';
-                        $('#category-list').append(category);
+                        var admin='<tr id="admin' + data[i].id + '"><td id="id">' + data[i].id + '</td>';
+                        if(data[i].dni!=null){
+                            admin+='<td>'+data[i].dni+'</td>';
+                        }else{
+                            admin+='<td></td>';
+                        }
+                        admin += '<td>' + data[i].name + '</td><td>' + data[i].first_surname + '</td><td>' + data[i].email + '</td>';
+                        if(data[i].phone_number!=null){
+                            admin+='<td>'+data[i].phone_number+'</td>';
+                        }else{
+                            admin+='<td></td>';
+                        }
+                        admin += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].id + '">Edit</button>';
+                        admin += '<button class="btn btn-danger btn-xs btn-delete delete-admin" value="' + data[i].id + '">Delete</button></td></tr>';
+                        $('#admin-list').append(admin);
                     }
 
                 }

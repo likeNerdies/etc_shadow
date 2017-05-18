@@ -8,6 +8,7 @@ use App\Brand;
 use App\Ingredient;
 use App\Product;
 use App\Plan;
+use App\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Response;
@@ -16,14 +17,29 @@ use App;
 class SearchController extends Controller
 {
     /**
-     * busqueda ajax para plan
+     * busqueda ajax para admin
      * @param Request $request
      */
-    public function allergy(Request $request, Allergy $plan)
+    public function admin(Request $request, Admin $allergy)
+    {
+        $retorn = "";
+        if ($request->ajax() && $request->has('admin')) {
+            $retorn = $allergy->where('id', '=', $request->admin)
+                ->orWhere('name', 'like', '%' . $request->admin . '%')->get();
+        } else {
+            //todo
+        }
+        return $retorn;
+    }
+    /**
+     * busqueda ajax para allergy
+     * @param Request $request
+     */
+    public function allergy(Request $request, Allergy $allergy)
     {
         $retorn = "";
         if ($request->ajax() && $request->has('allergy')) {
-            $retorn = $plan->where('id', '=', $request->allergy)
+            $retorn = $allergy->where('id', '=', $request->allergy)
                 ->orWhere('name', 'like', '%' . $request->allergy . '%')->get();
         } else {
             //todo

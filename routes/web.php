@@ -177,6 +177,8 @@ Route::prefix('/search')->group(function (){
 
     Route::get('/allergy','search\SearchController@allergy')->middleware('auth:admin')->name('search.allergy');
 
+    Route::get('/admin','search\SearchController@admin')->middleware('auth:admin')->name('search.admin');
+
 });
 
 
