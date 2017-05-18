@@ -24,11 +24,11 @@ class AddressFormValidation extends FormRequest
     {
         return [
             'street'=>'required',
-       /*     'number' => 'required',
-            'postal_code'=>'required',
+            'number' => 'required|numeric',
+            'postal_code'=>'required|numeric',
             'town'=>'required',
             'province' => 'required',
-            'country'=>'required',*/
+            'country'=>'required',
         ];
     }
 }
