@@ -67,7 +67,7 @@ $(document).ready(function () {
             error: function (data) {
                 //console.log('Error:', data);
                 $('.error').addClass("alert alert-danger");
-                $('.error').html("<p>" + data.responseText + "</p>");
+                $('.error').html("<p>There was an internal error.</p>");
             }
         });
     });
@@ -154,9 +154,20 @@ $(document).ready(function () {
                 $('#myModal').modal("hide");
             },
             error: function (data) {
-                console.log('Error:', data);
-                $('#ajaxerror').addClass("alert alert-danger");
-                $('#ajaxerror').html("<p>" + data.responseText + "</p>");
+              //console.log('Error:', data);
+              $('#ajaxerror').addClass("alert alert-danger");
+              var msg;
+
+              if (data.status == 422){
+                msg = "<ul>";
+                for (var key in data.responseJSON) {
+                  msg += "<li>"+data.responseJSON[key]+"</li>";
+                }
+                msg += "</ul>";
+              } else {
+                msg = "<p>There was an internal error. Contact with the admin.</p>";
+              }
+              $('#ajaxerror').html(msg);
             }
         });
     });

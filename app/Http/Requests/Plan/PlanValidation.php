@@ -27,9 +27,13 @@ class PlanValidation extends FormRequest
             'name' =>
                 array(
                     'required',
-                    'regex:/^[a-zA-Z\' ]+$/'
+                    'regex:/[a-zA-Z]{3,100}/i'
                 ),
-            'price'=>'required|numeric'
+            'price'=>
+                array(
+                    'required',
+                    'regex:/^\d{1,2}[,|.]\d{1,2}$/'
+                ),
         ];
     }
 }

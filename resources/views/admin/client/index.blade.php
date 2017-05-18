@@ -90,62 +90,64 @@
 
                             {{ csrf_field() }}
                             <div class="form-group error">
-                                <label for="dni" class="col-sm-3 control-label">DNI</label>
+                                <label for="dni" class="col-sm-9 control-label">DNI</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control has-error" id="dni" name="dni" placeholder="dni" value="">
+                                    <input type="text" class="form-control has-error" id="dni" name="dni" value="" onblur="validateDNI(this)" />
                                 </div>
                             </div>
 
                             <div class="form-group error">
-                                <label for="name" class="col-sm-3 control-label">Name</label>
+                                <label for="name" class="col-sm-9 control-label">Name</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control has-error" id="name" name="name" placeholder="Laura" value="" required>
+                                    <input type="text" class="form-control has-error" id="name" name="name" value="" required onblur="validateName(this)" />
                                 </div>
                             </div>
                             <div class="form-group error">
-                                <label for="first_surname" class="col-sm-3 control-label">First Surname</label>
+                                <label for="first_surname" class="col-sm-9 control-label">First Surname</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control has-error" id="first_surname" name="first_surname" placeholder="Martinez" value="" required>
+                                    <input type="text" class="form-control has-error" id="first_surname" name="first_surname" value="" required onblur="validateName(this)" />
                                 </div>
                             </div>
                             <div class="form-group error">
-                                <label for="second_surname" class="col-sm-3 control-label">Second Surname</label>
+                                <label for="second_surname" class="col-sm-9 control-label">Second Surname</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control has-error" id="second_surname" name="second_surname" placeholder="Gimenez" value="">
+                                    <input type="text" class="form-control has-error" id="second_surname" name="second_surname" value="" onblur="validateName(this)" />
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="email" class="col-sm-3 control-label">Email</label>
+                                <label for="email" class="col-sm-9 control-label">Email</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="email" name="email" placeholder="example@example.com" value="" requireds>
+                                    <input type="text" class="form-control" id="email" name="email" value="" required onblur="validateEmail(this)" />
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="password" class="col-md-4 control-label">Password</label>
                                 <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control" name="password" required>
+                                    <input id="password" type="password" class="form-control" name="password" required />
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="password_confirmation" class="col-md-4 control-label">Confirm Password</label>
+                                <label for="password_confirmation" class="col-md-9 control-label">Confirm Password</label>
                                 <div class="col-md-6">
-                                    <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" required>
+                                    <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" required />
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="phone_number" class="col-sm-5 control-label">Phone number</label>
+                                <label for="phone_number" class="col-sm-9 control-label">Phone number</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="123456789" value="">
+                                    <input type="text" class="form-control" id="phone_number" name="phone_number" value="" onblur="validatePhone(this)" />
                                 </div>
                             </div>
 
                             <div class="form-check">
-                                <label class="form-check-label" for="plan"></label>
-                                <select class="form-check-input" type="checkbox" value="1" id="plan" name="plan" required></select>
+                                <label for="plan" class="form-check-label col-sm-9">Plan</label>
+                                <div class="col-sm-4">
+                                    <select class="form-check-input form-control ml-1" type="checkbox" value="1" id="plan" name="plan" required></select>
+                                </div>
                             </div>
                         </form>
                     </div>

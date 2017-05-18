@@ -96,6 +96,4 @@
 
 @section('scripts')
   <script src="{{asset('/js/admin/brand/ajax-crud.js')}}"></script>
-  <!--<script src="{{asset('/fonts/Pe-icon-7-stroke.woff')}}"></script>-->
-
 @endsection

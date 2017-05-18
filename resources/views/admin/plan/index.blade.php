@@ -6,8 +6,7 @@
     <h2 class="text-left mt-4">Plans</h2>
 
     <div class="error" role="alert"></div>
-
-
+    
 
     <div class="row mt-4">
       <div class="col-md-6 col-12 mt-4">
@@ -68,25 +67,23 @@
             <div class="form-group">
               <label for="name" class="col-sm-3 control-label">Name</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control has-error" id="name" name="name" placeholder="Plan name" value="">
+                <input type="text" class="form-control has-error" id="name" name="name" placeholder="Charming" value="" onblur="validateName(this)" />
               </div>
             </div>
 
             <div class="form-group">
               <label for="price" class="col-sm-3 control-label">Price</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" id="price" name="price" placeholder="Price" value="">
+                <input type="text" class="form-control" id="price" name="price" placeholder="9.95" value="" onblur="validatePrice(this)" />
               </div>
             </div>
 
             <div class="form-group">
               <label for="info" class="col-sm-3 control-label">Info</label>
               <div class="col-sm-9">
-                <textarea class="form-control" id="info" rows="5"></textarea>
+                <textarea class="form-control" id="info" rows="5" placeholder="This is the smallest plan" onblur="validateName(this)" /></textarea>
               </div>
             </div>
-
-
 
           </form>
         </div>
@@ -107,6 +104,4 @@
 
 @section('scripts')
   <script src="{{asset('/js/admin/plan/ajax-crud.js')}}"></script>
-  <!--<script src="{{asset('/fonts/Pe-icon-7-stroke.woff')}}"></script>-->
-
 @endsection
