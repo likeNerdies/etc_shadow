@@ -14,7 +14,11 @@
 
           <div class="panel panel-default">
             <div class="panel-heading text-left"><h4>Log in, Admin</h4></div>
-
+            @if ($errors->has('errorlogin'))
+              <span class="help-block">
+                      <strong>{{ $errors->first('errorlogin') }}</strong>
+              </span>
+            @endif
             <div class="panel-body mt-4">
               <form class="form-horizontal" role="form" method="POST" action="{{ route('admin.login') }}">
                 {{ csrf_field() }}

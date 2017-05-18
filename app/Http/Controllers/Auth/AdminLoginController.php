@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Admin\LoginValidation;
 use App\Http\Controllers\Controller;
 use Auth;
-
+use Lang;
 
 class AdminLoginController extends Controller
 {
@@ -34,6 +34,9 @@ class AdminLoginController extends Controller
             return redirect()->intended(route('admin.dashboard'));
         }
 
-        return redirect()->back()->withInput($request->only('email','remember'));
+        return redirect()->back()->withInput($request->only('email','remember'))
+            ->withErrors([
+            "errorlogin"=> Lang::get('auth.failed'),
+        ]);
     }
 }
