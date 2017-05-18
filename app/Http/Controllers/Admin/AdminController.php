@@ -63,7 +63,7 @@ class AdminController extends Controller
         //--end calculando total ganancias
 
 
-        return view('admin.index',compact(['totalUsers','boxToSend','profit','monthlySubscribers']));
+        return view('admin.index',compact(['totalUsers','boxToSend','profit']));
     }
 
     public function configuration()

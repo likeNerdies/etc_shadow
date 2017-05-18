@@ -25,6 +25,27 @@ class ProductController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function productsIndex()
+    {
+        $products = App\Product::paginate(9);
+        return view('product.index', compact(['products', 'brands']));
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function productsIndexShow($id)
+    {
+        $products = App\Product::findOrFail($id);
+        return view('admin.product.show', compact(['products', 'brands']));
+    }
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
