@@ -89,8 +89,11 @@ $(document).ready(function() {
                 console.log(data);
 
                 var allergy = '<tr id="allergy' + data.id + '"><td id="id">' + data.id + '</td><td>' + data.name + '</td><td>' + data.created_at + '</td>';
-                allergy += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '">Edit</button>';
-                allergy += '<button class="btn btn-danger btn-xs btn-delete delete-allergy" value="' + data.id + '">Delete</button></td></tr>';
+                allergy += '<td><button class="btn btn-warning btn-xs btn-detail open-modal  hidden-sm-down" value="' + data.id + '">Edit</button>';
+                allergy += '<button class="btn btn-warning hidden-md-up open-modal" value="'+ data.id +'"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
+
+                allergy += '<button class="btn btn-danger btn-xs btn-delete delete-allergy  hidden-sm-down" value="' + data.id + '">Delete</button></tr>';
+                allergy += '<button class="btn btn-danger hidden-md-up delete-category" value="' + data.id + '"><i class="fa fa-trash" aria-hidden="true"></i></button></td>';
 
                 if (state == "add"){ //if user added a new record
                     $('#allergy-list').append(allergy);
@@ -114,10 +117,10 @@ $(document).ready(function() {
                   msg += "<li>"+data.responseJSON[key]+"</li>";
                 }
                 msg += "</ul>";
-                $('#ajaxerror').html(msg);
               } else {
-                msg = "<p>There was an internal error. Contact with the amdin.</p>"
+                msg = "<p>There was an internal error. Contact with the admin.</p>";
               }
+              $('#ajaxerror').html(msg);
             }
         });
     });

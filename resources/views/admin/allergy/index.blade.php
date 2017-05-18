@@ -2,48 +2,54 @@
 @section('title','Allergies')
 @section('right-panel')
 
-  <h2 class="text-left mt-4">Allergies</h2>
+  <div class="wrapper-content">
 
-  <div class="error" role="alert"></div>
+    <h2 class="text-left mt-4">Allergies</h2>
 
-  <div class="row mt-4">
-    <div class="col-md-6 col-12 mt-4">
-      <input type="text" id="search" class="form-control" placeholder="Search by ID or name">
+    <div class="error" role="alert"></div>
+
+    <div class="row mt-4">
+      <div class="col-md-6 col-12 mt-4">
+        <input type="text" id="search" class="form-control" placeholder="Search by ID or name">
+      </div>
+
+      <div id="add" class="col-md-6 col-12 mt-4">
+        <button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Allergie</button>
+      </div>
     </div>
 
-    <div id="add" class="col-md-6 col-12 mt-4">
-      <button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Allergies</button>
+    <div class="row mt-2">
+    <!-- Table-to-load-the-data Part -->
+      <div class="col-12">
+        <table class="table mt-4">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th class="media-480-delete">Created at</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="allergy-list" name="allergy-list">
+          @foreach ($allergies as $allergy)
+          <tr id="allergy{{$allergy->id}}">
+            <td id="id">{{$allergy->id}}</td>
+            <td>{{$allergy->name}}</td>
+            <td class="media-480-delete">{{$allergy->created_at}}</td>
+            <td>
+              <button class="btn btn-warning btn-xs btn-detail open-modal hidden-sm-down" value="{{$allergy->id}}">Edit</button>
+              <button class="btn btn-warning hidden-md-up open-modal" value="{{$allergy->id}}"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+
+              <button class="btn btn-danger btn-xs btn-delete delete-category hidden-sm-down" value="{{$allergy->id}}">Delete</button>
+              <button class="btn btn-danger hidden-md-up delete-category" value="{{$allergy->id}}"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            </td>
+          </tr>
+          @endforeach
+        </tbody>
+        </table>
+      </div><!-- End of Table-to-load-the-data Part -->
     </div>
   </div>
-
-  <div class="row mt-2">
-  <!-- Table-to-load-the-data Part -->
-    <div class="col-12 col-md-11">
-      <table class="table mt-4">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th class="media-480-delete">Created at</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody id="allergy-list" name="allergy-list">
-        @foreach ($allergies as $allergy)
-        <tr id="allergy{{$allergy->id}}">
-          <td id="id">{{$allergy->id}}</td>
-          <td>{{$allergy->name}}</td>
-          <td class="media-480-delete">{{$allergy->created_at}}</td>
-          <td>
-            <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$allergy->id}}">Edit</button>
-            <button class="btn btn-danger btn-xs btn-delete delete-allergy" value="{{$allergy->id}}">Delete</button>
-          </td>
-        </tr>
-        @endforeach
-      </tbody>
-      </table>
-    </div><!-- End of Table-to-load-the-data Part -->
-
   <!-- Modal (Pop up when detail button clicked) -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">

@@ -2,66 +2,75 @@
 @section('title','Admins')
 @section('right-panel')
 
-    <h2>Admins</h2>
+        <div class="wrapper-content">
 
-    <div class="error" role="alert"></div>
+            <h2 class="text-left mt-4">Admin</h2>
 
-    <div class="d-flex justify-content-end mt-5">
+            <div class="error" role="alert"></div>
 
+            <div class="row mt-4">
 
+                <div class="col-md-6 col-12 mt-4"><!--<i class="fa fa-search" aria-hidden="true"></i>-->
+                    <input type="text" id="search" class="form-control" placeholder="Search by ID or name">
+                </div>
 
-        @if(Auth::user()->can_create)
-        <div class="mr-auto"><button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Admin</button></div>
-        @endif
-
-        <div class="col-md-6"><!--<i class="fa fa-search" aria-hidden="true"></i>-->
-            <input type="text" id="search" class="form-control" placeholder="Search by ID or name"></div>
-    </div>
-
-    <div class="mt-5">
-        <!-- Table-to-load-the-data Part -->
-        <table class="table">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>DNI</th>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>Email</th>
-                <th>Phone Number</th>
                 @if(Auth::user()->can_create)
-                <th>Actions</th>
+                    <div id="add" class="col-md-6 col-12 mt-4">
+                        <button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Admin</button>
+                    </div>
                 @endif
-            </tr>
-            </thead>
-            <tbody id="admin-list" name="admin-list">
-            @foreach ($admins as $admin)
-                <tr id="admin{{$admin->id}}">
-                    <td id="id">{{$admin->id}}</td>
-                    @if($admin->dni==null)
-                        <td></td>
-                    @else
-                        <td>{{$admin->dni}}</td>
-                    @endif
-                    <td>{{$admin->name}}</td>
-                    <td>{{$admin->first_surname}}</td>
-                    <td>{{$admin->email}}</td>
-                    @if($admin->phone_number==null)
-                        <td></td>
-                    @else
-                        <td>{{$admin->phone_number}}</td>
-                    @endif
-                    @if(Auth::user()->can_create)
-                    <td>
-                        <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$admin->id}}">Edit</button>
-                        <button class="btn btn-danger btn-xs btn-delete delete-admin" value="{{$admin->id}}">Delete</button>
-                    </td>
-                    @endif
-                </tr>
-            @endforeach
-            </tbody>
-        </table> <!-- End of Table-to-load-the-data Part -->
 
+            </div>
+            <div class="row mt-2">
+                <!-- Table-to-load-the-data Part -->
+                <div class="col-12">
+                    <table class="table mt-4">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th class="media-480-delete media-767-delete">DNI</th>
+                                <th>Name</th>
+                                <th class="media-480-delete media-767-delete">Surname</th>
+                                <th>Email</th>
+                                <th class="media-480-delete media-767-delete">Phone Number</th>
+                                @if(Auth::user()->can_create)
+                                    <th>Actions</th>
+                                @endif
+                            </tr>
+                        </thead>
+                        <tbody id="admin-list" name="admin-list">
+                            @foreach ($admins as $admin)
+                                <tr id="admin{{$admin->id}}">
+                                    <td id="id">{{$admin->id}}</td>
+                                    @if($admin->dni==null)
+                                        <td class="media-480-delete media-767-delete"></td>
+                                    @else
+                                        <td class="media-480-delete media-767-delete">{{$admin->dni}}</td>
+                                    @endif
+                                        <td>{{$admin->name}}</td>
+                                        <td class="media-480-delete media-767-delete">{{$admin->first_surname}}</td>
+                                        <td>{{$admin->email}}</td>
+                                    @if($admin->phone_number==null)
+                                        <td class="media-480-delete media-767-delete"></td>
+                                    @else
+                                        <td class="media-480-delete media-767-delete">{{$admin->phone_number}}</td>
+                                    @endif
+                                    @if(Auth::user()->can_create)
+                                        <td>
+                                            <button class="btn btn-warning btn-xs btn-detail open-modal hidden-sm-down" value="{{$admin->id}}">Edit</button>
+                                            <button class="btn btn-warning hidden-md-up open-modal" value="{{$admin->id}}"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+
+                                            <button class="btn btn-danger btn-xs btn-delete delete-category hidden-sm-down" value="{{$admin->id}}">Delete</button>
+                                            <button class="btn btn-danger hidden-md-up delete-category" value="{{$admin->id}}"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                        </td>
+                                    @endif
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table> <!-- End of Table-to-load-the-data Part -->
+                </div>
+            </div>
+        </div>
         <!-- Modal (Pop up when detail button clicked) -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">

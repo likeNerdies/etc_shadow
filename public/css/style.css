@@ -11,7 +11,7 @@ h2 {
 
 /* NAVBAR */
 #nav-container {
-    background-image: url("/img/etc_shadow4.jpg");
+    background-image: url("/img/welcome/etc_shadow4.jpg");
     height: 700px; /* Canviar per algo responsive, tota la pantalla */
     background-size: cover;
     background-repeat: no-repeat;

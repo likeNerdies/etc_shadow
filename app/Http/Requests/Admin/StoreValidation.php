@@ -28,13 +28,34 @@ class StoreValidation extends FormRequest
     public function rules()
     {
         return [
-            'dni'=>'nullable|min:9|max:9|unique:admins,dni,'.Auth::user()->id,
-            'name' => 'required|min:2|max:100',
-            'first_surname'=>'required|min:2|max:100',
-            'second_surname'=>'nullable',
+            'dni'=>
+                array(
+                    'nullable',
+                    'regex:/^\d{8}[aA-zZ]{1}$/',
+                    'unique:admins,dni,'.Auth::user()->id
+                ),
+            'name' =>
+                array(
+                    'required',
+                    'regex:/[a-zA-Z]{3,100}/i'
+                ),
+            'first_surname'=>
+                array(
+                    'required',
+                    'regex:/[a-zA-Z]{3,100}/i'
+                ),
+            'second_surname'=>
+                array(
+                    'nullable',
+                    'regex:/[a-zA-Z]{3,100}/i'
+                ),
             'email' => 'required|email|unique:admins,email,' . Auth::user()->id,//esto evita que de 'error' de email repetido para el mismo usuario
             'password' => 'required|min:8|confirmed',
-            'phone_number'=>'nullable|numeric',
+            'phone_number'=>
+                array(
+                    'nullable|numeric',
+                    'regex:/\d{9}'
+                ),
         ];
     }
 }
