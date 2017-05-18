@@ -23,13 +23,14 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password',150);
             $table->integer('phone_number')->nullable();
+            $table->dateTime('subscribed_at')->nullable();
             $table->unsignedInteger('plan_id')->nullable()->unsigned();
             $table->integer('address_id')->nullable()->unsigned();
             $table->rememberToken();
             $table->timestamps();
         });
         Schema::table('users', function (Blueprint $table) {
-            $table->foreign('plan_id')->references('id')->on('plans');
+            $table->foreign('plan_id')->references('id')->on('plans')->onDelete('cascade');
             $table->foreign('address_id')->references('id')->on('addresses')->onDelete('cascade');
         });
     }
