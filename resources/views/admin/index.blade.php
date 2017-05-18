@@ -20,7 +20,7 @@
                 <div class="display">
                     <div class="number">
                         <h3>
-                            <span>7800</span>
+                            <span>{{ $profit["charming"] + $profit["pro"] + $profit["premium"]}}</span>
                             <small>€</small>
                         </h3>
                         <small>TOTAL PROFIT</small>
@@ -37,7 +37,7 @@
                 <div class="display">
                     <div class="number">
                         <h3>
-                            <span>1000</span>
+                            <span>{{ $totalUsers }}</span>
 
                         </h3>
                         <small>TOTAL USERS</small>
@@ -55,7 +55,7 @@
                 <div class="display">
                     <div class="number">
                         <h3>
-                            <span>50</span>
+                            <span>{{ $boxToSend }}</span>
                             <small>u</small>
                         </h3>
                         <small>TO SEND</small>
