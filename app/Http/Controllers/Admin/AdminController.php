@@ -28,6 +28,7 @@ class AdminController extends Controller
         $totalUsers=App\User::all()->count();
         $boxToSend=App\User::has('plan')->get()->count();
 
+      
 
         $profit=[];
         try{
@@ -83,6 +84,7 @@ class AdminController extends Controller
      */
     public function update(StoreValidation $request)
     {
+       // return "hola";
         $user = Auth::user();
         $user->dni = $request->dni;
         $user->name = $request->name;
@@ -91,7 +93,7 @@ class AdminController extends Controller
         $user->email = $request->email;
         $user->phone_number = $request->phone_number;
         $user->save();
-        return redirect()->back();
+       return redirect()->back();
 
     }
 

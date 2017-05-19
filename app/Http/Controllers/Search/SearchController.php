@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Response;
 use App;
+use DB;
 
 class SearchController extends Controller
 {
@@ -231,40 +232,47 @@ class SearchController extends Controller
     /**
      * @return \Illuminate\Http\JsonResponse
      */
-    public function getCurrentMonthSubscribers(){
+    public function getCurrentYearMonthlySubs(){
 
-        //getting current month subscribers
-        $monthlySubscribers=[];
-        try{
-            $usersCharming=App\User::whereHas('plan', function ($query) {
-                $query->where('id', '=', 1)
-                    ->whereMonth('subscribed_at',date("m"));
-            })->get()->count();
-
-            $usersPro=App\User::whereHas('plan', function ($query) {
-                $query->where('id', '=', 2)
-                    ->whereMonth('subscribed_at',date("m"));
-            })->get()->count();
-
-            $usersPremium=App\User::whereHas('plan', function ($query) {
-                $query->where('id', '=', 3)
-                    ->whereMonth('subscribed_at',date("m"));
-            })->get()->count();
-
-            $monthlySubscribers=[
-                "usersCharming"=>$usersCharming,
-                "usersPro"=>$usersPro,
-                "usersPremium"=>$usersPremium
-            ];
-        }catch (Exception $e){
-            $monthlySubscribers=[
-                "usersCharming"=>0,
-                "usersPro"=>0,
-                "usersPremium"=>0
-            ];
-        }
-        return response()->json($monthlySubscribers);
+        $users = DB::table('users')->select( DB::raw("MONTH(subscribed_at)  as month, plan_id" ) ,DB::raw('count(*) as total'))
+            ->whereNotNull('plan_id')->whereYear('subscribed_at',date("Y"))->groupBy("month","plan_id")
+            ->get();
+        return response()->json($users);
         //--end getting current month subscribers
+
+    }
+    public function getTotalPlanUser(){
+
+           $monthlySubscribers=[];
+           try{
+               $usersCharming=App\User::whereHas('plan', function ($query) {
+                   $query->where('id', '=', 1);
+                    //   ->whereMonth('subscribed_at',date("m"));
+               })->get()->count();
+
+               $usersPro=App\User::whereHas('plan', function ($query) {
+                   $query->where('id', '=', 2);
+                    //   ->whereMonth('subscribed_at',date("m"));
+               })->get()->count();
+
+               $usersPremium=App\User::whereHas('plan', function ($query) {
+                   $query->where('id', '=', 3);
+                      // ->whereMonth('subscribed_at',date("m"));
+               })->get()->count();
+
+               $monthlySubscribers=[
+                   "usersCharming"=>$usersCharming,
+                   "usersPro"=>$usersPro,
+                   "usersPremium"=>$usersPremium
+               ];
+           }catch (Exception $e){
+               $monthlySubscribers=[
+                   "usersCharming"=>0,
+                   "usersPro"=>0,
+                   "usersPremium"=>0
+               ];
+           }
+         return response()->json($monthlySubscribers);
     }
 
 

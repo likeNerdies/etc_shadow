@@ -20,7 +20,8 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
         'phone_number'=>123456789,
-       // 'plan_id'=>$faker->numberBetween(1,3),
+        'plan_id'=>$faker->numberBetween(1,3),
+        'address_id'=>$faker->numberBetween(1,750),
         'subscribed_at'=>$faker->dateTimeBetween("-1years","now"),
         'remember_token' => str_random(10),
     ];

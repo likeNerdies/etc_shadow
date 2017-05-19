@@ -6,6 +6,7 @@ $(document).ready(function () {
     $(document).on('click', '.open-modal', function (e) {
         // $('.open-modal').click(function() {
         var client_id = $(this).val();
+        console.log("client_id edit: " + client_id);
 
         $.get(url + '/' + client_id, function (data) {
             //success data
@@ -104,7 +105,7 @@ $(document).ready(function () {
         var my_url = url;
 
         if (state == "update") {
-            console.log("update");
+            console.log("update: " + client_id);
             type = "PUT"; //for updating existing resource
             my_url += '/' + client_id;
         }
@@ -139,7 +140,6 @@ $(document).ready(function () {
                 client += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
 
                 client += '<button class="btn btn-danger btn-xs btn-delete delete-client" value="' + data.id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button></td></tr>';
-
 
                 if (state == "add") { //if user added a new record
                     $('#client-list').append(client);

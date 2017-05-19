@@ -4,6 +4,8 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+use Auth;
+
 class LoginValidation extends FormRequest
 {
     /**
