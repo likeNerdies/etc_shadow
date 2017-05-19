@@ -114,6 +114,7 @@ class ProductController extends Controller
      */
     public function storeImage(Request $request, $id)
     {
+    //    return "Ok------------------------";
         // return response()->json(["fichero"=>$request->image]);
         $inserted = true;
         $path = "";
@@ -126,6 +127,7 @@ class ProductController extends Controller
                 //deleting old images
                 $oldImages = $product->images;
                 if ($oldImages != null) {
+
                     foreach ($oldImages as $oldImage) {
                         Storage::delete($oldImage->path);
                         $oldImage->delete();
@@ -133,7 +135,6 @@ class ProductController extends Controller
                 }
 
                 //adding new images
-
                 foreach ($request->image as $photo) {//recorriendo todas las fotos
                     // return response()->json(["fichero"=>count($request->image)]);
                     $path = Storage::putFile('public/product_images', $photo);//guardando fotos en el directorio storage/app/public/product_images

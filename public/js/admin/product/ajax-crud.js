@@ -179,13 +179,13 @@ $(document).ready(function () {
         var my_url = url;
 
         if (state == "update") {
-            console.log("update");
+
             type = "PUT"; //for updating existing resource
             my_url += '/' + product_id;
         }
 
         //console.log(formData);
-
+        console.log("update");
         $.ajax({
             type: type,
             //contentType: false,
@@ -195,7 +195,7 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (data) { // success:
                 console.log(data);
-                insertImg(e, data.product.id, type);
+
 
                 //info
                 var product = '<tr id="product' + data.product.id + '"><td>' + data.product.id + '</td><td>' + data.product.name + '</td><td>'+data.product.price+'</td><td>'+data.product.expiration_date+'</td>';
@@ -211,7 +211,7 @@ $(document).ready(function () {
 
                 }
 
-
+                product += '<td id="product-img"></td>';//for images
 
                // product += '<td id="product-img"></td>';//for images
                 product += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.product.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
@@ -223,13 +223,13 @@ $(document).ready(function () {
                 } else { //if user updated an existing record
                     $("#product" + product_id).replaceWith(product);
                 }
-
+                insertImg(e, data.product.id, type);
                 $('#formProducts').trigger("reset");
 
                 $('#myModal').modal("hide");
             },
             error: function (data) {
-              //console.log('Error:', data);
+              console.log('Error:', data);
               $('#ajaxerror').addClass("alert alert-danger");
               var msg;
 
@@ -275,10 +275,13 @@ $(document).ready(function () {
                                 product+='</td>';
 
                             }
+                            if(data[i].images.length == 0){
+                                product += '<td id="product-img"></td>';//for images
+                            }else{
+                                product += '<td id="product-img"><img class="img-thumbnail" src="'+data[i].images[0]+'" width="48.2" height="48.2"></td>';//for images
+                            }
 
 
-
-                            // product += '<td id="product-img"></td>';//for images
                             product += '<td><button style="margin-right:2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].product.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
 
                             product += '<button style="margin-left:2px !important;" class="btn btn-danger btn-xs btn-delete delete-product" value="' + data[i].product.id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up"></i></button></td></tr>';
@@ -362,7 +365,7 @@ $(document).ready(function () {
                 dataType: 'json',
                 success: function (data) { // success:
                 console.log(data);
-                   // $('#ingredient' + id + ' > #ingredient-img').replaceWith("<td id='ingredient-img'><img width='165' height='110' src='" + data.ingredient + "'></td>");
+                    $('#product' + id + ' > #product-img').replaceWith("<td id='product-img'><img class='img-thumbnail' width='48.2' height='48.2' src='" + data.image_path[0] + "'></td>");
 
                 },
                 error: function (data) {

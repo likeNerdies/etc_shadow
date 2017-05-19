@@ -21,8 +21,8 @@ class CreateBoxProductTable extends Migration
             $table->timestamps();
         });
         Schema::table('box_product', function(Blueprint $table){
-            $table->foreign('box_id')->references('id')->on('boxes');
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('box_id')->references('id')->on('boxes')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
 

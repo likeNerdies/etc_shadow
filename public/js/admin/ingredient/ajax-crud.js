@@ -210,7 +210,7 @@ $(document).ready(function () {
                                 }
                             }
                             ingredient += '</td>';
-                            ingredient += '<td id="ingredient-img"></td>';//for images
+                            ingredient += '<td id="ingredient-img"><img class="img-thumbnail" src="'+data[i].imageUrl+'" width="48.2" height="48.2"></td>';//for images
                             ingredient += '<td>' + data[i].ingredient.created_at + '</td>';
                             ingredient += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].ingredient.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
 

@@ -14,7 +14,7 @@ use App\Http\Controllers\Controller;
 use Response;
 use App;
 use DB;
-
+use Storage;
 class SearchController extends Controller
 {
     /**
@@ -130,7 +130,8 @@ class SearchController extends Controller
             for ($i = 0; $i < count($ing); $i++) {
                 $retorn[$i] = [
                     "ingredient" => $ing[$i],
-                    "allergies" => $ing[$i]->allergies
+                    "allergies" => $ing[$i]->allergies,
+                    "imageUrl"=>Storage::url($ing[$i]->image_path),
                 ];
             }
 
@@ -152,14 +153,19 @@ class SearchController extends Controller
             $prod = $product->where('id', '=', $request->product)
                 ->orWhere('name', 'like', '%' . $request->product . '%')
                 ->get();
+
             for ($i = 0; $i < count($prod); $i++) {
+                $imgUrls=[];
+                foreach ($prod[$i]->images as $img) {
+                    $imgUrls[] = Storage::url($img->path);
+                }
                 $retorn[$i] = [
                     "product" => $prod[$i],
                     "ingredients" => $prod[$i]->ingredients,
                     "categories" => $prod[$i]->categories,
                     "brand" => $prod[$i]->brand,
                     "brands" => App\Brand::all(),
-                    "images" => $prod[$i]->images,
+                    "images" => $imgUrls,
                 ];
             }
 
