@@ -53,10 +53,10 @@
                             @endif
                         </td>
 
-                        @if($ingredient->image_path==null)
+                        @if($ingredient->image==null)
                             <td id="ingredient-img"></td>
                         @else
-                            <td id="ingredient-img"><img class="img-thumbnail" src="{{$ingredient->getPublicImgUrl($ingredient->image_path)}}" width="48.2" height="48.2"></td>
+                            <td id="ingredient-img"><img  class="img-thumbnail"  width='48.2' height='48.2' src="/admin/ingredients/{{ $ingredient->id }}/image"></td>
                         @endif
 
                         <td class="media-767-delete">{{$ingredient->created_at}}</td>

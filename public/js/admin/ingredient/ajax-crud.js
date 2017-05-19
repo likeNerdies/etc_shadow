@@ -6,17 +6,19 @@ $(document).ready(function () {
     $(document).on('click', '.open-modal', function (e) {
         // $('.open-modal').click(function() {
         var ingredient_id = $(this).val();
-
+        console.log("edit")
         $.get(url + '/' + ingredient_id, function (data) {
             //success data
             $('#id').val(data.ingredient.id);
             $('#name').val(data.ingredient.name);
             $('#info').val(data.ingredient.info);
+
             if (data.allergies.length != 0) {//adding initial options
                 for (i = 0; i < data.allergies.length; i++) {
                     $('#tag_list').append("<option selected='selected' value='" + data.allergies[i].id + "'>" + data.allergies[i].name + "</option>");
                 }
             }
+
             $('#btn-save').val("update");
 
             $('#myModal').modal('show');
@@ -210,7 +212,7 @@ $(document).ready(function () {
                                 }
                             }
                             ingredient += '</td>';
-                            ingredient += '<td id="ingredient-img"><img class="img-thumbnail" src="'+data[i].imageUrl+'" width="48.2" height="48.2"></td>';//for images
+                            ingredient += '<td id="ingredient-img"><img class="img-thumbnail" src="/admin/ingredients/'+data[i].ingredient.id+'/image" width="48.2" height="48.2"></td>';//for images
                             ingredient += '<td>' + data[i].ingredient.created_at + '</td>';
                             ingredient += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].ingredient.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
 
@@ -269,8 +271,11 @@ $(document).ready(function () {
                 data: formData,
                 dataType: 'json',
                 success: function (data) { // success:
+                    img_id=data.id;
+                    console.log(data);
 
-                $('#ingredient'+id+' > #ingredient-img').replaceWith("<td id='ingredient-img'><img class='img-thumbnail' width='48.2' height='48.2' src='"+data.image_path+"'></td>");
+                    $('#ingredient'+id+' > #ingredient-img').empty();
+                    $('#ingredient'+id+' > #ingredient-img').replaceWith("<td id='ingredient-img'><img class='img-thumbnail' width='48.2' height='48.2' src='/admin/ingredients/"+data.id+"/image'></td>");
 
 
 /*  var ingredient = '<tr id="ingredient' + data.ingredient.id + '"><td>' + data.ingredient.id + '</td><td>' + data.ingredient.name + '</td><td>' + data.ingredient.info + '</td>';

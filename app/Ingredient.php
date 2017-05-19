@@ -9,6 +9,7 @@ class Ingredient extends Model
     protected $fillable=[
         'name','info',
     ];
+    protected $hidden = ['image'];
     /**
      * Get the products has the ingredient
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
