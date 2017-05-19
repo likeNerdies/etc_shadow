@@ -35,6 +35,7 @@
                             <th>Weight</th>
                             <th>Stock</th>
                             <th>Category</th>
+                            <th>Images</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -82,9 +83,13 @@
                                 @foreach($product->cateogries as $cateogry)
                                     <p>{{$cateogry->name}}</p>
                                 @endforeach
-                            @endif
+                                @endif
                                 </td>
-
+                                @if($product->images == null)
+                                    <td id="product-img"></td>
+                                @else
+                                    <td id="product-img"><img class="img-thumbnail" src="{{$product->getPublicImgUrl($product->images->first()->path)}}" width="48.2" height="48.2"></td>
+                                @endif
 
                                 {{--    @if($ingredient->image_path==null)
                                 <td id="ingredient-img"></td>
