@@ -300,7 +300,7 @@ $(document).ready(function () {
     });
 
    $('#category_list').select2({
-        dropdownParent: $('.modal'),
+        dropdownParent: $('#ing-parent'),
         placeholder: "Choose allergies...",
         minimumInputLength: 1,
         ajax: {
@@ -321,7 +321,7 @@ $(document).ready(function () {
     });
 
     $('#ingredient_list').select2({
-        dropdownParent: $('.modal'),
+        dropdownParent: $('#cat-parent'),
         placeholder: "Choose allergies...",
         minimumInputLength: 1,
         ajax: {
@@ -341,7 +341,7 @@ $(document).ready(function () {
         }
     });
 
-    $('#brand_id').select2({dropdownParent: $('.modal'),});
+    $('#brand_id').select2({dropdownParent: $('#brand-container')});
 
     function insertImg(e, id, type) {
         if (document.getElementById("image").value != "") {
