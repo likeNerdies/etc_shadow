@@ -91,11 +91,9 @@ $(document).ready(function() {
                 console.log(data);
 
                 var category = '<tr id="category' + data.id + '"><td>' + data.id + '</td><td>' + data.name + '</td><td>' + data.info + '</td><td class="media-480-delete">' + data.created_at + '</td>';
-                category += '<td><button class="btn btn-warning btn-xs btn-detail open-modal  hidden-sm-down" value="' + data.id + '">Edit</button>';
-                category += '<button class="btn btn-warning hidden-md-up open-modal" value="'+ data.id +'"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
+                category += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
 
-                category += '<button class="btn btn-danger btn-xs btn-delete delete-allergy  hidden-sm-down" value="' + data.id + '">Delete</button></td></tr>';
-                category += '<button class="btn btn-danger hidden-md-up delete-category" value="' + data.id + '"><i class="fa fa-trash" aria-hidden="true"></i></button>';
+                category += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-category" value="' + data.id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button></td></tr>';
 
 
                 if (state == "add"){ //if user added a new record
@@ -144,8 +142,8 @@ $(document).ready(function() {
                     $('#category-list').empty();
                     for (i=0;i<data.length;i++){
                         var category = '<tr id="category' + data[i].id + '"><td>' + data[i].id + '</td><td>' + data[i].name + '</td><td>' + data[i].info + '</td><td>' + data[i].created_at + '</td>';
-                        category += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].id + '">Edit</button>';
-                        category += '<button class="btn btn-danger btn-xs btn-delete delete-category" value="' + data[i].id + '">Delete</button></td></tr>';
+                        category += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up"></i></button>';
+                        category += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-category" value="' + data[i].id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up"></i></button></td></tr>';
                         $('#category-list').append(category);
                     }
 

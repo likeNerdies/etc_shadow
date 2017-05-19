@@ -47,6 +47,7 @@ $(document).ready(function () {
             success: function (data) {
                 console.log(data);
                 $("#ingredient" + ingredient).remove();
+                //location.reload(true);
             },
             error: function (data) {
                 //console.log('Error:', data);
@@ -141,11 +142,9 @@ $(document).ready(function () {
                 ingredient += '<td id="ingredient-img"></td>';//for images
                 ingredient += '<td class="media-767-delete">' + data.ingredient.created_at + '</td>';
 
-                ingredient += '<td><button class="btn btn-warning btn-xs btn-detail open-modal hidden-sm-down" value="' + data.id + '">Edit</button>';
-                ingredient += '<button style="margin-right: 2px !important;" class="btn btn-warning hidden-md-up open-modal" value="'+ data.id +'"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
+                ingredient += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.ingredient.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
 
-                ingredient += '<button class="btn btn-danger btn-xs btn-delete delete-allergy  hidden-sm-down" value="' + data.id + '">Delete</button>';
-                ingredient += '<button style="margin-left: 2px !important;" class="btn btn-danger hidden-md-up delete-category" value="' + data.id + '"><i class="fa fa-trash" aria-hidden="true"></i></button></td></tr>';
+                ingredient += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-ingredient" value="' + data.ingredient.id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button>';
 
                 if (state == "add") { //if user added a new record
                     $('#ingredient-list').append(ingredient);
@@ -156,6 +155,7 @@ $(document).ready(function () {
                 $('#formIngredients').trigger("reset");
 
                 $('#myModal').modal("hide");
+                //location.reload(true);
             },
             error: function (data) {
               //console.log('Error:', data);
@@ -211,12 +211,10 @@ $(document).ready(function () {
                             }
                             ingredient += '</td>';
                             ingredient += '<td id="ingredient-img"></td>';//for images
-                            ingredient += '<td>' + data[i].created_at + '</td>';
-                            ingredient += '<td><button class="btn btn-warning btn-xs btn-detail open-modal  hidden-sm-down" value="' + data.id + '">Edit</button>';
-                            ingredient += '<button style="margin-right: 2px !important;" class="btn btn-warning hidden-md-up open-modal" value="'+ data.id +'"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
+                            ingredient += '<td>' + data[i].ingredient.created_at + '</td>';
+                            ingredient += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].ingredient.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
 
-                            ingredient += '<button class="btn btn-danger btn-xs btn-delete delete-allergy  hidden-sm-down" value="' + data.id + '">Delete</button>';
-                            ingredient += '<button style="margin-left: 2px !important;" class="btn btn-danger hidden-md-up delete-category" value="' + data.id + '"><i class="fa fa-trash" aria-hidden="true"></i></button></td></tr>';
+                            ingredient += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-ingredient" value="' + data[i].ingredient.id  + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button>';
                             $('#ingredient-list').append(ingredient);
                         }
 

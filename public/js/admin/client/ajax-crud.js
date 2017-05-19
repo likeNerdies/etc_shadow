@@ -135,11 +135,10 @@ $(document).ready(function () {
                 } else {
                     client += '<td>Without plan</td>';
                 }
-                client += '<td><button class="btn btn-warning btn-xs btn-detail open-modal  hidden-sm-down" value="' + data.id + '">Edit</button>';
-                client += '<button class="btn btn-warning hidden-md-up open-modal" value="'+ data.id +'"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
 
-                client += '<button class="btn btn-danger btn-xs btn-delete delete-allergy  hidden-sm-down" value="' + data.id + '">Delete</button></td></tr>';
-                client += '<button class="btn btn-danger hidden-md-up delete-category" value="' + data.id + '"><i class="fa fa-trash" aria-hidden="true"></i></button>';
+                client += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
+
+                client += '<button class="btn btn-danger btn-xs btn-delete delete-client" value="' + data.id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button></td></tr>';
 
 
                 if (state == "add") { //if user added a new record
@@ -203,8 +202,9 @@ $(document).ready(function () {
                             } else {
                                 client += '<td>Without plan</td>';
                             }
-                            client += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].client.id + '">Edit</button>';
-                            client += '<button class="btn btn-danger btn-xs btn-delete delete-client" value="' + data[i].client.id + '">Delete</button></td></tr>';
+                            client += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].client.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
+
+                            client += '<button class="btn btn-danger btn-xs btn-delete delete-client" value="' + data[i].client.id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button></td></tr>';
                             $('#client-list').append(client);
                         }
 

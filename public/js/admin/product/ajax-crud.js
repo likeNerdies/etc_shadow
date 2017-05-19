@@ -214,8 +214,9 @@ $(document).ready(function () {
 
 
                // product += '<td id="product-img"></td>';//for images
-                product += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.product.id + '">Edit</button>';
-                product += '<button class="btn btn-danger btn-xs btn-delete delete-product" value="' + data.product.id + '">Delete</button></td></tr>';
+                product += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.product.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
+
+                product += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-product" value="' + data.product.id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button></td></tr>';
 
                 if (state == "add") { //if user added a new record
                     $('#product-list').append(product);
@@ -278,9 +279,9 @@ $(document).ready(function () {
 
 
                             // product += '<td id="product-img"></td>';//for images
-                            product += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].product.id + '">Edit</button>';
-                            product += '<button class="btn btn-danger btn-xs btn-delete delete-product" value="' + data[i].product.id + '">Delete</button></td></tr>';
+                            product += '<td><button style="margin-right:2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].product.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
 
+                            product += '<button style="margin-left:2px !important;" class="btn btn-danger btn-xs btn-delete delete-product" value="' + data[i].product.id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up"></i></button></td></tr>';
                             $('#product-list').append(product);
                         }
 

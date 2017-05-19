@@ -89,12 +89,10 @@ $(document).ready(function() {
             success: function (data) { // success:
                 console.log(data);
 
-                var brand = '<tr id="brand' + data.id + '"><td id="id">' + data.id + '</td><td>' + data.name + '</td><td>' + data.info + '</td><td>' + data.created_at + '</td>';
-                brand += '<td><button class="btn btn-warning btn-xs btn-detail open-modal  hidden-sm-down" value="' + data.id + '">Edit</button>';
-                brand += '<button class="btn btn-warning hidden-md-up open-modal" value="'+ data.id +'"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
+                var brand = '<tr id="brand' + data.id + '"><td id="id">' + data.id + '</td><td>' + data.name + '</td><td>' + data.info + '</td><td class="media-767-delete">' + data.created_at + '</td>';
+                brand += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
 
-                brand += '<button class="btn btn-danger btn-xs btn-delete delete-allergy  hidden-sm-down" value="' + data.id + '">Delete</button></td></tr>';
-                brand += '<button class="btn btn-danger hidden-md-up delete-category" value="' + data.id + '"><i class="fa fa-trash" aria-hidden="true"></i></button>';
+                brand += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-brand" value="' + data.id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button></td></tr>';
 
 
                 if (state == "add"){ //if user added a new record
@@ -143,8 +141,10 @@ $(document).ready(function() {
                     $('#brand-list').empty();
                     for (i=0;i<data.length;i++){
                         var brand = '<tr id="brand' + data[i].id + '"><td id="id">' + data[i].id + '</td><td>' + data[i].name + '</td><td>' + data[i].info + '</td><td>' + data[i].created_at + '</td>';
-                        brand += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].id + '">Edit</button>';
-                        brand += '<button class="btn btn-danger btn-xs btn-delete delete-brand" value="' + data[i].id + '">Delete</button></td></tr>';
+                        brand += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
+
+                        brand += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-brand" value="' + data[i].id + '"><span class="hidden-md-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button></td></tr>';
+
                         $('#brand-list').append(brand);
                     }
 

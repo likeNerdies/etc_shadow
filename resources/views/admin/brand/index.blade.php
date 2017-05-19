@@ -13,7 +13,7 @@
       </div>
 
       <div id="add" class="col-md-6 col-12 mt-4">
-        <button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Category</button>
+        <button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Brand</button>
       </div>
     </div>
 
@@ -26,7 +26,7 @@
             <th>ID</th>
             <th>Name</th>
             <th>Info</th>
-            <th class="media-480-delete">Created at</th>
+            <th class="media-767-delete">Created at</th>
             <th>Actions</th>
           </tr>
           </thead>
@@ -36,13 +36,10 @@
               <td id="id">{{$brand->id}}</td>
               <td>{{$brand->name}}</td>
               <td>{{$brand->info}}</td>
-              <td class="media-480-delete">{{$brand->created_at}}</td>
+              <td class="media-767-delete">{{$brand->created_at}}</td>
               <td>
-                <button class="btn btn-warning btn-xs btn-detail open-modal hidden-sm-down" value="{{$brand->id}}">Edit</button>
-                <button class="btn btn-warning hidden-md-up open-modal" value="{{$brand->id}}"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-
-                <button class="btn btn-danger btn-xs btn-delete delete-category hidden-sm-down" value="{{$brand->id}}">Delete</button>
-                <button class="btn btn-danger hidden-md-up delete-category" value="{{$brand->id}}"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$brand->id}}"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>
+                <button class="btn btn-danger btn-xs btn-delete delete-brand" value="{{$brand->id}}"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button>
               </td>
             </tr>
           @endforeach

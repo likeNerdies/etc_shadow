@@ -26,7 +26,7 @@
           <tr>
             <th>ID</th>
             <th>Name</th>
-            <th class="media-480-delete">Created at</th>
+            <th class="media-767-delete">Created at</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -35,13 +35,10 @@
           <tr id="allergy{{$allergy->id}}">
             <td id="id">{{$allergy->id}}</td>
             <td>{{$allergy->name}}</td>
-            <td class="media-480-delete">{{$allergy->created_at}}</td>
+            <td class="media-767-delete">{{$allergy->created_at}}</td>
             <td>
-              <button class="btn btn-warning btn-xs btn-detail open-modal hidden-sm-down" value="{{$allergy->id}}">Edit</button>
-              <button class="btn btn-warning hidden-md-up open-modal" value="{{$allergy->id}}"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-
-              <button class="btn btn-danger btn-xs btn-delete delete-category hidden-sm-down" value="{{$allergy->id}}">Delete</button>
-              <button class="btn btn-danger hidden-md-up delete-category" value="{{$allergy->id}}"><i class="fa fa-trash" aria-hidden="true"></i></button>
+              <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$allergy->id}}"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>
+              <button class="btn btn-danger btn-xs btn-delete delete-allergy" value="{{$allergy->id}}"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button>
             </td>
           </tr>
           @endforeach

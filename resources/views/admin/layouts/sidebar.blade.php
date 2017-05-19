@@ -44,11 +44,16 @@
 				</li>
 			</a>
 
-			<a href="/admin/configuration"><!-- ESTA RUTA NO EXISTE -->
-				<li>
+			<a href="#"><!-- ESTA RUTA NO EXISTE -->
+				<li data-toggle="collapse" data-target="#configuration" class="collapsed">
 					<i class="fa fa-cogs mr-2" aria-hidden="true"></i>Configuration
 				</li>
 			</a>
+
+			<ul class="sub-menu collapse" id="configuration">
+				<a href="/admin/configuration"><li>Configuration</li></a>
+				<a href="/admin/admin-users"><li>Admins</li></a>
+			</ul>
 
 			<form action="/logout" method="post">
 				{{ csrf_field() }}
@@ -58,6 +63,8 @@
 					</li>
 				</a>
 			</form>
+
+
 
 		</ul>
 	</div>
