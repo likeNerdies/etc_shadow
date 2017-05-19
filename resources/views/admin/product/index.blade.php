@@ -117,122 +117,126 @@
         </div>
         <div id="ajaxerror"></div>
           <div class="modal-body">
-            <form id="formProducts" name="formProducts" class="form-inline d-flex justify-content-center" novalidate="">
-              {{ csrf_field() }}
-              <div class="form-group col-sm-4">
-                <label for="name" class="control-label">Name</label>
-                <div class="">
-                  <input type="text" class="form-control has-error" id="name" name="name" placeholder="Cashew drink" value="" required onblur="validateName(this)" />
-                </div>
+              <div class="display-center">
+                  <form id="formProducts" name="formProducts" class="form-horizontal" novalidate="">
+                      {{ csrf_field() }}
+
+                      <div class="d-flex flex-md-row display-767-column">
+                          <div class="group-input">
+                              <label for="name" class="col-form-label">Name</label>
+                              <input type="text" class="form-control col-md-11 col-12 has-error" id="name" name="name" placeholder="Cashew drink" value="" required onblur="validateName(this)" />
+                          </div>
+
+                          <div class="group-input">
+                              <label for="price" class="col-form-label">Price</label>
+                              <input type="text" class="form-control col-md-11 col-12" id="price" name="price" placeholder="5.95" value="" required onblur="validatePrice(this)" />
+                          </div>
+
+                      </div>
+
+                      <div class="d-flex flex-md-row display-767-column mt-2">
+                          <div class="group-input">
+                              <label for="description" class="col-form-label">Description</label>
+                              <textarea class="form-control col-md-11 col-12" rows="5" cols="38" id="description" name="description" placeholder="Description of the product" required onblur="validateName(this)"></textarea>
+                          </div>
+
+                          <div class="group-input">
+                              <label for="expiration_date" class="col-form-label">Expiration Date</label>
+                              <input type="date" class="form-control col-md-11 col-12" id="expiration_date" name="expiration_date" placeholder="09/02/2018"  value="" required onblur="validateExpDate(this)" />
+                          </div>
+                      </div>
+
+                      <div class="d-flex flex-md-row display-767-column mt-2">
+                          <div class="group-input">
+                              <label for="weight" class="col-form-label">Weight (in grams)</label>
+                              <input type="text" class="form-control col-md-11 col-12" id="weight" name="weight" placeholder="1200" value="" required onblur="validateWeight(this)" />
+                          </div>
+
+                          <div class="group-input">
+                              <label for="stock" class="col-form-label">Stock</label>
+                              <input type="number" class="form-control col-md-11 col-12" id="stock" name="stock" placeholder="13" value="" required=" "onblur="validateStock(this)" />
+                          </div>
+                      </div>
+
+                      <div class="d-flex flex-md-row display-767-column mt-2">
+                          <div id="ing-parent" class="group-input">
+                              <label for="ingredient_list" class="col-form-label">Ingredients</label>
+                              <select style="width: 91.6%" id="ingredient_list" name="ingredients[]" class="form-control" multiple></select>
+                          </div>
+
+                          <div id="cat-parent" class="group-input">
+                              <label for="category_list" class="col-form-label">Categories</label>
+                              <select style="width: 91.6%" id="category_list" name="categories[]" class="form-control" multiple></select>
+                          </div>
+                      </div>
+
+                      <div class="d-flex flex-md-row display-767-column mt-2">
+                          <div class="group-input" id="brand-container">
+                              <label style="display: block" for="brand_id" class="col-form-label">Brand</label>
+                              <select style="width:46%; position:relative;" class="custom-select form-control" id="brand_id" name="brand_id">
+                                  @foreach($brands as $brand)
+                                      <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                  @endforeach
+                              </select>
+                          </div>
+                      </div>
+
+                      {{--OPTIONAL DATA--}}
+
+                      <div class="d-flex justify-content-center mt-4">
+                          <button id="test" class="btn btn-red" type="button" data-toggle="collapse" data-target="#collapseformoptionaldata" aria-expanded="false" aria-controls="collapseformoptionaldata">Click me to add option data</button>
+                      </div>
+
+
+                      <div class="collapse mt-1" id="collapseformoptionaldata">
+                          <div class="card card-block">
+
+                              <div class="d-flex flex-md-row display-767-column mt-2">
+                                  <div class="group-input">
+                                      <label for="dimension" class="col-form-label">Dimension (L x W x H) in cm</label>
+                                      <input type="text" class="form-control col-md-11 col-12" id="dimension" name="dimension" placeholder="10x5.80x25" value="" onblur="validateDimensions(this)"><!-- afegir exemple -->
+                                  </div>
+                                  <div class="group-input">
+                                      <label for="real_weight" class="col-form-label">Real weight (in grams)</label>
+                                      <input type="text" class="form-control col-md-11 col-12" id="real_weight" name="real_weight" placeholder="1300" value="" onblur="validateWeight(this)" />
+                                  </div>
+                              </div>
+                              <div class="d-flex flex-row mt-4 justify-content-center">
+                                  <div class="form-check ml-md-4 ml-1">
+                                      <label class="form-check-label" for="vegetarian">
+                                          <input class="form-check-input" type="checkbox" value="1" id="vegetarian" name="vegetarian" />
+                                          Vegetarian
+                                      </label>
+                                  </div>
+
+                                  <div class="form-check ml-md-4 ml-2">
+                                      <label class="form-check-label" for="vegan">
+                                          <input class="form-check-input" type="checkbox" value="1" id="vegan" name="vegan" />
+                                          Vegan
+                                      </label>
+                                  </div>
+                                  <div class="form-check ml-md-4 ml-2">
+                                      <label class="form-check-label" for="organic">
+                                          <input class="form-check-input" type="checkbox" value="1" id="organic" name="organic" />
+                                          Organic
+                                      </label>
+                                  </div>
+                              </div>
+
+                          </div><!-- / card -->
+                      </div> <!--collapse -->
+
+                      {{--END OPTION DATA--}}
+                      {{--test--}}
+                      {{--end test--}}
+                  </form>
+                  <form id="formImage" class="formImage form-horizontal mt-4" novalidate="" enctype="multipart/form-data">
+                      <div class="group-input">
+                          <label for="image" class="col-form-label">Upload images</label>
+                          <input type="file" class="form-control-file" id="image" name="image[]" multiple >
+                      </div>
+                  </form>
               </div>
-
-              <div class="form-group col-sm-4">
-                <label for="price" class="control-label">Price</label>
-                <div class="">
-                  <input type="text" class="form-control" id="price" name="price" placeholder="5.95" value="" required onblur="validatePrice(this)" />
-                </div>
-              </div>
-
-                <div class="form-group col-sm-8 mt-4">
-                    <label for="description" class="control-label">Description</label>
-                    <div class="">
-                        <textarea class="form-control" rows="5" cols="38" id="description" name="description" placeholder="description of the product" required onblur="validateName(this)"></textarea>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="expiration_date" class="col-sm-9 control-label">Expiration Date</label>
-                    <div class="col-sm-9">
-                        <input type="date" class="form-control" id="expiration_date" name="expiration_date" placeholder="09/02/2018"  value="" required onblur="validateExpDate(this)" />
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="weight" class="col-sm-9 control-label">Weight (in grams)</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" id="weight" name="weight" placeholder="1200" value="" required onblur="validateWeight(this)" />
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="stock" class="col-sm-9 control-label">Stock</label>
-                    <div class="col-sm-9">
-                        <input type="number" class="form-control" id="stock" name="stock" placeholder="13" value="" required=" "onblur="validateStock(this)" />
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="ingredient_list">Ingredients</label>
-                    <select id="ingredient_list" name="ingredients[]" class="form-control" multiple></select>
-                </div>
-
-                <div class="form-group">
-                    <label for="category_list">Categories</label>
-                    <select id="category_list" name="categories[]" class="form-control" multiple></select>
-                </div>
-
-                <div class="form-group">
-                    <select class="custom-select" id="brand_id" name="brand_id">
-                        @foreach($brands as $brand)
-                            <option value="{{$brand->id}}">{{$brand->name}}</option>
-                        @endforeach
-
-                    </select>
-                </div>
-
-            {{--OPTIONAL DATA--}}
-
-                <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapseformoptionaldata" aria-expanded="false" aria-controls="collapseformoptionaldata">Click me to add option data</button>
-
-                <div class="collapse" id="collapseformoptionaldata">
-                    <div class="card card-block">
-
-                        <div class="form-group">
-                            <label for="dimension" class="col-sm-9 control-label">Dimension (lengthxwidthxheight) in cm</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="dimension" name="dimension" placeholder="10x5.80x25" value="" onblur="validateDimensions(this)"><!-- afegir exemple -->
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="real_weight" class="col-sm-9 control-label">Real weight (in grams)</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="real_weight" name="real_weight" placeholder="1300" value="" onblur="validateWeight(this)" />
-                            </div>
-                        </div>
-
-                        <div class="form-check">
-                            <label class="form-check-label" for="vegetarian">
-                                <input class="form-check-input" type="checkbox" value="1" id="vegetarian" name="vegetarian" />
-                               Vegetarian
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <label class="form-check-label" for="vegan">
-                                <input class="form-check-input" type="checkbox" value="1" id="vegan" name="vegan" />
-                                Vegan
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <label class="form-check-label" for="organic">
-                                <input class="form-check-input" type="checkbox" value="1" id="organic" name="organic" />
-                                Organic
-                            </label>
-                        </div>
-
-                    </div><!-- / card -->
-                </div><!-- / collapse -->
-
-                {{--END OPTION DATA--}}
-                {{--test--}}
-                {{--end test--}}
-            </form>
-              <form id="formImage" class="formImage"  class="form-horizontal" novalidate="" enctype="multipart/form-data">
-                  <div class="form-group">
-                      <label for="image">Upload images</label>
-                      <input type="file" class="image btn btn-info" id="image" name="image[]" multiple >
-                  </div>
-              </form>
           </div>
 
           <div class="modal-footer">
