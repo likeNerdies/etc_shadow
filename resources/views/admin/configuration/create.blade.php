@@ -57,11 +57,8 @@
                                     @endif
                                     @if(Auth::user()->can_create)
                                         <td>
-                                            <button class="btn btn-warning btn-xs btn-detail open-modal hidden-sm-down" value="{{$admin->id}}">Edit</button>
-                                            <button class="btn btn-warning hidden-md-up open-modal" value="{{$admin->id}}"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-
-                                            <button class="btn btn-danger btn-xs btn-delete delete-category hidden-sm-down" value="{{$admin->id}}">Delete</button>
-                                            <button class="btn btn-danger hidden-md-up delete-category" value="{{$admin->id}}"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                            <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$admin->id}}"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>
+                                            <button class="btn btn-danger btn-xs btn-delete delete-admin" value="{{$admin->id}}"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button></button>
                                         </td>
                                     @endif
                                 </tr>

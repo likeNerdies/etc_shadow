@@ -62,7 +62,7 @@ $(document).ready(function() {
         e.preventDefault();
 
         var formData = {
-            name: $('#name').val(),
+            name: $('#name').val()
         }
 
         //used to determine the http verb to use [add=POST], [update=PUT]
@@ -73,7 +73,7 @@ $(document).ready(function() {
         var my_url = url;
 
         if (state == "update"){
-          console.log("update");
+          //console.log("update");
             type = "PUT"; //for updating existing resource
             my_url += '/' + allergy_id;
         }
@@ -88,12 +88,10 @@ $(document).ready(function() {
             success: function (data) { // success:
                 console.log(data);
 
-                var allergy = '<tr id="allergy' + data.id + '"><td id="id">' + data.id + '</td><td>' + data.name + '</td><td>' + data.created_at + '</td>';
-                allergy += '<td><button class="btn btn-warning btn-xs btn-detail open-modal  hidden-sm-down" value="' + data.id + '">Edit</button>';
-                allergy += '<button class="btn btn-warning hidden-md-up open-modal" value="'+ data.id +'"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
+                var allergy = '<tr id="allergy' + data.id + '"><td id="id">' + data.id + '</td><td>' + data.name + '</td><td class="media-767-delete">' + data.created_at + '</td>';
+                allergy += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
 
-                allergy += '<button class="btn btn-danger btn-xs btn-delete delete-allergy  hidden-sm-down" value="' + data.id + '">Delete</button></tr>';
-                allergy += '<button class="btn btn-danger hidden-md-up delete-category" value="' + data.id + '"><i class="fa fa-trash" aria-hidden="true"></i></button></td>';
+                allergy += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-allergy" value="' + data.id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button>';
 
                 if (state == "add"){ //if user added a new record
                     $('#allergy-list').append(allergy);
@@ -140,9 +138,10 @@ $(document).ready(function() {
                 }else{
                     $('#allergy-list').empty();
                     for (i=0;i<data.length;i++){
-                        var allergy = '<tr id="allergy' + data[i].id + '"><td id="id">' + data[i].id + '</td><td>' + data[i].name + '</td><td>' + data[i].created_at + '</td>';
-                        allergy += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].id + '">Edit</button>';
-                        allergy += '<button class="btn btn-danger btn-xs btn-delete delete-allergy" value="' + data[i].id + '">Delete</button></td></tr>';
+                        var allergy = '<tr id="allergy' + data[i].id + '"><td id="id">' + data[i].id + '</td><td>' + data[i].name + '</td><td class="media-767-delete">' + data[i].created_at + '</td>';
+                        allergy += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
+
+                        allergy += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-allergy" value="' + data[i].id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button></td></tr>';
                         $('#allergy-list').append(allergy);
                     }
 

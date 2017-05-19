@@ -45,11 +45,8 @@ Route::prefix('/user/panel')->group(function () {//user panel route
 
 
 Route::prefix('/products')->group(function () {//Product route
-
     Route::get('/', 'product\ProductController@productsIndex')->name('products-index');
     Route::get('/{id}', 'product\ProductController@productsIndexShow')->name('products-index-show');
-
-
 });// end product route
 
 
@@ -67,7 +64,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin',], function () {
     Route::put('/update', 'admin\AdminController@update')->name('admin.update');
 
 
-
+    //Routes for admin users table
     Route::get('/admin-users', 'admin\AdminController@adminUsers')->name('admin.adminUsers');
     Route::get('/admin-users/{id}', 'admin\AdminController@show')->name('admin.adminUserShow');
     Route::delete('/admin-users/{id}', 'admin\AdminController@delete')->name('admin.adminUserDelete');
@@ -199,4 +196,4 @@ Route::prefix('/search')->group(function (){
 });
 
 
-//
+Route::get('/box-test','box\BoxController@makeBox')->middleware('auth:admin');

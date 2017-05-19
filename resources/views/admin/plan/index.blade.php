@@ -39,8 +39,8 @@
                 <td>{{$plan->price}}</td>
                 <td>{{$plan->info}}</td>
                 <td>
-                  <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$plan->id}}">Edit</button>
-                  <button class="btn btn-danger btn-xs btn-delete delete-plan" value="{{$plan->id}}">Delete</button>
+                  <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$plan->id}}"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up"></i></button>
+                  <button class="btn btn-danger btn-xs btn-delete delete-plan" value="{{$plan->id}}"><span class="hidden-sm-down">Delete</span> <i class="fa fa-trash hidden-md-up"></i></button>
                 </td>
               </tr>
             @endforeach

@@ -17,7 +17,7 @@ class CreateBoxProductTable extends Migration
             $table->increments('id');
             $table->integer('box_id')->unsigned();
             $table->integer('product_id')->unsigned();
-            $table->integer('unidad');
+            $table->integer('unidad')->default(1);
             $table->timestamps();
         });
         Schema::table('box_product', function(Blueprint $table){

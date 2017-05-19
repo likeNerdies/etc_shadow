@@ -277,7 +277,7 @@ tr > th, tr > td{
     display: none;
   }
 
-  #btn-add, .open-modal, .delete-category{
+  #btn-add, .open-modal, .btn-delete{
     background: white;
   }
 

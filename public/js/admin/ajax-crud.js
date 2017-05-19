@@ -123,8 +123,9 @@ $(document).ready(function() {
                 }else{
                     admin+='<td></td>';
                 }
-                admin += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '">Edit</button>';
-                admin += '<button class="btn btn-danger btn-xs btn-delete delete-admin" value="' + data.id + '">Delete</button></td></tr>';
+                admin += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
+
+                admin += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-admin" value="' + data.id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button></td></tr>';
 
                 if (state == "add"){ //if user added a new record
                     $('#admin-list').append(admin);
@@ -171,8 +172,9 @@ $(document).ready(function() {
                         }else{
                             admin+='<td></td>';
                         }
-                        admin += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].id + '">Edit</button>';
-                        admin += '<button class="btn btn-danger btn-xs btn-delete delete-admin" value="' + data[i].id + '">Delete</button></td></tr>';
+                        admin += '<td><button style="margin-right:2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
+
+                        admin += '<button style="margin-left:2px !important;" class="btn btn-danger btn-xs btn-delete delete-admin" value="' + data[i].id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button></td></tr>';
                         $('#admin-list').append(admin);
                     }
 

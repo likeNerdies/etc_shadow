@@ -103,8 +103,9 @@ $(document).ready(function() {
                         plan+='<td></td>';
                     }
 
-                plan += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '">Edit</button>';
-                plan += '<button class="btn btn-danger btn-xs btn-delete delete-plan" value="' + data.id + '">Delete</button></td></tr>';
+                plan += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
+
+                plan += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-plan" value="' + data.id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button>';
 
                 if (state == "add"){ //if user added a new record
                     $('#plan-list').append(plan);
@@ -161,8 +162,9 @@ $(document).ready(function() {
                             plan+='<td></td>';
                         }
 
-                        plan += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].id + '">Edit</button>';
-                        plan += '<button class="btn btn-danger btn-xs btn-delete delete-plan" value="' + data[i].id + '">Delete</button></td></tr>';
+                        plan += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
+
+                        plan += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-plan" value="' + data[i].id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button></td></tr>';
 
                         $('#plan-list').append(plan);
                     }
