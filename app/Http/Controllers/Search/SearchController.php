@@ -261,15 +261,15 @@ class SearchController extends Controller
                })->get()->count();
 
                $monthlySubscribers=[
-                   "usersCharming"=>$usersCharming,
-                   "usersPro"=>$usersPro,
-                   "usersPremium"=>$usersPremium
+                   "Charming"=>$usersCharming,
+                   "Pro"=>$usersPro,
+                   "Premium"=>$usersPremium
                ];
            }catch (Exception $e){
                $monthlySubscribers=[
-                   "usersCharming"=>0,
-                   "usersPro"=>0,
-                   "usersPremium"=>0
+                   "Charming"=>0,
+                   "Pro"=>0,
+                   "Premium"=>0
                ];
            }
          return response()->json($monthlySubscribers);

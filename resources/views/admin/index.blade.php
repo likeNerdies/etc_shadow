@@ -77,7 +77,9 @@
     <div id="content-center" class="row">
         <div class="col-md-6 col-12">
             <div id="graphic-one" class="bg-blue">
-                <p class="text-center">Graphics</p>
+              <div id="donut">
+                <svg></svg>
+              </div>
             </div>
         </div>
         <div class="col-md-6 col-12">
@@ -101,9 +103,16 @@
         </div>
     </div>
 
-
-
-
 @endsection
 
+@section('scripts')
+  <!--<script src="{{asset('/js/libraries/charts/d3js/d3.v4.min.js')}}"></script>
+  <script src="{{asset('/js/libraries/charts/nvd3/nv.d3.js')}}"></script>-->
+  <!--<script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.js"></script>-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js" charset="utf-8"></script>
+  <script src="{{asset('/js/libraries/charts/nvd3_total/build/nv.d3.js')}}"></script>
+  <script src="{{asset('/js/admin/dashboard/graphics.js')}}"></script><!-- Gráficos dashboard -->
+
+@endsection
 <!-- Scripts not yet -->

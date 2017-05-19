@@ -14,6 +14,9 @@
     <!-- Bootstrap 4 -->
     <link rel="stylesheet" href="/css/libraries/bootstrap4/bootstrap.min.css">
 
+    <!-- Charts NVD3 Library -->
+    <link rel="stylesheet" href="/css/libraries/nvd3/nv.d3.css">
+
     <!-- Animation library for notifications   -->
     <!--<link href="/css/admin/libraries/animate/animate.min.css" rel="stylesheet"/>-->
     <!--  Light Bootstrap Table core CSS  -->
@@ -33,6 +36,12 @@
     <title>@yield('title')</title>
 </head>
 <body>
+
+<style>
+  #donut svg {
+    height: 400px;
+  }
+</style>
 
 @include('admin.layouts.sidebar')
 
@@ -60,7 +69,7 @@
 <script src="{{asset('/js/libraries/bootstrap4/bootstrap.js')}}"></script>
 <script src="{{asset('/js/admin/light-bootstrap-dashboard.js')}}"></script>
 
-<script src="{{asset('/js/validations/validator.js')}}"></script>
+<script src="{{asset('/js/validations/validator.js')}}"></script><!-- Validaciones campos formularios -->
 
 @yield('scripts')
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>-->
