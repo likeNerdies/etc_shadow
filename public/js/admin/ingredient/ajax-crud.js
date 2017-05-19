@@ -128,7 +128,7 @@ $(document).ready(function () {
                 }
 
                 //allergies
-                ingredient += '<td class="media-480-delete">';
+                ingredient += '<td class="media-767-delete">';
                 if (data.allergies.length == 0) {
                     ingredient += '<p></p>';
                 } else {

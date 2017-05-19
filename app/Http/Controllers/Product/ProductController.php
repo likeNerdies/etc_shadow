@@ -10,6 +10,7 @@ use App;
 use Mockery\Exception;
 use DB;
 
+
 class ProductController extends Controller
 {
     /**
@@ -21,6 +22,7 @@ class ProductController extends Controller
     {
         $products = App\Product::paginate(9);
         $brands = App\Brand::all();
+
         return view('admin.product.index', compact(['products', 'brands']));
     }
 
@@ -42,8 +44,12 @@ class ProductController extends Controller
      */
     public function productsIndexShow($id)
     {
-        $products = App\Product::findOrFail($id);
-        return view('admin.product.show', compact(['products', 'brands']));
+        $product = App\Product::findOrFail($id);
+      /*  $imageUrls=[];
+        foreach ($product->images as $item) {
+            $imageUrls[]=Storage::url($item->path);
+        }*/
+        return view('admin.product.show', compact(['product']));
     }
     /**
      * Show the form for creating a new resource.

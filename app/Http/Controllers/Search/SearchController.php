@@ -108,7 +108,7 @@ class SearchController extends Controller
         $retorn = "";
         if ($request->ajax() && $request->has('brand')) {
             $retorn = $brand->where('id', '=', $request->brand)
-                ->where('name', 'like', '%' . $request->brand . '%')->get();
+                ->orWhere('name', 'like', '%' . $request->brand . '%')->get();
         } else {
             //todo
         }
@@ -234,7 +234,7 @@ class SearchController extends Controller
      */
     public function getCurrentYearMonthlySubs(){
 
-        $users = DB::table('users')->select( DB::raw("MONTH(subscribed_at)  as month, plan_id" ) ,DB::raw('count(*) as total'))
+        $users = DB::table('users')->join('plans','plans.id','plan_id')->select("plan_id",  DB::raw("MONTH(subscribed_at)  as month"),DB::raw('count(*) as total'))
             ->whereNotNull('plan_id')->whereYear('subscribed_at',date("Y"))->groupBy("month","plan_id")
             ->get();
         return response()->json($users);
@@ -261,15 +261,15 @@ class SearchController extends Controller
                })->get()->count();
 
                $monthlySubscribers=[
-                   "usersCharming"=>$usersCharming,
-                   "usersPro"=>$usersPro,
-                   "usersPremium"=>$usersPremium
+                   "Charming"=>$usersCharming,
+                   "Pro"=>$usersPro,
+                   "Premium"=>$usersPremium
                ];
            }catch (Exception $e){
                $monthlySubscribers=[
-                   "usersCharming"=>0,
-                   "usersPro"=>0,
-                   "usersPremium"=>0
+                   "Charming"=>0,
+                   "Pro"=>0,
+                   "Premium"=>0
                ];
            }
          return response()->json($monthlySubscribers);
