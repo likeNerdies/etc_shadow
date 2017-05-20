@@ -119,7 +119,13 @@ class ProductController extends Controller
             if ($request->hasFile('image')) {//si existen fotos
                 $product = App\Product::findOrFail($id);
                 if(count($product->images)>0){
-                    $product->images()->detach();
+                   // $product->images()->detach(); detach is for belongstoMany
+                    // $product->images()->dissociate();
+                    foreach ($product->images as $item) {
+                        $item->delete();//eliminamos las antiguas
+                    }
+
+
                 }
                 //adding new images
                 foreach (Input::file('image') as $photo) {//recorriendo todas las fotos
@@ -253,8 +259,34 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        $product = App\Product::findOrFail($id);
-        $product->delete();
-        return $product;
+        $inserted=false;
+        DB::beginTransaction();
+        try {
+
+            $product = App\Product::findOrFail($id);
+            if(count($product->images)>0){
+                // $product->images()->detach(); detach is for belongstoMany
+                // $product->images()->dissociate();
+                foreach ($product->images as $item) {
+                    $item->delete();//eliminamos las antiguas
+                }
+            }
+            $product->delete();
+            //  });
+            DB::commit();
+            $inserted = true;
+        } catch (Exception $e) {
+            DB::rollBack();
+        }
+        if (!$inserted) {
+            $retorn = [
+                'error' => "Failed inserting model in database"
+            ];
+        } else {
+            $retorn = [
+                "success" => true,
+            ];
+        }
+        return response()->json($retorn);
     }
 }
