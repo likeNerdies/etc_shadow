@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
+use DB;
 class CreateIngredientsTable extends Migration
 {
     /**
@@ -17,8 +17,11 @@ class CreateIngredientsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('info')->nullable();
-            $table->binary('image')->nullable();
+            //$table->binary('image')->nullable(); binary -> blob -> allow only 64kb max size file...so, we need to create mediumblob with raw query
             $table->timestamps();
+        });
+        Schema::table('ingredients',function (Blueprint $table){
+            DB::statement("ALTER TABLE ingredients ADD image MEDIUMBLOB");
         });
     }
 
