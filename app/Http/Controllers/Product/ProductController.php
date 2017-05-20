@@ -170,6 +170,19 @@ class ProductController extends Controller
     }
 
     /**
+     * @param $id
+     * @return mixed
+     */
+    public function showPictureNumber($id,$number)
+    {
+        $product=App\Product::findOrFail($id);
+        $images=$product->images;
+        $pic = Image::make($images[$number]->image);
+        $response = Response::make($pic->encode('jpeg'));
+        $response->header('Content-Type', 'image/jpeg');
+        return $response;
+    }
+    /**
      * Display the specified resource.
      *
      * @param  int $id

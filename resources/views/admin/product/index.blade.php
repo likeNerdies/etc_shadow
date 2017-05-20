@@ -90,13 +90,6 @@
                                @else
                                     <td id="product-img"><img class="img-thumbnail" src="/admin/products/{{$product->images->first()->id}}/image" width="48.2" height="48.2"></td>
                                 @endif
-
-                                {{--    @if($ingredient->image_path==null)
-                                <td id="ingredient-img"></td>
-                                @else
-                                <td id="ingredient-img"><img src="{{$ingredient->getPublicImgUrl($ingredient->image_path)}}" width="165" height="110"></td>
-                                @endif
-                                --}}
                                 <td>
                                     <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$product->id}}"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>
                                     <button class="btn btn-danger btn-xs btn-delete delete-product" value="{{$product->id}}"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button>
