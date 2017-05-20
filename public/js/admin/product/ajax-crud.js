@@ -278,7 +278,7 @@ $(document).ready(function () {
                             if(data[i].images.length == 0){
                                 product += '<td id="product-img"></td>';//for images
                             }else{
-                                product += '<td id="product-img"><img class="img-thumbnail" src="'+data[i].images[0]+'" width="48.2" height="48.2"></td>';//for images
+                                product += '<td id="product-img"><img class="img-thumbnail" src="/admin/products/'+data[i].images+'/image" width="48.2" height="48.2"></td>';//for images
                             }
 
 
@@ -365,8 +365,7 @@ $(document).ready(function () {
                 dataType: 'json',
                 success: function (data) { // success:
                 console.log(data);
-                    $('#product' + id + ' > #product-img').replaceWith("<td id='product-img'><img class='img-thumbnail' width='48.2' height='48.2' src='" + data.image_path[0] + "'></td>");
-
+                    $('#product' + id + ' > #product-img').replaceWith("<td id='product-img'><img class='img-thumbnail' width='48.2' height='48.2' src='/admin/products/" + data.images + "/image'></td>");
                 },
                 error: function (data) {
                     console.log('Error:', data);

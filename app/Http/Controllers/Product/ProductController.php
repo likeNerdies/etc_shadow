@@ -112,14 +112,17 @@ class ProductController extends Controller
      */
     public function storeImage(Request $request, $id)
     {
+
         $inserted = true;
         try {
             DB::beginTransaction();
             if ($request->hasFile('image')) {//si existen fotos
                 $product = App\Product::findOrFail($id);
-                $product->images()->detach();
+                if(count($product->images)>0){
+                    $product->images()->detach();
+                }
                 //adding new images
-                foreach ($request->image as $photo) {//recorriendo todas las fotos
+                foreach (Input::file('image') as $photo) {//recorriendo todas las fotos
                     $img = Image::make($photo);
                     Response::make($img->encode('jpeg'));
                     App\Image::create([
@@ -137,7 +140,7 @@ class ProductController extends Controller
         $retorn = [];
         if ($inserted) {
             $retorn = [
-                "images" => $product->images()
+                "images" => $product->images()->first()->id
             ];
         } else {
             $retorn = [

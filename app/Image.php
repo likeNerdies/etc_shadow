@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Image extends Model
 {
     protected $fillable=[
-        'name','path','size','extension','product_id'
+        'image','product_id'
     ];
+    protected $hidden = ['image'];
     /**
      * Get the product of the image
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

@@ -56,11 +56,4 @@ class Product extends Model
         return $this->hasMany('App\Image');
     }
 
-    /**
-     * @param $url
-     * @return mixed
-     */
-    public function getPublicImgUrl($url){
-        return Storage::url($url);
-    }
 }

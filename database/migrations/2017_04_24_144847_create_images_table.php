@@ -17,13 +17,14 @@ class CreateImagesTable extends Migration
             $table->increments('id');
            // $table->string('name')->nullable();
             //$table->string('path');
-            $table->binary('image');
+            //$table->binary('image');
             //$table->unsignedBigInteger('size')->nullable();
            // $table->string('extension')->nullable();
             $table->integer('product_id')->unsigned();
             $table->timestamps();
         });
         Schema::table('images', function (Blueprint $table){
+            DB::statement("ALTER TABLE images ADD image MEDIUMBLOB");
            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }

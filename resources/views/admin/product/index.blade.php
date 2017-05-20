@@ -85,10 +85,10 @@
                                 @endforeach
                                 @endif
                                 </td>
-                                @if($product->images == null)
+                                @if(count($product->images) == 0)
                                     <td id="product-img"></td>
-                                @else
-                                    <td id="product-img"><img class="img-thumbnail" src="{{$product->getPublicImgUrl($product->images->first()->path)}}" width="48.2" height="48.2"></td>
+                               @else
+                                    <td id="product-img"><img class="img-thumbnail" src="/admin/products/{{$product->images->first()->id}}/image" width="48.2" height="48.2"></td>
                                 @endif
 
                                 {{--    @if($ingredient->image_path==null)

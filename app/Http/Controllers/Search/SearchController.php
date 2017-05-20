@@ -131,7 +131,7 @@ class SearchController extends Controller
                 $retorn[$i] = [
                     "ingredient" => $ing[$i],
                     "allergies" => $ing[$i]->allergies,
-                    "imageUrl"=>Storage::url($ing[$i]->image_path),
+                    //"imageUrl"=>Storage::url($ing[$i]->image_path),
                 ];
             }
 
@@ -155,17 +155,14 @@ class SearchController extends Controller
                 ->get();
 
             for ($i = 0; $i < count($prod); $i++) {
-                $imgUrls=[];
-                foreach ($prod[$i]->images as $img) {
-                    $imgUrls[] = Storage::url($img->path);
-                }
                 $retorn[$i] = [
                     "product" => $prod[$i],
                     "ingredients" => $prod[$i]->ingredients,
                     "categories" => $prod[$i]->categories,
                     "brand" => $prod[$i]->brand,
-                    "brands" => App\Brand::all(),
-                    "images" => $imgUrls,
+                    //"brands" => App\Brand::all(),
+                   // "images" => $prod[$i]->images, mandamos solo id porque hay problema con json para enviar blob
+                     "images" => $prod[$i]->images()->first()->id,
                 ];
             }
 
