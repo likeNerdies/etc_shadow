@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Ingredient\StoreValidation;
+use App\Http\Requests\Ingredient\StoreImage;
 use DB;
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -108,18 +109,18 @@ class IngredientController extends Controller
           return response()->json($retorn);
       }*/
 
-    public function storeImage(Request $request, $id)
+    public function storeImage(StoreImage $request, $id)
     {
         $inserted = true;
         try {
             DB::beginTransaction();
-            $ingredient = App\Ingredient::findOrFail($id);
-            if ($request->hasFile('image')){
-            $file = Input::file('image');
-            $img = Image::make($file);
-            Response::make($img->encode('jpeg'));
-            $ingredient->image = $img;
-            $ingredient->save();
+                $ingredient = App\Ingredient::findOrFail($id);
+                if ($request->hasFile('image')){
+                $file = Input::file('image');
+                $img = Image::make($file);
+                Response::make($img->encode('jpeg'));
+                $ingredient->image = $img;
+                $ingredient->save();
             }else{
                 $inserted=false;
             }

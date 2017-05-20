@@ -160,7 +160,7 @@ $(document).ready(function () {
                 //location.reload(true);
             },
             error: function (data) {
-              //console.log('Error:', data);
+              console.log('Error:', data);
               $('#ajaxerror').addClass("alert alert-danger");
               var msg;
 
@@ -197,7 +197,7 @@ $(document).ready(function () {
 
                         }
                         for (i = 0; i < data.length; i++) {
-                            var ingredient = '<tr id="ingredient' + data[i].ingredient.id + '"><td>' + data[i].ingredient.id + '</td><td>' + data[i].ingredient.name + '</td>';
+                            var ingredient = '<tr id="ingredient' + data[i].ingredient.id + '"><td id="id">' + data[i].ingredient.id + '</td><td>' + data[i].ingredient.name + '</td>';
                             if (data[i].ingredient.info == null) {
                                 ingredient += '<td></td>';
                             } else {
@@ -277,35 +277,13 @@ $(document).ready(function () {
                     $('#ingredient'+id+' > #ingredient-img').empty();
                     $('#ingredient'+id+' > #ingredient-img').replaceWith("<td id='ingredient-img'><img class='img-thumbnail' width='48.2' height='48.2' src='/admin/ingredients/"+data.id+"/image'></td>");
 
-
-/*  var ingredient = '<tr id="ingredient' + data.ingredient.id + '"><td>' + data.ingredient.id + '</td><td>' + data.ingredient.name + '</td><td>' + data.ingredient.info + '</td>';
-                    ingredient += '<td>';
-                    if (data.allergies.length == 0) {
-                        ingredient += '<p>This ingredient has no allergies</p>';
-                    } else {
-                        for (i = 0; i < data.allergies.length; i++) {
-                            ingredient += '<p>' + data.allergies[i].name + '</p>';
-                        }
-                    }
-                    ingredient += '</td>';
-                    ingredient += '<td></td>';
-                    ingredient += '<td>' + data.ingredient.created_at + '</td><td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.ingredient.id + '">Edit</button>';
-                    ingredient += '<button class="btn btn-danger btn-xs btn-delete delete-ingredient" value="' + data.ingredient.id + '">Delete</button></td></tr>';
-*/
-                /*    if (state == "add") { //if user added a new record
-                        $('#ingredient-list').append(ingredient);
-                    } else { //if user updated an existing record
-                        $("#ingredient" + ingredient_id).replaceWith(ingredient);
-                    }
-
-                    $('#formIngredients').trigger("reset");
-
-                    $('#myModal').modal("hide");*/
                 },
                 error: function (data) {
                     console.log('Error:', data);
-                    $('#ajaxerror').addClass("alert alert-danger");
-                    $('#ajaxerror').html("<p>" + data.responseText + "</p>");
+                    $('.error').addClass("alert alert-danger");
+                    $('.error').html("<p>" + data.responseJSON.image + "</p>");
+                  //  $('#ajaxerror').addClass("alert alert-danger");
+                  //  $('#ajaxerror').html("<p>" + data.responseText + "</p>");
                 }
             });
         }

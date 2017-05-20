@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers\Product;
 
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\UploadProduct;
 use App;
 use Mockery\Exception;
+use App\Http\Requests\Ingredient\StoreImage;
 use DB;
-
+use Intervention\Image\ImageManagerStatic as Image;
+use App\Image as Imagen;
 
 class ProductController extends Controller
 {
@@ -45,10 +49,6 @@ class ProductController extends Controller
     public function productsIndexShow($id)
     {
         $product = App\Product::findOrFail($id);
-      /*  $imageUrls=[];
-        foreach ($product->images as $item) {
-            $imageUrls[]=Storage::url($item->path);
-        }*/
         return view('admin.product.show', compact(['product']));
     }
     /**
@@ -78,9 +78,7 @@ class ProductController extends Controller
         try {
 
             DB::beginTransaction();
-            //return response()->json(["0k"=>"ok"]);
             $product = App\Product::create($request->all());//guardando producto
-            //return response()->json(["0k"=>"ok"]);
             $product->categories()->attach($request->categories);//guardando relacion con categorias y productos
             $product->ingredients()->attach($request->ingredients);//guardando relacion con ingredientes y productos
             $product->brand()->associate($request->brand_id);
@@ -114,53 +112,32 @@ class ProductController extends Controller
      */
     public function storeImage(Request $request, $id)
     {
-    //    return "Ok------------------------";
-        // return response()->json(["fichero"=>$request->image]);
         $inserted = true;
-        $path = "";
-        $image_path = [];
         try {
             DB::beginTransaction();
-            //  $img = Image::make( $request->image);
             if ($request->hasFile('image')) {//si existen fotos
                 $product = App\Product::findOrFail($id);
-                //deleting old images
-                $oldImages = $product->images;
-                if ($oldImages != null) {
-
-                    foreach ($oldImages as $oldImage) {
-                        Storage::delete($oldImage->path);
-                        $oldImage->delete();
-                    }
-                }
-
+                $product->images()->detach();
                 //adding new images
                 foreach ($request->image as $photo) {//recorriendo todas las fotos
-                    // return response()->json(["fichero"=>count($request->image)]);
-                    $path = Storage::putFile('public/product_images', $photo);//guardando fotos en el directorio storage/app/public/product_images
-                    $image_path[] = Storage::url($path);
-                    // $filename = $photo->store('photos');//guardando fotos
+                    $img = Image::make($photo);
+                    Response::make($img->encode('jpeg'));
                     App\Image::create([
-                        'name' => $photo->getClientOriginalName(),
-                        'path' => $path,
-                        'size' => Storage::size($path),
-                        'extension' => pathinfo($path, PATHINFO_EXTENSION),
+                        'image' => $img,
                         'product_id' => $product->id
                     ]);
                 }
             }
-
-
+            $product->save();
             DB::commit();
         } catch (Exception $e) {
             DB::rollBack();
             $inserted = false;
-            //delete inserted files-----------------todo
         }
         $retorn = [];
         if ($inserted) {
             $retorn = [
-                "image_path" => $image_path
+                "images" => $product->images()
             ];
         } else {
             $retorn = [
@@ -168,6 +145,19 @@ class ProductController extends Controller
             ];
         }
         return response()->json($retorn);
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function showPicture($id)
+    {
+        $imagen = Imagen::findOrFail($id);
+        $pic = Image::make($imagen->image);
+        $response = Response::make($pic->encode('jpeg'));
+        $response->header('Content-Type', 'image/jpeg');
+        return $response;
     }
 
     /**
@@ -260,25 +250,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        $deleted = "";
-        // DB::transaction(function ($id) {//iniciando transaccion
-        try {
-            DB::beginTransaction();
-            $product = App\Product::findOrFail($id);
-            //deleting all images
-            $images = $product->images;
-
-            foreach ($images as $image) {
-                Storage::delete($image->path);
-                $image->delete();
-            }
-            $product->delete();
-            DB::commit();
-        } catch (Exception $e) {
-            DB::rollBack();
-            $deleted = false;
-        }
-        //  });
-        return response()->json(["deleted" => $deleted]);
+        $product = App\Product::findOrFail($id);
+        $product->delete();
+        return $product;
     }
 }
