@@ -37,7 +37,7 @@ class ProductController extends Controller
      */
     public function productsIndex()
     {
-        $products = App\Product::paginate(9);
+        $products = App\Product::all(); //paginate(9)
         return view('product.index', compact(['products', 'brands']));
     }
 
@@ -169,6 +169,19 @@ class ProductController extends Controller
         return $response;
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function showPictureNumber($id,$number)
+    {
+        $product=App\Product::findOrFail($id);
+        $images=$product->images;
+        $pic = Image::make($images[$number]->image);
+        $response = Response::make($pic->encode('jpeg'));
+        $response->header('Content-Type', 'image/jpeg');
+        return $response;
+    }
     /**
      * Display the specified resource.
      *

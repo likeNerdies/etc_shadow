@@ -77,12 +77,10 @@
                                 {{-----------------------------}}
 
                                 <td>
-                                @if(count($product->categories)==0)
-
-                                @else
-                                @foreach($product->cateogries as $cateogry)
-                                    <p>{{$cateogry->name}}</p>
-                                @endforeach
+                                @if(count($product->categories)>0)
+                                  @foreach($product->categories as $category)
+                                    <p>{{$category->name}}</p>
+                                    @endforeach
                                 @endif
                                 </td>
                                 @if(count($product->images) == 0)
@@ -91,7 +89,6 @@
                                     <td id="product-img"><img class="img-thumbnail" src="/admin/products/{{$product->images->first()->id}}/image" width="48.2" height="48.2"></td>
                                 @endif
 
-                                
                                 <td>
                                     <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$product->id}}"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>
                                     <button class="btn btn-danger btn-xs btn-delete delete-product" value="{{$product->id}}"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button>

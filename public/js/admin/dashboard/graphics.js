@@ -36,7 +36,7 @@ $(document).ready(function() {
 
 
 
-  /* Cumulative line chart: Current year month subscribers */
+  /* Cumulative line chart: Current year month subscribers
 
   var subscribers = [{"key": , "values": [[]]}];
   $.get('/search/currentYearMonthSubs', function (data) {
@@ -76,7 +76,7 @@ $(document).ready(function() {
         });
 
       chart.yAxis.tickFormat(d3.format(',.1%'));*/
-      chart.xAxis
+      /*chart.xAxis
     .tickFormat(d3.format(',f'));
 
   chart.yAxis
@@ -98,6 +98,6 @@ $(document).ready(function() {
 
 
 
-  });
+  });*/
 
 });
