@@ -84,7 +84,9 @@
         </div>
         <div class="col-md-6 col-12">
             <div id="graphic-two" class="bg-yellow">
-                <p class="text-center">Graphics</p>
+              <div id="subscribers">
+                <svg></svg>
+              </div>
             </div>
         </div>
     </div>

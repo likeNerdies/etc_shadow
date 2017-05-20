@@ -1,84 +1,103 @@
 $(document).ready(function() {
 
-var datum = [];
+  /* Donut chart: Total users per plan */
+  var users = [];
+  $.get('/search/totalUserPerPlan', function (data) {
+    //console.log(data);
+    // Converting data to the chart's format
+    for (var key in data) {
+      //console.log("key: " + key);
+      users.push({"label":key, "value":data[key]});
+    }
+    //console.log(JSON.stringify(users));
+    // Creating the chart
+    nv.addGraph(function() {
+      var chart = nv.models.pieChart()
+        .x(function(d) { return d.label })
+        .y(function(d) { return d.value })
+        .showLabels(true)
+        .labelThreshold(.05)
+        .labelType("percent")
+        .donut(true)
+        .donutRatio(0.35)
+        .color(['rgb(255, 187, 120)', 'rgb(152, 223, 138)', 'rgb(174, 199, 232)'])
+      ;
 
-  //function getDonutData() {
-    /*var datum =  [
-      {
-        "label": "One",
-        "value" : 29.765957771107
-      } ,
-      {
-        "label": "Two",
-        "value" : 0
-      } ,
-      {
-        "label": "Three",
-        "value" : 32.807804682612
-      } ,
-      {
-        "label": "Four",
-        "value" : 196.45946739256
-      } ,
-      {
-        "label": "Five",
-        "value" : 0.19434030906893
-      } ,
-      {
-        "label": "Six",
-        "value" : 98.079782601442
-      } ,
-      {
-        "label": "Seven",
-        "value" : 13.925743130903
-      } ,
-      {
-        "label": "Eight",
-        "value" : 5.1387322875705
+      d3.select("#donut svg")
+      .datum(users)
+      .transition().duration(350)
+      .call(chart);
+
+      nv.utils.windowResize(chart.update);
+
+      return chart;
+    });
+  });
+
+
+
+  /* Cumulative line chart: Current year month subscribers */
+
+  var subscribers = [{"key": , "values": [[]]}];
+  $.get('/search/currentYearMonthSubs', function (data) {
+    console.log(data);
+    // Converting data to the chart's format
+    for (var key in data) {
+      for (var i in data[key]) {
+        //console.log("i: " + i);
+        switch(i) {
+          case "month":
+            var month = data[key][i];
+            break;
+          case "plan_id":
+            var plan = data[key][i];
+            break;
+          case "total":
+            var total = data[key][i];
+        }
+        s//ubscribers.push({"key": month, "values": [[plan, total]]});
       }
-]*/
 
+    }
+    console.log(JSON.stringify(subscribers));
 
+    // Creating the chart
+    nv.addGraph(function() {
+      var chart = nv.models.cumulativeLineChart()
+        .x(function(d) { return d[0] })
+        .y(function(d) { return d[1] })
+        .color(d3.scale.category10().range())
+        .useInteractiveGuideline(true)
+        ;
 
-    $.get('/search/totalUserPerPlan', function (data) {
-          console.log(data);
-          /* Converting data to the chart's format */
-          for (var key in data) {
-            console.log("key: " + key);
-            datum.push({"label":key, "value":data[key]});
-          }
-          console.log(JSON.stringify(datum));
-          // Creating the chart
-          nv.addGraph(function() {
-            var chart = nv.models.pieChart()
-                .x(function(d) { return d.label })
-                .y(function(d) { return d.value })
-                .showLabels(true)     //Display pie labels
-                .labelThreshold(.05)  //Configure the minimum slice size for labels to show up
-                .labelType("percent") //Configure what type of data to show in the label. Can be "key", "value" or "percent"
-                .donut(true)          //Turn on Donut mode. Makes pie chart look tasty!
-                .donutRatio(0.35)     //Configure how big you want the donut hole size to be.
-                .color(['rgb(255, 187, 120)', 'rgb(152, 223, 138)', 'rgb(174, 199, 232)'])
-                ;
-
-              d3.select("#donut svg")
-                  .datum(datum)
-                  .transition().duration(350)
-                  .call(chart);
-
-                  nv.utils.windowResize(chart.update);
-
-            return chart;
-          });
-
-          //console.log(JSON.stringify(datum));
+      /*chart.xAxis
+        .tickFormat(function(d) {
+          return d3.time.format('%x')(new Date(d))
         });
 
+      chart.yAxis.tickFormat(d3.format(',.1%'));*/
+      chart.xAxis
+    .tickFormat(d3.format(',f'));
+
+  chart.yAxis
+    .tickFormat(d3.format(',.2f'));
 
 
-    //});
-  //}
+      d3.select('#subscribers svg')
+        .datum(subscribers)
+        .transition().duration(500)
+        .call(chart)
+        ;
 
-  //getDonutData();
+      nv.utils.windowResize(chart.update);
+
+      return chart;
+    });
+
+
+
+
+
+  });
 
 });

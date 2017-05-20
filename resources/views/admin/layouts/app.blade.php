@@ -38,7 +38,7 @@
 <body>
 
 <style>
-  #donut svg {
+  #donut svg, #subscribers svg {
     height: 400px;
   }
 </style>
