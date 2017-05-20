@@ -46,6 +46,8 @@ $(document).ready(function() {
             success: function (data) {
                 console.log(data);
                 $("#plan" + plan).remove();
+                $('#ajaxerror').empty();
+                $('#ajaxerror').removeClass("alert alert-danger");
             },
             error: function (data) {
                 //console.log('Error:', data);
@@ -115,7 +117,8 @@ $(document).ready(function() {
                 }
 
                 $('#formPlans').trigger("reset");
-
+                $('#ajaxerror').empty();
+                $('#ajaxerror').removeClass("alert alert-danger");
                 $('#myModal').modal("hide");
             },
             error: function (data) {

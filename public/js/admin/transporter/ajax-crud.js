@@ -4,6 +4,9 @@ $(document).ready(function() {
 
   //display modal form for transporter editing
     $(document).on('click', '.open-modal', function(e) {
+        $('#ajaxerror').empty();
+        $('#ajaxerror').removeClass("alert alert-danger");
+        $('input').removeAttr( "style" );
    // $('.open-modal').click(function() {
         var transporter_id = $(this).val();
         console.log("transporter_id: " + transporter_id);
@@ -107,7 +110,8 @@ $(document).ready(function() {
                 }
 
                 $('#formTransporters').trigger("reset");
-
+                $('#ajaxerror').empty();
+                $('#ajaxerror').removeClass("alert alert-danger");
                 $('#myModal').modal("hide");
             },
             error: function (data) {

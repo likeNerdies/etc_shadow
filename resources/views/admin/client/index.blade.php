@@ -143,7 +143,9 @@
                             <div class="form-check">
                                 <label for="plan" class="form-check-label col-sm-9">Plan</label>
                                 <div class="col-sm-4">
-                                    <select class="form-check-input form-control ml-1" type="checkbox" value="1" id="plan" name="plan" required></select>
+                                    <select class="form-check-input form-control ml-1" type="checkbox" value="1" id="plan" name="plan" required>
+                                        <option value=''>No plan</option>
+                                    </select>
                                 </div>
                             </div>
                         </form>

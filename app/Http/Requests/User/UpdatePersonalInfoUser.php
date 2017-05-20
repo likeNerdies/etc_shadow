@@ -27,7 +27,7 @@ class UpdatePersonalInfoUser extends FormRequest
           'dni'=>
               array(
                   'nullable',
-                  'regex:/^\d{8}[aA-zZ]{1}$/',
+                  'regex:/((^[A-Z,a-z]{1})(\d{7})([A-Z,a-z]{1}))|(^\d{8}[aA-zZ]{1}$)/',
                   'unique:users,dni',
               ),
           'name' =>
@@ -45,12 +45,13 @@ class UpdatePersonalInfoUser extends FormRequest
                   'nullable',
                   'regex:/[a-zA-Z]{3,100}/i'
               ),
-          //'email' => 'required|email|unique:users,email',
+            'email' => 'required|email|unique:admins,email, '.$this->id,
+           'password' => 'nullable|min:8|confirmed',
           'phone_number'=>
               array(
                   'nullable',
-                  'numeric',
-                  'regex:/\d{9}/'
+                  'min:9',
+                  'regex:/^((\+?34([ \t|\-])?)?[9|6|7]((\d{1}([ \t|\-])?[0-9]{3})|(\d{2}([ \t|\-])?[0-9]{2}))([ \t|\-])?[0-9]{2}([ \t|\-])?[0-9]{2})$/'
               ),
         ];
     }

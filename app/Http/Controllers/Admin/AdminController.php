@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\UpdatePersonalInfo;
 use App\Http\Requests\Admin\StoreValidation;
+use App\Http\Requests\Admin\AdminUpdateValidation;
 use Auth;
 use App;
 use Hash;
@@ -98,11 +99,11 @@ class AdminController extends Controller
     }
 
     /**Update information of admin user
-     * @param StoreValidation $request
+     * @param AdminUpdateValidation $request
      * @param $id
      * @return mixed
      */
-    public function updateAdminUser(StoreValidation $request,$id)
+    public function updateAdminUser(AdminUpdateValidation $request,$id)
     {
         $user = App\Admin::findOrFail($id);
         $user->dni = $request->dni;

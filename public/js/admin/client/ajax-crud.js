@@ -5,6 +5,9 @@ $(document).ready(function () {
     //display modal form for user editing
     $(document).on('click', '.open-modal', function (e) {
         // $('.open-modal').click(function() {
+        $('#ajaxerror').empty();
+        $('#ajaxerror').removeClass("alert alert-danger");
+        $('input').removeAttr( "style" );
         var client_id = $(this).val();
         console.log("client_id edit: " + client_id);
 
@@ -17,21 +20,30 @@ $(document).ready(function () {
             $('#second_surname').val(data.client.second_surname);
             $('#email').val(data.client.email);
             $('#phone_number').val(data.phone_number);
-            $('#plan').append("<option value=''>No plan</option>");
+            //$('#plan').append("<option value=''>No plan</option>");
+            console.log($('select#plan option').length)
             if (data.plans.length != 0) {//adding initial options
-                console.log(data.plans)
-                for (i = 0; i < data.plans.length; i++) {
-                    if(data.plan!=null){
-                        if (data.plan.id == data.plans[i].id){
-                            $('#plan').append("<option selected='selected' value='" + data.plans[i].id + "'>" + data.plans[i].name + "</option>");
+
+                if($('select#plan option').length==1){
+                    for (i = 0; i < data.plans.length; i++) {
+                        if(data.plan!=null){
+                            if (data.plan.id == data.plans[i].id){
+                                $('#plan').append("<option selected='selected' value='" + data.plans[i].id + "'>" + data.plans[i].name + "</option>");
+                            }else{
+                                $('#plan').append("<option value='" + data.plans[i].id + "'>" + data.plans[i].name + "</option>");
+                            }
                         }else{
                             $('#plan').append("<option value='" + data.plans[i].id + "'>" + data.plans[i].name + "</option>");
                         }
-                    }else{
-                        $('#plan').append("<option value='" + data.plans[i].id + "'>" + data.plans[i].name + "</option>");
-                    }
 
+                    }
+                }else{
+                    if(data.plan!=null){
+                        $("#plan").val(data.plan.id);
+                    }
                 }
+
+
             }
 
             $('#btn-save').val("update");
@@ -64,6 +76,8 @@ $(document).ready(function () {
             success: function (data) {
                 console.log(data);
                 $("#client" + client).remove();
+                $('#ajaxerror').empty();
+                $('#ajaxerror').removeClass("alert alert-danger");
             },
             error: function (data) {
                 //console.log('Error:', data);
@@ -137,9 +151,9 @@ $(document).ready(function () {
                     client += '<td>Without plan</td>';
                 }
 
-                client += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
+                client += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.client.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
 
-                client += '<button class="btn btn-danger btn-xs btn-delete delete-client" value="' + data.id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button></td></tr>';
+                client += '<button class="btn btn-danger btn-xs btn-delete delete-client" value="' + data.client.id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button></td></tr>';
 
                 if (state == "add") { //if user added a new record
                     $('#client-list').append(client);
@@ -149,7 +163,8 @@ $(document).ready(function () {
                 }
 
                 $('#formClients').trigger("reset");
-
+                $('#ajaxerror').empty();
+                $('#ajaxerror').removeClass("alert alert-danger");
                 $('#myModal').modal("hide");
             },
             error: function (data) {

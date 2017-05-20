@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 use Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreValidation extends FormRequest
+class AdminUpdateValidation extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -32,7 +32,7 @@ class StoreValidation extends FormRequest
                 array(
                     'nullable',
                     'regex:/((^[A-Z,a-z]{1})(\d{7})([A-Z,a-z]{1}))|(^\d{8}[aA-zZ]{1}$)/',
-                    'unique:admins,dni,'.Auth::user()->id
+                    'unique:admins,dni,'.$this->id,
                 ),
             'name' =>
                 array(
@@ -49,8 +49,8 @@ class StoreValidation extends FormRequest
                     'nullable',
                     'regex:/[a-zA-Z]{3,100}/i'
                 ),
-            'email' => 'required|email|unique:admins,email,' . Auth::user()->id,//esto evita que de 'error' de email repetido para el mismo usuario
-           // 'password' => 'required|min:8|confirmed',
+            'email' => 'required|email|unique:admins,email, '.$this->id,
+             'password' => 'required|min:8|confirmed',
             'phone_number'=>
                 array(
                     'nullable',

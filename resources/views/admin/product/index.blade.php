@@ -80,7 +80,7 @@
                                 @if(count($product->categories)==0)
 
                                 @else
-                                @foreach($product->cateogries as $cateogry)
+                                @foreach($product->categories as $cateogry)
                                     <p>{{$cateogry->name}}</p>
                                 @endforeach
                                 @endif
