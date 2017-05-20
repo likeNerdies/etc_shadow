@@ -122,7 +122,7 @@ $(document).ready(function () {
                 insertImg(e,data.ingredient.id,type);
                 console.log(data);
                 //info
-                var ingredient = '<tr id="ingredient' + data.ingredient.id + '"><td>' + data.ingredient.id + '</td><td>' + data.ingredient.name + '</td>';
+                var ingredient = '<tr id="ingredient' + data.ingredient.id + '"><td id="id">' + data.ingredient.id + '</td><td>' + data.ingredient.name + '</td>';
                 if(data.ingredient.info==null){
                     ingredient+=' <td class="media-480-delete"></td>';
                 }else{

@@ -198,7 +198,7 @@ $(document).ready(function () {
 
 
                 //info
-                var product = '<tr id="product' + data.product.id + '"><td>' + data.product.id + '</td><td>' + data.product.name + '</td><td>'+data.product.price+'</td><td>'+data.product.expiration_date+'</td>';
+                var product = '<tr id="product' + data.product.id + '"><td id="id">' + data.product.id + '</td><td>' + data.product.name + '</td><td>'+data.product.price+'</td><td>'+data.product.expiration_date+'</td>';
                 product+='<td>'+data.product.weight+'</td><td>'+data.product.stock+'</td>';
                 if (data.categories.length == 0 || data.categories.length == null) {
                     product += ' <td></td>';
@@ -263,7 +263,7 @@ $(document).ready(function () {
                     } else {
                         $('#product-list').empty();
                         for (i = 0; i < data.length; i++) {
-                            var product = '<tr id="product' + data[i].product.id + '"><td>' + data[i].product.id + '</td><td>' + data[i].product.name + '</td><td>'+data[i].product.price+'</td><td>'+data[i].product.expiration_date+'</td>';
+                            var product = '<tr id="product' + data[i].product.id + '"><td id="id">' + data[i].product.id + '</td><td>' + data[i].product.name + '</td><td>'+data[i].product.price+'</td><td>'+data[i].product.expiration_date+'</td>';
                             product+='<td>'+data[i].product.weight+'</td><td>'+data[i].product.stock+'</td>';
                             if (data[i].categories.length == 0 || data[i].categories.length == null) {
                                 product += ' <td></td>';
