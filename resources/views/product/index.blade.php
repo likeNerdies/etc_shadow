@@ -6,7 +6,7 @@
 
 @section('content')
   @include('layouts.navbar_out')
-  <div class="container-fluid">
+  <div class="container">
 
     <div class="text-center offset-md-1 mt-5 mb-5">
       <h1>Fall in love with our products</h1>

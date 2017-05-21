@@ -85,7 +85,7 @@
         <div class="col-md-6 col-12">
             <div id="graphic-two" class="bg-yellow">
               <div id="subscribers">
-                <svg></svg>
+                <!--<svg></svg>-->
               </div>
             </div>
         </div>
@@ -124,6 +124,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js" charset="utf-8"></script>
   <script src="{{asset('/js/libraries/charts/nvd3_total/build/nv.d3.js')}}"></script>
   <script src="{{asset('/js/admin/dashboard/graphics.js')}}"></script><!-- Gráficos dashboard -->
+  <script src="https://code.highcharts.com/highcharts.src.js"></script>
+
 
 @endsection
 <!-- Scripts not yet -->
