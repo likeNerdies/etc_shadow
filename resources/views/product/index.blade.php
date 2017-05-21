@@ -32,13 +32,13 @@
                 </div>
                 <div class="card-footer">
                   @if ($product->vegan == 1)
-                    <p class="d-inline diet card-text mx-1"><i class="fa fa-check mx-1" aria-hidden="true"></i>Vegan</p>
+                    <p class="d-inline diet card-text"><i class="fa fa-check mx-1" aria-hidden="true"></i>Vegan</p>
                   @endif
                   @if ($product->vegetarian == 1)
-                    <p class="d-inline diet mx-1"><i class="fa fa-check mx-1" aria-hidden="true"></i>Vegetarian</p>
+                    <p class="d-inline diet"><i class="fa fa-check mx-1" aria-hidden="true"></i>Vegetarian</p>
                   @endif
                   @if ($product->organic == 1)
-                    <p class="d-inline diet mx-1"><i class="fa fa-check mx-1" aria-hidden="true"></i>Organic</p>
+                    <p class="d-inline diet"><i class="fa fa-check mx-1" aria-hidden="true"></i>Organic</p>
                   @endif
                 </div>
               </div>

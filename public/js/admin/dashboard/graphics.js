@@ -119,72 +119,64 @@ nv.utils.windowResize(chart.update);
 return chart;
 });*/
 
-$.get('/search/currentYearMonthSubs', function (data) {
-  console.log(data);
-  var charmData=new Array();
-  var proData=new Array();
-  var premiumData=new Array();
-  for(var i=0;i<data.length;i++){
-    switch(data[i].plan_id){
-      case 1:
-      charmData.push(data[i].total);
-      break;
-      case 2:
-      proData.push(data[i].total);
-      break;
-      case 3:
-      premiumData.push(data[i].total);
-      break;
+  $.get('/search/currentYearMonthSubs', function (data) {
+    console.log(data);
+    var charmData = new Array();
+    var proData = new Array();
+    var premiumData = new Array();
+    for (var i = 0; i < data.length; i++) {
+      switch (data[i].plan_id) {
+        case 1:
+        charmData.push(data[i].total);
+        break;
+        case 2:
+        proData.push(data[i].total);
+        break;
+        case 3:
+        premiumData.push(data[i].total);
+        break;
+      }
     }
-  }
-  console.log(charmData)
-  $('#subscribers').highcharts({
-    title: {
-      text: 'Currnt Year Monthly Subscribers',
-      x: -20 //center
-    },
-    /* subtitle: {
-    text: 'Source: etc_shadow.app',
-    x: -20
-  },*/
-  xAxis: {
-    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-  },
-  yAxis: {
-    title: {
-      text: ''
-    },
-    plotLines: [{
-      value: 0,
-      width: 1,
-      color: '#808080'
-    }]
-  },
-  tooltip: {
-    valueSuffix: ' Subscribers'
-  },
-  legend: {
-    layout: 'vertical',
-    align: 'right',
-    verticalAlign: 'middle',
-    borderWidth: 0
-  },
-  series: [{
-    name: 'Charming',
-    data: charmData
-  }, {
-    name: 'Pro',
-    data: proData
-  }, {
-    name: 'Premium',
-    data: premiumData
-  }]
-});
-});
-
-
-
-
+    console.log(charmData);
+    $('#subscribers').highcharts({
+      title: {
+        text: 'Currnt Year Monthly Subscribers',
+        x: -20 //center
+      },
+      xAxis: {
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      },
+      yAxis: {
+        title: {
+          text: ''
+        },
+        plotLines: [{
+          value: 0,
+          width: 1,
+          color: '#808080'
+        }]
+      },
+      tooltip: {
+        valueSuffix: ' Subscribers'
+      },
+      legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle',
+        borderWidth: 0
+      },
+      series: [{
+        name: 'Charming',
+        data: charmData
+      }, {
+        name: 'Pro',
+        data: proData
+      }, {
+        name: 'Premium',
+        data: premiumData
+      }]
+    });
+  });
 
 });
