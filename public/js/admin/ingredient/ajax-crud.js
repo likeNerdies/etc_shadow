@@ -5,6 +5,10 @@ $(document).ready(function () {
     //display modal form for ingredient editing
     $(document).on('click', '.open-modal', function (e) {
         // $('.open-modal').click(function() {
+        //quitamos las option seleccionadas
+        $(".select2-selection__choice").remove();
+        $("#tag_list").html('');
+
         $('#ajaxerror').empty();
         $('#ajaxerror').removeClass("alert alert-danger");
         $('input').removeAttr( "style" );
@@ -16,6 +20,7 @@ $(document).ready(function () {
             $('#name').val(data.ingredient.name);
             $('#info').val(data.ingredient.info);
 
+            $("#tag_list").val(null).trigger("change");
             if (data.allergies.length != 0) {//adding initial options
                 for (i = 0; i < data.allergies.length; i++) {
                     $('#tag_list').append("<option selected='selected' value='" + data.allergies[i].id + "'>" + data.allergies[i].name + "</option>");
@@ -31,6 +36,8 @@ $(document).ready(function () {
     //display modal form for creating new ingredient
     $(document).on('click', '#btn-add', function (e) {
         // $('#btn-add').click(function() {
+        $(".select2-selection__choice").remove();
+        $("#tag_list").html('');
         $('#btn-save').val("add");
         $('#formIngredients').trigger("reset");
         $('#myModal').modal('show');
@@ -124,7 +131,6 @@ $(document).ready(function () {
             data: formData,
             dataType: 'json',
             success: function (data) { // success:
-                insertImg(e,data.ingredient.id,type);
                 console.log(data);
                 //info
                 var ingredient = '<tr id="ingredient' + data.ingredient.id + '"><td id="id">' + data.ingredient.id + '</td><td>' + data.ingredient.name + '</td>';
@@ -158,7 +164,8 @@ $(document).ready(function () {
                 } else { //if user updated an existing record
                     $("#ingredient" + ingredient_id).replaceWith(ingredient);
                 }
-
+                $('#ingredient'+ingredient_id+' > #ingredient-img').replaceWith("<td id='ingredient-img'><img class='img-thumbnail' width='48.2' height='48.2' src='/admin/ingredients/"+data.ingredient.id+"/image'></td>");
+                insertImg(e,data.ingredient.id,type);
                 $('#formIngredients').trigger("reset");
                 $('#ajaxerror').empty();
                 $('#ajaxerror').removeClass("alert alert-danger");

@@ -4,6 +4,12 @@ $(document).ready(function () {
     //display modal form for product editing
     $(document).on('click', '.open-modal', function (e) {
         // $('.open-modal').click(function() {
+
+        //quitamos las option seleccionadas
+        $(".select2-selection__choice").remove();
+        $("#ingredient_list").html('');
+        $("#category_list").html('');
+
         var product_id = $(this).val();
         $('#ajaxerror').empty();
         $('#ajaxerror').removeClass("alert alert-danger");
@@ -19,20 +25,28 @@ $(document).ready(function () {
             $('#stock').val(data.product.stock);
 
 
+            $("#ingredient_list").val(null).trigger("change");
             if (data.ingredients.length != 0) {//adding initial options
                 for (i = 0; i < data.ingredients.length; i++) {
+                    //$('#ingredient_list').empty();
                     $('#ingredient_list').append("<option selected='selected' value='" + data.ingredients[i].id + "'>" + data.ingredients[i].name + "</option>");
                 }
             }
 
+            $("#category_list").val(null).trigger("change");
             if (data.categories.length != 0) {//adding initial options
                 for (i = 0; i < data.categories.length; i++) {
+                    //$('#category_list').empty();
                     $('#category_list').append("<option selected='selected' value='" + data.categories[i].id + "'>" + data.categories[i].name + "</option>");
                 }
             }
+
             if (data.brand != null) {
+                console.log(data.brand.id);
                 var id = data.brand.id;
-                $('#brand_id option[value=' + id + ']').prop('selected', true)
+                //$("#brand_id").select2().select2('val',id);
+               // $('#brand_id option[value=' + id + ']').prop('selected', true)
+                $("#brand_id").val(id).trigger('change.select2');
             }
             /*for (i = 0; i < data.brands.length; i++) {
              if(data.brand.id==data.brands[i].id){
@@ -71,6 +85,9 @@ $(document).ready(function () {
     //display modal form for creating new product
     $(document).on('click', '#btn-add', function (e) {
         // $('#btn-add').click(function() {
+        $(".select2-selection__choice").remove();
+        $("#ingredient_list").html('');
+        $("#category_list").html('');
         $('#btn-save').val("add");
         $('#formProducts').trigger("reset");
         $('#myModal').modal('show');
@@ -227,11 +244,7 @@ $(document).ready(function () {
                     $("#product" + product_id).replaceWith(product);
                 }
                 insertImg(e, data.product.id, type);//en el caso de update y no poner imagen, la imagen no se muestra
-                if ($('#priduct'+product_id).find("img").length >0 ) {
-                    console.log("has img");
-                }else{
-                    $('#product' + product_id + ' > #product-img').replaceWith("<td id='product-img'><img class='img-thumbnail' width='48.2' height='48.2' src='/admin/products/" + data.images[0].id + "/image'></td>");
-                }
+                $('#product' + product_id + ' > #product-img').replaceWith("<td id='product-img'><img class='img-thumbnail' width='48.2' height='48.2' src='/admin/products/" + data.images[0].id + "/image'></td>");
                 $('#formProducts').trigger("reset");
                 $('#ajaxerror').empty();
                 $('#ajaxerror').removeClass("alert alert-danger");
@@ -310,7 +323,7 @@ $(document).ready(function () {
 
     $('#category_list').select2({
         dropdownParent: $('#ing-parent'),
-        placeholder: "Choose allergies...",
+        placeholder: "Choose categories...",
         minimumInputLength: 1,
         ajax: {
             url: "/search/categorySelect",
