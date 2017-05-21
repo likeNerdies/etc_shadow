@@ -93,14 +93,23 @@
     <div id="content-bottom" class="row">
         <div class="col-md-6 col-12">
             <div id="best-sellers" class="bg-blue">
-                <p class="text-center">Best sellers</p>
+                <!--table or something-->
+                <p class="text-center">last 5 users registered</p>
+                @foreach($lastFiveUsers as $user)
+                    {{$user->name."  ".$user->email  .  "   "  . $user->created_at->diffForHumans()}}<br>
+                @endforeach
             </div>
         </div>
         <div class="col-md-6 col-12">
             <div id="feedback" class="bg-red">
                 <p class="text-center">
-                    Feedback
+                    <!--table or something..-->
+                    items ordered by expiration date <br>
+                    @foreach($productOBED as $prod)
+                        {{$prod->id ." ".$prod->name ." ". $prod->stock ." ".$prod->expiration_date}}<br>
+                    @endforeach
                 </p>
+                {{ $productOBED->links() }}
             </div>
         </div>
     </div>

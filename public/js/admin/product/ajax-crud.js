@@ -243,8 +243,10 @@ $(document).ready(function () {
                 } else { //if user updated an existing record
                     $("#product" + product_id).replaceWith(product);
                 }
-                insertImg(e, data.product.id, type);//en el caso de update y no poner imagen, la imagen no se muestra
-                $('#product' + product_id + ' > #product-img').replaceWith("<td id='product-img'><img class='img-thumbnail' width='48.2' height='48.2' src='/admin/products/" + data.images[0].id + "/image'></td>");
+               if(data.images.length>1){
+                   $('#product' + product_id + ' > #product-img').replaceWith("<td id='product-img'><img class='img-thumbnail' width='48.2' height='48.2' src='/admin/products/" + data.images[0].id + "/image'></td>");
+               }
+                insertImg(e, data.product.id, type);//en el caso de update y no poner imagen, la imagen se queda con la linea anterior
                 $('#formProducts').trigger("reset");
                 $('#ajaxerror').empty();
                 $('#ajaxerror').removeClass("alert alert-danger");

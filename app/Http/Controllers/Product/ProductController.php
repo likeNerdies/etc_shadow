@@ -24,7 +24,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = App\Product::paginate(9);
+        $products = App\Product::paginate(15);
         $brands = App\Brand::all();
 
         return view('admin.product.index', compact(['products', 'brands']));
@@ -37,7 +37,7 @@ class ProductController extends Controller
      */
     public function productsIndex()
     {
-        $products = App\Product::all(); //paginate(9)
+        $products = App\Product::paginate(15);
         return view('product.index', compact(['products', 'brands']));
     }
 

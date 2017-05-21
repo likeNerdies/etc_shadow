@@ -61,11 +61,16 @@ class AdminController extends Controller
                 "premium"=>0,
             ];
         }
+        //products order by expiration date
+        $productOBED=App\Product::orderBY('expiration_date','asc')->paginate(5);
+
+        //last 5 users registered
+        $lastFiveUsers=App\User::orderBy('created_at','asc')->limit(5)->get();
 
         //--end calculando total ganancias
 
 
-        return view('admin.index',compact(['totalUsers','boxToSend','profit']));
+        return view('admin.index',compact(['totalUsers','boxToSend','profit','productOBED','lastFiveUsers']));
     }
 
     public function configuration()
