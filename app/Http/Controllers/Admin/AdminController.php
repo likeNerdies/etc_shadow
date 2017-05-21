@@ -65,7 +65,7 @@ class AdminController extends Controller
         $productOBED=App\Product::orderBY('expiration_date','asc')->paginate(5);
 
         //last 5 users registered
-        $lastFiveUsers=App\User::orderBy('created_at','asc')->limit(5)->get();
+        $lastFiveUsers=App\User::orderBy('created_at','dsc')->limit(5)->get();
 
         //--end calculando total ganancias
 
