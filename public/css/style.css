@@ -80,9 +80,25 @@ h2 {
 
 /*  ~ Product index ~ */
 
-.product-box {
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+.card {
+  color: black;
+  transition: box-shadow .3s;
+}
+
+.card:hover {
+box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+
+.card-footer {
+  background-color: white!important;
+}
+
+.fa-check {
+  color: #82d882;
+}
+
+.diet {
+  font-size: 12px;
 }
 
 .product-img {

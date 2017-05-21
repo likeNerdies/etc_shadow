@@ -6,6 +6,9 @@ $(document).ready(function() {
     $(document).on('click', '.open-modal', function(e) {
    // $('.open-modal').click(function() {
         var category_id = $(this).val();
+        $('#ajaxerror').empty();
+        $('#ajaxerror').removeClass("alert alert-danger");
+        $('input').removeAttr( "style" );
 
         $.get(url + '/' + category_id, function (data) {
             //success data
@@ -42,6 +45,8 @@ $(document).ready(function() {
             success: function (data) {
                 console.log(data);
                 $("#category" + category).remove();
+                $('#ajaxerror').empty();
+                $('#ajaxerror').removeClass("alert alert-danger");
             },
             error: function (data) {
                 //console.log('Error:', data);
@@ -104,7 +109,8 @@ $(document).ready(function() {
                 }
 
                 $('#formCategories').trigger("reset");
-
+                $('#ajaxerror').empty();
+                $('#ajaxerror').removeClass("alert alert-danger");
                 $('#myModal').modal("hide");
             },
             error: function (data) {

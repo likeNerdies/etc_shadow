@@ -24,21 +24,13 @@ class PlanValidation extends FormRequest
     public function rules()
     {
         return [
-            'name' =>
-                array(
-                    'required',
-                    'regex:/[a-zA-Z]{3,100}/i'
-                ),
+            'name' =>'required|min:3|max:150',
             'price'=>
                 array(
                     'required',
-                    'regex:/^\d{1,2}[,|.]\d{1,2}$/'
+                    'regex:/^\d{1,3}[,|.]\d{1,2}$/'
                 ),
-              'info'=>
-                  array(
-                      'required',
-                      'regex:/[a-zA-Z]{3,100}/i'
-                  ),
+              'info'=>'nullable|min:3|max:2000',
         ];
     }
 }

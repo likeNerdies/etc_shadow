@@ -7,14 +7,18 @@ $(document).ready(function() {
   //display modal form for transporter editing
     $(document).on('click', '.open-modal', function(e) {
    // $('.open-modal').click(function() {
+        $('#ajaxerror').empty();
+        $('#ajaxerror').removeClass("alert alert-danger");
+        $('input').removeAttr( "style" );
         var plan_id = $(this).val();
         console.log("transporter_id: " + plan_id);
 
         $.get(url + '/' + plan_id, function (data) {
             //success data
+            console.log(data)
             $('#id').val(data.id);
             $('#name').val(data.name);
-            $('#price').val(data.cif);
+            $('#price').val(data.price);
             $('#info').val(data.info);
             $('#btn-save').val("update");
 

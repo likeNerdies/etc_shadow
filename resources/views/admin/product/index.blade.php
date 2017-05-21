@@ -77,12 +77,10 @@
                                 {{-----------------------------}}
 
                                 <td>
-                                @if(count($product->categories)==0)
-
-                                @else
-                                @foreach($product->categories as $cateogry)
-                                    <p>{{$cateogry->name}}</p>
-                                @endforeach
+                                @if(count($product->categories)>0)
+                                  @foreach($product->categories as $category)
+                                    <p>{{$category->name}}</p>
+                                  @endforeach
                                 @endif
                                 </td>
                                 @if(count($product->images) == 0)
@@ -90,6 +88,7 @@
                                @else
                                     <td id="product-img"><img class="img-thumbnail" src="/admin/products/{{$product->images->first()->id}}/image" width="48.2" height="48.2"></td>
                                 @endif
+
                                 <td>
                                     <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$product->id}}"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>
                                     <button class="btn btn-danger btn-xs btn-delete delete-product" value="{{$product->id}}"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button>
@@ -147,7 +146,7 @@
                       <div class="d-flex flex-md-row display-767-column mt-2">
                           <div class="group-input">
                               <label for="weight" class="col-form-label">Weight (in grams)</label>
-                              <input type="text" class="form-control col-md-11 col-12" id="weight" name="weight" placeholder="1200" value="" required onblur="validateWeight(this)" />
+                              <input type="number" class="form-control col-md-11 col-12" id="weight" name="weight" placeholder="1200" value="" required onblur="validateWeight(this)" />
                           </div>
 
                           <div class="group-input">
@@ -192,11 +191,11 @@
                               <div class="d-flex flex-md-row display-767-column mt-2">
                                   <div class="group-input">
                                       <label for="dimension" class="col-form-label">Dimension (L x W x H) in cm</label>
-                                      <input type="text" class="form-control col-md-11 col-12" id="dimension" name="dimension" placeholder="10x5.80x25" value="" onblur="validateDimensions(this)"><!-- afegir exemple -->
+                                      <input type="number" class="form-control col-md-11 col-12" id="dimension" name="dimension" placeholder="10x5.80x25" value="" onblur="validateDimensions(this)"><!-- afegir exemple -->
                                   </div>
                                   <div class="group-input">
                                       <label for="real_weight" class="col-form-label">Real weight (in grams)</label>
-                                      <input type="text" class="form-control col-md-11 col-12" id="real_weight" name="real_weight" placeholder="1300" value="" onblur="validateWeight(this)" />
+                                      <input type="number" class="form-control col-md-11 col-12" id="real_weight" name="real_weight" placeholder="1300" value="" onblur="validateWeight(this)" />
                                   </div>
                               </div>
                               <div class="d-flex flex-row mt-4 justify-content-center">

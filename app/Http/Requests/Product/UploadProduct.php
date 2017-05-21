@@ -24,41 +24,22 @@ class UploadProduct extends FormRequest
     public function rules()
     {
         $rules = [
-            'name' =>
-                array(
-                    'required',
-                    'regex:/[a-zA-Z]{3,100}/i'
-                ),
+            'name' =>'required|min:3|max:150',
             'price' =>
                 array(
                     'required',
                     'regex:/^\d{1,2}[,|.]\d{1,2}$/'
                 ),
-            'description' =>
-                array(
-                    'required',
-                    'regex:/[a-zA-Z]{3,100}/i'
-                ),
+            'description' =>'required|min:3|max:2000',
             'expiration_date' => 'required|date',
-            'weight' =>
-                array(
-                    'required',
-                    'regex:/\d{3,4}/'
-                ),
-            'vegetarian'=>'numeric|min:0|max:1',
-            'vegan'=>'numeric|min:0|max:1',
-            'organic'=>'numeric|min:0|max:1',
-            'stock' =>
-                array(
-                    'required',
-                    'regex:/(\d+)/'
-                ),
+            'weight' =>'required|integer|between:1,9999',
+            'real_weight' =>'nullable|integer|between:1,9999',
+            'vegetarian'=>'nullable|boolean',
+            'vegan'=>'nullable|boolean',
+            'organic'=>'nullable|boolean',
+            'stock' =>'required|numeric|between:1,3000',
             /* Clara: 18/05 */
-            'dimensions' =>
-                array(
-                    'nullable',
-                    'regex:/^\d{1,2}([,.]\d{1,2})?x\d{1,2}([,.]\d{1,2})x\d{1,2}([,.]\d{1,2})?$/'
-                ),
+            'dimensions' =>'nullable|numeric|min:1|max:3',
             'ingredients'  => 'required|array|min:1',//input type hidden ingredients
 
         ];

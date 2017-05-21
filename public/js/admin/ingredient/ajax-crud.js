@@ -5,6 +5,9 @@ $(document).ready(function () {
     //display modal form for ingredient editing
     $(document).on('click', '.open-modal', function (e) {
         // $('.open-modal').click(function() {
+        $('#ajaxerror').empty();
+        $('#ajaxerror').removeClass("alert alert-danger");
+        $('input').removeAttr( "style" );
         var ingredient_id = $(this).val();
         console.log("edit")
         $.get(url + '/' + ingredient_id, function (data) {
@@ -50,6 +53,8 @@ $(document).ready(function () {
                 console.log(data);
                 $("#ingredient" + ingredient).remove();
                 //location.reload(true);
+                $('#ajaxerror').empty();
+                $('#ajaxerror').removeClass("alert alert-danger");
             },
             error: function (data) {
                 //console.log('Error:', data);
@@ -155,7 +160,8 @@ $(document).ready(function () {
                 }
 
                 $('#formIngredients').trigger("reset");
-
+                $('#ajaxerror').empty();
+                $('#ajaxerror').removeClass("alert alert-danger");
                 $('#myModal').modal("hide");
                 //location.reload(true);
             },
@@ -276,7 +282,8 @@ $(document).ready(function () {
 
                     $('#ingredient'+id+' > #ingredient-img').empty();
                     $('#ingredient'+id+' > #ingredient-img').replaceWith("<td id='ingredient-img'><img class='img-thumbnail' width='48.2' height='48.2' src='/admin/ingredients/"+data.id+"/image'></td>");
-
+                    $('#ajaxerror').empty();
+                    $('#ajaxerror').removeClass("alert alert-danger");
                 },
                 error: function (data) {
                     console.log('Error:', data);

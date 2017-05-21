@@ -34,21 +34,9 @@ class StoreValidation extends FormRequest
                     'regex:/((^[A-Z,a-z]{1})(\d{7})([A-Z,a-z]{1}))|(^\d{8}[aA-zZ]{1}$)/',
                     'unique:admins,dni,'.Auth::user()->id
                 ),
-            'name' =>
-                array(
-                    'required',
-                    'regex:/[a-zA-Z]{3,100}/i'
-                ),
-            'first_surname'=>
-                array(
-                    'required',
-                    'regex:/[a-zA-Z]{3,100}/i'
-                ),
-            'second_surname'=>
-                array(
-                    'nullable',
-                    'regex:/[a-zA-Z]{3,100}/i'
-                ),
+            'name' =>'required|min:3|max:65',
+            'first_surname'=>'required|min:3|max:65',
+            'second_surname'=>'nullable|min:3|max:65',
             'email' => 'required|email|unique:admins,email,' . Auth::user()->id,//esto evita que de 'error' de email repetido para el mismo usuario
            // 'password' => 'required|min:8|confirmed',
             'phone_number'=>

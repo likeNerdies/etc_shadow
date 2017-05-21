@@ -24,18 +24,9 @@ class StoreValidation extends FormRequest
     public function rules()
     {
         return [
-            'name' =>
-                array(
-                    'required',
-                    'regex:/[a-zA-Z]{3,100}/i'
-                ),
-            'info'=>
-                array(
-                    'required',
-                    'regex:/[a-zA-Z]{3,100}/i'
-                ),
-            'image'=>'image|mimes:jpeg,bmp,png|max:3000',
-            'allergies'=>''
+            'name' =>'required|min:3|max:150',
+            'info'=>'nullable|min:3|max:2000',
+            'allergies'=>'nullable'
         ];
     }
 }
