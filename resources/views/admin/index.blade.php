@@ -27,7 +27,7 @@
                     </div>
 
                     <div class="icon">
-                        <i class="fa fa-pie-chart fa-2x" aria-hidden="true"></i>
+                        <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
                     </div>
                 </div>
             </div>

@@ -120,7 +120,7 @@
         </ol>
         <div class="carousel-inner" role="listbox">
           <div class="carousel-item active">
-            <img class="d-block img-fluid" src="/img/welcome/plans/prova2.png" alt="Our plans">
+            <img class="d-block img-fluid" src="/img/welcome/plans/main.png" alt="Our plans">
           </div>
           <div class="carousel-item">
             <img class="d-block img-fluid" src="/img/welcome/plans/slide2.png" alt="Plan 'Charming'">
