@@ -8,7 +8,7 @@
     <div id="main-wrapper">
         <div id="content-wrapper-show">
             <div id="wrapper-product" class="d-flex flex-md-row flex-column">
-                <div id="wrapper-image">
+                <div id="wrapper-image"><!-- carousel -->
                     <div id="image" class="carousel slide h-70" data-ride="false">
                         <ol class="carousel-indicators">
                             <li data-target="#image" data-slide-to="0" class="active ci-1"></li>
@@ -18,13 +18,13 @@
 
                         <!--<div class="carousel-inner h-100" role="listbox">
                             <div class="carousel-item active ci-1">
-                                <img id="img1" class="d-block img-fluid" src="https://images.pexels.com/photos/69731/pexels-photo-69731.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" alt="First slide">
+                                <img id="img1" class="d-block img-fluid" src="/admin/products/{{$product->images->first()->id}}/image" alt="First slide">
                             </div>
                             <div class="carousel-item ci-2">
-                                <img id="img2" class="d-block img-fluid" src="https://images.pexels.com/photos/31105/pexels-photo-31105.jpg?w=1260&h=750&auto=compress&cs=tinysrgb" alt="Second slide">
+                                <img id="img2" class="d-block img-fluid" src="/admin/products/{{$product->images->first()->id}}/image" alt="Second slide">
                             </div>
                             <div class="carousel-item ci-3">
-                                <img id="img3" class="d-block img-fluid" src="https://images.pexels.com/photos/69731/pexels-photo-69731.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" alt="Third slide">
+                                <img id="img3" class="d-block img-fluid" src="/admin/products/{{$product->images->first()->id}}/image" alt="Third slide">
                             </div>
                         </div>-->
                         <div class="carousel-inner h-100" role="listbox">
@@ -52,6 +52,7 @@
                     </div>
 
                     <div id="wrapper-min-img" class="d-flex flex-row justify-content-between h-30 mt-2">
+
                         <div id="min-img-1" class="w-31 h-100">
                             <a id="carousel-selector-0">
                                 <img class="w-100 h-100" src="https://images.pexels.com/photos/69731/pexels-photo-69731.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb">
@@ -70,22 +71,37 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                </div><!-- / carousel -->
 
-                <div id="wrapper-info" class="ml-md-2">
-                    <div id="info" class="w-80 h-100 pull-right" style="background: lightgrey;">
-                        <h3 class="text-left pt-3">{{$product->name}}<small style="font-size: 20px !important; margin-left: 10px;">{{$product->brand->name}}</small></h3>
+                <!-- Product information -->
+                <div id="wrapper-info" class="ml-md-2 pl-5">
+                    <div id="info" class="w-100 h-100 pull-right px-4">
+                        <h3 class="product-name pt-5 text-center">{{$product->name}}<small class="product-brand">{{$product->brand->name}}</small></h3>
                         <h5 class="text-left mt-5">Description</h5>
-                        <p class="text-left">{{$product->description}}</p>
+                        <p class="text-justify">{{$product->description}}</p>
+                        <button type="button" class="btn btn-default text-brown button-no-decoration hidden-md-up" data-toggle="collapse" data-target="#ingredients" aria-expanded="false" aria-controls="ingredients">
+                          <i class="fa fa-plus" aria-hidden="true"></i> Ingredients
+                        </button>
+                        <div class="collapse hidden-md-up" id="ingredients">
+                          <div class="card card-block ingredients-card">
+                              @foreach ($product->ingredients as $ingredient)
+                                <span><i class="fa fa-envira" aria-hidden="true"></i>{{ $ingredient->name }}</span>
+                              @endforeach
+                          </div>
+                        </div>
+                        <div class="ingredients hidden-md-down">
+                          <h5 class="text-left mt-5 text-brown">Ingredients</h5>
+                          @foreach ($product->ingredients as $ingredient)
+                            <!--<i class="fa fa-thumb-tack" aria-hidden="true">-->
+                            <i class="fa fa-envira" aria-hidden="true"></i>{{ $ingredient->name }}
+                          @endforeach
+                        </div>
 
-                        <h5 class="text-left mt-4 pb-4">Price <span style="color: darkorange">{{$product->price}}€</span></h5>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-
+        </div><!-- / content-wrapper-show -->
+    </div><!-- / main-wrapper -->
 @endsection
 
 <!-- Aquí hi ha el footer -->
