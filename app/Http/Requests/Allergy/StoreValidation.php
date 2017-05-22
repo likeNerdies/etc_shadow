@@ -24,11 +24,7 @@ class StoreValidation extends FormRequest
     public function rules()
     {
         return [
-            'name'=>
-                array(
-                    'required',
-                    'regex:/[a-zA-Z]{3,100}/i'
-                ),
+            'name'=>'required|min:3|max:150',
         ];
     }
 }

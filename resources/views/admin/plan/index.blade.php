@@ -67,21 +67,21 @@
             <div class="form-group">
               <label for="name" class="col-sm-3 control-label">Name</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control has-error" id="name" name="name" placeholder="Charming" value="" required onblur="validateName(this)" />
+                <input type="text" class="form-control has-error" id="name" name="name" placeholder="Plan name" value="" required onblur="validateName(this)" />
               </div>
             </div>
 
             <div class="form-group">
               <label for="price" class="col-sm-3 control-label">Price</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" id="price" name="price" placeholder="9.95" value="" required onblur="validatePrice(this)" />
+                <input type="text" class="form-control" id="price" name="price" placeholder="example: 9.95" value="" required onblur="validatePrice(this)" />
               </div>
             </div>
 
             <div class="form-group">
               <label for="info" class="col-sm-3 control-label">Info</label>
               <div class="col-sm-9">
-                <textarea class="form-control" id="info" rows="5" placeholder="This is the smallest plan" required onblur="validateName(this)"></textarea>
+                <textarea class="form-control" id="info" rows="5" placeholder="Plan information" required onblur="validateName(this)"></textarea>
               </div>
             </div>
 

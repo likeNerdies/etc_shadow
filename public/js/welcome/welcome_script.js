@@ -42,6 +42,12 @@
         duration: 1e3,
         delay: 200
     });
+    
+    $(document).ready(function(){
+        $('.arrow').click(function(e){
+            $(this).toggleClass('arrow-show arrow-show-bg').next().toggleClass('left-0');
+        });
+    });
 
     $(document).ready(function(){
         var registerForm = $("#registerForm");

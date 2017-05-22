@@ -5,6 +5,9 @@ $(document).ready(function() {
   //display modal form for allergy editing
     $(document).on('click', '.open-modal', function(e) {
    // $('.open-modal').click(function() {
+        $('#ajaxerror').empty();
+        $('#ajaxerror').removeClass("alert alert-danger");
+        $('input').removeAttr( "style" );
         var allergy_id = $(this).val();
 
         $.get(url + '/' + allergy_id, function (data) {
@@ -42,6 +45,8 @@ $(document).ready(function() {
             success: function (data) {
                 console.log(data);
                 $("#allergy" + allergy).remove();
+                $('#ajaxerror').empty();
+                $('#ajaxerror').removeClass("alert alert-danger");
             },
             error: function (data) {
                 //console.log('Error:', data);
@@ -101,7 +106,8 @@ $(document).ready(function() {
                 }
 
                 $('#formAllergies').trigger("reset");
-
+                $('#ajaxerror').empty();
+                $('#ajaxerror').removeClass("alert alert-danger");
                 $('#myModal').modal("hide");
             },
             error: function (data) {

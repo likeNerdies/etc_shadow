@@ -26,7 +26,7 @@ p{
   top:50%;
 }
 
-.box-info, #graphic-one, #graphic-two, #best-sellers, #feedback{
+.box-info, #graphic-one, #graphic-two, #last_users, #expiration_date{
   width: 100%;
   margin: 10% auto;
   border: 1px solid #e7ecf1;
@@ -37,7 +37,12 @@ p{
   padding: 15px 15px 70px;
 }
 
-#graphic-one, #graphic-two, #best-sellers, #feedback{
+#expiration_date, #last_users {
+  padding-bottom: 15px!important;
+  font-size: 14px;
+}
+
+#graphic-one, #graphic-two, #last_users, #expiration_date{
   padding: 15px 15px 30px;
 }
 
@@ -296,7 +301,7 @@ input[type="search"] {
     margin-top: 8%;
   }
 
-  .box-info, #graphic-one, #graphic-two, #best-sellers, #feedback{
+  .box-info, #graphic-one, #graphic-two, #last_users, #expiration_date{
     margin: 2% auto !important;
   }
 
@@ -412,5 +417,11 @@ body {
 }
 
 
+/* Products about to expire */
+.h4_weight-normal {
+  font-weight: normal;
+}
 
-
+.bg-white {
+  background-color: white!important;
+}

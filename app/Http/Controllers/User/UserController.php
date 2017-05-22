@@ -102,7 +102,7 @@ class UserController extends Controller
      */
     public function adminIndex()
     {
-        $clients = App\User::all();
+        $clients = App\User::paginate(15);
         return view('admin.client.index', compact("clients"));
     }
 
@@ -147,6 +147,8 @@ class UserController extends Controller
         if (isset($request->plan)) {
             $client->plan()->associate($request->plan);
             $client->subscribed_at = date("Y-m-d");
+        }else{
+            $client->plan()->dissociate();
         }
         $client->save();
         $retorn = [

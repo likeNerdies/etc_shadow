@@ -6,13 +6,10 @@
 @section('content')
     @include('layouts.navbar_out')
     <div id="main-wrapper">
-        <span style="display:none;" class="arrow"></span>
+        <span class="arrow"></span>
         <div id="sidebar-wrapper">
             <div class="container-fluid">
                 @include('product.sidebar')
-                    <!--<div class="icon d-flex align-items-center">
-                        <i class="fa fa-angle-right fa-2x toggle" aria-hidden="true"></i>
-                    </div>-->
             </div>
         </div>
 

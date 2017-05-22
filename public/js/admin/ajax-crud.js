@@ -6,6 +6,9 @@ $(document).ready(function() {
     $(document).on('click', '.open-modal', function(e) {
    // $('.open-modal').click(function() {
         var admin_id = $(this).val();
+        $('#ajaxerror').empty();
+        $('#ajaxerror').removeClass("alert alert-danger");
+        $('input').removeAttr( "style" );
 
         $.get(url + '/' + admin_id, function (data) {
             //success data
@@ -15,6 +18,8 @@ $(document).ready(function() {
             $('#first_surname').val(data.first_surname);
             $('#second_surname').val(data.second_surname);
             $('#email').val(data.email);
+            $('#password_confirmation').val(data.password);
+            $('#password').val(data.password);
             $('#phone_number').val(data.phone_number);
             if(data.can_create==1){
                 $('#can_create').prop('checked', true);
@@ -52,6 +57,8 @@ $(document).ready(function() {
             success: function (data) {
                 console.log(data);
                 $("#admin" + admin).remove();
+                $('#ajaxerror').empty();
+                $('#ajaxerror').removeClass("alert alert-danger");
             },
             error: function (data) {
                 //console.log('Error:', data);
@@ -135,7 +142,8 @@ $(document).ready(function() {
                 }
 
                 $('#formCategories').trigger("reset");
-
+                $('#ajaxerror').empty();
+                $('#ajaxerror').removeClass("alert alert-danger");
                 $('#myModal').modal("hide");
             },
             error: function (data) {

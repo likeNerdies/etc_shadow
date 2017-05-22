@@ -84,35 +84,66 @@
         </div>
         <div class="col-md-6 col-12">
             <div id="graphic-two" class="bg-yellow">
-                <p class="text-center">Graphics</p>
+              <div id="subscribers">
+                <!--<svg></svg>-->
+              </div>
             </div>
         </div>
     </div>
     <div id="content-bottom" class="row">
-        <div class="col-md-6 col-12">
-            <div id="best-sellers" class="bg-blue">
-                <p class="text-center">Best sellers</p>
+        <div class="col-md-6 col-12 text-center">
+            <div id="last_users">
+              <div class="bg-white p-2">
+                <h4 class="h4_weight-normal">5 Last users registered</h4>
+                <table class="table mt-3">
+                  @foreach($lastFiveUsers as $user)
+                  <tr>
+                    <td> {{ $user->name }} </td>
+                    <td> {{ $user->email }} </td>
+                    <td> {{ $user->created_at->diffForHumans() }} </td>
+                  </tr>
+                  @endforeach
+                </table>
+              </div>
             </div>
         </div>
-        <div class="col-md-6 col-12">
-            <div id="feedback" class="bg-red">
-                <p class="text-center">
-                    Feedback
-                </p>
-            </div>
+        <div class="col-md-6 col-12 text-center">
+            <div id="expiration_date">
+              <div class="bg-white p-2">
+                <h4 class="h4_weight-normal">Products about to expire</h4>
+                <table class="table mt-3">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Stock</th>
+                      <th>Expiration Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @foreach ($productOBED as $prod)
+                        <tr>
+                          <td>  {{ $prod->id }} </td>
+                          <td> {{ $prod->name }} </td>
+                          <td> {{ $prod->stock }} </td>
+                          <td> {{ $prod->expiration_date }} </td>
+                        </tr>
+                    @endforeach
+                  </tbody>
+                </table>
+                {{ $productOBED->links() }}
+              </div>
+              </div>
+
         </div>
     </div>
 
 @endsection
 
 @section('scripts')
-  <!--<script src="{{asset('/js/libraries/charts/d3js/d3.v4.min.js')}}"></script>
-  <script src="{{asset('/js/libraries/charts/nvd3/nv.d3.js')}}"></script>-->
-  <!--<script src="https://d3js.org/d3.v4.min.js"></script>
-  <script src="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.js"></script>-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js" charset="utf-8"></script>
   <script src="{{asset('/js/libraries/charts/nvd3_total/build/nv.d3.js')}}"></script>
   <script src="{{asset('/js/admin/dashboard/graphics.js')}}"></script><!-- Gráficos dashboard -->
-
+  <script src="https://code.highcharts.com/highcharts.src.js"></script><!-- Cambiar por descargado -->
 @endsection
 <!-- Scripts not yet -->

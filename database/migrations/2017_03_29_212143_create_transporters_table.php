@@ -16,8 +16,8 @@ class CreateTransportersTable extends Migration
         Schema::create('transporters', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name',150);
-            $table->string('cif',9);
-            $table->integer('phone_number');
+            $table->string('cif',9)->unique();
+            $table->string('phone_number',15);
             $table->timestamps();
         });
     }

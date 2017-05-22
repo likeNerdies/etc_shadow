@@ -24,16 +24,17 @@ class StoreValidation extends FormRequest
     public function rules()
     {
         return [
-            'name'=>
-                array(
-                    'required',
-                    'regex:/[a-zA-Z]{3100,}/i'
-                ),
+            'name'=>'required|min:3|max:150',
             'cif'=>array(
                 'required',
                 'regex:/^[a-zA-Z][0-9]{8}$/',
+                'unique:admins,dni,'.$this->id,
             ),
-            'phone_number'=>'required|digits:9'
+            'phone_number'=> array(
+                'required',
+                'min:9',
+                'regex:/^((\+?34([ \t|\-])?)?[9|6|7]((\d{1}([ \t|\-])?[0-9]{3})|(\d{2}([ \t|\-])?[0-9]{2}))([ \t|\-])?[0-9]{2}([ \t|\-])?[0-9]{2})$/'
+            ),
         ];
     }
 }
