@@ -49,7 +49,7 @@ class ProductController extends Controller
     public function productsIndexShow($id)
     {
         $product = App\Product::findOrFail($id);
-        return view('admin.product.show', compact(['product']));
+        return view('product.show', compact(['product']));
     }
     /**
      * Show the form for creating a new resource.

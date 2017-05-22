@@ -301,7 +301,7 @@ $(document).ready(function () {
 
    $('#category_list').select2({
         dropdownParent: $('#ing-parent'),
-        placeholder: "Choose allergies...",
+        placeholder: "Choose categories...",
         minimumInputLength: 1,
         ajax: {
             url: "/search/categorySelect",
@@ -322,7 +322,7 @@ $(document).ready(function () {
 
     $('#ingredient_list').select2({
         dropdownParent: $('#cat-parent'),
-        placeholder: "Choose allergies...",
+        placeholder: "Choose ingredients...",
         minimumInputLength: 1,
         ajax: {
             url: "/search/ingredientSelect",
