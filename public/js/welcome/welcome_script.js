@@ -44,39 +44,18 @@
     });
     
     $(document).ready(function(event){
-        $('#tg-1').click(function(){
-            if(!$('.ci-1').hasClass('active')&& $('.ci-2').hasClass('active')){
-                $('.ci-2').removeClass('active');
-                $('.ci-1').addClass('active');
-            }
-            if(!$('.ci-1').hasClass('active')&& $('.ci-3').hasClass('active')){
-                $('.ci-3').removeClass('active');
-                $('.ci-1').addClass('active');
-            }
+
+        $('#image').carousel({
+            interval: 4000
         });
 
-        $('#tg-2').click(function(){
-            if(!$('.ci-2').hasClass('active')&& $('.ci-1').hasClass('active')){
-                $('.ci-1').removeClass('active');
-                $('.ci-2').addClass('active');
-            }
-            if(!$('.ci-2').hasClass('active')&& $('.ci-3').hasClass('active')){
-                $('.ci-3').removeClass('active');
-                $('.ci-2').addClass('active');
-            }
+        //Handles the carousel thumbnails
+        $('[id^=carousel-selector-]').click( function(){
+            var id_selector = $(this).attr("id");
+            var id = id_selector.substr(id_selector.length -1);
+            var id = parseInt(id);
+            $('#image').carousel(id);
         });
-
-        $('#tg-3').click(function(){
-            if(!$('.ci-3').hasClass('active')&& $('.ci-1').hasClass('active')){
-                $('.ci-1').removeClass('active');
-                $('.ci-3').addClass('active');
-            }
-            if(!$('.ci-3').hasClass('active')&& $('.ci-2').hasClass('active')){
-                $('.ci-2').removeClass('active');
-                $('.ci-3').addClass('active');
-            }
-        });
-
 
 
         $('.arrow').click(function(e){
