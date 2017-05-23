@@ -42,8 +42,6 @@ Route::prefix('/user/panel')->group(function () {//user panel route
 
 });//end user panel route
 
-
-
 Route::prefix('/products')->group(function () {//Product route
     Route::get('/', 'product\ProductController@productsIndex')->name('products-index');
     Route::get('/{id}', 'product\ProductController@productsIndexShow')->name('products-index-show');
