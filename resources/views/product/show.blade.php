@@ -74,9 +74,9 @@
                 </div><!-- / carousel -->
 
                 <!-- Product information -->
-                <div id="wrapper-info" class="ml-md-2 pl-5">
+                <div id="wrapper-info" class="ml-md-2 pl-md-5">
                     <div id="info" class="w-100 h-100 pull-right px-4">
-                        <h3 class="product-name pt-5 text-center">{{$product->name}}<small class="product-brand">{{$product->brand->name}}</small></h3>
+                        <h3 class="product-name pt-5 text-center">{{$product->name}}<small class="product-brand">@if(isset($product->brand->name)){{$product->brand->name}}@else Brand @endif</small></h3>
                         <h5 class="text-left mt-5">Description</h5>
                         <p class="text-justify">{{$product->description}}</p>
                         <button type="button" class="btn btn-default text-brown button-no-decoration hidden-md-up" data-toggle="collapse" data-target="#ingredients" aria-expanded="false" aria-controls="ingredients">
