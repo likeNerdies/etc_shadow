@@ -30,6 +30,8 @@ Route::group(['prefix' => 'user/panel', 'middleware' => 'auth',], function () {
     Route::delete('/profile/delete', 'user\UserController@destroy')->name('user-delete');
     Route::get('/profile/delete', 'user\UserController@destroymenu')->name('user-delete');
 
+    //personal data user
+    //    /user/panel/my-data
     Route::prefix('/my-data')->group(function () {//user panel my data route
 
         Route::get('/', 'user\UserController@data')->name('my-data');
@@ -37,8 +39,24 @@ Route::group(['prefix' => 'user/panel', 'middleware' => 'auth',], function () {
         Route::put('/personal-password', 'user\UserController@updatePassword')->name('my-data-personal-password');//update user personal password
 
         Route::get('/address', 'address\AddressController@index')->name("address");
-        Route::put('/address', 'address\AddressController@updateUserAddress')->name('user-address');
+        Route::put('/address', 'address\AddressController@update')->name('user-address-update');
+        Route::post('/address', 'address\AddressController@store')->name('user-address-insert');
     });//end user panel my data route
+
+
+    //    /user/panel/plan
+    Route::prefix('/plan')->group(function () {//user plan route
+
+        Route::get('/', 'user\UserController@plan')->name('user-plan');
+
+        Route::post('/subscribe', 'user\UserController@subscribeToPlan')->name('user-subscribe');
+
+        Route::post('/cancelSub', 'user\UserController@cancelSubscription')->name('user-cancelSub');
+
+        Route::post('/changePlan', 'user\UserController@subscribeToPlan')->name('user-change-plan');
+
+
+    });
 
 });//end user panel route
 
