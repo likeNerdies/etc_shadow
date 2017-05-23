@@ -33,16 +33,7 @@ class AddressController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+
 
     /**
      * Display the specified resource.
@@ -66,17 +57,6 @@ class AddressController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
@@ -88,26 +68,26 @@ class AddressController extends Controller
     {
         //
     }
-    public function insertUserAddress(AddressFormValidation $request){
 
-        $address= new App\Address;
-        $address->street=$request->street;
-        $address->building_number=$request->building_number;
-        $address->building_block=$request->building_block;
-        $address->floor=$request->floor;
-        $address->door=$request->door;
-        $address->postal_code=$request->postal_code;
-        $address->town=$request->town;
-        $address->province=$request->province;
-        $address->country=$request->country;
-        $address->save();
+    /**
+     * @param AddressFormValidation $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(AddressFormValidation $request){
+
+        $address= App\Address::create($request->all());
         $user=Auth::user();
-        $user->address_id=$address->id;//associate modificar en un futuro
-        $user->save();
+        $address->user()->associate($user);
+        $address->save();
         return redirect()->back();
 
     }
-    public function updateUserAddress(AddressFormValidation $request){
+
+    /**
+     * @param AddressFormValidation $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(AddressFormValidation $request){
         $address= App\Address::findOrFail($request->id);
         $address->street=$request->street;
         $address->building_number=$request->building_number;

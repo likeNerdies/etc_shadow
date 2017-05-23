@@ -73,22 +73,52 @@ class UserController extends Controller
         return view('user.panel.destroy-user');
     }
 
+
+
+
+
+
+
+    /**
+     * Show the form for editing user info
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function plan()
+    {
+        $plans=App\Plan::all();
+        return view('user.panel.plan.index',compact('plans'));
+    }
+
     /**
      * user subsrcibing to plan
      * @param Request $request
      */
     public function subscribeToPlan(Request $request)
     {
-        //simple for now
-        //añadir transaction con pago visa
-        //comprobar si ya tiene plan
-        //si no paga un mes, se quita la subscripcion
         $user = Auth::user();
-        //$user->plan_id=$request->plan_id;
         $plan = App\Plan::findOrFail($request->plan_id);
         $user->plan()->associate($plan);
         $user->subscribed_at = date("Y-m-d");
         $user->save();
+        return response()->back();
+    }
+
+    /**
+     * user subsrcibing to plan
+     * @param Request $request
+     */
+    public function cancelSubscription(Request $request)
+    {
+        $user = Auth::user();
+        $plan = App\Plan::findOrFail($request->plan_id);
+        $user->plan()->associate($plan);
+        if(isset($user->plan)){
+            $user->plan()->dissociate();
+        }
+        $user->subscribed_at = null;
+        $user->save();
+        return response()->back();
     }
 
 
