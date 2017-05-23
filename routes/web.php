@@ -200,3 +200,8 @@ Route::prefix('/search')->group(function (){
 
 
 Route::get('/box-test','box\BoxController@makeBox')->middleware('auth:admin');
+
+
+//lang change rout
+
+Route::post("changelocale",'lang\LocaleController@changeLocale')->name('change-lang');
