@@ -18,8 +18,8 @@ Route::get('/', function () {
 //rutas para la autenticacion
 Auth::routes();
 
-
-Route::prefix('/user/panel')->group(function () {//user panel route
+Route::group(['prefix' => 'user/panel', 'middleware' => 'auth',], function () {
+//Route::prefix('/user/panel')->group(function () {//user panel route
 
     Route::get('/', function () {//redirect my.app/user/panel  -->> to -->> my.app/user/panel/profile
         return redirect(route('profile'));
