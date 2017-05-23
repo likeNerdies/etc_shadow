@@ -32,7 +32,7 @@
             {{Auth::user()->name}}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="/user/panel/profile">My profile</a>
+            <a class="dropdown-item" href="{{route('profile')}}">My profile</a>
             <a class="dropdown-item" href="#">Change my plan</a>
             <a class="dropdown-item" href="#">Logout</a>
           </div>

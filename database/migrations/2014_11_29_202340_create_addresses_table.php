@@ -25,9 +25,12 @@ class CreateAddressesTable extends Migration
             $table->string('town',125);
             $table->string('province',125);
             $table->string('country');
+            $table->integer('user_id')->nullable()->unsigned();
             $table->timestamps();
         });
-
+        Schema::table('addresses', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+        });
     }
 
     /**

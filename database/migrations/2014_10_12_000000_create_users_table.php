@@ -25,13 +25,11 @@ class CreateUsersTable extends Migration
             $table->string('phone_number',15)->nullable();
             $table->dateTime('subscribed_at')->nullable();
             $table->unsignedInteger('plan_id')->nullable()->unsigned();
-            $table->integer('address_id')->nullable()->unsigned();
             $table->rememberToken();
             $table->timestamps();
         });
         Schema::table('users', function (Blueprint $table) {
             $table->foreign('plan_id')->references('id')->on('plans')->onDelete('cascade');
-            $table->foreign('address_id')->references('id')->on('addresses')->onDelete('cascade');
         });
     }
 

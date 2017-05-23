@@ -1,6 +1,6 @@
 @extends("user.layouts.panel")
 
-@section("panel-right")
+@section("right-panel")
 
     <div class="row">
 

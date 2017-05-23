@@ -1,5 +1,5 @@
 @extends('user.layouts.panel')
-@section('panel-right')
+@section('right-panel')
 
     <div class="row">
         <div class="col-md-12">
@@ -46,8 +46,8 @@
                     </div>
                     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                         <div class="panel-body">
-                            @if(Auth::user()->plan_id==null)
-                                <h2>You have no plan's yet.</h2>  <a href="{{route('plan')}}" class="btn btn-default">Subscribe to any of our plan's by clicking here!</a>
+                            @if(Auth::user()->plan==null)
+                                <h2>You have no plan's yet.</h2>  <a href="" class="btn btn-default">Subscribe to any of our plan's by clicking here!</a>
                             @else
                                 <h2>You are subscribed to : <strong>{{Auth::user()->plan->name}}</strong></h2>
                                 <a href="{{route('plan')}}" class="btn btn-default">See more plans here</a>
