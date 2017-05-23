@@ -44,7 +44,7 @@
     });
     
     $(document).ready(function(event){
-
+        ///////////////////////////////////////////////////////////////CAROUSEL
         $('#image').carousel({
             interval: 4000
         });
@@ -57,6 +57,7 @@
             $('#image').carousel(id);
         });
 
+        ////////////////////////////////////////////////////////////////////ARROW SLIDER
 
         $('.arrow').click(function(e){
             $(this).toggleClass('arrow-show arrow-show-bg').next().toggleClass('left-0');
@@ -71,6 +72,36 @@
             else $('#diets').slideToggle();
 
         });
+
+        //////////////////////////////////////////////SEE MORE SIDEBAR FILTER
+        $(document).on('click','.tog-more,.tog-less', function () {
+            var parent = $(this).parent()[0].id;
+
+            var togElement = $(this).parent().parent()[0].id;
+
+            $(this).remove();
+
+            $('#sm-'+togElement).slideToggle(function () {
+
+                if($(this).is(':visible')){
+                    var see ='<span class="tog-less pt-3"><i class="fa fa-minus ml-2rem toggle" aria-hidden="true"></i>See Less</span>';
+                }else{
+                    var see ='<span class="tog-more pt-3"><i class="fa fa-plus ml-2rem toggle" aria-hidden="true"></i>See More</span>';
+                }
+
+                $('#'+parent).append(see)
+            });
+        });
+
+       /* $(document).on('click','.tog-less', function () {
+            $(this).remove();
+            $('#sm-diets').slideToggle(function () {
+
+                $('#content-diets').append(see)
+            });
+        });*/
+
+
 
         ////////////////////////////////////////////LANG CHANGE
 
