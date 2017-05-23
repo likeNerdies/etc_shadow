@@ -42,8 +42,6 @@ Route::prefix('/user/panel')->group(function () {//user panel route
 
 });//end user panel route
 
-
-
 Route::prefix('/products')->group(function () {//Product route
     Route::get('/', 'product\ProductController@productsIndex')->name('products-index');
     Route::get('/{id}', 'product\ProductController@productsIndexShow')->name('products-index-show');
@@ -200,3 +198,8 @@ Route::prefix('/search')->group(function (){
 
 
 Route::get('/box-test','box\BoxController@makeBox')->middleware('auth:admin');
+
+
+//lang change rout
+
+Route::post("changelocale",'lang\LocaleController@changeLocale')->name('change-lang');

@@ -61,6 +61,19 @@
         $('.arrow').click(function(e){
             $(this).toggleClass('arrow-show arrow-show-bg').next().toggleClass('left-0');
         });
+
+
+
+        ////////////////////////////////////////////LANG CHANGE
+
+        $('#changelang').on('change', function (e) {
+            var valueSelected = this.value;
+            this.form.submit();
+        });
+
+        /////////////////////////////////////////////
+
+
     });
 
     $(document).ready(function(){

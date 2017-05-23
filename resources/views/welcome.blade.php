@@ -44,6 +44,32 @@
           @endif
         @endif
       </ul>
+      <!-----------lang----------->
+      <ul>
+        <li class="nav-item  px-1">
+          <form method="post" action="{{route('change-lang')}}" id="change_lang">
+            {{csrf_field()}}
+           <select id="changelang" name="lang">
+            @if(session()->has('locale'))
+                @if(session()->get('locale')=='es')
+                   <option value="es" selected>Español</option>
+                  <option value="en">English</option>
+                 {{-- <option value="en" >{{session()->get('locale')}}</option>--}}
+                @else
+                  <option value="es">Español</option>
+                    <option value="en" selected>English</option>
+               {{--     <option value="en" >{{session()->get('locale')}}</option>--}}
+                @endif
+
+            @else
+              <option value="es">Español</option>
+              <option value="en" selected>English</option>
+            @endif
+          </select>
+          </form>
+        </li>
+      </ul>
+        <!-------end lang---------->
     </div>
   </nav>
 </div><!-- / nav-container -->
