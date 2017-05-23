@@ -195,7 +195,7 @@ h2 {
 }
 
 #sidebar-wrapper{
-    display: flex;
+    display: block;
     width: 20%;
     //height: 100vh;
     height: 100%;
@@ -204,7 +204,55 @@ h2 {
     //left:-20%;/*JUST A TEST*/
     //z-index:900;
     //transition: left .75s;/*JUST A TEST*/
-    margin-top: 9.5%;
+    //margin-top: 9.5%;
+}
+
+#sidebar-wrapper #side-block{
+    width:100%;
+    height:100%;
+}
+
+#side-block .filter-block{
+    width:100%;
+    height:100%;
+
+}
+
+.filter-block .filter-title{
+    width:100%;
+    height:50px;
+    background: rgba(5,5,5,.2);
+}
+
+.filter-block > .filter-title > span{
+    padding-left:.5rem;
+}
+
+.filter-block > .filter-title > span, .filter-title > i{
+    padding-top: 15px;
+    padding-bottom:15px;
+}
+
+.filter-content{
+    display: none;
+    width: 100%;
+    height:10%;
+    overflow: hidden;
+}
+
+.my-form-check{
+    display: block;
+    margin-left: 2rem;
+}
+
+.rotate-0{
+    transform: rotate(0);
+    transition: all .35s ease-out;
+}
+
+.rotate-45{
+    transform: rotate(45deg);
+    transition: all .35s ease-out;
 }
 
 #content-wrapper{
@@ -226,6 +274,7 @@ h2 {
 .display-flex{
     display:flex !important;
 }
+
 
 .left-0{
     left:0 !important;
@@ -275,7 +324,7 @@ h2 {
     }
 
     #sidebar-wrapper{
-        display:none;
+        display: flex;
         flex-direction: column;
         width: 80%;
         height: 100vh;
@@ -285,7 +334,6 @@ h2 {
         z-index:900;
         transition: left .75s;
     }
-
 
     #content-wrapper-show{
         width: 100%;
@@ -337,27 +385,6 @@ h2 {
         background: rgba(5, 5, 5,.9);
     }
 
-    /*#main-wrapper .arrow::after{
-        content: "\f105";
-        font-family: "FontAwesome";
-        position:fixed;
-        top: 54px;
-        left: 0;
-        font-size: 45px;
-        z-index: 1000;
-        transition: left .75s;
-    }
-
-    #main-wrapper .arrow-show::after{
-        content: "\f105";
-        font-family: "FontAwesome";
-        position:fixed;
-        top: 19.70%;
-        left: 80%;
-        font-size: 45px;
-        z-index: 1000;
-    }*/
-
     /*</PSEUDO-ELEMENTS SIDEBAR>*/
 
 
@@ -382,7 +409,6 @@ h2 {
     #main-wrapper, #sidebar-wrapper, #content-wrapper{
         height: 100%;
     }
-
 
     #wrapper-min-img, #min-img-1,#min-img-2, #min-img-3{
         display: none;
@@ -490,33 +516,4 @@ h2 {
         margin: auto !important;
         padding: 0 15px;
     }
-    /*
-    .hide{
-        display: flex;
-        flex-direction: row;
-        position:fixed;
-        top: 30%;
-        left: 0;
-        width: 100%;
-        height: 300px;
-        max-width: 15%;
-        margin-left: 15px;
-    }
-
-
-    .content{
-        width:90%;
-        height: 100%;
-        background: #00c9b4;
-    }
-
-    .content > ul{
-        position: absolute;
-        top: 10px;
-        left: 15px;
-    }
-
-    .icon, .icon > i{
-        display: none;
-    }*/
 }

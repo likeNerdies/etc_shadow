@@ -62,7 +62,15 @@
             $(this).toggleClass('arrow-show arrow-show-bg').next().toggleClass('left-0');
         });
 
+        $('#tog-1, #tog-2, #tog-3').click(function(e){
 
+            $('#'+e.target.id).toggleClass('rotate-45');
+
+            if('#'+e.target.id == '#tog-1')$('#categories').slideToggle();
+            else if('#'+e.target.id == '#tog-2')$('#brands').slideToggle();
+            else $('#diets').slideToggle();
+
+        });
 
         ////////////////////////////////////////////LANG CHANGE
 

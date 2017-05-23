@@ -9,9 +9,7 @@
   <div id="main-wrapper">
     <span class="arrow"></span>
     <div id="sidebar-wrapper">
-      <div class="container-fluid">
-          @include('product.sidebar')
-      </div>
+      @include('product.sidebar')
     </div>
     <div id="content-wrapper" class="text-center">
       <div class="container">
