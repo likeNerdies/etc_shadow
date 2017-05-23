@@ -4,7 +4,8 @@
 @endsection
 
 @section('content')
-    @include('layouts.navbar_out')
+@include('layouts.navbar')
+
     <div id="main-wrapper">
         <div id="content-wrapper-show">
             <div id="wrapper-product" class="d-flex flex-md-row flex-column">
@@ -16,28 +17,17 @@
                             <li data-target="#image" data-slide-to="2" class="ci-3"></li>
                         </ol>
 
-                        <!--<div class="carousel-inner h-100" role="listbox">
-                            <div class="carousel-item active ci-1">
-                                <img id="img1" class="d-block img-fluid" src="/admin/products/{{$product->images->first()->id}}/image" alt="First slide">
-                            </div>
-                            <div class="carousel-item ci-2">
-                                <img id="img2" class="d-block img-fluid" src="/admin/products/{{$product->images->first()->id}}/image" alt="Second slide">
-                            </div>
-                            <div class="carousel-item ci-3">
-                                <img id="img3" class="d-block img-fluid" src="/admin/products/{{$product->images->first()->id}}/image" alt="Third slide">
-                            </div>
-                        </div>-->
                         <div class="carousel-inner h-100" role="listbox">
                             <div class="active carousel-item" data-slide-number="0">
-                                <img class="d-block img-fluid" src="https://images.pexels.com/photos/69731/pexels-photo-69731.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb">
+                                <img class="d-block img-fluid" src="/products/{{$product->images->first()->id}}/image">
                             </div>
 
                             <div class="carousel-item" data-slide-number="1">
-                                <img class="d-block img-fluid" src="https://images.pexels.com/photos/69731/pexels-photo-69731.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb">
+                                <img class="d-block img-fluid" src="/products/{{$product->images->first()->id}}/image">
                             </div>
 
                             <div class="carousel-item" data-slide-number="2">
-                                <img class="d-block img-fluid" src="https://images.pexels.com/photos/69731/pexels-photo-69731.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb">
+                                <img class="d-block img-fluid" src="/products/{{$product->images->first()->id}}/image">
                             </div>
 
                         </div><!-- Carousel nav -->
@@ -55,19 +45,19 @@
 
                         <div id="min-img-1" class="w-31 h-100">
                             <a id="carousel-selector-0">
-                                <img class="w-100 h-100" src="https://images.pexels.com/photos/69731/pexels-photo-69731.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb">
+                                <img class="w-100 h-100" src="/products/{{$product->images->first()->id}}/image">
                             </a>
                         </div>
 
                         <div id="min-img-2" class="w-31 h-100">
                             <a id="carousel-selector-1">
-                                <img class="w-100 h-100" src="https://images.pexels.com/photos/69731/pexels-photo-69731.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb">
+                                <img class="w-100 h-100" src="/products/{{$product->images->first()->id}}/image">
                             </a>
                         </div>
 
                         <div id="min-img-3" class="w-31 h-100">
                             <a id="carousel-selector-2">
-                                <img class="w-100 h-100" src="https://images.pexels.com/photos/69731/pexels-photo-69731.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb">
+                                <img class="w-100 h-100" src="/products/{{$product->images->first()->id}}/image">
                             </a>
                         </div>
                     </div>

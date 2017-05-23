@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
-  @include('layouts.navbar_out')
+
+@include('layouts.navbar')
+
   <div id="main-wrapper">
     <span class="arrow"></span>
     <div id="sidebar-wrapper">
@@ -26,7 +28,7 @@
                     @if(count($product->images) == 0)
                         <img src="/img/user_products/no_image_available.png" class="rounded product-img card-img-top img-fluid" alt="No image available">
                     @else
-                        <div class="mt-2"><img class="rounded product-img card-img-top img-fluid" src="/admin/products/{{$product->images->first()->id}}/image"></div>
+                        <div class="mt-2"><img class="rounded product-img card-img-top img-fluid" src="/products/{{$product->images->first()->id}}/image"></div>
                     @endif
                     <div class="card-block pt-1">
                       <h4 class="card-title"> {{ $product->name }} </h4>
