@@ -2,7 +2,7 @@
 
 @section('content')
 
-@include('layouts.navbar')
+@include('user.layouts.navbar_in')
 
         <div class="row mt-5">
             <div class="col-md-3">

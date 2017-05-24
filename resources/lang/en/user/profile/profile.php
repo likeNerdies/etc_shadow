@@ -5,7 +5,6 @@ return [
   "myData" => "Mis datos",
   "plan" => "Plan",
   "ingredientsAllergies" => "Ingredientes y Alergias"
-
 ];
 
  ?>
