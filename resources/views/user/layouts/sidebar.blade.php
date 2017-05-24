@@ -1,4 +1,4 @@
-<div class="list-group">
+<div class="list-group hidden-sm-down">
     <a href="{{route('profile')}}" class="list-group-item">@lang("user/profile/profile.myProfile")</a>
     <a href="{{route('my-data')}}" class="list-group-item">@lang("user/profile/profile.myData")</a>
     <!--<a href="{{route('user-delete')}}" class="list-group-item">Delete account</a>-->

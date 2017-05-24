@@ -1,9 +1,13 @@
-<div id="nav-container">
+<div id="nav-container" class="mb-5">
   <nav class="navbar navbar-toggleable-md navbar-light bg-faded container-fluid fixed-top" id="main-navbar" data-spy="affix">
     <button id="hamburger" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="/">Brand</a>
+
+    <a class="navbar-brand w-25" href="/">Brand</a>
+
+    <span id="tog-profile"><span>{{substr(Auth::user()->name,0,1)}}</span></span>
+
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mr-auto mt-2 mt-md-0 mx-auto">
         <li class="nav-item  px-5">
@@ -17,26 +21,29 @@
         </li>
       </ul>
 
-      <ul class="navbar-nav log-re">
+      <ul class="navbar-nav log-reg">
         @if (Route::has('login'))
-        @if (Auth::check())
-        <li class="nav-item dropdown mr-2">
+        @if (!Auth::check())
+        <!--<li class="nav-item dropdown mr-2 hidden-sm-down">
           <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{Auth::user()->name}}
+            {{--Auth::user()->name--}}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="/user/panel/profile">My profile</a>
             <a class="dropdown-item" href="#">Change my plan</a>
             <a class="dropdown-item" href="#">Logout</a>
           </div>
-        </li>
-        @else
+        </li>-->
+
+
 
         <li class="nav-item  px-1"><button class="btn btn-info" data-toggle="modal" data-target="#modalLogin">@lang('login.login')</button></li><!--tocar buttons--><!--tambe includes register i login del modals-->
         <li class="nav-item  px-1"><button class="btn btn-info" data-toggle="modal" data-target="#modalRegister">@lang('login.register')</button></li><!--tocar buttons-->
           @endif
         @endif
       </ul>
+
+
       <!-----------lang----------->
       <ul>
         <li class="nav-item  px-1">

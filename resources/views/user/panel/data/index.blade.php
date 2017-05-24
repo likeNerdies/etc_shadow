@@ -1,26 +1,27 @@
 @extends('user.layouts.panel')
 @section('right-panel')
-
-    <div class="row">
+<div class="row">
         <div class="col-md-12">
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingOne">
-                        <h4 class="panel-title">
+
+                <div class="w-75 mx-auto"> <!--block -->
+                    <div class="w-100" style="background-color: #1DC7B4;height: 60px; border-radius: 4px;" role="tab" id="headingOne"> <!-- heading block -->
+                        <h4 class="text-center" style="padding: 14px 0px;">
                             <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                My personal data's
                             </a>
                         </h4>
                     </div>
-                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne"> <!--content block -->
                         <div class="panel-body">
                             @include('user.layouts.forms.data-personal-form')
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingTwo">
-                        <h4 class="panel-title">
+
+                <div class="w-75 mx-auto mt-4">
+                    <div class="w-100" style="background-color: #1DC7B4;height: 60px; border-radius: 4px;" role="tab" id="headingTwo">
+                        <h4 class="text-center" style="padding: 14px 0px;">
                             <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                 My address
                             </a>
@@ -36,9 +37,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingThree">
-                        <h4 class="panel-title">
+
+                <div class="w-75 mx-auto mt-4">
+                    <div class="w-100" style="background-color: #1DC7B4;height: 60px; border-radius: 4px;" role="tab" id="headingThree">
+                        <h4 class="text-center" style="padding: 14px 0px;">
                             <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                 My plan
                             </a>
@@ -55,6 +57,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
