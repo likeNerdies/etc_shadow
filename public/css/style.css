@@ -33,6 +33,13 @@ h2 {
   //color: white !important;
 }
 
+/* ~ Navbar for logged in users ~ */
+
+.nav_in {
+  margin-bottom: 10%;
+}
+
+
 /* CONTENT */
 
 .background-image {

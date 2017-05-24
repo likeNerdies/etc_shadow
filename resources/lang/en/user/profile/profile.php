@@ -2,9 +2,9 @@
 
 return [
   "myProfile" => "My profile",
-  "myData" => "Mis datos",
+  "myData" => "My data",
   "plan" => "Plan",
-  "ingredientsAllergies" => "Ingredientes y Alergias"
+  "ingredientsAllergies" => "Ingredients and Allergies"
 ];
 
  ?>
