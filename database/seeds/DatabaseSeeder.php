@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         'users',
         'admins',
         'brands',
+        'transporters',
         'addresses',
     );
     public function cleanDatabase()
