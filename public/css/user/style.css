@@ -1,0 +1,83 @@
+/**
+
+CSS file for logged in users
+
+*/
+
+/* GLOBAL */
+.col-md-3, .col-md-9 {
+  padding-right: 0;
+}
+
+.ml-15 {
+  margin-left: 15%;
+}
+
+.ml-10 {
+  margin-left: 10%;
+}
+
+.ml-30 {
+  margin-left: 30%;
+}
+
+.mt-15 {
+  padding-top: 15%;
+}
+
+.red-font {
+  color: #FB6A5D;
+}
+
+.lighter-font {
+  font-weight: lighter;
+}
+
+.section {
+  padding-top: 15%;
+}
+
+/* NAVBAR */
+.nav_in {
+  margin-bottom: 0;
+}
+
+/* PLANS SECTIONS */
+.charming-bg-color {
+  background-color: #ffffc0;
+}
+
+.premium-bg-color {
+  background-color: #ffdfdf;
+}
+
+.pro-bg-color {
+  background-color: #77d496;
+}
+
+.btn-subscribe:hover {
+  background-color: transparent;
+  border: 1px solid #FB6A5D;
+  transition: all .1s ease-in-out;
+}
+
+.btn-subscribe:hover a {
+  color: #FB6A5D;
+  transition: all .1s ease-in-out;
+}
+
+.price {
+  font-size: 20px;
+}
+
+.subtitle {
+  font-size: 24px;
+  font-weight: lighter;
+}
+
+@media (max-width: 480px){
+  .subtitle {
+    margin-top: 5%;
+    font-size: 22px;
+  }
+}

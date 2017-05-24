@@ -11,6 +11,9 @@
         <!-- 'Welcome' style.css -->
         <link rel="stylesheet" href="/css/style.css">
 
+        <!-- CSS for logged in user -->
+        <link rel="stylesheet" href="/css/user/style.css">
+
         <!-- Fonts and icons-->
         <link rel="stylesheet" href="/css/libraries/font-awesome-4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">

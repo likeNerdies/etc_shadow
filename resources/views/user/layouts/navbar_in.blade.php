@@ -1,4 +1,4 @@
-<div id="nav-container">
+<div id="nav-container" class="nav_in">
   <nav class="navbar navbar-toggleable-md navbar-light bg-faded container-fluid fixed-top" id="main-navbar" data-spy="affix">
     <button id="hamburger" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -37,7 +37,8 @@
           @endif
         @endif
       </ul>
-      <!-----------lang----------->
+
+      <!-- Language -->
       <ul>
         <li class="nav-item  px-1">
           <form method="post" action="{{route('change-lang')}}" id="change_lang">
@@ -62,7 +63,7 @@
           </form>
         </li>
       </ul>
-        <!-------end lang---------->
+      <!-- / Language -->
     </div>
   </nav>
 </div><!-- / nav-container -->
