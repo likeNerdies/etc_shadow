@@ -26,7 +26,6 @@ class ProductController extends Controller
     {
         $products = App\Product::paginate(15);
         $brands = App\Brand::all();
-
         return view('admin.product.index', compact(['products', 'brands']));
     }
 
@@ -38,7 +37,9 @@ class ProductController extends Controller
     public function productsIndex()
     {
         $products = App\Product::paginate(15);
-        return view('product.index', compact(['products', 'brands']));
+        $categories=App\Category::all();
+        $brands = App\Brand::all();
+        return view('product.index', compact(['products', 'brands','categories']));
     }
 
     /**
@@ -118,8 +119,8 @@ class ProductController extends Controller
             DB::beginTransaction();
             if ($request->hasFile('image')) {//si existen fotos
                 $product = App\Product::findOrFail($id);
-                if(count($product->images)>0){
-                   // $product->images()->detach(); detach is for belongstoMany
+                if (count($product->images) > 0) {
+                    // $product->images()->detach(); detach is for belongstoMany
                     // $product->images()->dissociate();
                     foreach ($product->images as $item) {
                         $item->delete();//eliminamos las antiguas
@@ -173,15 +174,16 @@ class ProductController extends Controller
      * @param $id
      * @return mixed
      */
-    public function showPictureNumber($id,$number)
+    public function showPictureNumber($id, $number)
     {
-        $product=App\Product::findOrFail($id);
-        $images=$product->images;
+        $product = App\Product::findOrFail($id);
+        $images = $product->images;
         $pic = Image::make($images[$number]->image);
         $response = Response::make($pic->encode('jpeg'));
         $response->header('Content-Type', 'image/jpeg');
         return $response;
     }
+
     /**
      * Display the specified resource.
      *
@@ -272,12 +274,12 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        $inserted=false;
+        $inserted = false;
         DB::beginTransaction();
         try {
 
             $product = App\Product::findOrFail($id);
-            if(count($product->images)>0){
+            if (count($product->images) > 0) {
                 // $product->images()->detach(); detach is for belongstoMany
                 // $product->images()->dissociate();
                 foreach ($product->images as $item) {
@@ -301,5 +303,39 @@ class ProductController extends Controller
             ];
         }
         return response()->json($retorn);
+    }
+
+
+    public function dynamicQuery(Request $request)
+    {
+
+        $query = App\Product::with('images'); //names of eager loaded relationships
+        $query->join('category_product', 'products.id', '=', 'category_product.product_id');
+        if(isset($request->brands)){
+            $query->whereIn('brand_id',$request->brands);
+        }
+        if(isset($request->categories)){
+            $query->whereIn('category_id',$request->categories);
+        }
+
+        if(isset($request->organic)){
+            $query ->where('organic','=',1);
+        }
+        if(isset($request->vegetarian)){
+            $query ->where('vegetarian','=',1);
+        }
+        if(isset($request->vegan)){
+            $query ->where('vegan','=',1);
+        }
+      //  $query->where('categories','=','bebida');
+        return $query->get();
+      /*  $products = DB::table('products')
+            ->join('category_product', 'products.id', '=', 'category_product.product_id')
+            ->select('*')
+            ->whereIn('brand_id',[1,3])
+            ->whereIn('category_id',[1,2])
+            ->where('vegetarian','=',1)
+            ->get();
+        return $products;*/
     }
 }
