@@ -79,19 +79,25 @@
 
             var togElement = $(this).parent().parent()[0].id;
 
-            $(this).remove();
+            $(this).hide().fadeOut(function () {
+                $('#sm-'+togElement).slideToggle(500,'easeOutSine',function () {
 
-            $('#sm-'+togElement).slideToggle(function () {
+                    if($(this).is(':visible')){
+                        var see ='<span class="tog-less pt-3"><i class="fa fa-minus ml-2rem toggle" aria-hidden="true"></i>See Less</span>';
+                    }else{
+                        var see ='<span class="tog-more pt-3"><i class="fa fa-plus ml-2rem toggle" aria-hidden="true"></i>See More</span>';
+                    }
 
-                if($(this).is(':visible')){
-                    var see ='<span class="tog-less pt-3"><i class="fa fa-minus ml-2rem toggle" aria-hidden="true"></i>See Less</span>';
-                }else{
-                    var see ='<span class="tog-more pt-3"><i class="fa fa-plus ml-2rem toggle" aria-hidden="true"></i>See More</span>';
-                }
-
-                $('#'+parent).append(see)
+                    $('#'+parent).append($(see).hide().fadeIn());
+                });
             });
         });
+
+        /*$('.tog-more').click(function () {
+            $(this).fadeOut(500,'easeInOutExpo',function () {
+                $('#sm-diets').slideToggle(700,'easeInOutQuart');
+            });
+        });*/
 
        /* $(document).on('click','.tog-less', function () {
             $(this).remove();
