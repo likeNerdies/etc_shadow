@@ -24,7 +24,7 @@ class UserController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('user.panel.profile', compact("user"));
+        return view('user.panel.profile.index', compact("user"));
     }
 
     /**
@@ -34,7 +34,7 @@ class UserController extends Controller
      */
     public function data()
     {
-        return view('user.panel.data');
+        return view('user.panel.data.index');
     }
 
     /**

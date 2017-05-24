@@ -7,10 +7,10 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mr-auto mt-2 mt-md-0 mx-auto">
         <li class="nav-item  px-5">
-          <a class="nav-link only page-scroll" href="#howitworks">@lang('welcome.howitworks')</a>
+          <a class="nav-link only page-scroll" href="/products">@lang('user/navbar_in.products')</a>
         </li>
         <li class="nav-item px-5">
-          <a class="nav-link only page-scroll" href="#plans">@lang('welcome.plans')</a>
+          <a class="nav-link only page-scroll" href="/plans">@lang('user/navbar_in.plans')</a>
         </li>
         <li class="nav-item  px-5">
           <a class="nav-link only page-scroll" href="#about">@lang('welcome.about')</a>
