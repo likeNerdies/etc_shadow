@@ -18,7 +18,7 @@
         <div class="pt-5 mb-5">
           <h1>Fall in love with our products</h1>
         </div>
-            <div class="card-columns d-flex flex-row flex-wrap justify-content-center">
+            <div class="card-columns d-flex flex-row flex-wrap justify-content-center" id="products">
               @foreach ($products as $product)
               <div class="card-wrapper mx-2">
                 <a href="/products/{{ $product->id }}">
@@ -28,9 +28,7 @@
                     @else
                         <div class="mt-2"><img class="rounded product-img card-img-top img-fluid" src="/products/{{$product->images->first()->id}}/image"></div>
                     @endif
-                    <div class="card-block pt-1">
-                      <h4 class="card-title"> {{ $product->name }} </h4>
-                    </div>
+                    <div class="card-block pt-1"><h4 class="card-title"> {{ $product->name }}</h4></div>
                     <div class="card-footer">
                       @if ($product->vegan == 1)
                         <p class="d-inline diet card-text"><i class="fa fa-check mx-1" aria-hidden="true"></i>Vegan</p>

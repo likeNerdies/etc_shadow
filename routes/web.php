@@ -66,6 +66,7 @@ Route::prefix('/products')->group(function () {//Product route
     Route::get('/{id}/image', 'product\ProductController@showPicture')->name('product-image-number');
     Route::get('/{id}/image/{number}', 'product\ProductController@showPictureNumber')->name('product-image-number');
 
+    Route::get('/search/dynamic', 'product\ProductController@dynamicQuery')->name('dynamicSearch');
 });// end product route
 
 
