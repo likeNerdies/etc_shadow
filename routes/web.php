@@ -25,35 +25,35 @@ Route::group(['prefix' => 'user/panel', 'middleware' => 'auth',], function () {
         return redirect(route('profile'));
     });
 
-    Route::get('/profile', 'user\UserController@index')->name('profile');
+    Route::get('/profile', 'User\UserController@index')->name('profile');
 
-    Route::delete('/profile/delete', 'user\UserController@destroy')->name('user-delete');
-    Route::get('/profile/delete', 'user\UserController@destroymenu')->name('user-delete');
+    Route::delete('/profile/delete', 'User\UserController@destroy')->name('user-delete');
+    Route::get('/profile/delete', 'User\UserController@destroymenu')->name('user-delete');
 
     //personal data user
     //    /user/panel/my-data
     Route::prefix('/my-data')->group(function () {//user panel my data route
 
-        Route::get('/', 'user\UserController@data')->name('my-data');
-        Route::put('/personal', 'user\UserController@update')->name('my-data-personal');//upadte user personal data
-        Route::put('/personal-password', 'user\UserController@updatePassword')->name('my-data-personal-password');//update user personal password
+        Route::get('/', 'User\UserController@data')->name('my-data');
+        Route::put('/personal', 'User\UserController@update')->name('my-data-personal');//upadte user personal data
+        Route::put('/personal-password', 'User\UserController@updatePassword')->name('my-data-personal-password');//update user personal password
 
-        Route::get('/address', 'address\AddressController@index')->name("address");
-        Route::put('/address', 'address\AddressController@update')->name('user-address-update');
-        Route::post('/address', 'address\AddressController@store')->name('user-address-insert');
+        Route::get('/address', 'Address\AddressController@index')->name("address");
+        Route::put('/address', 'Address\AddressController@update')->name('user-address-update');
+        Route::post('/address', 'Address\AddressController@store')->name('user-address-insert');
     });//end user panel my data route
 
 
     //    /user/panel/plan
     Route::prefix('/plan')->group(function () {//user plan route
 
-        Route::get('/', 'user\UserController@plan')->name('user-plan');
+        Route::get('/', 'User\UserController@plan')->name('user-plan');
 
-        Route::post('/subscribe', 'user\UserController@subscribeToPlan')->name('user-subscribe');
+        Route::post('/subscribe', 'User\UserController@subscribeToPlan')->name('user-subscribe');
 
-        Route::post('/cancelSub', 'user\UserController@cancelSubscription')->name('user-cancelSub');
+        Route::post('/cancelSub', 'User\UserController@cancelSubscription')->name('user-cancelSub');
 
-        Route::post('/changePlan', 'user\UserController@subscribeToPlan')->name('user-change-plan');
+        Route::post('/changePlan', 'User\UserController@subscribeToPlan')->name('user-change-plan');
 
 
     });
@@ -61,38 +61,38 @@ Route::group(['prefix' => 'user/panel', 'middleware' => 'auth',], function () {
 });//end user panel route
 
 Route::prefix('/products')->group(function () {//Product route
-    Route::get('/', 'product\ProductController@productsIndex')->name('products-index');
-    Route::get('/{id}', 'product\ProductController@productsIndexShow')->name('products-index-show');
-    Route::get('/{id}/image', 'product\ProductController@showPicture')->name('product-image-number');
-    Route::get('/{id}/image/{number}', 'product\ProductController@showPictureNumber')->name('product-image-number');
+    Route::get('/', 'Product\ProductController@productsIndex')->name('products-index');
+    Route::get('/{id}', 'Product\ProductController@productsIndexShow')->name('products-index-show');
+    Route::get('/{id}/image', 'Product\ProductController@showPicture')->name('product-image-number');
+    Route::get('/{id}/image/{number}', 'Product\ProductController@showPictureNumber')->name('product-image-number');
 
-    Route::get('/search/dynamic', 'product\ProductController@dynamicQuery')->name('dynamicSearch');
+    Route::get('/search/dynamic', 'Product\ProductController@dynamicQuery')->name('dynamicSearch');
 });// end product route
 
 
 
 //ROUTE LOGIN FOR ADMIN
-Route::get('/admin/login', 'auth\AdminLoginController@showLoginForm')->name('admin.login');
-Route::post('/admin/login', 'auth\AdminLoginController@login')->name('admin.login');
+Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login');
 //END ROUTE LOGIN ADMIN
 
 //ROUTE GROUP FOR ADMIN
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin',], function () {
 
-    Route::get('/', 'admin\AdminController@index')->name('admin.dashboard');
-    Route::get('/configuration', 'admin\AdminController@configuration')->name('admin.configuration');
-    Route::put('/update', 'admin\AdminController@update')->name('admin.update');
+    Route::get('/', 'Admin\AdminController@index')->name('admin.dashboard');
+    Route::get('/configuration', 'Admin\AdminController@configuration')->name('admin.configuration');
+    Route::put('/update', 'Admin\AdminController@update')->name('admin.update');
 
 
     //Routes for admin users table
-    Route::get('/admin-users', 'admin\AdminController@adminUsers')->name('admin.adminUsers');
-    Route::get('/admin-users/{id}', 'admin\AdminController@show')->name('admin.adminUserShow');
-    Route::delete('/admin-users/{id}', 'admin\AdminController@delete')->name('admin.adminUserDelete');
-    Route::post('/admin-users', 'admin\AdminController@store')->name('admin.adminUserStore');
-    Route::put('/admin-users/{id}', 'admin\AdminController@updateAdminUser')->name('admin.adminUserUpdate');
+    Route::get('/admin-users', 'Admin\AdminController@adminUsers')->name('admin.adminUsers');
+    Route::get('/admin-users/{id}', 'Admin\AdminController@show')->name('admin.adminUserShow');
+    Route::delete('/admin-users/{id}', 'Admin\AdminController@delete')->name('admin.adminUserDelete');
+    Route::post('/admin-users', 'Admin\AdminController@store')->name('admin.adminUserStore');
+    Route::put('/admin-users/{id}', 'Admin\AdminController@updateAdminUser')->name('admin.adminUserUpdate');
 
     //ROUTE Plans
-    Route::resource('/plans', 'plan\PlanController');
+    Route::resource('/plans', 'Plan\PlanController');
     /*
     Route::prefix('/plans')->group(function () {
           Route::get('/', 'plan\PlanController@index');
@@ -106,9 +106,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin',], function () {
   */
 
 //ROUTE Products
-    Route::resource('/products', 'product\ProductController');
-    Route::post('/products/{id}/image', 'product\ProductController@storeImage');
-    Route::get('/products/{id}/image', 'product\ProductController@showPicture');
+    Route::resource('/products', 'Product\ProductController');
+    Route::post('/products/{id}/image', 'Product\ProductController@storeImage');
+    Route::get('/products/{id}/image', 'Product\ProductController@showPicture');
     /*
     Route::prefix('/products')->group(function () {
         Route::get('/', 'product\ProductController@index');
@@ -122,7 +122,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin',], function () {
 
 */
 //Route Categories
-    Route::resource('/categories', 'category\CategoryController');
+    Route::resource('/categories', 'Category\CategoryController');
 
     /*    Route::prefix('/categories')->group(function () {
            Route::get('/', 'category\CategoryController@index');
@@ -133,9 +133,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin',], function () {
        });//end Route Categories
    */
     //Route Ingredients
-    Route::resource('/ingredients', 'ingredient\IngredientController');
-    Route::post('/ingredients/{id}/image', 'ingredient\IngredientController@storeImage');
-    Route::get('/ingredients/{id}/image', 'ingredient\IngredientController@showPicture');
+    Route::resource('/ingredients', 'Ingredient\IngredientController');
+    Route::post('/ingredients/{id}/image', 'Ingredient\IngredientController@storeImage');
+    Route::get('/ingredients/{id}/image', 'Ingredient\IngredientController@showPicture');
     /*
     Route::prefix('/ingredients')->group(function () {
         Route::get('/', 'ingredient\IngredientController@index');
@@ -147,7 +147,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin',], function () {
     */
 
 //Route Brands
-    Route::resource('/brands', 'brand\BrandController');
+    Route::resource('/brands', 'Brand\BrandController');
     /*
     Route::prefix('/brands')->group(function () {
         Route::get('/', 'brand\BrandController@index');
@@ -159,21 +159,21 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin',], function () {
     */
 
     //Route Allergies
-    Route::resource('/allergies', 'allergy\AllergyController');
+    Route::resource('/allergies', 'Allergy\AllergyController');
     //end ROUTE Allergies
 
     //Route Transporters
-    Route::resource('/transporters', 'transporter\TransporterController');
+    Route::resource('/transporters', 'Transporter\TransporterController');
     //end Route Transporters
 
 
     //Route Clients
     Route::prefix('/clients')->group(function () {
-        Route::get('/', 'user\UserController@adminIndex');
+        Route::get('/', 'User\UserController@adminIndex');
        // Route::post('/', 'user\UserController@adminStore');
-        Route::get('/{client}', 'user\UserController@adminShow');
-        Route::put('/{client}', 'user\UserController@adminUpdate');
-        Route::delete('/{client}', 'user\UserController@adminDelete');
+        Route::get('/{client}', 'User\UserController@adminShow');
+        Route::put('/{client}', 'User\UserController@adminUpdate');
+        Route::delete('/{client}', 'User\UserController@adminDelete');
     });
     //end Route Client
 
@@ -184,41 +184,41 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin',], function () {
 
 Route::prefix('/search')->group(function (){
 
-    Route::get('/category','search\SearchController@category')->middleware('auth:admin')->name('search.category');
+    Route::get('/category','Search\SearchController@category')->middleware('auth:admin')->name('search.category');
 
-    Route::get('/brand','search\SearchController@brand')->middleware('auth:admin')->name('search.brand');
+    Route::get('/brand','Search\SearchController@brand')->middleware('auth:admin')->name('search.brand');
 
-    Route::get('/allergySelect','search\SearchController@allergySelect')->middleware('auth:admin')->name('search.allergySelect');
+    Route::get('/allergySelect','Search\SearchController@allergySelect')->middleware('auth:admin')->name('search.allergySelect');
 
-    Route::get('/ingredient','search\SearchController@ingredient')->middleware('auth:admin')->name('search.ingredient');
+    Route::get('/ingredient','Search\SearchController@ingredient')->middleware('auth:admin')->name('search.ingredient');
 
-    Route::get('/categorySelect','search\SearchController@categorySelect')->middleware('auth:admin')->name('search.categorySelect');
+    Route::get('/categorySelect','Search\SearchController@categorySelect')->middleware('auth:admin')->name('search.categorySelect');
 
-    Route::get('/ingredientSelect','search\SearchController@IngredientSelect')->middleware('auth:admin')->name('search.ingredientSelect');
+    Route::get('/ingredientSelect','Search\SearchController@IngredientSelect')->middleware('auth:admin')->name('search.ingredientSelect');
 
-    Route::get('/brandSelect','search\SearchController@brandSelect')->middleware('auth:admin')->name('search.brandSelect');
+    Route::get('/brandSelect','Search\SearchController@brandSelect')->middleware('auth:admin')->name('search.brandSelect');
 
-    Route::get('/product','search\SearchController@product')->middleware('auth:admin')->name('search.product');
+    Route::get('/product','Search\SearchController@product')->middleware('auth:admin')->name('search.product');
 
-    Route::get('/plan','search\SearchController@plan')->middleware('auth:admin')->name('search.plan');
+    Route::get('/plan','Search\SearchController@plan')->middleware('auth:admin')->name('search.plan');
 
-    Route::get('/allergy','search\SearchController@allergy')->middleware('auth:admin')->name('search.allergy');
+    Route::get('/allergy','Search\SearchController@allergy')->middleware('auth:admin')->name('search.allergy');
 
-    Route::get('/admin','search\SearchController@admin')->middleware('auth:admin')->name('search.admin');
+    Route::get('/admin','Search\SearchController@admin')->middleware('auth:admin')->name('search.admin');
 
-    Route::get('/client','search\SearchController@client')->middleware('auth:admin')->name('search.client');
+    Route::get('/client','Search\SearchController@client')->middleware('auth:admin')->name('search.client');
 
     //per graphics
-    Route::get('/currentYearMonthSubs','search\SearchController@getCurrentYearMonthlySubs')->middleware('auth:admin')->name('search.currentMonthSubscribers');
-    Route::get('/totalUserPerPlan','search\SearchController@getTotalPlanUser')->middleware('auth:admin')->name('search.usersPerPlan');
+    Route::get('/currentYearMonthSubs','Search\SearchController@getCurrentYearMonthlySubs')->middleware('auth:admin')->name('search.currentMonthSubscribers');
+    Route::get('/totalUserPerPlan','Search\SearchController@getTotalPlanUser')->middleware('auth:admin')->name('search.usersPerPlan');
 
 
 });
 
 
-Route::get('/box-test','box\BoxController@makeBox')->middleware('auth:admin');
+Route::get('/box-test','Box\BoxController@makeBox')->middleware('auth:admin');
 
 
 //lang change rout
 
-Route::post("changelocale",'lang\LocaleController@changeLocale')->name('change-lang');
+Route::post("changelocale",'Lang\LocaleController@changeLocale')->name('change-lang');
