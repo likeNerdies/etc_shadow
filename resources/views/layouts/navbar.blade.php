@@ -38,11 +38,11 @@
         @endif
       </ul>
       <!-----------lang----------->
-      <ul>
+      <ul style="list-style: none;">
         <li class="nav-item  px-1">
-          <form method="post" action="{{route('change-lang')}}" id="change_lang">
+          <form class="form-inline" method="post" action="{{route('change-lang')}}" id="change_lang">
             {{csrf_field()}}
-           <select id="changelang" name="lang">
+           <select class="form-control" id="changelang" name="lang">
             @if(session()->has('locale'))
                 @if(session()->get('locale')=='es')
                    <option value="es" selected>Español</option>
