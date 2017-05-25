@@ -1,7 +1,7 @@
 <div class="container-fluid" id="footer">
 
   <div class="justify-content-md-center text-center">
-    <h4 class="tex-center">Subscribe to our planning</h4>
+    <h4 class="tex-center">@lang("layouts/footer.subscribeToPlanning")</h4>
   </div>
 
   <div class="mt-5 text-center">
@@ -9,7 +9,7 @@
       <div class="form-group">
         <div class="input-group emailInput offset-md-4 col-md-4 offset-md-4">
           <div class="input-group-addon">@</div>
-          <input type="text" class="form-control text-center  col-xs-9" name="email" value="" placeholder="Write your email address">
+          <input type="text" class="form-control text-center  col-xs-9" name="email" value="" placeholder='@lang("layouts/footer.writeEmail")'>
         </div>
       </div>
     </form>

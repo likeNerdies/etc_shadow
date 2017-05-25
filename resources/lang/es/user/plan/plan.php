@@ -7,9 +7,11 @@ return [
   "wannaChange" => "¿Quieres cambiar?",
   "btnChangePlan" => "Cambiar plan",
   "btnSubscribe" => "Suscribirse",
+  "notEnough" => "¿Aún no te hemos convencido?",
+  "btnMoreInfo" => "Más información",
 
   "proTitle" => "¿Sintiéndote pro y quieres una caja a conjunto?",
-  "proSubtitle" => "¡Podemos hacer eso!",
+  "proSubtitle" => "¡Podemos con eso!",
   "proSlogan" => "El plan Pro es tan pro como tú.",
   "proProductsList" => "8 productos: Una bebida (leche sin lácteos o zumo natural), un paquete de galletas, una caja de cereales y un paquete de barritas.",
 

@@ -7,6 +7,8 @@ return [
   "wannaChange" => "Wanna change?",
   "btnChangePlan" => "Change plan",
   "btnSubscribe" => "Subscribe",
+  "notEnough" => "Not enough?",
+  "btnMoreInfo" => "More info",
 
   "proTitle" => "Feeling pro and you want a box to match?",
   "proSubtitle" => "We can do that!",

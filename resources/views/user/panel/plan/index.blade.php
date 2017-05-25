@@ -51,8 +51,8 @@
 
         <div class="row section p-5 mr-md-5">
           <div class="col-md-9 text-center">
-            <h3 class="">Not enough?</h3>
-            <button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button"><a href="/plans">More info</a></button>
+            <h3 class="">@lang("user/plan/plan.notEnough")</h3>
+            <button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button"><a href="/plans">@lang("user/plan/plan.btnMoreInfo")</a></button>
           </div>
           <div class="col-md-3 text-center">
           </div>
