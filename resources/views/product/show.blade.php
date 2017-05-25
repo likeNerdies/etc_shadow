@@ -82,8 +82,7 @@
                         <div class="ingredients hidden-md-down">
                           <h5 class="text-left mt-5 text-brown">Ingredients</h5>
                           @foreach ($product->ingredients as $ingredient)
-                            <!--<i class="fa fa-thumb-tack" aria-hidden="true">-->
-                            <i class="fa fa-envira" aria-hidden="true"></i>{{ $ingredient->name }}
+                            <p><span><i class="fa fa-envira" aria-hidden="true"></i>{{ $ingredient->name }}</span></p>
                           @endforeach
                         </div>
 
