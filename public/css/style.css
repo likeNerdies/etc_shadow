@@ -140,11 +140,14 @@ h2 {
 
 /* Footer */
 #footer {
-  margin-top: 50px;
-  padding-top: 10%;
-  padding-bottom: 10%!important;
-  background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/ep_naturalwhite.png");
-  //position: relative;
+    width:100%;
+    position: relative;
+    bottom:0;
+    margin-top: 50px;
+    padding-top: 10%;
+    padding-bottom: 10%!important;
+    background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/ep_naturalwhite.png");
+    //position: relative;
 }
 
 .fa {
@@ -232,7 +235,15 @@ h2 {
 .filter-block .filter-title{
     width:100%;
     height:50px;
-    background: rgba(5,5,5,.2);
+    transition: background-color .5s;
+    background-color: rgba(111, 204, 58,.7);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.filter-block .filter-title-toggled{
+    transition: background-color .75s;
+    background-color: rgb(255, 230, 204);
 }
 
 .filter-block > .filter-title > span{
@@ -323,10 +334,70 @@ i.toggle{
   margin-left: 10px!important;
 }
 
+.profile-content{
+    width:25vw;
+    height:25vh;
+    background: navajowhite;
+    position: fixed;
+    top: 60px;
+    right: -25vw;
+    z-index: 15000;
+    transition: right .75s;
+}
+
+.profile-content-show{
+    width:25vw;
+    height:25vh;
+    background: navajowhite;
+    position: fixed;
+    top: 60px;
+    right: 0;
+    z-index: 15000;
+    transition: right .75s;
+}
+
+
+#tog-profile{
+    display: inline;
+    position: fixed;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    background: #FB6A5D;
+    z-index: 15000;
+}
+
+#tog-profile > span{
+    position: absolute;
+    top:4px;
+    left:9.5px;
+}
+
 /* MEDIA QUERIES */
 
 /* For navbar */
 @media (max-width: 768px) {
+
+    /*test*/
+    .scrollTop{
+        width:50px;
+        height:55px;
+        position: fixed;
+        bottom: 10%;
+        right: 10%;
+        background: rgba(5,5,5,.4);
+        z-index: 10000;
+    }
+
+    .scrollTop > i{
+        content:'\f0d8';
+        position: absolute;
+        top:0;
+        left:11px;
+        color: white;
+        z-index:9999;
+    }
+
     nav{
         background-color: rgb(255,255,255) !important;
     }
@@ -335,10 +406,20 @@ i.toggle{
         padding-bottom: 5%;
 
     }
+
+    #tog-profile{
+        left:80vw;
+        top:2.75vh;
+        width:35px;
+    }
+
+
     li.nav-item{
         padding-left: 0 !important;
         //background-color: #888a85;
     }
+
+
 
     .log-reg{
         display: flex;
@@ -433,8 +514,8 @@ i.toggle{
     }
 
     .img-fluid{
-        width: 100vw !important;
-        height: 100vh !important;
+        width: 100% !important;
+        height: 100% !important;
     }
 
 
@@ -454,13 +535,14 @@ i.toggle{
 
 
 @media (max-width: 480px){
-    #wrapper-image{
-        height: 50%;
+
+    #tog-profile{
+        top: 1.75vh;
+        left:65vw;
     }
 
-    .img-fluid{
-        width: 100vw !important;
-        height: 50vh !important;
+    #wrapper-image{
+        height: 50%;
     }
 
     #main-wrapper .arrow::before{
@@ -527,8 +609,28 @@ i.toggle{
 
 /* For footer */
 @media (min-width: 768px) {
+
+    #tog-profile{
+        display: inline;
+        position: fixed;
+        top: 1.25vh;
+        left:86vw;
+        width:35px;
+        height:35px;
+        border-radius:50%;
+        background: #FB6A5D;
+        z-index: 15000;
+    }
+
+    #tog-profile > span{
+        position: absolute;
+        top:4px;
+        left:9.5px;
+    }
+
     #footer {
         margin-top: 5%;
+
     }
 
     #info h3, #info h4, #info h5, #info p{
@@ -546,12 +648,57 @@ i.toggle{
         overflow-y: hidden;
     }
 
+    .block-user-profile{
+        width: 100%;
+        height: 10%;
+        background: #ffffc0;
+        padding: 15px;
+        text-align: center;
+        border-radius: 4px;
+    }
+
+    .block-user-profile a{
+        color: black;
+        text-decoration: none;
+        font-weight: 400;
+    }
+
+    /*<USER>*/
+
+    #main-wrapper-in{
+        width:100%;
+        height:100%;
+        display: flex;
+    }
+
+    #sidebar-wrapper-in{
+        width:20%;
+        height: 100%;
+        margin-top: 9%;
+    }
+
+    #content-wrapper-in{
+        width: 80%;
+        height: 100%;
+        margin-top: 9%;
+    }
+
+
+    /*</USER>*/
+
+
     #sidebar-wrapper{
-        width: 15%;
+        width: 20%;
+    }
+
+    #sidebar-wrapper  #side-block{
+        width:80%;
+        margin: auto;
     }
 
     #content-wrapper{
-        width: 85%;
+        width: 80%;
+        padding: 0 15px;
     }
 
     #content-wrapper-show{

@@ -4,7 +4,8 @@ return [
   "myProfile" => "My profile",
   "myData" => "My data",
   "plan" => "Plan",
-  "ingredientsAllergies" => "Ingredients and Allergies"
+  "ingredientsAllergies" => "Ingredients and Allergies",
+  "help" => "Help",
 ];
 
  ?>
