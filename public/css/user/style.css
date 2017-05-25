@@ -21,6 +21,10 @@ CSS file for logged in users
   margin-left: 30%;
 }
 
+.mr-10 {
+    margin-right: 10%;
+}
+
 .mt-15 {
   padding-top: 15%;
 }
@@ -31,6 +35,10 @@ CSS file for logged in users
 
 .lighter-font {
   font-weight: lighter;
+}
+
+.big-p {
+  font-size: 20px;
 }
 
 .section {
@@ -46,6 +54,13 @@ CSS file for logged in users
     background-color: rgba(255, 255, 255, 0);
 }
 
+/* CONTAINER */
+.bg-whitesmoke-sutil {
+  background-color: rgba(60, 118, 61, 0.03);
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-right: 10%;
+}
 
 /* PLANS SECTIONS */
 .charming-bg-color {

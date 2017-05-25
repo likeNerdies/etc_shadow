@@ -80,6 +80,44 @@ class UserController extends Controller
     }
 
 
+    public function unlikeIngredientShow(){
+        $ingredients=App\Ingredient::all();
+        return view('user.panel.ingredient.index',compact('ingredients'));
+    }
+
+    public function likeIngredientStore(Request $request){
+        $user = Auth::user();
+        $user->ingredients()->attach($request->ingredient_id);
+        $user->save();
+        return response()->json(['success'=>true],200);
+    }
+
+    public function unlikeIngredientStore(Request $request){
+        $user = Auth::user();
+        $user->ingredients()->detach($request->ingredient_id);
+        $user->save();
+        return response()->json(['success'=>true],200);
+    }
+
+    public function userAllergyShow(){
+        $allergies=App\Allergy::all();
+        return view('user.panel.allergy.index',compact('allergies'));
+    }
+
+    public function userAllergyStore(Request $request){
+        $user = Auth::user();
+        $user->allergies()->attach($request->allergy_id);
+        $user->save();
+        return response()->json(['success'=>true],200);
+    }
+
+    public function userHasntAllergyStore(Request $request){
+        $user = Auth::user();
+        $user->allergies()->detach($request->allergy_id);
+        $user->save();
+        return response()->json(['success'=>true],200);
+    }
+
     /**
      * Show the form for editing user info
      *
