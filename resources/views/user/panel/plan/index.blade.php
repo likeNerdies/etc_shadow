@@ -148,5 +148,9 @@
   </form>
 </div>
 
+@endsection
 
+@section('scriptsPersonalizados')
+  <script src="/js/welcome/welcome_script.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 @endsection

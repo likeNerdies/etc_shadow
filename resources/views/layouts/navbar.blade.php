@@ -1,8 +1,10 @@
 <div id="nav-container">
   <nav class="navbar navbar-toggleable-md navbar-light bg-faded container-fluid fixed-top" id="main-navbar" data-spy="affix">
+
     <button id="hamburger" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <a class="navbar-brand" href="/">Brand</a>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mr-auto mt-2 mt-md-0 mx-auto">
@@ -19,25 +21,32 @@
 
       <ul class="navbar-nav log-re">
         @if (Route::has('login'))
-        @if (Auth::check())
-        <li class="nav-item dropdown mr-2">
-          <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{Auth::user()->name}}
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="/user/panel/profile">My profile</a>
-            <a class="dropdown-item" href="#">Change my plan</a>
-            <a class="dropdown-item" href="#">Logout</a>
-          </div>
-        </li>
-        @else
+          @if (Auth::check())<!-- Está  loggedo -->
+            <li class="nav-item dropdown mr-2">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{Auth::user()->name}}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="/user/panel/profile">My profile</a>
+                <a class="dropdown-item" href="#">Change my plan</a>
+                <a class="dropdown-item" href="#">Logout</a>
+              </div>
+            </li>
+          @else<!-- No ha iniciado sesión -->
 
-        <li class="nav-item  px-1"><button class="btn btn-info" data-toggle="modal" data-target="#modalLogin">@lang('login.login')</button></li><!--tocar buttons--><!--tambe includes register i login del modals-->
-        <li class="nav-item  px-1"><button class="btn btn-info" data-toggle="modal" data-target="#modalRegister">@lang('login.register')</button></li><!--tocar buttons-->
+            {{--
+                @if(!Auth::check())
+                  @include('layouts.register')
+                  @include('layouts.login')
+                @endif
+            --}}
+
+            <li class="nav-item  px-1"><button class="btn btn-info" data-toggle="modal" data-target="#modalLogin">@lang('login.login')</button></li><!--tocar buttons--><!--tambe includes register i login del modals-->
+            <li class="nav-item  px-1"><button class="btn btn-info" data-toggle="modal" data-target="#modalRegister">@lang('login.register')</button></li><!--tocar buttons-->
           @endif
         @endif
       </ul>
-      <!-----------lang----------->
+      <!-- Lang -->
       <ul>
         <li class="nav-item  px-1">
           <form method="post" action="{{route('change-lang')}}" id="change_lang">
@@ -61,8 +70,7 @@
           </select>
           </form>
         </li>
-      </ul>
-        <!-------end lang---------->
-    </div>
+      </ul><!-- / lang -->
+    </div><!-- / navbar-collapse -->
   </nav>
 </div><!-- / nav-container -->

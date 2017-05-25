@@ -8,7 +8,7 @@
         <!-- Bootstrap 4 -->
         <link rel="stylesheet" href="/css/libraries/bootstrap4/bootstrap.min.css">
 
-        <!-- 'Welcome' style.css -->
+        <!-- 'Welcome' style.css (Includes global navbar)-->
         <link rel="stylesheet" href="/css/style.css">
 
         <!-- CSS for logged in user -->
