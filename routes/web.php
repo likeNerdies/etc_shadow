@@ -46,17 +46,14 @@ Route::group(['prefix' => 'user/panel', 'middleware' => 'auth',], function () {
 
     //    /user/panel/plan
     Route::prefix('/plan')->group(function () {//user plan route
-
         Route::get('/', 'User\UserController@plan')->name('user-plan');
-
         Route::post('/subscribe', 'User\UserController@subscribeToPlan')->name('user-subscribe');
-
         Route::post('/cancelSub', 'User\UserController@cancelSubscription')->name('user-cancelSub');
-
         Route::post('/changePlan', 'User\UserController@subscribeToPlan')->name('user-change-plan');
-
-
     });
+
+    Route::get('/help','User\UserController@help')->name('help');
+
 
 });//end user panel route
 
@@ -68,7 +65,6 @@ Route::prefix('/products')->group(function () {//Product route
 
     Route::get('/search/dynamic', 'Product\ProductController@dynamicQuery')->name('dynamicSearch');
 });// end product route
-
 
 
 //ROUTE LOGIN FOR ADMIN
@@ -170,7 +166,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin',], function () {
     //Route Clients
     Route::prefix('/clients')->group(function () {
         Route::get('/', 'User\UserController@adminIndex');
-       // Route::post('/', 'user\UserController@adminStore');
+        // Route::post('/', 'user\UserController@adminStore');
         Route::get('/{client}', 'User\UserController@adminShow');
         Route::put('/{client}', 'User\UserController@adminUpdate');
         Route::delete('/{client}', 'User\UserController@adminDelete');
@@ -182,43 +178,43 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin',], function () {
 
 //search routes
 
-Route::prefix('/search')->group(function (){
+Route::prefix('/search')->group(function () {
 
-    Route::get('/category','Search\SearchController@category')->middleware('auth:admin')->name('search.category');
+    Route::get('/category', 'Search\SearchController@category')->middleware('auth:admin')->name('search.category');
 
-    Route::get('/brand','Search\SearchController@brand')->middleware('auth:admin')->name('search.brand');
+    Route::get('/brand', 'Search\SearchController@brand')->middleware('auth:admin')->name('search.brand');
 
-    Route::get('/allergySelect','Search\SearchController@allergySelect')->middleware('auth:admin')->name('search.allergySelect');
+    Route::get('/allergySelect', 'Search\SearchController@allergySelect')->middleware('auth:admin')->name('search.allergySelect');
 
-    Route::get('/ingredient','Search\SearchController@ingredient')->middleware('auth:admin')->name('search.ingredient');
+    Route::get('/ingredient', 'Search\SearchController@ingredient')->middleware('auth:admin')->name('search.ingredient');
 
-    Route::get('/categorySelect','Search\SearchController@categorySelect')->middleware('auth:admin')->name('search.categorySelect');
+    Route::get('/categorySelect', 'Search\SearchController@categorySelect')->middleware('auth:admin')->name('search.categorySelect');
 
-    Route::get('/ingredientSelect','Search\SearchController@IngredientSelect')->middleware('auth:admin')->name('search.ingredientSelect');
+    Route::get('/ingredientSelect', 'Search\SearchController@IngredientSelect')->middleware('auth:admin')->name('search.ingredientSelect');
 
-    Route::get('/brandSelect','Search\SearchController@brandSelect')->middleware('auth:admin')->name('search.brandSelect');
+    Route::get('/brandSelect', 'Search\SearchController@brandSelect')->middleware('auth:admin')->name('search.brandSelect');
 
-    Route::get('/product','Search\SearchController@product')->middleware('auth:admin')->name('search.product');
+    Route::get('/product', 'Search\SearchController@product')->middleware('auth:admin')->name('search.product');
 
-    Route::get('/plan','Search\SearchController@plan')->middleware('auth:admin')->name('search.plan');
+    Route::get('/plan', 'Search\SearchController@plan')->middleware('auth:admin')->name('search.plan');
 
-    Route::get('/allergy','Search\SearchController@allergy')->middleware('auth:admin')->name('search.allergy');
+    Route::get('/allergy', 'Search\SearchController@allergy')->middleware('auth:admin')->name('search.allergy');
 
-    Route::get('/admin','Search\SearchController@admin')->middleware('auth:admin')->name('search.admin');
+    Route::get('/admin', 'Search\SearchController@admin')->middleware('auth:admin')->name('search.admin');
 
-    Route::get('/client','Search\SearchController@client')->middleware('auth:admin')->name('search.client');
+    Route::get('/client', 'Search\SearchController@client')->middleware('auth:admin')->name('search.client');
 
     //per graphics
-    Route::get('/currentYearMonthSubs','Search\SearchController@getCurrentYearMonthlySubs')->middleware('auth:admin')->name('search.currentMonthSubscribers');
-    Route::get('/totalUserPerPlan','Search\SearchController@getTotalPlanUser')->middleware('auth:admin')->name('search.usersPerPlan');
+    Route::get('/currentYearMonthSubs', 'Search\SearchController@getCurrentYearMonthlySubs')->middleware('auth:admin')->name('search.currentMonthSubscribers');
+    Route::get('/totalUserPerPlan', 'Search\SearchController@getTotalPlanUser')->middleware('auth:admin')->name('search.usersPerPlan');
 
 
 });
 
 
-Route::get('/box-test','Box\BoxController@makeBox')->middleware('auth:admin');
+Route::get('/box-test', 'Box\BoxController@makeBox')->middleware('auth:admin');
 
 
 //lang change rout
 
-Route::post("changelocale",'Lang\LocaleController@changeLocale')->name('change-lang');
+Route::post("changelocale", 'Lang\LocaleController@changeLocale')->name('change-lang');
