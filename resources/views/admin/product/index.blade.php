@@ -139,13 +139,13 @@
 
                           <div class="group-input">
                               <label for="expiration_date" class="col-form-label">Expiration Date</label>
-                              <input type="date" class="form-control col-md-11 col-12" id="expiration_date" name="expiration_date" placeholder="09/02/2018"  value="" required onblur="validateExpDate(this)" />
+                              <input type="date" class="form-control col-md-11 col-12" id="expiration_date" name="expiration_date" placeholder="2018/02/09"  value="" required onblur="validateExpDate(this)" />
                           </div>
                       </div>
 
                       <div class="d-flex flex-md-row display-767-column mt-2">
                           <div class="group-input">
-                              <label for="weight" class="col-form-label">Weight (in grams)</label>
+                              <label for="weight" class="col-form-label">Weight <small>(in grams)</small></label>
                               <input type="number" class="form-control col-md-11 col-12" id="weight" name="weight" placeholder="1200" value="" required onblur="validateWeight(this)" />
                           </div>
 
@@ -190,11 +190,11 @@
 
                               <div class="d-flex flex-md-row display-767-column mt-2">
                                   <div class="group-input">
-                                      <label for="dimension" class="col-form-label">Dimension (L x W x H) in cm</label>
-                                      <input type="number" class="form-control col-md-11 col-12" id="dimension" name="dimension" placeholder="10x5.80x25" value="" onblur="validateDimensions(this)"><!-- afegir exemple -->
+                                      <label for="dimension" class="col-form-label">Dimension <small>(1: Charming, 2: Pro, 3: Premium)</small></label>
+                                      <input type="number" class="form-control col-md-11 col-12" id="dimension" name="dimension" placeholder="1" value="" onblur="validateDimensions(this)"><!-- afegir exemple -->
                                   </div>
                                   <div class="group-input">
-                                      <label for="real_weight" class="col-form-label">Real weight (in grams)</label>
+                                      <label for="real_weight" class="col-form-label">Real weight <small>(in grams)</small></label>
                                       <input type="number" class="form-control col-md-11 col-12" id="real_weight" name="real_weight" placeholder="1300" value="" onblur="validateWeight(this)" />
                                   </div>
                               </div>

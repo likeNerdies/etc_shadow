@@ -1,6 +1,11 @@
+/**
+ * Se comprueba que el nombre tenga el formato correcto.
+ * Si es obligatorio, se valida. Y si no es obligatorio pero se han escrito datos, también.
+ * Si no es obligatorio y no se han escrito datos, el border-color será el original.
+ * Si el formato es correcto, el borde del input se volverá de color verde. Sino, de color rojo.
+ * @param {String} name [Nombre del producto, categoría, etc. También se utiliza para las informaciones]
+ */
 function validateName(name) {
-  // Si es obligatorio, se valida. Y si no es obligatorio pero se han escrito datos, también.
-  //Si no es obligatorio y no se han escrito datos, el border-color será el original.
   if (name.required || (!name.required && name.value.length != 0)) {
     var regex = /[a-zA-Z]{3,100}/i;
     if (!(name.value).match(regex)) {
@@ -11,6 +16,11 @@ function validateName(name) {
   }
 }
 
+/**
+ * Se comprueba que el CIF tenga el formato correcto.
+ * Si el formato es correcto, el borde del input se volverá de color verde. Sino, de color rojo.
+ * @param  {String} cif [CIF de la empresa transportista]
+ */
 function validateCIF(cif) {
   var regex = /^[a-zA-Z][0-9]{8}$/;
   if (!(cif.value).match(regex)) {
@@ -20,6 +30,11 @@ function validateCIF(cif) {
   }
 }
 
+/**
+ * Se comprueba que el número de teléfono tenga el formato correcto.
+ * Si el formato es correcto, el borde del input se volverá de color verde. Sino, de color rojo.
+ * @param  {String} phone [Número de teléfono de las empresas y de los usuarios]
+ */
 function validatePhone(phone) {
   var regex = /\d{9}/;
   if (!(phone.value).match(regex)) {
@@ -29,6 +44,11 @@ function validatePhone(phone) {
   }
 }
 
+/**
+ * Se comprueba que el precio tenga el formato correcto.
+ * Si el formato es correcto, el borde del input se volverá de color verde. Sino, de color rojo.
+ * @param  {String} price [Precio de los productos y de los planes]
+ */
 function validatePrice(price) {
   var regex = /^\d{1,2}[,|.]\d{1,2}$/;
   if (!(price.value).match(regex)) {
@@ -38,9 +58,14 @@ function validatePrice(price) {
   }
 }
 
+/**
+ * Se comprueba que el peso tenga el formato correcto.
+ * Si es obligatorio, se valida. Y si no es obligatorio pero se han escrito datos, también.
+ * Si no es obligatorio y no se han escrito datos, el border-color será el original.
+ * Si el formato es correcto, el borde del input se volverá de color verde. Sino, de color rojo.
+ * @param  {int} weight [Peso del producto]
+ */
 function validateWeight(weight) {
-  // Si es obligatorio, se valida. Y si no es obligatorio pero se han escrito datos, también.
-  //Si no es obligatorio y no se han escrito datos, el border-color será el original.
   if (weight.required || (!weight.required && weight.value.length != 0)) {
     var regex = /\d{3,4}/;
     if (!(weight.value).match(regex)) {
@@ -51,6 +76,11 @@ function validateWeight(weight) {
   }
 }
 
+/**
+ * Se comprueba que el número de stok tenga el formato correcto.
+ * Si el formato es correcto, el borde del input se volverá de color verde. Sino, de color rojo.
+ * @param  {int} stock [Cantidad de ese producto en el almacén]
+ */
 function validateStock(stock) {
   var regex = /\d+/;
   if (!(stock.value).match(regex)) {
@@ -60,14 +90,21 @@ function validateStock(stock) {
   }
 }
 
-function validateExpDate(date) { // CLARA: Comprovar que la data no sigui NaN
-  // Si es obligatorio, se valida. Y si no es obligatorio pero se han escrito datos, también.
-  //Si no es obligatorio y no se han escrito datos, el border-color será el original.
+/* CAMBIAR POR ISO DATE */
+/**
+ * Se comprueba que el la fecha de caducidad tenga el formato correcto.
+ * Si es obligatorio, se valida. Y si no es obligatorio pero se han escrito datos, también.
+ * Si no es obligatorio y no se han escrito datos, el border-color será el original.
+ * Se tiene en cuenta que la fecha de caducidad no pueda ser hoy ni anterior.
+ * Si el formato es correcto, el borde del input se volverá de color verde. Sino, de color rojo.
+ * @param  {Date} date [Fecha de caducidad formato ISO yyyy-mm-dd]
+ */
+function validateExpDate(date) {
   if (date.required || (!date.required && date.value.length != 0)) {
     var today = new Date();
     var input = new Date(date.value);
-    console.log("input: " + isNaN(input));
-    if (input < today) { // La fecha de caducidad no puede ser ni hoy ni el anterior
+    //console.log("date: " + input.toISOString());
+    if (input < today) {
       date.style.borderColor = "#a94442";
     } else {
       date.style.borderColor = "#5cb85c";
@@ -75,9 +112,14 @@ function validateExpDate(date) { // CLARA: Comprovar que la data no sigui NaN
   }
 }
 
+/**
+ * Se comprueba que el DNI tenga el formato correcto.
+ * Si es obligatorio, se valida. Y si no es obligatorio pero se han escrito datos, también.
+ * Si no es obligatorio y no se han escrito datos, el border-color será el original.
+ * Si el formato es correcto, el borde del input se volverá de color verde. Sino, de color rojo.
+ * @param  {String} dni [DNI del usuario]
+ */
 function validateDNI(dni) {
-  // Si es obligatorio, se valida. Y si no es obligatorio pero se han escrito datos, también.
-  //Si no es obligatorio y no se han escrito datos, el border-color será el original.
   if (dni.required || (!dni.required && dni.value.length != 0)) {
     var regex = /^\d{8}[aA-zZ]{1}$/;
     if (!(dni.value).match(regex)) {
@@ -88,6 +130,11 @@ function validateDNI(dni) {
   }
 }
 
+/**
+ * Se comprueba que el email tenga el formato correcto.
+ * Si el formato es correcto, el borde del input se volverá de color verde. Sino, de color rojo.
+ * @type {String} email [Email del usuario]
+ */
 function validateEmail(email) {
   var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   if (!(email.value).match(regex)) {
@@ -97,11 +144,17 @@ function validateEmail(email) {
   }
 }
 
+/**
+ * Se comprueba que las dimensiones del producto tengan el formato correcto.
+ * Si es obligatorio, se valida. Y si no es obligatorio pero se han escrito datos, también.
+ * Si no es obligatorio y no se han escrito datos, el border-color será el original.
+ * Si el formato es correcto, el borde del input se volverá de color verde. Sino, de color rojo.
+ * @param  {int} dimensions [1: Cabe desde el plan Charming, hasta el Premium,
+ * 2: Cabe desde el Pro hasta el Premium, 3: Sólo cabe en la caja Premium]
+ */
 function validateDimensions(dimensions) {
-  // Si es obligatorio, se valida. Y si no es obligatorio pero se han escrito datos, también.
-  //Si no es obligatorio y no se han escrito datos, el border-color será el original.
   if (dimensions.required || (!dimensions.required && dimensions.value.length != 0)) {
-    var regex = /^\d{1,2}([,.]\d{1,2})?x\d{1,2}([,.]\d{1,2})x\d{1,2}([,.]\d{1,2})?$/;
+    var regex = /^[1-3]{1}$/;
     if (!(dimensions.value).match(regex)) {
       dimensions.style.borderColor = "#a94442";
     } else {
