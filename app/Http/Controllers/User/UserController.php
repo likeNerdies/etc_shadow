@@ -81,7 +81,8 @@ class UserController extends Controller
 
 
     public function unlikeIngredientShow(){
-        return view('user.panel.ingredient.index');
+        $ingredients=App\Ingredient::all();
+        return view('user.panel.ingredient.index',compact('ingredients'));
     }
 
     public function likeIngredientStore(Request $request){
@@ -99,7 +100,8 @@ class UserController extends Controller
     }
 
     public function userAllergyShow(){
-        return view('user.panel.allergy.index');
+        $allergies=App\Allergy::all();
+        return view('user.panel.allergy.index',compact('allergies'));
     }
 
     public function userAllergyStore(Request $request){

@@ -63,8 +63,6 @@ Route::group(['prefix' => 'user/panel', 'middleware' => 'auth',], function () {
     Route::post('/allergies/doesnt', 'User\UserController@userHasntAllergyStore')->name('user-doesnt-allergy');
 
 
-
-
 });//end user panel route
 
 Route::prefix('/products')->group(function () {//Product route
