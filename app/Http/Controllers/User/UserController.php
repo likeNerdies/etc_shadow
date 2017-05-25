@@ -74,9 +74,10 @@ class UserController extends Controller
     }
 
 
-
-
-
+    public function help()
+    {
+        return view('user.panel.help.index');
+    }
 
 
     /**
@@ -86,8 +87,8 @@ class UserController extends Controller
      */
     public function plan()
     {
-        $plans=App\Plan::all();
-        return view('user.panel.plan.index',compact('plans'));
+        $plans = App\Plan::all();
+        return view('user.panel.plan.index', compact('plans'));
     }
 
     /**
@@ -113,7 +114,7 @@ class UserController extends Controller
         $user = Auth::user();
         $plan = App\Plan::findOrFail($request->plan_id);
         $user->plan()->associate($plan);
-        if(isset($user->plan)){
+        if (isset($user->plan)) {
             $user->plan()->dissociate();
         }
         $user->subscribed_at = null;
@@ -177,7 +178,7 @@ class UserController extends Controller
         if (isset($request->plan)) {
             $client->plan()->associate($request->plan);
             $client->subscribed_at = date("Y-m-d");
-        }else{
+        } else {
             $client->plan()->dissociate();
         }
         $client->save();
