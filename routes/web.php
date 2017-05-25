@@ -55,6 +55,7 @@ Route::group(['prefix' => 'user/panel', 'middleware' => 'auth',], function () {
     Route::get('/help','User\UserController@help')->name('help');
 
     Route::get('/ingredients', 'User\UserController@unlikeIngredientShow')->name('user-ingredients');
+    Route::get('/ingredients/{id}/image', 'Ingredient\IngredientController@showPicture');
     Route::post('/ingredients/like', 'User\UserController@likeIngredientStore')->name('user-like-ingredients');
     Route::post('/ingredients/unlike', 'User\UserController@unlikeIngredientStore')->name('user-unlike-ingredients');
 
