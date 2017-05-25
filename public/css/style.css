@@ -335,24 +335,24 @@ i.toggle{
 }
 
 .profile-content{
-    width:25vw;
-    height:25vh;
+    width:200px;
+    height:40%;
     background: navajowhite;
     position: fixed;
     top: 60px;
-    right: -25vw;
-    z-index: 15000;
+    right: -200px;
+    z-index: 1500;
     transition: right .75s;
 }
 
 .profile-content-show{
-    width:25vw;
-    height:25vh;
+    width:200px;
+    height:40%;
     background: navajowhite;
     position: fixed;
     top: 60px;
     right: 0;
-    z-index: 15000;
+    z-index: 1500;
     transition: right .75s;
 }
 

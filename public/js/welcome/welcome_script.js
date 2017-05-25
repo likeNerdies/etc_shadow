@@ -63,20 +63,40 @@ $(document).ready(function (event) {
         $(this).toggleClass('arrow-show arrow-show-bg').next().toggleClass('left-0');
     });
 
-    $(document).on('click','#hamburger',function () {
-        if($('.profile-content-show').is(':visible')){
-            $('span#tog-profile').trigger("click");
-        }
-        $('#navbarTogglerDemo02').slideToggle();
-    });
+    ///////////////////////////////////////////////////////////////////
 
-    ///////////////////////////////////////////////////////////////////DISPLAY PROFILE
-    $(document).on('click','span#tog-profile',function () {
-        if($('#navbarTogglerDemo02').is(':visible')){
-            $('#hamburger').trigger( "click" );
+    //if($('#navbarTogglerDemo02').is(':visible'))alert("hey");
+
+    //alert($(document))
+    function mediaQuery(mql) {
+        if(mql.matches){
+            $(document).on('click','#hamburger',function () {
+                if($('.profile-content-show').is(':visible')){
+                    $('.profile-content').toggleClass('profile-content-show');
+                }
+                $('#navbarTogglerDemo02').slideToggle();
+            });
+
+            $(document).on('click','span#tog-profile',function (e) {
+                if($('#navbarTogglerDemo02').is(':visible')){
+                    $('#navbarTogglerDemo02').slideToggle();
+                }
+                $('.profile-content').toggleClass('profile-content-show');
+            });
+        }else{
+
+            $(document).on('click','span#tog-profile',function () {
+                $('.profile-content').toggleClass('profile-content-show');
+            });
         }
-        $('.profile-content').toggleClass('profile-content-show');
-    });
+    }
+
+    var mql = window.matchMedia("(max-width:768px)");
+    mediaQuery(mql);
+    mql.addListener(mediaQuery);
+
+
+
 
     //////////////////////////////////////////////////////////////////////SIDEBAR
     $('#title-categories, #title-brands, #title-diets').click(function (e) {

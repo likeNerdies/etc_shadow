@@ -10,7 +10,7 @@
 @include('layouts.navbar')
 
 
-<div class="container-fluid pr-0">
+<div class="container-fluid pr-0 pl-0">
   <div class="background-image"></div>
 </div>
 <div class="container">
