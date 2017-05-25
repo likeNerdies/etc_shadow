@@ -13,7 +13,7 @@
             <a href="" class="">@lang("user/profile/profile.ingredientsAllergies")</a>
         </div>
         <div class="block-user-profile mb-2">
-            <a href="" class="">@lang("user/profile/profile.help")</a>
+            <a href="/user/panel/help" class="">@lang("user/profile/profile.help")</a>
         </div>
 
 
