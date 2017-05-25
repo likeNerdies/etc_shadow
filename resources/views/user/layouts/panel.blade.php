@@ -7,18 +7,16 @@
     <div class="profile-content"></div>
     <div id="main-wrapper-in">
         <div id="sidebar-wrapper-in">
-            <div class="container">
-                @include('user.layouts.sidebar')
-            </div>
+            @include('user.layouts.sidebar')
         </div>
         <div id="content-wrapper-in">
-            <div class="container">
-                @yield('right-panel')
-            </div>
+            @yield('right-panel')
         </div>
     </div>
 
-
+    <div class="scrollTop">
+        <i class="fa fa-caret-up fa-3x" aria-hidden="true"></i>
+    </div>
 
 
 @endsection

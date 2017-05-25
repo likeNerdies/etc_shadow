@@ -67,6 +67,7 @@ $(document).ready(function (event) {
         if($('.profile-content-show').is(':visible')){
             $('span#tog-profile').trigger("click");
         }
+        $('#navbarTogglerDemo02').slideToggle();
     });
 
     ///////////////////////////////////////////////////////////////////DISPLAY PROFILE

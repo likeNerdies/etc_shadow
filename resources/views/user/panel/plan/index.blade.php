@@ -8,7 +8,7 @@
         <h4 class="text-center mt-3">Wanna subscribe?</h4>
 
         <!-- Charming -->
-        <div class="row mr-sm-0 section charming-bg-color p-5 mr-md-5">
+        <div class="row section charming-bg-color p-5 mr-md-5">
           <div class="col-md-9">
             <h3 class="text-center">Want to start from the very scratch?</h3>
             <h3 class="text-center subtitle">We have the perfect plan for you!</h3>
