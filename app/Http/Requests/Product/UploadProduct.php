@@ -31,7 +31,7 @@ class UploadProduct extends FormRequest
                     'regex:/^\d{1,2}[,|.]\d{1,2}$/'
                 ),
             'description' =>'required|min:3|max:2000',
-            'expiration_date' => 'required|date',
+            'expiration_date' => 'required|date|date_format:"Y/m/d|after:today',
             'weight' =>'required|integer|between:1,9999',
             'real_weight' =>'nullable|integer|between:1,9999',
             'vegetarian'=>'nullable|boolean',
