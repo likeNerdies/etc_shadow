@@ -146,11 +146,14 @@ class IngredientController extends Controller
 
     public function showPicture($id)
     {
+        $response=["images"=>"This ingredients has no images"];
         $ingredient = App\Ingredient::findOrFail($id);
-        $pic = Image::make($ingredient->image);
-        $response = Response::make($pic->encode('jpeg'));
-        //setting content-type
-        $response->header('Content-Type', 'image/jpeg');
+        if($ingredient->image !=null){
+            $pic = Image::make($ingredient->image);
+            $response = Response::make($pic->encode('jpeg'));
+            //setting content-type
+            $response->header('Content-Type', 'image/jpeg');
+        }
         return $response;
     }
 

@@ -3,7 +3,7 @@
 
 <div class="ml-15">
 
-  <form class="" action="user/panel/ingredients" method="post">
+ <!-- <form class="" action="user/panel/ingredients" method="post">-->
     <div class="card-columns text-center row">
 
       @foreach ($ingredients as $ingredient)
@@ -16,7 +16,7 @@
       @endforeach
 
     </div>
-  </form>
+ <!-- </form> -->
 </div>
 
 @endsection
