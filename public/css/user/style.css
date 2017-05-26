@@ -110,3 +110,11 @@ CSS file for logged in users
 
 .ingredient-selected {
 }
+
+.like{
+  border:1px solid #42aa55;
+}
+
+.unlike{
+  border:1px solid #bf2c1b;
+}
