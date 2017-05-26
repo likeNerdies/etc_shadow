@@ -17,19 +17,21 @@ $(document).ready(function () {
 
         var formData = {
             ingredient_id: ingredient_id
-        }
+        };
         console.log(formData);
 
         $.ajax({
             type: "POST",
-            url: '/user/panel/ingredients/unlike',
-            data: formData,
+            url: '/user/panel/ingredients/like',
+            data: {'ingredient_id':1},
             dataType: 'json',
             success: function (data) {
-                $(this).css(" border", "1px solid #bf2c1b");
+                //$(this).css(" border", "1px solid #bf2c1b");
             },
-            error: function (data) {
-                console.log(data);
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log(xhr.status);
+                console.log(xhr.responseText);
+                console.log(thrownError);
             }
         });
 

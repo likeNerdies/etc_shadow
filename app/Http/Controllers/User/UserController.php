@@ -86,6 +86,7 @@ class UserController extends Controller
     }
 
     public function likeIngredientStore(Request $request){
+        return response()->json(["ok"=>"ok"]);
         $user = Auth::user();
         $retorn =[];
         $ingredients=$user->ingredients();
@@ -127,7 +128,7 @@ class UserController extends Controller
     }
 
     public function userAllergyShow(){
-        $allergies=App\Allergy::all();
+        $allergies = App\Allergy::all();
         return view('user.panel.allergy.index',compact('allergies'));
     }
 
