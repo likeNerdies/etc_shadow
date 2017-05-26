@@ -11,17 +11,17 @@ $(document).ready(function() {
 
     e.preventDefault();
 
-    var formData = {
-        selected: $(this).hasClass('ingredient-selected')
-    }
-    //var type = "POST";
     var ingredient_id = $(this).attr('id');
+    //selected: $(this).hasClass('ingredient-selected')
+
+    var formData = {
+        ingredient_id: ingredient_id
+    }
     console.log(formData);
-    console.log("id: " + ingredient_id);
 
     $.ajax({
-      type = "POST",
-      url: '/ingredients/like',
+      type: "POST",
+      url: '/user/panel/ingredients/unlike',
       data: formData,
       dataType: 'json',
       success: function (data) {
