@@ -80,6 +80,7 @@ class PlanController extends Controller
         $plan=App\Plan::findOrFail($id);
         $plan->name=$request->name;
         $plan->price=$request->price;
+        $plan->info=$request->info;
         $plan->save();
         //return redirect('plan.index');
         return $plan;
