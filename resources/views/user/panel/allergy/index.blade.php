@@ -3,10 +3,11 @@
 
 <div class="ml-15">
 
-  <form class="" action="user/panel/ingredients" method="post">
-    <div class="card-columns text-center row">
+  <form class="" action="user/panel/allergies" method="post">
+    <table class="table text-center">
 
-      @foreach ($ingredients as $ingredient)
+
+      @foreach ($allergies as $allergy)
         <div class="card p-2 col-md-3 mx-1">
           <img src="/user/panel/ingredients/{{ $ingredient->id }}/image" class="rounded card-img-top ingredient-img img-fluid pt-3 pb-3" alt=" {{ $ingredient->name }} ">
           <div class="card-footer">
@@ -19,8 +20,4 @@
   </form>
 </div>
 
-@endsection
-
-@section('scriptsPersonalizados')
-  <script src="/js/user/ingredients/ingredients.js"></script>
 @endsection
