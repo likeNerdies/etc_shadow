@@ -684,6 +684,13 @@ i.toggle{
     }
 
 
+    .group-input{
+        width: 100%;
+    }
+
+    .display-767-column{
+        flex-direction: column !important;
+    }
     /*</USER>*/
 
 
