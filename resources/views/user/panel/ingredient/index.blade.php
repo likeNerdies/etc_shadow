@@ -7,7 +7,7 @@
     <div class="card-columns text-center row">
 
       @foreach ($ingredients as $ingredient)
-        <div class="card p-2 col-md-3 mx-1">
+        <div id=" {{ $ingredient->id }} " class="card p-2 col-md-3 mx-1">
           <img src="/user/panel/ingredients/{{ $ingredient->id }}/image" class="rounded card-img-top ingredient-img img-fluid pt-3 pb-3" alt=" {{ $ingredient->name }} ">
           <div class="card-footer">
               <small> {{ $ingredient->name }} </small>
