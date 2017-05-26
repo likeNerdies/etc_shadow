@@ -86,17 +86,17 @@ class UserController extends Controller
     }
 
     public function likeIngredientStore(Request $request){
-        return response()->json(["ok"=>"ok"]);
         $user = Auth::user();
         $retorn =[];
-        $ingredients=$user->ingredients();
+        $exists=false;
+        $ingredients=$user->ingredients;
         for($i=0;$i<count($ingredients);$i++){
             if($ingredients[$i]->id==$request->ingredient_id){
                 $exists=true;
             }
         }
         if($exists){
-            $user->ingredients()->detach($request->ingredient_id);
+            $user->ingredients()->detach([$request->ingredient_id]);
             $user->save();
             $retorn=['success'=>true];
         }else{
@@ -107,17 +107,18 @@ class UserController extends Controller
     }
 
     public function unlikeIngredientStore(Request $request){
-        return response()->json(["ok"=>"ok"]);
         $user = Auth::user();
         $retorn =[];
-        $ingredients=$user->ingredients();
+        $exists=false;
+        $ingredients=$user->ingredients;
+        if(count($ingredients)>0 || $ingredients!=null)
         for($i=0;$i<count($ingredients);$i++){
             if($ingredients[$i]->id==$request->ingredient_id){
                 $exists=true;
             }
         }
-        if($exists){
-            $user->ingredients()->attach($request->ingredient_id);
+        if(!$exists){
+            $user->ingredients()->attach([$request->ingredient_id]);
             $user->save();
             $retorn=['success'=>true];
         }else{
