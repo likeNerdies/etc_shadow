@@ -3,7 +3,7 @@
 return [
   "myProfile" => "Mi perfil",
   "myData" => "Mis datos",
-  "plan" => "Plan",
+  "plan" => "Planes",
   "ingredientsAllergies" => "Ingredientes y Alergias",
   "ingredients" => "Ingredientes",
   "allergies" => "Alergias",

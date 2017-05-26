@@ -110,16 +110,44 @@
   </div><!-- / plans -->
 
   <div id="aboutUs" class="row section"><!-- About us -->
-    <div id="about" class="col-sm-12 text-center">
+    <div id="about" class="col-sm-12 text-center bg-whitesmoke">
       <h2 class="pt-2">About us</h2>
-      <div class="row">
-        <div class="side1 mt-5 col-md-6 col-sm-12">
-          <h4>A healthy body is a healthy mind</h4>
-          <p>That's what my grandma told me.</p>
+      <div class="d-flex">
+
+        <!-- Counters -->
+        <!-- Lines of code -->
+        <div class="code mx-auto">
+          <div class="icon">
+            <h4><i class="fa fa-3 fa-code counter-icon"></i></h4>
+          </div>
+          <div class="counter">
+            <h4 class="lighter-font"><span data-count-from="100" data-count-to="1416" class="stats counter-number">1416</span></h4>
+            <p class="text-uppercase">Lines of code</p>
+          </div>
         </div>
-        <div class="side2 mt-5 col-md-6 col-sm-12">
-          <h4>We're a startup with a vision</h4>
+
+        <!-- Cups of coffee -->
+        <div class="coffee mx-auto">
+          <div class="icon">
+            <h4><i class="fa fa-3 fa-coffee counter-icon"></i></h4>
+          </div>
+          <div class="counter">
+            <h4 class="lighter-font"><span data-count-from="1" data-count-to="280"  class="stats counter-number">280</span></h4>
+            <p class="text-uppercase">Cups of coffee</p>
+          </div>
         </div>
+
+        <!-- Satisfied clients -->
+        <div class="clients mx-auto">
+          <div class="icon">
+            <h4><i class="fa fa-3 fa-smile-o counter-icon"></i></h4>
+          </div>
+          <div class="counter">
+            <h4 class="lighter-font"><span data-count-from="100" data-count-to="1100"  class="stats counter-number">1100</span></h4><!-- POSAR EXACTAMENT EL NÚMERO DE CLIENTS -->
+            <p class="text-uppercase">Satisfied clients</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </div><!-- / about us -->
@@ -136,5 +164,12 @@
 
 @section('scriptsPersonalizados')
   <script src="/js/welcome/welcome_script.js"></script>
-  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+  <script src="/js/libraries/timber/timber.js"></script>
+  <script src="/js/libraries/timber/jquery.tm.counter.js"></script>
+
+  <script type="text/javascript">
+  $( document ).ready( function(){
+    $( '.stats' ).counter();
+  });
+  </script>
 @endsection

@@ -97,11 +97,10 @@ class UserController extends Controller
         $user->ingredients()->attach($request->ingredient_id);
         $user->save();
         return response()->json(['success'=>true],200);
-
     }
 
     public function userAllergyShow(){
-        $allergies=App\Allergy::all();
+        $allergies = App\Allergy::all();
         return view('user.panel.allergy.index',compact('allergies'));
     }
 
