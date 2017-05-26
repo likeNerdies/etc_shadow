@@ -87,16 +87,17 @@ class UserController extends Controller
 
     public function likeIngredientStore(Request $request){
         $user = Auth::user();
-        $user->ingredients()->attach($request->ingredient_id);
+        $user->ingredients()->detach($request->ingredient_id);
         $user->save();
         return response()->json(['success'=>true],200);
     }
 
     public function unlikeIngredientStore(Request $request){
         $user = Auth::user();
-        $user->ingredients()->detach($request->ingredient_id);
+        $user->ingredients()->attach($request->ingredient_id);
         $user->save();
         return response()->json(['success'=>true],200);
+
     }
 
     public function userAllergyShow(){

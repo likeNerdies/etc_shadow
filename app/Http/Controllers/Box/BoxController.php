@@ -38,7 +38,7 @@ class BoxController extends Controller
         foreach ($ingProducts as $item) {
             $query->where('products.id', '<>', $item->id);
         }
-
+        $query->where('stock','>',0);
         return $query->get();
     }
 
@@ -59,7 +59,7 @@ class BoxController extends Controller
             if (($sumaPrecioProductosCaja < $price * 1.1 && $sumaPrecioProductosCaja > $price * 0.85) || $sumaPrecioProductosCaja > $price)
                 $lleno = true;
 
-            if ($products[$i]->dimension <= $dimension) {
+            if ($products[$i]->dimension <= $dimension && $products[$i]->stock>0) {
                 $box->products()->attach([$products[$i]->id]);
                 $sumaPrecioProductosCaja += $products[$i]->price;
             }
@@ -69,6 +69,10 @@ class BoxController extends Controller
         return $box;
     }
 
+    /**
+     * @param $user
+     * @param $box
+     */
     public function makeDelivery($user, $box)
     {
         $delivery = new App\Delivery;
@@ -80,6 +84,10 @@ class BoxController extends Controller
         $delivery->save();
     }
 
+    /**
+     * @param $box
+     * @return mixed
+     */
     public function putDefaultProductBox(&$box){
 
         return $box;
@@ -106,7 +114,6 @@ class BoxController extends Controller
                         $box = $this->putProductIntoBox($products, $user->plan, 3);
                         break;
                 }
-
                 if(is_null($box) || empty($box) || count($products)==0 || is_null($products) || empty($products))
                     $this->putDefaultProductBox($box);
 

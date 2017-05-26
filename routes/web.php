@@ -75,6 +75,11 @@ Route::prefix('/products')->group(function () {//Product route
     Route::get('/search/dynamic', 'Product\ProductController@dynamicQuery')->name('dynamicSearch');
 });// end product route
 
+//Route for plans
+
+Route::get('/plans','Plan\PlanController@indexPlan')->name('our-plans');
+Route::get('/plans/{id}','Plan\PlanController@showPlan')->name('show-main-index-plan');
+//end Route for plans
 
 //ROUTE LOGIN FOR ADMIN
 Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
