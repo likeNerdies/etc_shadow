@@ -101,3 +101,12 @@ CSS file for logged in users
     font-size: 22px;
   }
 }
+
+/* INGREDIENTS SECTION */
+.ingredient-img {
+  width: 30%;
+  height: auto;
+}
+
+.ingredient-selected {
+}

@@ -26,51 +26,55 @@ class AdminController extends Controller
     public function index()
     {
         //return date("m");
-        $totalUsers=App\User::all()->count();
-        $boxToSend=App\User::has('plan')->get()->count();
+        $totalUsers = App\User::all()->count();
+        $boxToSend = App\User::has('plan')->get()->count();
 
-      
 
-        $profit=[];
-        try{
-            //calculando total ganancias
-            $charming=App\Plan::find(1)->value('price');
-            $pro =App\Plan::find(1)->value('price');
-            $premium =App\Plan::find(1)->value('price');
+        $profit = [];
+               try{
+                    //calculando total ganancias
+                    $charming=App\Plan::find(1)->value('price');
+                    $pro =App\Plan::find(1)->value('price');
+                    $premium =App\Plan::find(1)->value('price');
 
-            $usersCharming=App\User::whereHas('plan', function ($query) {
-                $query->where('id', '=', 1);
-            })->get()->count();
+                    $usersCharming=App\User::whereHas('plan', function ($query) {
+                        $query->where('id', '=', 1);
+                    })->get()->count();
 
-            $usersPro=App\User::whereHas('plan', function ($query) {
-                $query->where('id', '=', 2);
-            })->get()->count();
+                    $usersPro=App\User::whereHas('plan', function ($query) {
+                        $query->where('id', '=', 2);
+                    })->get()->count();
 
-            $usersPremium=App\User::whereHas('plan', function ($query) {
-                $query->where('id', '=', 3);
-            })->get()->count();
-            $profit=[
-                "charming"=>$charming*$usersCharming,
-                "pro"=>$pro*$usersPro,
-                "premium"=>$premium*$usersPremium,
-            ];
-        }catch(Exception $e){
-            $profit=[
-                "charming"=>0,
-                "pro"=>0,
-                "premium"=>0,
-            ];
-        }
+                    $usersPremium=App\User::whereHas('plan', function ($query) {
+                        $query->where('id', '=', 3);
+                    })->get()->count();
+                    $profit=[
+                        "charming"=>$charming*$usersCharming,
+                        "pro"=>$pro*$usersPro,
+                        "premium"=>$premium*$usersPremium,
+                    ];
+                }catch(Exception $e){
+                    $profit=[
+                        "charming"=>0,
+                        "pro"=>0,
+                        "premium"=>0,
+                    ];
+                }
+        /*$boxes = App\Box::all();
+        foreach ($boxes as $box) {
+
+        }*/
+
         //products order by expiration date
-        $productOBED=App\Product::orderBY('expiration_date','asc')->paginate(5);
+        $productOBED = App\Product::orderBY('expiration_date', 'asc')->paginate(5);
 
         //last 5 users registered
-        $lastFiveUsers=App\User::orderBy('created_at','dsc')->limit(5)->get();
+        $lastFiveUsers = App\User::orderBy('created_at', 'dsc')->limit(5)->get();
 
         //--end calculando total ganancias
 
 
-        return view('admin.index',compact(['totalUsers','boxToSend','profit','productOBED','lastFiveUsers']));
+        return view('admin.index', compact(['totalUsers', 'boxToSend', 'profit', 'productOBED', 'lastFiveUsers']));
     }
 
     public function configuration()
@@ -80,8 +84,8 @@ class AdminController extends Controller
 
     public function adminUsers()
     {
-        $admins=App\Admin::all();
-        return view('admin.configuration.create',compact('admins'));
+        $admins = App\Admin::all();
+        return view('admin.configuration.create', compact('admins'));
     }
 
     /**
@@ -90,7 +94,7 @@ class AdminController extends Controller
      */
     public function update(StoreValidation $request)
     {
-       // return "hola";
+        // return "hola";
         $user = Auth::user();
         $user->dni = $request->dni;
         $user->name = $request->name;
@@ -99,7 +103,7 @@ class AdminController extends Controller
         $user->email = $request->email;
         $user->phone_number = $request->phone_number;
         $user->save();
-       return redirect()->back();
+        return redirect()->back();
 
     }
 
@@ -108,7 +112,7 @@ class AdminController extends Controller
      * @param $id
      * @return mixed
      */
-    public function updateAdminUser(AdminUpdateValidation $request,$id)
+    public function updateAdminUser(AdminUpdateValidation $request, $id)
     {
         $user = App\Admin::findOrFail($id);
         $user->dni = $request->dni;
@@ -116,7 +120,7 @@ class AdminController extends Controller
         $user->first_surname = $request->first_surname;
         $user->second_surname = $request->second_surname;
         $user->email = $request->email;
-        $user->password= Hash::make($request->password);
+        $user->password = Hash::make($request->password);
         $user->phone_number = $request->phone_number;
         $user->can_create = $request->can_create;
         $user->save();
@@ -127,24 +131,24 @@ class AdminController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $admin=App\Admin::findOrFail($id);
+        $admin = App\Admin::findOrFail($id);
         return $admin;
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function delete($id)
     {
-        $admin=App\Admin::findOrFail($id);
+        $admin = App\Admin::findOrFail($id);
         $admin->delete();
         return $admin;
     }
@@ -153,16 +157,17 @@ class AdminController extends Controller
      * @param StoreValidation $request
      * @return mixed
      */
-    public function store(StoreValidation $request){
-        $user=App\Admin::create([
-            'dni'=>$request->dni,
-            'name'=>$request->name,
-            'first_surname'=>$request->first_surname,
-            'second_surname'=>$request->second_surname,
-            'email'=>$request->email,
-            'password'=>bcrypt($request->password),
-            'phone_number'=>$request->phone_number,
-            'can_create'=>$request->can_create
+    public function store(StoreValidation $request)
+    {
+        $user = App\Admin::create([
+            'dni' => $request->dni,
+            'name' => $request->name,
+            'first_surname' => $request->first_surname,
+            'second_surname' => $request->second_surname,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'phone_number' => $request->phone_number,
+            'can_create' => $request->can_create
         ]);
         return $user;
     }

@@ -18,7 +18,7 @@ class Delivery extends Model
      * Get the bpx for the delivery
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function Box()
+    public function box()
     {
         return $this->belongsTo('App\Box');
     }
@@ -26,7 +26,7 @@ class Delivery extends Model
      * Get the transporter for the delivery
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function Transporter()
+    public function transporter()
     {
         return $this->belongsTo('App\Transporter');
     }

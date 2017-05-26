@@ -15,10 +15,26 @@ class PlanController extends Controller
      */
     public function index()
     {
-        $plans=App\Plan::paginate(9);//pasamos todoos ls planes a la vista plan/index.blade.php
+        $plans=App\Plan::paginate(9);//pasamos todoos ls planes a la vista de admin
         return view ('admin.plan.index', compact('plans'));
     }
 
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexPlan()
+    {
+        $plans=App\Plan::paginate(9);//pasamos todoos ls planes a la main index plan
+        return view ('plan.index', compact('plans'));
+    }
+
+    public function showPlan($id){
+        $plan = App\Plan::findOrFail($id);
+        return view('plan.show',compact('plan'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -80,6 +96,7 @@ class PlanController extends Controller
         $plan=App\Plan::findOrFail($id);
         $plan->name=$request->name;
         $plan->price=$request->price;
+        $plan->info=$request->info;
         $plan->save();
         //return redirect('plan.index');
         return $plan;

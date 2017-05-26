@@ -59,7 +59,7 @@ Route::group(['prefix' => 'user/panel', 'middleware' => 'auth',], function () {
     Route::post('/ingredients/like', 'User\UserController@likeIngredientStore')->name('user-like-ingredients');
     Route::post('/ingredients/unlike', 'User\UserController@unlikeIngredientStore')->name('user-unlike-ingredients');
 
-    Route::post('/allergies', 'User\UserController@userAllergyShow')->name('user-allergy');
+    Route::get('/allergies', 'User\UserController@userAllergyShow')->name('user-allergy');
     Route::post('/allergies/has', 'User\UserController@userAllergyStore')->name('user-has-allergy');
     Route::post('/allergies/doesnt', 'User\UserController@userHasntAllergyStore')->name('user-doesnt-allergy');
 
@@ -75,6 +75,11 @@ Route::prefix('/products')->group(function () {//Product route
     Route::get('/search/dynamic', 'Product\ProductController@dynamicQuery')->name('dynamicSearch');
 });// end product route
 
+//Route for plans
+
+Route::get('/plans','Plan\PlanController@indexPlan')->name('our-plans');
+Route::get('/plans/{id}','Plan\PlanController@showPlan')->name('show-main-index-plan');
+//end Route for plans
 
 //ROUTE LOGIN FOR ADMIN
 Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
