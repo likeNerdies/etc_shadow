@@ -217,6 +217,7 @@ $(document).ready(function () {
             beforeSend: function() {
                 // setting a timeout
                 //$(placeholder).addClass('loading');
+                $('#progress').fadeIn();
                 console.log('ajax before send')
             },xhr: function () {
                 var xhr = new window.XMLHttpRequest();
@@ -228,7 +229,7 @@ $(document).ready(function () {
                             width: percentComplete * 100 + '%'
                         });
                         if (percentComplete === 1) {
-                            $('#progress').width(0);
+                            $('#progress').fadeOut();
                         }
                     }
                 }, false);

@@ -21,6 +21,9 @@
         </div>
     </div>
 
+    <div class="progress">
+        <div id="progress" class="progress-bar progress-bar-striped" role="progressbar" style="display: none" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
 
     <div class="row mt-2">
         <!-- Table-to-load-the-data Part -->
