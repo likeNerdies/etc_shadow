@@ -51,7 +51,7 @@ CSS file for logged in users
 }
 
 .navbar {
-    background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0);
 }
 
 /* CONTAINER */
@@ -108,13 +108,10 @@ CSS file for logged in users
   height: auto;
 }
 
-.ingredient-selected {
+.like {
+  border: 1px solid #42aa55;
 }
 
-.like{
-  border:1px solid #42aa55;
-}
-
-.unlike{
-  border:1px solid #bf2c1b;
+.unlike {
+  border: 1px solid #bf2c1b;
 }
