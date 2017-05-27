@@ -224,14 +224,11 @@ $(document).ready(function () {
                     if (evt.lengthComputable) {
                         var percentComplete = evt.loaded / evt.total;
                         console.log(percentComplete);
-
                         $('#progress').css({
                             width: percentComplete * 100 + '%'
                         });
                         if (percentComplete === 1) {
-                            $('#progress').css({
-                                width: 0 + '%'
-                            });
+                            $('#progress').width(0);
                         }
                     }
                 }, false);
