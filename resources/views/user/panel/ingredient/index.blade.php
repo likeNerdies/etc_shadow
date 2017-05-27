@@ -9,12 +9,12 @@
             @php
                 foreach ($ingredients as $ingredient){
                       $userUnlikeIngredients=Auth::user()->ingredients;
-                      $exists=false;
-                      $class="like";
-                      for ($i=0;$i<count($userUnlikeIngredients)&& !$exists;$i++){
-                              if($ingredient->id == $userUnlikeIngredients[$i]->id){
-                                  $exists=true;
-                                   $class="unlike";
+                      $exists = false;
+                      $class = "like";
+                      for ($i = 0; $i <count($userUnlikeIngredients) && !$exists; $i++) {
+                              if ($ingredient->id == $userUnlikeIngredients[$i]->id) {
+                                  $exists = true;
+                                   $class = "unlike";
                               }
                       }
                       echo  '<div id="'.$ingredient->id.'" class="card p-2 col-md-3 mx-1 '.$class.'">';
@@ -32,5 +32,6 @@
 @endsection
 
 @section('scriptsPersonalizados')
-    <script src="/js/user/ingredients/ingredients.js"></script>
+    <script src="/js/welcome/welcome_script.js"></script><!-- Includes navbar animations -->
+    <script src="/js/user/ingredients/ingredients.js"></script><!-- Includes ajax to save the unliked ingredients -->
 @endsection
