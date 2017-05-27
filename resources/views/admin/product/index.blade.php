@@ -21,6 +21,9 @@
                 <button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Product</button>
             </div>
         </div>
+        <div class="progress">
+            <div id="progress" class="progress-bar progress-bar-striped" role="progressbar" style="width: 0%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
 
         <div class="row mt-2">
             <div class="col-12 col-md-11">

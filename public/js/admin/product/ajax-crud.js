@@ -214,6 +214,38 @@ $(document).ready(function () {
             url: my_url,
             data: formData,
             dataType: 'json',
+            beforeSend: function() {
+                // setting a timeout
+                //$(placeholder).addClass('loading');
+                console.log('ajax before send')
+            },xhr: function () {
+                var xhr = new window.XMLHttpRequest();
+                xhr.upload.addEventListener("progress", function (evt) {
+                    if (evt.lengthComputable) {
+                        var percentComplete = evt.loaded / evt.total;
+                        console.log(percentComplete);
+
+                        $('#progress').css({
+                            width: percentComplete * 100 + '%'
+                        });
+                        if (percentComplete === 1) {
+                            $('#progress').css({
+                                width: 0 + '%'
+                            });
+                        }
+                    }
+                }, false);
+                xhr.addEventListener("progress", function (evt) {
+                    if (evt.lengthComputable) {
+                        var percentComplete = evt.loaded / evt.total;
+                        console.log(percentComplete);
+                        $('#progress').css({
+                            width: percentComplete * 100 + '%'
+                        });
+                    }
+                }, false);
+                return xhr;
+            },
             success: function (data) { // success:
                 console.log(data);
 

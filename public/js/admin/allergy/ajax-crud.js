@@ -42,11 +42,6 @@ $(document).ready(function() {
         $.ajax({
             type: "DELETE",
             url: url + '/' + allergy,
-            beforeSend: function() {
-                // setting a timeout
-                //$(placeholder).addClass('loading');
-                console.log('ajax before send')
-            },
             success: function (data) {
                 console.log(data);
                 $("#allergy" + allergy).remove();
