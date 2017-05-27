@@ -135,16 +135,46 @@ class UserController extends Controller
 
     public function userAllergyStore(Request $request){
         $user = Auth::user();
-        $user->allergies()->attach($request->allergy_id);
-        $user->save();
-        return response()->json(['success'=>true],200);
+        $retorn =[];
+        $exists=false;
+        $allergies=$user->allergies;
+        if(count($allergies)>0 || $allergies!=null)
+            for($i=0;$i<count($allergies);$i++){
+                if($allergies[$i]->id==$request->allergy_id){
+                    $exists=true;
+                }
+            }
+        if(!$exists){
+            $user->allergies()->attach([$request->allergy_id]);
+            $user->save();
+            $retorn=['success'=>true];
+        }else{
+            $retorn=['success'=>false];
+        }
+
+        return response()->json($retorn);
     }
 
     public function userHasntAllergyStore(Request $request){
         $user = Auth::user();
-        $user->allergies()->detach($request->allergy_id);
-        $user->save();
-        return response()->json(['success'=>true],200);
+        $retorn =[];
+        $exists=false;
+        $allergies=$user->allergies;
+        if(count($allergies)>0 || $allergies!=null)
+            for($i=0;$i<count($allergies);$i++){
+                if($allergies[$i]->id==$request->allergy_id){
+                    $exists=true;
+                }
+            }
+        if($exists){
+            $user->allergies()->detach([$request->allergy_id]);
+            $user->save();
+            $retorn=['success'=>true];
+        }else{
+            $retorn=['success'=>false];
+        }
+
+        return response()->json($retorn);
     }
 
     /**
