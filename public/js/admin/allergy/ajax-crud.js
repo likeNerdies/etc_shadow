@@ -42,11 +42,17 @@ $(document).ready(function() {
         $.ajax({
             type: "DELETE",
             url: url + '/' + allergy,
+            beforeSend: function() {
+                // setting a timeout
+                //$(placeholder).addClass('loading');
+                console.log('ajax before send')
+            },
             success: function (data) {
                 console.log(data);
                 $("#allergy" + allergy).remove();
                 $('#ajaxerror').empty();
                 $('#ajaxerror').removeClass("alert alert-danger");
+                successMessage();
             },
             error: function (data) {
                 //console.log('Error:', data);
@@ -109,6 +115,7 @@ $(document).ready(function() {
                 $('#ajaxerror').empty();
                 $('#ajaxerror').removeClass("alert alert-danger");
                 $('#myModal').modal("hide");
+                successMessage();
             },
             error: function (data) {
               //console.log('Error:', data);

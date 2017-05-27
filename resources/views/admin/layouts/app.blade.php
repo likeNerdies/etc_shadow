@@ -47,6 +47,9 @@
 
 <div id="wrapper">
     <div class="container">
+        <div id="succed_message" class="alert alert-success" style="display: none" role="alert">
+            <strong>Successfully operation</strong>
+        </div>
         @yield('right-panel')
     </div>
 </div>
@@ -68,10 +71,15 @@
 <script src="{{asset('/js/libraries/tether/tether.js')}}"></script><!-- IMPORTANT: Always before the bootstrap file -->
 <script src="{{asset('/js/libraries/bootstrap4/bootstrap.js')}}"></script>
 <script src="{{asset('/js/admin/light-bootstrap-dashboard.js')}}"></script>
-
 <script src="{{asset('/js/validations/validator.js')}}"></script><!-- Validaciones campos formularios -->
-
+<script>
+    function successMessage(){
+        $("#succed_message").fadeIn();
+        $("#succed_message").fadeOut(3000);
+    }
+</script>
 @yield('scripts')
+
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>-->
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>-->
 <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>-->
