@@ -7,11 +7,15 @@
     <div class="profile-content">
         @include('user.layouts.sidebar')
     </div>
+    <div class="mx-auto banner">
+
+    </div>
 
     <div id="main-wrapper-in">
         <div id="sidebar-wrapper-in">
             @include('user.layouts.sidebar')
         </div>
+
         <div id="content-wrapper-in">
             @yield('right-panel')
         </div>

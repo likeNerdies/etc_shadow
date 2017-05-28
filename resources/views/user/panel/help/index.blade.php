@@ -1,6 +1,7 @@
 @extends('user.layouts.panel')
 @section('right-panel')
   <div class="container mt-5 justify-content-center">
+
     <div class="offset-md-1 col-md-10 bg-whitesmoke-sutil">
       <h1 class="text-center red-font lighter-font">@lang("user/help/help.needHelp")</h1>
 

@@ -53,14 +53,10 @@
                                 @if(Auth::user()->plan==null)
                                     <h2 class="mt-4">You have no plan's yet.</h2>
                                     <a href="#" class="btn btn-default">Subscribe to any of our plan's!</a>
-                                @else
-                                    <h2>You are subscribed to : <strong>{{Auth::user()->plan->name}}</strong></h2>
-                                    <a href="{{route('plan')}}" class="btn btn-default">See more plans here</a>
                                 @endif
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

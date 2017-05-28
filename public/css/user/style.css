@@ -45,6 +45,7 @@ CSS file for logged in users
   padding-top: 15%;
 }
 
+
 /* NAVBAR */
 .nav_in {
   margin-bottom: 0;
@@ -62,7 +63,42 @@ CSS file for logged in users
   padding-right: 10%;
 }
 
-/* PLANS SECTIONS */
+/* MY-DATA MENU */
+
+.profile-accordeon {
+  background-color: white;
+  border: 2px solid #3EDC76;
+  border-radius: 4px;
+  padding: 14px;
+}
+
+.profile-accordeon a {
+  color: #3EDC76;
+  text-decoration: none;
+}
+
+.profile-accordeon:hover{
+  background-color: #3EDC76;
+}
+
+.profile-accordeon:hover a {
+  color: white;
+}
+
+.profile-accordeon a:hover {
+  color: white;
+}
+
+.collapseShow {
+  background-color: #3EDC76;
+}
+
+.collapseShow a {
+  color: white!important;
+}
+
+
+/* PLANS MENU */
 .charming-bg-color {
   background-color: #ffffc0;
 }
@@ -102,7 +138,7 @@ CSS file for logged in users
   }
 }
 
-/* INGREDIENTS SECTION */
+/* INGREDIENTS MENU */
 .ingredient-img {
   width: 30%;
   height: auto;
