@@ -1,5 +1,5 @@
-<div class="container mt-5">
-    <div class="hidden-sm-down">
+<div class="container">
+    <div class="profile-block mt-3">
         <div class="block-user-profile mb-2">
             <a href="{{route('profile')}}" class="">@lang("user/profile/profile.myProfile")</a>
         </div>
@@ -22,7 +22,7 @@
                 <a href="/user/panel/allergies" class="">@lang("user/profile/profile.allergies")</a>
             </div>
         </div>
-        <div class="block-user-profile mb-2">
+        <div class="block-user-profile mb-3">
             <a href="/user/panel/help" class="">@lang("user/profile/profile.help")</a>
         </div>
 

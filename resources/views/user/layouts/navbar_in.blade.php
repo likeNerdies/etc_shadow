@@ -25,41 +25,28 @@
 
       <ul class="navbar-nav log-reg">
         @if (Route::has('login'))
-        @if (!Auth::check())
-        <!--<li class="nav-item dropdown mr-2 hidden-sm-down">
-          <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{--Auth::user()->name--}}
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="/user/panel/profile">My profile</a>
-            <a class="dropdown-item" href="#">Change my plan</a>
-            <a class="dropdown-item" href="#">Logout</a>
-          </div>
-        </li>-->
-
-
-
-        <li class="nav-item  px-1"><button class="btn btn-info" data-toggle="modal" data-target="#modalLogin">@lang('login.login')</button></li><!--tocar buttons--><!--tambe includes register i login del modals-->
-        <li class="nav-item  px-1"><button class="btn btn-info" data-toggle="modal" data-target="#modalRegister">@lang('login.register')</button></li><!--tocar buttons-->
+          @if (!Auth::check())
+            <li class="nav-item  px-1"><button class="btn btn-info" data-toggle="modal" data-target="#modalLogin">@lang('login.login')</button></li><!--tocar buttons--><!--tambe includes register i login del modals-->
+            <li class="nav-item  px-1"><button class="btn btn-info" data-toggle="modal" data-target="#modalRegister">@lang('login.register')</button></li><!--tocar buttons-->
           @endif
         @endif
       </ul>
 
 
       <!-- Language -->
-      <ul style="list-style: none;">
+      <ul class="mt-1 mt-md-0 pl-0" style="list-style: none;">
         <li class="nav-item  px-1">
-          <form class="form-inline" method="post" action="{{route('change-lang')}}" id="change_lang">
+          <form class="form-horizontal" method="post" action="{{route('change-lang')}}" id="change_lang">
             {{csrf_field()}}
            <select class="form-control" id="changelang" name="lang">
             @if(session()->has('locale'))
                 @if(session()->get('locale')=='es')
-                   <option value="es" selected>Español</option>
+                  <option value="es" selected>Español</option>
                   <option value="en">English</option>
                  {{-- <option value="en" >{{session()->get('locale')}}</option>--}}
                 @else
                   <option value="es">Español</option>
-                    <option value="en" selected>English</option>
+                  <option value="en" selected>English</option>
                {{--     <option value="en" >{{session()->get('locale')}}</option>--}}
                 @endif
 

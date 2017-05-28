@@ -83,7 +83,7 @@ $(document).ready(function (event) {
         });
 
         $(document).on('click', 'span#tog-profile', function () {
-            if ($('#navbarTogglerDemo02').is(':visible') && window.matchMedia('(max-width:860)').matches) {
+            if ($('#navbarTogglerDemo02').is(':visible') && window.matchMedia('(max-width:860px)').matches) {
                 $('#navbarTogglerDemo02').slideToggle();
             }
             $('.profile-content').toggleClass('profile-content-show');
@@ -297,5 +297,16 @@ $(document).ready(function () {
         });
     });
 
+    ////////////////////////////////////////////////////////USER PROFILE
+
+    ////////////////////////////////////////////MY-DATA COLLAPSE
+
+    $('.profile-accordeon').click(function() {
+      $(this).toggleClass('collapseShow');
+    });
+
+    ////////////////////////////////////////////END MY-DATA COLLAPSE
+
+    ////////////////////////////////////////////////////////END USER PROFILE
 
 });
