@@ -116,8 +116,8 @@
 
         <!-- email -->
 
-        <div class="form-group">
-            <div class="col-md-6 col-md-offset-6">
+        <div class="d-flex flex-md-row display-767-column mb-4">
+            <div class="group-input">
                 <button type="submit" class="btn btn-primary">
                     Save
                 </button>

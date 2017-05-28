@@ -4,7 +4,10 @@
 
 @include('user.layouts.navbar_in')
 
-    <div class="profile-content"></div>
+    <div class="profile-content">
+        @include('user.layouts.sidebar')
+    </div>
+
     <div id="main-wrapper-in">
         <div id="sidebar-wrapper-in">
             @include('user.layouts.sidebar')

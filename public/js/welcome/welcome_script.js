@@ -75,7 +75,7 @@ $(document).ready(function (event) {
         });
 
         $(document).on('click', 'span#tog-profile', function () {
-            if ($('#navbarTogglerDemo02').is(':visible') && window.matchMedia('(max-width:767px)').matches) {
+            if ($('#navbarTogglerDemo02').is(':visible') && window.matchMedia('(max-width:860px)').matches) {
                 $('#navbarTogglerDemo02').slideToggle();
             }
             $('.profile-content').toggleClass('profile-content-show');
