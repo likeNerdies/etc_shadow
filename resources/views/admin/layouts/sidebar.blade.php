@@ -1,5 +1,5 @@
 <div class="nav-side-menu">
-	<div class="brand">No Name</div>
+	<div class="brand">Healthy Box</div>
 	<i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
 
 	<div class="menu-list">

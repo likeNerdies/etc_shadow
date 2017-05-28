@@ -14,7 +14,7 @@
       @include('product.sidebar')
     </div>
     <div id="content-wrapper" class="text-center">
-      <div class="container">
+      <div class="container pb-5">
         <div class="pt-5 mb-5">
           <h1>Fall in love with our products</h1>
         </div>

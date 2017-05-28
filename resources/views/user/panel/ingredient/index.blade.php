@@ -17,11 +17,12 @@
                                    $class = "unlike";
                               }
                       }
-                      echo  '<div id="'.$ingredient->id.'" class="card p-2 col-md-3 mx-1 '.$class.'">';
-                      echo  ' <img src="/user/panel/ingredients/'.$ingredient->id .'/image" class="rounded card-img-top ingredient-img img-fluid pt-3 pb-3" alt="'. $ingredient->name.'">';
+                      echo '<div class="card-wrapper m-1">';
+                      echo  '<div id="'.$ingredient->id.'" class="card '.$class.'">';
+                      echo  ' <img src="/user/panel/ingredients/'.$ingredient->id .'/image" class="rounded card-img-top ingredient-img img-responsive mx-auto py-3" alt="'. $ingredient->name.'">';
                       echo ' <div class="card-footer">';
                       echo '<small>', $ingredient->name,'</small>';
-                      echo ' </div> </div>';
+                      echo ' </div> </div> </div>';
 
                 }
             @endphp
