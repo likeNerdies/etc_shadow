@@ -64,34 +64,27 @@ $(document).ready(function (event) {
     });
 
 
+    //////////////////////////////////////////////////////////////////FUNCTION MEDIA QUERY
+    function mediaQuery() {
 
+        $(document).on('click', '#hamburger', function () {
+            if ($('.profile-content-show').is(':visible')) {
+                $('.profile-content').toggleClass('profile-content-show');
+            }
+            $('#navbarTogglerDemo02').slideToggle();
+        });
 
-    ///////////////////////////////////////////////////////////////////
-    $(document).on('ready',this,function () {
-        if(window.matchMedia("(max-width:768px)").matches){
-            $(document).on('click','#hamburger',function () {
-                if($('.profile-content-show').is(':visible')){
-                    $('.profile-content').toggleClass('profile-content-show');
-                }
+        $(document).on('click', 'span#tog-profile', function () {
+            if ($('#navbarTogglerDemo02').is(':visible') && window.matchMedia('(max-width:767px)').matches) {
                 $('#navbarTogglerDemo02').slideToggle();
-            });
+            }
+            $('.profile-content').toggleClass('profile-content-show');
+        });
 
-            $(document).on('click','span#tog-profile',function (e) {
-                if($('#navbarTogglerDemo02').is(':visible')){
-                    $('#navbarTogglerDemo02').slideToggle();
-                }
-                $('.profile-content').toggleClass('profile-content-show');
-            });
-        }else{
-
-            $(document).on('click','span#tog-profile',function () {
-                $('.profile-content').toggleClass('profile-content-show');
-            });
-        }
-    });
+    }
 
 
-
+    $(document).ready(mediaQuery);
 
 
     //////////////////////////////////////////////////////////////////////SIDEBAR
