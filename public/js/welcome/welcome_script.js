@@ -1,6 +1,14 @@
 $(document).on('scroll', function (e) {
-    var opacity = $(document).scrollTop() / 500;
-    $('.navbar').css('background-color', 'rgba(255, 255, 255,' + opacity);
+
+    // If there's no background-image, we don't want to keep the opacity transition
+    if ($('.background-image').length == 0) {
+      var opacity = 1;
+      $('.navbar').css('background-color', 'rgba(255, 255, 255,' + 8);
+    } else {
+      var opacity = $(document).scrollTop() / 500;
+      $('.navbar').css('background-color', 'rgba(255, 255, 255,' + opacity);
+    }
+
     if ($(document).scrollTop() == 0) {
         $('.navbar').css('box-shadow', '');
     } else {

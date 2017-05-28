@@ -17,12 +17,12 @@
         </div>
     </div>
 
-    <div class="scrollTop">
+    <!--<div class="scrollTop">
         <i class="fa fa-caret-up fa-3x" aria-hidden="true"></i>
-    </div>
+    </div>-->
 
 @endsection
 
 @section('scriptsPersonalizados')
-    <script src="/js/welcome/welcome_script.js"></script>
+    <script src="/js/welcome/welcome_script.js"></script><!-- Includes navbar animations -->
 @endsection

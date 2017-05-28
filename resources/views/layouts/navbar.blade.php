@@ -1,21 +1,21 @@
-<div id="nav-container">
-  <nav class="navbar navbar-toggleable-md navbar-light bg-faded container-fluid fixed-top" id="main-navbar" data-spy="affix">
+<div id="nav-container" class="container-fluid">
+  <nav class="navbar navbar-toggleable-md navbar-light bg-faded fixed-top" id="navbar_out" data-spy="affix">
 
-    <button id="hamburger" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <button id="hamburger" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <a class="navbar-brand" href="/">Brand</a>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mr-auto mt-2 mt-md-0 mx-auto">
-        <li class="nav-item  px-5">
-          <a class="nav-link only page-scroll" href="#howitworks">@lang('welcome.howitworks')</a>
+        <li class="nav-item px-5">
+          <a class="nav-link only page-scroll" href="/#howitworks">@lang('welcome.howitworks')</a>
         </li>
         <li class="nav-item px-5">
-          <a class="nav-link only page-scroll" href="#plans">@lang('welcome.plans')</a>
+          <a class="nav-link only page-scroll" href="/#plans">@lang('welcome.plans')</a>
         </li>
         <li class="nav-item  px-5">
-          <a class="nav-link only page-scroll" href="#about">@lang('welcome.about')</a>
+          <a class="nav-link only page-scroll" href="/#about">@lang('welcome.about')</a>
         </li>
       </ul>
 
@@ -28,7 +28,6 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="/user/panel/profile">My profile</a>
-                <a class="dropdown-item" href="#">Change my plan</a>
                 <a class="dropdown-item" href="#">Logout</a>
               </div>
             </li>

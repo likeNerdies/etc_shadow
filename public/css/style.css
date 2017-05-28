@@ -108,8 +108,6 @@ h2 {
 .card {
   color: black;
   transition: box-shadow .3s;
-  /*width: 100%;
-  height: 100%;*/
 }
 
 .card:hover {
@@ -119,7 +117,6 @@ h2 {
 .card-footer {
   background-color: white!important;
 }
-
 
 .card-columns a {
   text-decoration: none!important;
@@ -639,7 +636,6 @@ i.toggle{
 
 /* For footer */
 @media (min-width: 768px) {
-
     #tog-profile{
         display: inline;
         position: fixed;
@@ -664,7 +660,6 @@ i.toggle{
 
     #footer {
         margin-top: 5%;
-
     }
 
     #info h3, #info h4, #info h5, #info p{
