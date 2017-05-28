@@ -9,14 +9,18 @@
         <div class="block-user-profile mb-2">
             <a href="/user/panel/plan" class="">@lang("user/profile/profile.plan")</a>
         </div>
-        <div class="block-user-profile mb-2">
-            <a href="" class="">@lang("user/profile/profile.ingredientsAllergies")</a>
+        <div class="block-user-profile mb-2 hide-show-toggler">
+            <a href="" data-toggle="collapse" data-target="#hide-show"  class="">@lang("user/profile/profile.ingredientsAllergies")
+                <i class="fa fa-caret-down pl-2" aria-hidden="true"></i>
+            </a>
         </div>
-        <div class="block-user-profile mb-2">
-            <a href="/user/panel/ingredients" class="">@lang("user/profile/profile.ingredients")</a>
-        </div>
-        <div class="block-user-profile mb-2">
-            <a href="/user/panel/allergies" class="">@lang("user/profile/profile.allergies")</a>
+        <div class="collapse" id="hide-show">
+            <div class="block-user-profile mb-2">
+                <a href="/user/panel/ingredients" class="">@lang("user/profile/profile.ingredients")</a>
+            </div>
+            <div class="block-user-profile mb-2">
+                <a href="/user/panel/allergies" class="">@lang("user/profile/profile.allergies")</a>
+            </div>
         </div>
         <div class="block-user-profile mb-2">
             <a href="/user/panel/help" class="">@lang("user/profile/profile.help")</a>

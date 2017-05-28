@@ -342,7 +342,7 @@ i.toggle{
     top: 60px;
     right: -200px;
     z-index: 1500;
-    transition: right .75s;
+    transition: right .2s;
 }
 
 .profile-content-show{
@@ -372,6 +372,10 @@ i.toggle{
     top:4px;
     left:9.5px;
 }
+
+/*#hide-show{
+    display: none;
+}*/
 
 /* MEDIA QUERIES */
 
@@ -469,6 +473,9 @@ i.toggle{
         display: inline-block !important;
     }
 
+    .display-767-column{
+        flex-direction: column !important;
+    }
     /*<PSEUDO-ELEMENTS SIDEBAR>*/
 
     #main-wrapper .arrow::before{
@@ -650,9 +657,8 @@ i.toggle{
 
     .block-user-profile{
         width: 100%;
-        height: 10%;
+        height: 60px;
         background: #ffffc0;
-        padding: 15px;
         text-align: center;
         border-radius: 4px;
     }
@@ -661,6 +667,7 @@ i.toggle{
         color: black;
         text-decoration: none;
         font-weight: 400;
+        line-height: 3.5;
     }
 
     /*<USER>*/
@@ -688,9 +695,7 @@ i.toggle{
         width: 100%;
     }
 
-    .display-767-column{
-        flex-direction: column !important;
-    }
+
     /*</USER>*/
 
 

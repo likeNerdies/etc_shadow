@@ -63,13 +63,12 @@ $(document).ready(function (event) {
         $(this).toggleClass('arrow-show arrow-show-bg').next().toggleClass('left-0');
     });
 
+
+
+
     ///////////////////////////////////////////////////////////////////
-
-    //if($('#navbarTogglerDemo02').is(':visible'))alert("hey");
-
-    //alert($(document))
-    function mediaQuery(mql) {
-        if(mql.matches){
+    $(document).on('ready',this,function () {
+        if(window.matchMedia("(max-width:768px)").matches){
             $(document).on('click','#hamburger',function () {
                 if($('.profile-content-show').is(':visible')){
                     $('.profile-content').toggleClass('profile-content-show');
@@ -89,11 +88,8 @@ $(document).ready(function (event) {
                 $('.profile-content').toggleClass('profile-content-show');
             });
         }
-    }
+    });
 
-    var mql = window.matchMedia("(max-width:768px)");
-    mediaQuery(mql);
-    mql.addListener(mediaQuery);
 
 
 
