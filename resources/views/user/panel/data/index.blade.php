@@ -5,13 +5,11 @@
             <div class="col-md-12">
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-                    <div class="w-75 mx-auto"> <!--block -->
-                        <div class="w-100" style="background-color: #1DC7B4;height: 60px; border-radius: 4px;" role="tab" id="headingOne"> <!-- heading block -->
-                            <h4 class="text-center" style="padding: 14px 0px;">
-                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    My personal data's
-                                </a>
-                            </h4>
+                    <div class="col-md-6 col-xs-12 mx-auto"> <!--block -->
+                        <div class="profile-accordeon" role="tab" id="headingOne"> <!-- heading block -->
+                          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <h4 class="text-center">My personal data</h4>
+                          </a>
                         </div>
                         <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne"> <!--content block -->
                             <div class="panel-body">
@@ -20,41 +18,18 @@
                         </div>
                     </div>
 
-                    <div class="w-75 mx-auto mt-4">
-                        <div class="w-100" style="background-color: #1DC7B4;height: 60px; border-radius: 4px;" role="tab" id="headingTwo">
-                            <h4 class="text-center" style="padding: 14px 0px;">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    My address
-                                </a>
-                            </h4>
+                    <div class="col-md-6 col-xs-12 mx-auto mt-4">
+                        <div class="profile-accordeon" role="tab" id="headingTwo">
+                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <h4 class="text-center">My address</h4>
+                          </a>
                         </div>
                         <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                            <div class="panel-body">
+                            <div class="panel-body mt-4 text-center">
                                 @if(Auth::user()->address==null)
-                                    <a href="{{route("address")}}">Add your address</a>
+                                    <a href="{{route("address")}}">Click here to add your address</a>
                                 @else
-                                    <a href="{{route("address")}}">Update your address</a>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="w-75 mx-auto mt-4">
-                        <div class="w-100" style="background-color: #1DC7B4;height: 60px; border-radius: 4px;" role="tab" id="headingThree">
-                            <h4 class="text-center" style="padding: 14px 0px;">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    My plan
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                            <div class="panel-body text-center">
-                                @if(Auth::user()->plan==null)
-                                    <h2 class="mt-4">You have no plan's yet.</h2>
-                                    <a href="#" class="btn btn-default">Subscribe to any of our plan's by clicking here!</a>
-                                @else
-                                    <h2>You are subscribed to : <strong>{{Auth::user()->plan->name}}</strong></h2>
-                                    <a href="{{route('plan')}}" class="btn btn-default">See more plans here</a>
+                                    <a href="{{route("address")}}">Click here to update your address</a>
                                 @endif
                             </div>
                         </div>
