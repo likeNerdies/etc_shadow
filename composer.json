@@ -10,7 +10,8 @@
         "fzaninotto/faker": "^1.6",
         "intervention/image": "^2.3",
         "laravel/framework": "5.4.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "stevebauman/translation": "^1.4"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",
