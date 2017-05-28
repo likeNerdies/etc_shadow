@@ -87,56 +87,56 @@
 
                             {{ csrf_field() }}
                             <div class="form-group error">
-                                <label for="dni" class="col-sm-9 control-label">DNI</label>
+                                <label for="dni" class="col-sm-9 control-label">DNI/NIE</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control has-error" id="dni" name="dni" value="" onblur="validateDNI(this)" />
+                                    <input type="text" class="form-control has-error" id="dni" name="dni" placeholder=" dni/nie" />
                                 </div>
                             </div>
 
                             <div class="form-group error">
                                 <label for="name" class="col-sm-9 control-label">Name</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control has-error" id="name" name="name" value="" required onblur="validateName(this)" />
+                                    <input type="text" class="form-control has-error" id="name" name="name" required/>
                                 </div>
                             </div>
                             <div class="form-group error">
                                 <label for="first_surname" class="col-sm-9 control-label">First Surname</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control has-error" id="first_surname" name="first_surname" value="" required onblur="validateName(this)" />
+                                    <input type="text" class="form-control has-error" id="first_surname" name="first_surname" value=""  />
                                 </div>
                             </div>
                             <div class="form-group error">
                                 <label for="second_surname" class="col-sm-9 control-label">Second Surname</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control has-error" id="second_surname" name="second_surname" value="" onblur="validateName(this)" />
+                                    <input type="text" class="form-control has-error" id="second_surname" name="second_surname" />
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="email" class="col-sm-9 control-label">Email</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="email" name="email" value="" required onblur="validateEmail(this)" />
+                                    <input type="text" class="form-control" id="email" name="email"  required  />
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="password" class="col-md-4 control-label">Password</label>
                                 <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control" name="password" required />
+                                    <input id="password" type="password" class="form-control" name="password" placeholder=" set new password" />
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="password_confirmation" class="col-md-9 control-label">Confirm Password</label>
                                 <div class="col-md-6">
-                                    <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" required />
+                                    <input id="password_confirmation" type="password" class="form-control" name="password_confirmation"  placeholder=" repeat password"/>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="phone_number" class="col-sm-9 control-label">Phone number</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="phone_number" name="phone_number" value="" onblur="validatePhone(this)" />
+                                    <input type="text" class="form-control" id="phone_number" name="phone_number"  />
                                 </div>
                             </div>
 

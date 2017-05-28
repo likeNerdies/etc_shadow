@@ -12,6 +12,7 @@ $(document).ready(function () {
         $('#ajaxerror').empty();
         $('#ajaxerror').removeClass("alert alert-danger");
         $('input').removeAttr( "style" );
+        $('textarea').removeAttr( "style" );
         var ingredient_id = $(this).val();
         console.log("edit")
         $.get(url + '/' + ingredient_id, function (data) {
@@ -36,6 +37,10 @@ $(document).ready(function () {
     //display modal form for creating new ingredient
     $(document).on('click', '#btn-add', function (e) {
         // $('#btn-add').click(function() {
+        $('input').removeAttr( "style" );
+        $('textarea').removeAttr( "style" );
+        $('#ajaxerror').empty();
+        $('#ajaxerror').removeClass("alert alert-danger");
         $(".select2-selection__choice").remove();
         $("#tag_list").html('');
         $('#btn-save').val("add");
@@ -75,122 +80,123 @@ $(document).ready(function () {
 
     //create new ingredient / update existing ingredient
     $("#btn-save").click(function (e) {
-
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
-        e.preventDefault();
-        $datos_allergies_select = $("#tag_list").select2("data");
-        var allergies = [];
-        for (i = 0; i < $datos_allergies_select.length; i++) {
-            allergies[i] = $datos_allergies_select[i].id;
-        }
-
-        /* var photo=null;
-         if(document.getElementById("photo").files.length != 0) {
-         photo= formData.append('photo',document.getElementById('photo').files[0]);
-         }*/
-        var formData = {
-            //   photo:photo,
-            name: $('#name').val(),
-            info: $('#info').val(),
-            allergies: allergies,
-            //photo:$('#photo').val(),
-        }
-        /*  var formData = new FormData();
-         if(document.getElementById("photo").value != "") {
-         formData.append('photo',document.getElementById('photo').files[0]);
-         }
-         formData.append('name', $('#name').val());
-         formData.append('allergies',allergies);
-         formData.append('info',$('#info').val());*/
-
-        console.log(allergies)
-        //used to determine the http verb to use [add=POST], [update=PUT]
-        var state = $('#btn-save').val();
-
-        var type = "POST"; //for creating new resource
-        var ingredient_id = $('#id').val();
-        var my_url = url;
-
-        if (state == "update") {
-            console.log("update");
-            type = "PUT"; //for updating existing resource
-            my_url += '/' + ingredient_id;
-        }
-
-        console.log(formData);
-
-        $.ajax({
-            type: type,
-            //contentType: false,
-            // processData: false,
-            url: my_url,
-            data: formData,
-            dataType: 'json',
-            success: function (data) { // success:
-                console.log(data);
-                //info
-                var ingredient = '<tr id="ingredient' + data.ingredient.id + '"><td id="id">' + data.ingredient.id + '</td><td>' + data.ingredient.name + '</td>';
-                if(data.ingredient.info==null){
-                    ingredient+=' <td class="media-480-delete"></td>';
-                }else{
-                    ingredient+=' <td class="media-480-delete">' + data.ingredient.info + '</td>';
+        if (valdateAllergyForm()) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
+            });
 
-                //allergies
-                ingredient += '<td class="media-767-delete">';
-                if (data.allergies.length == 0) {
-                    ingredient += '<p></p>';
-                } else {
-                    for (i = 0; i < data.allergies.length; i++) {
-                        ingredient += '<p>' + data.allergies[i].name + '</p>';
+            e.preventDefault();
+            $datos_allergies_select = $("#tag_list").select2("data");
+            var allergies = [];
+            for (i = 0; i < $datos_allergies_select.length; i++) {
+                allergies[i] = $datos_allergies_select[i].id;
+            }
+
+            /* var photo=null;
+             if(document.getElementById("photo").files.length != 0) {
+             photo= formData.append('photo',document.getElementById('photo').files[0]);
+             }*/
+            var formData = {
+                //   photo:photo,
+                name: $('#name').val(),
+                info: $('#info').val(),
+                allergies: allergies,
+                //photo:$('#photo').val(),
+            }
+            /*  var formData = new FormData();
+             if(document.getElementById("photo").value != "") {
+             formData.append('photo',document.getElementById('photo').files[0]);
+             }
+             formData.append('name', $('#name').val());
+             formData.append('allergies',allergies);
+             formData.append('info',$('#info').val());*/
+
+            console.log(allergies)
+            //used to determine the http verb to use [add=POST], [update=PUT]
+            var state = $('#btn-save').val();
+
+            var type = "POST"; //for creating new resource
+            var ingredient_id = $('#id').val();
+            var my_url = url;
+
+            if (state == "update") {
+                console.log("update");
+                type = "PUT"; //for updating existing resource
+                my_url += '/' + ingredient_id;
+            }
+
+            console.log(formData);
+
+            $.ajax({
+                type: type,
+                //contentType: false,
+                // processData: false,
+                url: my_url,
+                data: formData,
+                dataType: 'json',
+                success: function (data) { // success:
+                    console.log(data);
+                    //info
+                    var ingredient = '<tr id="ingredient' + data.ingredient.id + '"><td id="id">' + data.ingredient.id + '</td><td>' + data.ingredient.name + '</td>';
+                    if (data.ingredient.info == null) {
+                        ingredient += ' <td class="media-480-delete"></td>';
+                    } else {
+                        ingredient += ' <td class="media-480-delete">' + data.ingredient.info + '</td>';
                     }
+
+                    //allergies
+                    ingredient += '<td class="media-767-delete">';
+                    if (data.allergies.length == 0) {
+                        ingredient += '<p></p>';
+                    } else {
+                        for (i = 0; i < data.allergies.length; i++) {
+                            ingredient += '<p>' + data.allergies[i].name + '</p>';
+                        }
+                    }
+                    ingredient += '</td>';
+
+
+                    ingredient += '<td id="ingredient-img"></td>';//for images
+                    ingredient += '<td class="media-767-delete">' + data.ingredient.created_at + '</td>';
+
+                    ingredient += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.ingredient.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
+
+                    ingredient += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-ingredient" value="' + data.ingredient.id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button>';
+
+                    if (state == "add") { //if user added a new record
+                        $('#ingredient-list').append(ingredient);
+                    } else { //if user updated an existing record
+                        $("#ingredient" + ingredient_id).replaceWith(ingredient);
+                    }
+                    $('#ingredient' + ingredient_id + ' > #ingredient-img').replaceWith("<td id='ingredient-img'><img class='img-thumbnail' width='48.2' height='48.2' src='/admin/ingredients/" + data.ingredient.id + "/image'></td>");
+                    insertImg(e, data.ingredient.id, type);
+                    $('#formIngredients').trigger("reset");
+                    $('#ajaxerror').empty();
+                    $('#ajaxerror').removeClass("alert alert-danger");
+                    $('#myModal').modal("hide");
+                    successMessage();
+                    //location.reload(true);
+                },
+                error: function (data) {
+                    console.log('Error:', data);
+                    $('#ajaxerror').addClass("alert alert-danger");
+                    var msg;
+
+                    if (data.status == 422) {
+                        msg = "<ul>";
+                        for (var key in data.responseJSON) {
+                            msg += "<li>" + data.responseJSON[key] + "</li>";
+                        }
+                        msg += "</ul>";
+                    } else {
+                        msg = "<p>There was an internal error. Contact with the admin.</p>";
+                    }
+                    $('#ajaxerror').html(msg);
                 }
-                ingredient += '</td>';
-
-
-                ingredient += '<td id="ingredient-img"></td>';//for images
-                ingredient += '<td class="media-767-delete">' + data.ingredient.created_at + '</td>';
-
-                ingredient += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.ingredient.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
-
-                ingredient += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-ingredient" value="' + data.ingredient.id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button>';
-
-                if (state == "add") { //if user added a new record
-                    $('#ingredient-list').append(ingredient);
-                } else { //if user updated an existing record
-                    $("#ingredient" + ingredient_id).replaceWith(ingredient);
-                }
-                $('#ingredient'+ingredient_id+' > #ingredient-img').replaceWith("<td id='ingredient-img'><img class='img-thumbnail' width='48.2' height='48.2' src='/admin/ingredients/"+data.ingredient.id+"/image'></td>");
-                insertImg(e,data.ingredient.id,type);
-                $('#formIngredients').trigger("reset");
-                $('#ajaxerror').empty();
-                $('#ajaxerror').removeClass("alert alert-danger");
-                $('#myModal').modal("hide");
-                successMessage();
-                //location.reload(true);
-            },
-            error: function (data) {
-              console.log('Error:', data);
-              $('#ajaxerror').addClass("alert alert-danger");
-              var msg;
-
-              if (data.status == 422){
-                msg = "<ul>";
-                for (var key in data.responseJSON) {
-                  msg += "<li>"+data.responseJSON[key]+"</li>";
-                }
-                msg += "</ul>";
-              } else {
-                msg = "<p>There was an internal error. Contact with the admin.</p>";
-              }
-              $('#ajaxerror').html(msg);
-            }
-        });
+            });
+        }
     });
 
     //search
@@ -335,3 +341,27 @@ $(document).ready(function () {
         }
     }
 });
+function valdateAllergyForm() {
+    var retorn = true;
+    if (!validateName($('#name').val())) {
+        $('#name').css('border-color', "#a94442");
+        retorn = false;
+    }else{
+        $('#name').css('border-color', "#5cb85c");
+    }
+    if ($('#info').val()) {
+        if (!validateLongText($('#info').val())) {
+            $('#info').css('border-color', "#a94442");
+            retorn = false;
+        }else{
+            $('#info').css('border-color', "#5cb85c");
+        }
+    }
+  /*  if (!$('#image').val()) {
+       retorn=false;
+        $('#image').css('border-color', "#a94442");
+        //todo mensaje sellecione imagen
+    }*/
+    console.log(retorn);
+    return retorn;
+}

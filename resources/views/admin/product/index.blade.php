@@ -124,12 +124,12 @@
                       <div class="d-flex flex-md-row display-767-column">
                           <div class="group-input">
                               <label for="name" class="col-form-label">Name</label>
-                              <input type="text" class="form-control col-md-11 col-12 has-error" id="name" name="name" placeholder="Cashew drink" value="" required onblur="validateName(this)" />
+                              <input type="text" class="form-control col-md-11 col-12 has-error" id="name" name="name" placeholder=" product name"  required  />
                           </div>
 
                           <div class="group-input">
                               <label for="price" class="col-form-label">Price</label>
-                              <input type="text" class="form-control col-md-11 col-12" id="price" name="price" placeholder="5.95" value="" required onblur="validatePrice(this)" />
+                              <input type="text" class="form-control col-md-11 col-12" id="price" name="price" placeholder="5.95"  required />
                           </div>
 
                       </div>
@@ -137,24 +137,24 @@
                       <div class="d-flex flex-md-row display-767-column mt-2">
                           <div class="group-input">
                               <label for="description" class="col-form-label">Description</label>
-                              <textarea class="form-control col-md-11 col-12" rows="5" cols="38" id="description" name="description" placeholder="Description of the product" required onblur="validateName(this)"></textarea>
+                              <textarea class="form-control col-md-11 col-12" rows="5" cols="38" id="description" name="description" placeholder=" description of the product" required ></textarea>
                           </div>
 
                           <div class="group-input">
                               <label for="expiration_date" class="col-form-label">Expiration Date</label>
-                              <input type="date" class="form-control col-md-11 col-12" id="expiration_date" name="expiration_date" placeholder="2018/02/09"  value="" required onblur="validateExpDate(this)" />
+                              <input type="text" class="form-control col-md-11 col-12" id="expiration_date" name="expiration_date" placeholder=" DD/MM/YYYY" required />
                           </div>
                       </div>
 
                       <div class="d-flex flex-md-row display-767-column mt-2">
                           <div class="group-input">
-                              <label for="weight" class="col-form-label">Weight <small>(in grams)</small></label>
-                              <input type="number" class="form-control col-md-11 col-12" id="weight" name="weight" placeholder="1200" value="" required onblur="validateWeight(this)" />
+                              <label for="weight" class="col-form-label">Weight <small>(in grams/liter)</small></label>
+                              <input type="number" class="form-control col-md-11 col-12" id="weight" name="weight" placeholder=" weight of product"  required />
                           </div>
 
                           <div class="group-input">
                               <label for="stock" class="col-form-label">Stock</label>
-                              <input type="number" class="form-control col-md-11 col-12" id="stock" name="stock" placeholder="13" value="" required=" "onblur="validateStock(this)" />
+                              <input type="number" class="form-control col-md-11 col-12" id="stock" name="stock" placeholder=" stock of product"  required />
                           </div>
                       </div>
 
@@ -194,11 +194,11 @@
                               <div class="d-flex flex-md-row display-767-column mt-2">
                                   <div class="group-input">
                                       <label for="dimension" class="col-form-label">Dimension <small>(1: Charming, 2: Pro, 3: Premium)</small></label>
-                                      <input type="number" class="form-control col-md-11 col-12" id="dimension" name="dimension" placeholder="1" value="" onblur="validateDimensions(this)"><!-- afegir exemple -->
+                                      <input type="number" class="form-control col-md-11 col-12" id="dimension" name="dimension" placeholder=" dimension{1,2,3}"><!-- afegir exemple -->
                                   </div>
                                   <div class="group-input">
                                       <label for="real_weight" class="col-form-label">Real weight <small>(in grams)</small></label>
-                                      <input type="number" class="form-control col-md-11 col-12" id="real_weight" name="real_weight" placeholder="1300" value="" onblur="validateWeight(this)" />
+                                      <input type="number" class="form-control col-md-11 col-12" id="real_weight" name="real_weight" placeholder=" real weight of product" />
                                   </div>
                               </div>
                               <div class="d-flex flex-row mt-4 justify-content-center">

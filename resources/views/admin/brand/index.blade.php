@@ -67,14 +67,14 @@
             <div class="form-group error">
               <label for="name" class="col-sm-3 control-label">Name</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control has-error" id="name" name="name" placeholder="Rude Health" value="" required onblur="validateName(this)" />
+                <input type="text" class="form-control has-error" id="name" name="name" placeholder=" brand name" value="" required />
               </div>
             </div>
 
             <div class="form-group">
               <label for="info" class="col-sm-3 control-label">Info</label>
               <div class="col-sm-9">
-                <textarea name="info" id="info" type="text" rows="5" cols="38" required onblur="validateName(this)"></textarea>
+                <textarea name="info" id="info" type="text" rows="5" cols="38" placeholder=" some information.."></textarea>
               </div>
             </div>
           </form>

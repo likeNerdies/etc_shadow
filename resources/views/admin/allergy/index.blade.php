@@ -65,7 +65,7 @@
             <div class="form-group error">
               <label for="name" class="col-sm-3 control-label">Name</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control has-error" id="name" name="name" placeholder="Peanut allergy" value="" required onblur="validateName(this)" />
+                <input type="text" class="form-control has-error" id="name" name="name" placeholder=" allergy name" value="" required/>
               </div>
             </div>
           </form>

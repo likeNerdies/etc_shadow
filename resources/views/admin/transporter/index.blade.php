@@ -71,21 +71,21 @@
             <div class="form-group error">
               <label for="inputTransporter" class="col-sm-3 control-label">Name</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control has-error" id="name" name="name" placeholder="Laura" value="" onblur="validateName(this)">
+                <input type="text" class="form-control has-error" id="name" name="name" placeholder=" transporter name" >
               </div>
             </div>
 
             <div class="form-group">
               <label for="cif" class="col-sm-3 control-label">CIF</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" id="cif" name="cif" placeholder="A12345678" value="" onblur="validateCIF(this)">
+                <input type="text" class="form-control" id="cif" name="cif" placeholder="  cif number" >
               </div>
             </div>
 
             <div class="form-group">
               <label for="phone_number" class="col-sm-5 control-label">Phone number</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="123456789" value="" onblur=validatePhone(this)>
+                <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder=" phone number">
               </div>
             </div>
           </form>

@@ -28,7 +28,7 @@ class UploadProduct extends FormRequest
             'price' =>
                 array(
                     'required',
-                    'regex:/^\d{1,2}[,|.]\d{1,2}$/'
+                    'regex:/^(\d{1,3}\.\d{1,2}$)|^(\d{1,3}$)/'
                 ),
             'description' =>'required|min:3|max:2000',
             'expiration_date' => 'required|date|date_format:"Y/m/d|after:today',

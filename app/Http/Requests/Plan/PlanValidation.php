@@ -28,7 +28,7 @@ class PlanValidation extends FormRequest
             'price'=>
                 array(
                     'required',
-                    'regex:/^\d{1,3}[,|.]\d{1,2}$/'
+                    'regex:/^(\d{1,3}\.\d{1,2}$)|^(\d{1,3}$)/'
                 ),
               'info'=>'nullable|min:3|max:2000',
         ];

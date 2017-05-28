@@ -14,13 +14,19 @@ $(document).ready(function () {
         $('#ajaxerror').empty();
         $('#ajaxerror').removeClass("alert alert-danger");
         $('input').removeAttr("style");
+        $('textarea').removeAttr("style");
         $.get(url + '/' + product_id, function (data) {
             //success data
             $('#id').val(data.product.id);
             $('#name').val(data.product.name);
             $('#price').val(data.product.price);
             $('#description').val(data.product.description);
-            $('#expiration_date').val(data.product.expiration_date);
+            var expd=data.product.expiration_date;
+            var day=expd.substr(8,2);
+            var month=expd.substr(5,2);
+            var year=expd.substr(0,4);
+            expd=day+'/'+month+'/'+year;
+            $('#expiration_date').val(expd);
             $('#weight').val(data.product.weight);
             $('#stock').val(data.product.stock);
 
@@ -85,6 +91,10 @@ $(document).ready(function () {
     //display modal form for creating new product
     $(document).on('click', '#btn-add', function (e) {
         // $('#btn-add').click(function() {
+        $('#ajaxerror').empty();
+        $('#ajaxerror').removeClass("alert alert-danger");
+        $('input').removeAttr("style");
+        $('textarea').removeAttr("style");
         $(".select2-selection__choice").remove();
         $("#ingredient_list").html('');
         $("#category_list").html('');
@@ -124,154 +134,159 @@ $(document).ready(function () {
 
     //create new product / update existing product
     $("#btn-save").click(function (e) {
+        if (valdateAllergyForm()) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
 
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            e.preventDefault();
+
+            var brand_id = $("#brand_id").val();
+            var categories = $("#category_list").val();
+            var ingredients = $("#ingredient_list").val();
+            /*
+             var datos_ingredients_select = $("#ingredient_list").select2("data");
+             var ingredients = [];
+             for (i = 0; i < datos_ingredients_select.length; i++) {
+             ingredients[i] = datos_ingredients_select[i].id;
+             }
+
+
+             var datos_categories_select = $("#category-list").select2("data");
+             var categories = [];
+             for (i = 0; i < datos_categories_select.length; i++) {
+             categories[i] = datos_categories_select[i].id;
+             }*/
+            var vegetarian = 0, vegan = 0, organic = 0;
+            if ($('#vegetarian').prop('checked')) {
+                vegetarian = 1;
             }
-        });
-
-        e.preventDefault();
-
-        var brand_id = $("#brand_id").val();
-        var categories = $("#category_list").val();
-        var ingredients = $("#ingredient_list").val();
-        /*
-         var datos_ingredients_select = $("#ingredient_list").select2("data");
-         var ingredients = [];
-         for (i = 0; i < datos_ingredients_select.length; i++) {
-         ingredients[i] = datos_ingredients_select[i].id;
-         }
-
-
-         var datos_categories_select = $("#category-list").select2("data");
-         var categories = [];
-         for (i = 0; i < datos_categories_select.length; i++) {
-         categories[i] = datos_categories_select[i].id;
-         }*/
-        var vegetarian = 0, vegan = 0, organic = 0;
-        if ($('#vegetarian').prop('checked')) {
-            vegetarian = 1;
-        }
-        if ($('#vegan').prop('checked')) {
-            vegan = 1;
-        }
-        if ($('#organic').prop('checked')) {
-            organic = 1;
-        }
-
-        /* var photo=null;
-         if(document.getElementById("photo").files.length != 0) {
-         photo= formData.append('photo',document.getElementById('photo').files[0]);
-         }*/
-        var formData = {
-            //   photo:photo,
-            name: $('#name').val(),
-            info: $('#info').val(),
-            price: $('#price').val(),
-            description: $('#description').val(),
-            expiration_date: $('#expiration_date').val(),
-            weight: $('#weight').val(),
-            stock: $('#stock').val(),
-            ingredients: ingredients,
-            categories: categories,
-            brand_id: brand_id,
-            dimension: $('#dimension').val(),
-            real_weight: $('#real_weight').val(),
-            vegetarian: vegetarian,
-            vegan: vegan,
-            organic: organic
-            //photo:$('#photo').val(),
-        }
-        /*  var formData = new FormData();
-         if(document.getElementById("photo").value != "") {
-         formData.append('photo',document.getElementById('photo').files[0]);
-         }
-         formData.append('name', $('#name').val());
-         formData.append('allergies',allergies);
-         formData.append('info',$('#info').val());*/
-
-        //console.log(allergies)
-        //used to determine the http verb to use [add=POST], [update=PUT]
-        var state = $('#btn-save').val();
-
-        var type = "POST"; //for creating new resource
-        var product_id = $('#id').val();
-        var my_url = url;
-
-        if (state == "update") {
-
-            type = "PUT"; //for updating existing resource
-            my_url += '/' + product_id;
-        }
-
-        //console.log(formData);
-        console.log("update");
-        $.ajax({
-            type: type,
-            //contentType: false,
-            // processData: false,
-            url: my_url,
-            data: formData,
-            dataType: 'json',
-
-            success: function (data) { // success:
-                console.log(data);
-
-
-                //info
-                var product = '<tr id="product' + data.product.id + '"><td id="id">' + data.product.id + '</td><td>' + data.product.name + '</td><td>' + data.product.price + '</td><td>' + data.product.expiration_date + '</td>';
-                product += '<td>' + data.product.weight + '</td><td>' + data.product.stock + '</td>';
-                if (data.categories.length == 0 || data.categories.length == null) {
-                    product += ' <td></td>';
-                } else {
-                    product += '<td>';
-                    for (i = 0; i < data.categories.length; i++) {
-                        product += ' <p>' + data.categories[i].name + '</p>';
-                    }
-                    product += '</td>';
-
-                }
-
-                product += '<td id="product-img"></td>';//for images
-
-                // product += '<td id="product-img"></td>';//for images
-                product += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.product.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
-
-                product += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-product" value="' + data.product.id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button></td></tr>';
-
-                if (state == "add") { //if user added a new record
-                    $('#product-list').append(product);
-                } else { //if user updated an existing record
-                    $("#product" + product_id).replaceWith(product);
-                }
-               if(data.images.length>1){
-                   $('#product' + product_id + ' > #product-img').replaceWith("<td id='product-img'><img class='img-thumbnail' width='48.2' height='48.2' src='/admin/products/" + data.images[0].id + "/image'></td>");
-               }
-                insertImg(e, data.product.id, type);//en el caso de update y no poner imagen, la imagen se queda con la linea anterior
-                $('#formProducts').trigger("reset");
-                $('#ajaxerror').empty();
-                $('#ajaxerror').removeClass("alert alert-danger");
-                $('#myModal').modal("hide");
-                successMessage();
-            },
-            error: function (data) {
-                console.log('Error:', data);
-                $('#ajaxerror').addClass("alert alert-danger");
-                var msg;
-
-                if (data.status == 422) {
-                    msg = "<ul>";
-                    for (var key in data.responseJSON) {
-                        msg += "<li>" + data.responseJSON[key] + "</li>";
-                    }
-                    msg += "</ul>";
-                } else {
-                    msg = "<p>There was an internal error. Contact with the admin.</p>";
-                }
-                $('#ajaxerror').html(msg);
+            if ($('#vegan').prop('checked')) {
+                vegan = 1;
             }
-        });
+            if ($('#organic').prop('checked')) {
+                organic = 1;
+            }
+            var day=$('#expiration_date').val().substr(0,2);
+            var month=$('#expiration_date').val().substr(3,2);
+            var year=$('#expiration_date').val().substr(6,4);
+            var expd=year+'/'+month+'/'+day;
+
+            /* var photo=null;
+             if(document.getElementById("photo").files.length != 0) {
+             photo= formData.append('photo',document.getElementById('photo').files[0]);
+             }*/
+            var formData = {
+                //   photo:photo,
+                name: $('#name').val(),
+                info: $('#info').val(),
+                price: $('#price').val(),
+                description: $('#description').val(),
+                expiration_date: expd,
+                weight: $('#weight').val(),
+                stock: $('#stock').val(),
+                ingredients: ingredients,
+                categories: categories,
+                brand_id: brand_id,
+                dimension: $('#dimension').val(),
+                real_weight: $('#real_weight').val(),
+                vegetarian: vegetarian,
+                vegan: vegan,
+                organic: organic
+                //photo:$('#photo').val(),
+            }
+            /*  var formData = new FormData();
+             if(document.getElementById("photo").value != "") {
+             formData.append('photo',document.getElementById('photo').files[0]);
+             }
+             formData.append('name', $('#name').val());
+             formData.append('allergies',allergies);
+             formData.append('info',$('#info').val());*/
+
+            //console.log(allergies)
+            //used to determine the http verb to use [add=POST], [update=PUT]
+            var state = $('#btn-save').val();
+
+            var type = "POST"; //for creating new resource
+            var product_id = $('#id').val();
+            var my_url = url;
+
+            if (state == "update") {
+
+                type = "PUT"; //for updating existing resource
+                my_url += '/' + product_id;
+            }
+
+            //console.log(formData);
+            console.log("update");
+            $.ajax({
+                type: type,
+                //contentType: false,
+                // processData: false,
+                url: my_url,
+                data: formData,
+                dataType: 'json',
+
+                success: function (data) { // success:
+                    console.log(data);
+
+
+                    //info
+                    var product = '<tr id="product' + data.product.id + '"><td id="id">' + data.product.id + '</td><td>' + data.product.name + '</td><td>' + data.product.price + '</td><td>' + data.product.expiration_date + '</td>';
+                    product += '<td>' + data.product.weight + '</td><td>' + data.product.stock + '</td>';
+                    if (data.categories.length == 0 || data.categories.length == null) {
+                        product += ' <td></td>';
+                    } else {
+                        product += '<td>';
+                        for (i = 0; i < data.categories.length; i++) {
+                            product += ' <p>' + data.categories[i].name + '</p>';
+                        }
+                        product += '</td>';
+
+                    }
+
+                    product += '<td id="product-img"></td>';//for images
+
+                    // product += '<td id="product-img"></td>';//for images
+                    product += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.product.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
+
+                    product += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-product" value="' + data.product.id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button></td></tr>';
+
+                    if (state == "add") { //if user added a new record
+                        $('#product-list').append(product);
+                    } else { //if user updated an existing record
+                        $("#product" + product_id).replaceWith(product);
+                    }
+                    if (data.images.length > 1) {
+                        $('#product' + product_id + ' > #product-img').replaceWith("<td id='product-img'><img class='img-thumbnail' width='48.2' height='48.2' src='/admin/products/" + data.images[0].id + "/image'></td>");
+                    }
+                    insertImg(e, data.product.id, type);//en el caso de update y no poner imagen, la imagen se queda con la linea anterior
+                    $('#formProducts').trigger("reset");
+                    $('#ajaxerror').empty();
+                    $('#ajaxerror').removeClass("alert alert-danger");
+                    $('#myModal').modal("hide");
+                    successMessage();
+                },
+                error: function (data) {
+                    console.log('Error:', data);
+                    $('#ajaxerror').addClass("alert alert-danger");
+                    var msg;
+
+                    if (data.status == 422) {
+                        msg = "<ul>";
+                        for (var key in data.responseJSON) {
+                            msg += "<li>" + data.responseJSON[key] + "</li>";
+                        }
+                        msg += "</ul>";
+                    } else {
+                        msg = "<p>There was an internal error. Contact with the admin.</p>";
+                    }
+                    $('#ajaxerror').html(msg);
+                }
+            });
+        }
     });
 
     //search
@@ -435,3 +450,63 @@ $(document).ready(function () {
         }
     }
 });
+function valdateAllergyForm() {
+    var retorn = true;
+    if (!validateName($('#name').val())) {
+        $('#name').css('border-color', "#a94442");
+        retorn = false;
+    }else{
+        $('#name').css('border-color', "#5cb85c");
+    }
+    if (!validatePrice($('#price').val())) {
+        $('#price').css('border-color', "#a94442");
+        retorn = false;
+    }else{
+        $('#price').css('border-color', "#5cb85c");
+    }
+    if (!validateLongText($('#description').val())) {
+        $('#description').css('border-color', "#a94442");
+        retorn = false;
+    }else{
+        $('#description').css('border-color', "#5cb85c");
+    }
+    if (!validateDate($('#expiration_date').val())) {
+        $('#expiration_date').css('border-color', "#a94442");
+        retorn = false;
+    }
+    else{
+        $('#expiration_date').css('border-color', "#5cb85c");
+    }
+    if (!(parseInt($('#weight').val())>=0)) {
+        $('#weight').css('border-color', "#a94442");
+        retorn = false;
+    }else{
+        $('#weight').css('border-color', "#5cb85c");
+    }
+    if (!(parseInt($('#stock').val())>=0)) {
+        $('#stock').css('border-color', "#a94442");
+        retorn = false;
+    }else{
+        $('#stock').css('border-color', "#5cb85c");
+    }
+
+    if ($('#real_weight').val()) {
+        if (!(parseInt($('#real_weight').val())>=0)) {
+            $('#real_weight').css('border-color', "#a94442");
+            retorn = false;
+        }
+        else{
+            $('#real_weight').css('border-color', "#5cb85c");
+        }
+    }
+    if ($('#dimension').val()) {
+        if (!validateDimensions($('#dimension').val())) {
+            $('#dimension').css('border-color', "#a94442");
+            retorn = false;
+        }else{
+            $('#dimension').css('border-color', "#5cb85c");
+        }
+    }
+    console.log(retorn);
+    return retorn;
+}

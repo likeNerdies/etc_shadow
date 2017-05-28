@@ -26,6 +26,9 @@ $(document).ready(function() {
     //display modal form for creating new transporter
     $(document).on('click', '#btn-add', function(e) {
    // $('#btn-add').click(function() {
+        $('#ajaxerror').empty();
+        $('#ajaxerror').removeClass("alert alert-danger");
+        $('input').removeAttr( "style" );
         $('#btn-save').val("add");
         $('#formTransporters').trigger("reset");
         $('#myModal').modal('show');
@@ -61,80 +64,82 @@ $(document).ready(function() {
 
     //create new transporter / update existing transporter
     $("#btn-save").click(function (e) {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
-        e.preventDefault();
-
-        var formData = {
-            name: $('#name').val(),
-            cif: $('#cif').val(),
-            phone_number: $('#phone_number').val(),
-        }
-
-        //used to determine the http verb to use [add=POST], [update=PUT]
-        var state = $('#btn-save').val();
-
-        var type = "POST"; //for creating new resource
-        var transporter_id = $('#id').val();
-        console.log("id: " +transporter_id);
-        var my_url = url;
-
-        if (state == "update"){
-          console.log("update");
-            type = "PUT"; //for updating existing resource
-            my_url += '/' + transporter_id;
-        }
-        console.log("URL:"+my_url);
-        console.log(formData);
-
-        $.ajax({
-            type: type,
-            url: my_url,
-            data: formData,
-            dataType: 'json',
-            success: function (data) { // success:
-                console.log(data);
-
-                var transporter = '<tr id="transporter' + data.id + '"><td>' + data.id + '</td><td>' + data.name + '</td><td>' + data.cif + '</td><td>' + data.phone_number + '</td>';
-
-                transporter += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
-
-                transporter += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-transporter" value="' + data.id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button>';
-
-                if (state == "add"){ //if user added a new record
-                    $('#transporter-list').append(transporter);
-                }else{ //if user updated an existing record
-
-                    $("#transporter" + transporter_id).replaceWith( transporter );
+        if (valdateAllergyForm()) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
+            });
 
-                $('#formTransporters').trigger("reset");
-                $('#ajaxerror').empty();
-                $('#ajaxerror').removeClass("alert alert-danger");
-                $('#myModal').modal("hide");
-                successMessage();
-            },
-            error: function (data) {
-                //console.log('Error:', data);
-                $('#ajaxerror').addClass("alert alert-danger");
-                var msg;
+            e.preventDefault();
 
-                if (data.status == 422){
-                  msg = "<ul>";
-                  for (var key in data.responseJSON) {
-                    msg += "<li>"+data.responseJSON[key]+"</li>";
-                  }
-                  msg += "</ul>";
-                } else {
-                  msg = "<p>There was an internal error. Contact with the admin.</p>";
-                }
-                $('#ajaxerror').html(msg);
+            var formData = {
+                name: $('#name').val(),
+                cif: $('#cif').val(),
+                phone_number: $('#phone_number').val(),
             }
-        });
+
+            //used to determine the http verb to use [add=POST], [update=PUT]
+            var state = $('#btn-save').val();
+
+            var type = "POST"; //for creating new resource
+            var transporter_id = $('#id').val();
+            console.log("id: " + transporter_id);
+            var my_url = url;
+
+            if (state == "update") {
+                console.log("update");
+                type = "PUT"; //for updating existing resource
+                my_url += '/' + transporter_id;
+            }
+            console.log("URL:" + my_url);
+            console.log(formData);
+
+            $.ajax({
+                type: type,
+                url: my_url,
+                data: formData,
+                dataType: 'json',
+                success: function (data) { // success:
+                    console.log(data);
+
+                    var transporter = '<tr id="transporter' + data.id + '"><td>' + data.id + '</td><td>' + data.name + '</td><td>' + data.cif + '</td><td>' + data.phone_number + '</td>';
+
+                    transporter += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
+
+                    transporter += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-transporter" value="' + data.id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button>';
+
+                    if (state == "add") { //if user added a new record
+                        $('#transporter-list').append(transporter);
+                    } else { //if user updated an existing record
+
+                        $("#transporter" + transporter_id).replaceWith(transporter);
+                    }
+
+                    $('#formTransporters').trigger("reset");
+                    $('#ajaxerror').empty();
+                    $('#ajaxerror').removeClass("alert alert-danger");
+                    $('#myModal').modal("hide");
+                    successMessage();
+                },
+                error: function (data) {
+                    //console.log('Error:', data);
+                    $('#ajaxerror').addClass("alert alert-danger");
+                    var msg;
+
+                    if (data.status == 422) {
+                        msg = "<ul>";
+                        for (var key in data.responseJSON) {
+                            msg += "<li>" + data.responseJSON[key] + "</li>";
+                        }
+                        msg += "</ul>";
+                    } else {
+                        msg = "<p>There was an internal error. Contact with the admin.</p>";
+                    }
+                    $('#ajaxerror').html(msg);
+                }
+            });
+        }
     });
 
     $('#search').on('keyup',function () {
@@ -171,3 +176,32 @@ $(document).ready(function() {
     });
 
 });
+
+function valdateAllergyForm() {
+    var retorn = true;
+    if (!validateName($('#name').val())) {
+        $('#name').css('border-color', "#a94442");
+        retorn = false;
+    }else{
+        $('#name').css('border-color', "#5cb85c");
+    }
+   // if ($('#cif').val()) {
+        if (!validateCIF($('#cif').val())) {
+            $('#cif').css('border-color', "#a94442");
+            retorn = false;
+        }else{
+            $('#cif').css('border-color', "#5cb85c");
+        }
+   // }
+
+   // if ($('#phone_number').val()) {
+        if (!validatePhone($('#phone_number').val())) {
+            $('#phone_number').css('border-color', "#a94442");
+            retorn = false;
+        }else{
+            $('#phone_number').css('border-color', "#5cb85c");
+        }
+    //}
+    console.log(retorn);
+    return retorn;
+}

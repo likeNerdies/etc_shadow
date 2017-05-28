@@ -14,9 +14,7 @@ $(document).ready(function() {
             //success data
             $('#id').val(data.id);
             $('#name').val(data.name);
-
             $('#btn-save').val("update");
-
             $('#myModal').modal('show');
         })
     });
@@ -24,6 +22,8 @@ $(document).ready(function() {
     //display modal form for creating new allergy
     $(document).on('click', '#btn-add', function(e) {
    // $('#btn-add').click(function() {
+        $('#ajaxerror').empty();
+        $('#ajaxerror').removeClass("alert alert-danger");
         $('#btn-save').val("add");
         $('#formAllergies').trigger("reset");
         $('#myModal').modal('show');
@@ -59,6 +59,7 @@ $(document).ready(function() {
 
     //create new allergy / update existing allergy
     $("#btn-save").click(function (e) {
+        if(valdateAllergyForm()){
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -129,6 +130,7 @@ $(document).ready(function() {
               $('#ajaxerror').html(msg);
             }
         });
+        }
     });
 
     $('#search').on('keyup',function () {
@@ -163,5 +165,15 @@ $(document).ready(function() {
             //todo
         }
     });
-
 });
+function valdateAllergyForm(){
+    var retorn=true;
+    if(!validateName($('#name').val())){
+        $('#name').css('border-color',"#a94442");
+        retorn=false;
+    }else{
+        $('#name').css('border-color', "#5cb85c");
+    }
+    console.log(retorn);
+        return retorn;
+}

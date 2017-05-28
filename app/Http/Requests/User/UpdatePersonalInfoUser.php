@@ -28,7 +28,7 @@ class UpdatePersonalInfoUser extends FormRequest
               array(
                   'nullable',
                   'regex:/((^[A-Z,a-z]{1})(\d{7})([A-Z,a-z]{1}))|(^\d{8}[aA-zZ]{1}$)/',
-                  'unique:users,dni',
+                  'unique:users,dni,'.$this->id,
               ),
           'name' =>
               array(
