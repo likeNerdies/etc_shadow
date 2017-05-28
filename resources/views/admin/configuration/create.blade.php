@@ -87,33 +87,33 @@
                             <div class="form-group error">
                                 <label for="dni" class="col-sm-3 control-label">DNI</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control has-error" id="dni" name="dni" placeholder="dni" value="">
+                                    <input type="text" class="form-control has-error" id="dni" name="dni" placeholder=" dni" value="">
                                 </div>
                             </div>
 
                             <div class="form-group error">
                                 <label for="name" class="col-sm-3 control-label">Name</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control has-error" id="name" name="name" placeholder="Laura" value="" required>
+                                    <input type="text" class="form-control has-error" id="name" name="name" placeholder=" admin name"  required>
                                 </div>
                             </div>
                             <div class="form-group error">
                                 <label for="first_surname" class="col-sm-3 control-label">First Surname</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control has-error" id="first_surname" name="first_surname" placeholder="Martinez" value="" required>
+                                    <input type="text" class="form-control has-error" id="first_surname" name="first_surname" placeholder=" first surname"  required>
                                 </div>
                             </div>
                             <div class="form-group error">
                                 <label for="second_surname" class="col-sm-3 control-label">Second Surname</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control has-error" id="second_surname" name="second_surname" placeholder="Gimenez" value="">
+                                    <input type="text" class="form-control has-error" id="second_surname" name="second_surname" placeholder=" second surname">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="email" class="col-sm-3 control-label">Email</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="email" name="email" placeholder="example@example.com" value="" requireds>
+                                    <input type="text" class="form-control" id="email" name="email" placeholder=" example@example.com"  requireds>
                                 </div>
                             </div>
 
@@ -134,7 +134,7 @@
                             <div class="form-group">
                                 <label for="phone_number" class="col-sm-5 control-label">Phone number</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="123456789" value="">
+                                    <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder=" phone number" value="">
                                 </div>
                             </div>
 

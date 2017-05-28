@@ -37,9 +37,9 @@ class ProductController extends Controller
     public function productsIndex()
     {
         $products = App\Product::paginate(15);
-        $categories=App\Category::all();
+        $categories = App\Category::all();
         $brands = App\Brand::all();
-        return view('product.index', compact(['products', 'brands','categories']));
+        return view('product.index', compact(['products', 'brands', 'categories']));
     }
 
     /**
@@ -114,6 +114,10 @@ class ProductController extends Controller
     public function storeImage(Request $request, $id)
     {
 
+        $this->validate($request, [
+            'image' => 'required',
+            'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5000'
+        ]);
         $inserted = true;
         try {
             DB::beginTransaction();
@@ -311,31 +315,31 @@ class ProductController extends Controller
 
         $query = App\Product::with('images'); //names of eager loaded relationships
         $query->join('category_product', 'products.id', '=', 'category_product.product_id');
-        if(isset($request->brands)){
-            $query->whereIn('brand_id',$request->brands);
+        if (isset($request->brands)) {
+            $query->whereIn('brand_id', $request->brands);
         }
-        if(isset($request->categories)){
-            $query->whereIn('category_id',$request->categories);
+        if (isset($request->categories)) {
+            $query->whereIn('category_id', $request->categories);
         }
 
-        if(isset($request->organic)){
-            $query ->where('organic','=',1);
+        if (isset($request->organic)) {
+            $query->where('organic', '=', 1);
         }
-        if(isset($request->vegetarian)){
-            $query ->where('vegetarian','=',1);
+        if (isset($request->vegetarian)) {
+            $query->where('vegetarian', '=', 1);
         }
-        if(isset($request->vegan)){
-            $query ->where('vegan','=',1);
+        if (isset($request->vegan)) {
+            $query->where('vegan', '=', 1);
         }
-      //  $query->where('categories','=','bebida');
+        //  $query->where('categories','=','bebida');
         return $query->get();
-      /*  $products = DB::table('products')
-            ->join('category_product', 'products.id', '=', 'category_product.product_id')
-            ->select('*')
-            ->whereIn('brand_id',[1,3])
-            ->whereIn('category_id',[1,2])
-            ->where('vegetarian','=',1)
-            ->get();
-        return $products;*/
+        /*  $products = DB::table('products')
+              ->join('category_product', 'products.id', '=', 'category_product.product_id')
+              ->select('*')
+              ->whereIn('brand_id',[1,3])
+              ->whereIn('category_id',[1,2])
+              ->where('vegetarian','=',1)
+              ->get();
+          return $products;*/
     }
 }

@@ -36,6 +36,9 @@ $(document).ready(function() {
     //display modal form for creating new admin
     $(document).on('click', '#btn-add', function(e) {
    // $('#btn-add').click(function() {
+        $('#ajaxerror').empty();
+        $('#ajaxerror').removeClass("alert alert-danger");
+        $('input').removeAttr( "style" );
         $('#btn-save').val("add");
         $('#formCategories').trigger("reset");
         $('#myModal').modal('show');
@@ -72,88 +75,90 @@ $(document).ready(function() {
     //create new admin / update existing admin
     $(document).on('click', '#btn-save', function(e) {
    // $("#btn-save").click(function (e) {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        if (valdateForm()) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            e.preventDefault();
+
+
+            var can_create;
+            if ($('#can_create').prop('checked')) {
+                can_create = 1;
             }
-        });
-
-        e.preventDefault();
-
-
-        var can_create;
-        if($('#can_create').prop('checked')){
-            can_create=1;
-        }
-        var formData = {
-            dni:$('#dni').val(),
-            name: $('#name').val(),
-            first_surname: $('#first_surname').val(),
-            second_surname: $('#second_surname').val(),
-            email: $('#email').val(),
-            password: $('#password').val(),
-            password_confirmation: $('#password_confirmation').val(),
-            phone_number: $('#phone_number').val(),
-            can_create:can_create,
-        }
-
-        //used to determine the http verb to use [add=POST], [update=PUT]
-        var state = $('#btn-save').val();
-
-        var type = "POST"; //for creating new resource
-        var admin_id = $('#id').val();
-        var my_url = url;
-
-        if (state == "update"){
-          console.log("update");
-            type = "PUT"; //for updating existing resource
-            my_url += '/' + admin_id;
-        }
-
-        console.log(formData);
-
-        $.ajax({
-            type: type,
-            url: my_url,
-            data: formData,
-            dataType: 'json',
-            success: function (data) { // success:
-                console.log(data);
-                var admin='<tr id="admin' + data.id + '"><td id="id">' + data.id + '</td>';
-                if(data.dni!=null){
-                    admin+='<td>'+data.dni+'</td>';
-                }else{
-                    admin+='<td></td>';
-                }
-                 admin += '<td>' + data.name + '</td><td>' + data.first_surname + '</td><td>' + data.email + '</td>';
-                if(data.phone_number!=null){
-                    admin+='<td>'+data.phone_number+'</td>';
-                }else{
-                    admin+='<td></td>';
-                }
-                admin += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
-
-                admin += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-admin" value="' + data.id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button></td></tr>';
-
-                if (state == "add"){ //if user added a new record
-                    $('#admin-list').append(admin);
-                }else{ //if user updated an existing record
-
-                    $("#admin" + admin_id).replaceWith( admin );
-                }
-
-                $('#formCategories').trigger("reset");
-                $('#ajaxerror').empty();
-                $('#ajaxerror').removeClass("alert alert-danger");
-                $('#myModal').modal("hide");
-                successMessage();
-            },
-            error: function (data) {
-                console.log('Error:', data);
-                $('#ajaxerror').addClass("alert alert-danger");
-                $('#ajaxerror').html("<p>" + data.responseText + "</p>");
+            var formData = {
+                dni: $('#dni').val(),
+                name: $('#name').val(),
+                first_surname: $('#first_surname').val(),
+                second_surname: $('#second_surname').val(),
+                email: $('#email').val(),
+                password: $('#password').val(),
+                password_confirmation: $('#password_confirmation').val(),
+                phone_number: $('#phone_number').val(),
+                can_create: can_create,
             }
-        });
+
+            //used to determine the http verb to use [add=POST], [update=PUT]
+            var state = $('#btn-save').val();
+
+            var type = "POST"; //for creating new resource
+            var admin_id = $('#id').val();
+            var my_url = url;
+
+            if (state == "update") {
+                console.log("update");
+                type = "PUT"; //for updating existing resource
+                my_url += '/' + admin_id;
+            }
+
+            console.log(formData);
+
+            $.ajax({
+                type: type,
+                url: my_url,
+                data: formData,
+                dataType: 'json',
+                success: function (data) { // success:
+                    console.log(data);
+                    var admin = '<tr id="admin' + data.id + '"><td id="id">' + data.id + '</td>';
+                    if (data.dni != null) {
+                        admin += '<td>' + data.dni + '</td>';
+                    } else {
+                        admin += '<td></td>';
+                    }
+                    admin += '<td>' + data.name + '</td><td>' + data.first_surname + '</td><td>' + data.email + '</td>';
+                    if (data.phone_number != null) {
+                        admin += '<td>' + data.phone_number + '</td>';
+                    } else {
+                        admin += '<td></td>';
+                    }
+                    admin += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
+
+                    admin += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-admin" value="' + data.id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button></td></tr>';
+
+                    if (state == "add") { //if user added a new record
+                        $('#admin-list').append(admin);
+                    } else { //if user updated an existing record
+
+                        $("#admin" + admin_id).replaceWith(admin);
+                    }
+
+                    $('#formCategories').trigger("reset");
+                    $('#ajaxerror').empty();
+                    $('#ajaxerror').removeClass("alert alert-danger");
+                    $('#myModal').modal("hide");
+                    successMessage();
+                },
+                error: function (data) {
+                    console.log('Error:', data);
+                    $('#ajaxerror').addClass("alert alert-danger");
+                    $('#ajaxerror').html("<p>" + data.responseText + "</p>");
+                }
+            });
+        }
     });
 
     $('#search').on('keyup',function () {
@@ -200,3 +205,79 @@ $(document).ready(function() {
     });
 
 });
+
+function valdateForm() {
+    var retorn = true;
+    if (!validateName($('#name').val())) {
+        $('#name').css('border-color', "#a94442");
+        retorn = false;
+    }else{
+        $('#name').css('border-color', "#5cb85c");
+    }
+    if ($('#dni').val()) {
+        if (!validateDniNif($('#dni').val())) {
+            $('#dni').css('border-color', "#a94442");
+            retorn = false;
+        }else{
+            $('#dni').css('border-color', "#5cb85c");
+        }
+    }
+    if (!validateName($('#first_surname').val())) {
+        $('#first_surname').css('border-color', "#a94442");
+        retorn = false;
+    }else{
+        $('#first_surname').css('border-color', "#5cb85c");
+    }
+
+    if ($('#second_surname').val()) {
+        if (!validateName($('#second_surname').val())) {
+            $('#second_surname').css('border-color', "#a94442");
+            retorn = false;
+        }else{
+            $('#second_surname').css('border-color', "#5cb85c");
+        }
+    }
+    if (!validateEmail($('#email').val())) {
+        $('#email').css('border-color', "#a94442");
+        retorn = false;
+    }else{
+        $('#email').css('border-color', "#5cb85c");
+    }
+    if ($('#password').val()) {
+        if (!validatePassword($('#password').val())) {
+            $('#password').css('border-color', "#a94442");
+            retorn = false;
+        }else{
+            $('#password').css('border-color', "#5cb85c");
+        }
+    }
+    if ($('#password_confirmation').val()) {
+        if (!validatePassword($('#password_confirmation').val())) {
+            $('#password_confirmation').css('border-color', "#a94442");
+            retorn = false;
+        }else{
+            $('#password_confirmation').css('border-color', "#5cb85c");
+        }
+    }
+    if ($('#password_confirmation').val() && $('#password').val()) {
+        if ($('#password_confirmation').val() != $('#password').val()) {
+            retorn = false;
+            $('#password_confirmation').css('border-color', "#a94442");
+            $('#password').css('border-color', "#a94442");
+            //todo mensaje password no spn igualges
+        }else{
+            $('#password_confirmation').css('border-color', "#5cb85c");
+            $('#password').css('border-color', "#5cb85c");
+        }
+    }
+    if ($('#phone_number').val()) {
+        if (!validatePhone($('#phone_number').val())) {
+            $('#phone_number').css('border-color', "#a94442");
+            retorn = false;
+        }else{
+            $('#phone_number').css('border-color', "#5cb85c");
+        }
+    }
+    console.log(retorn);
+    return retorn;
+}

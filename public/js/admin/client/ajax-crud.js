@@ -91,7 +91,7 @@ $(document).ready(function () {
     //create new client / update existing client
     $(document).on('click', '#btn-save', function (e) {
         // $("#btn-save").click(function (e) {
-        if (valdateAllergyForm()) {
+        if (valdateForm()) {
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -239,7 +239,7 @@ $(document).ready(function () {
     });
 
 });
-function valdateAllergyForm() {
+function valdateForm() {
     var retorn = true;
     if (!validateName($('#name').val())) {
         $('#name').css('border-color', "#a94442");

@@ -37,17 +37,12 @@ class UploadProduct extends FormRequest
             'vegetarian'=>'nullable|boolean',
             'vegan'=>'nullable|boolean',
             'organic'=>'nullable|boolean',
-            'stock' =>'required|numeric|between:1,3000',
+            'stock' =>'required|integer|between:1,3000',
             /* Clara: 18/05 */
-            'dimensions' =>'nullable|numeric|min:1|max:3',
+            'dimensions' =>'nullable|integer|min:1|max:3',
             'ingredients'  => 'required|array|min:1',//input type hidden ingredients
 
         ];
-       /* $photos = count($this->input('photos'));
-        foreach (range(0, $photos) as $index) {
-            $rules['photos.' . $index] = 'required|image|mimes:jpeg,bmp,png|max:5000';
-        }
-*/
         return $rules;
     }
 }

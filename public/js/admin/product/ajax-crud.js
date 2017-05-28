@@ -13,6 +13,8 @@ $(document).ready(function () {
         var product_id = $(this).val();
         $('#ajaxerror').empty();
         $('#ajaxerror').removeClass("alert alert-danger");
+        $('.error').empty();
+        $('.error').removeClass("alert alert-danger");
         $('input').removeAttr("style");
         $('textarea').removeAttr("style");
         $.get(url + '/' + product_id, function (data) {
@@ -93,6 +95,8 @@ $(document).ready(function () {
         // $('#btn-add').click(function() {
         $('#ajaxerror').empty();
         $('#ajaxerror').removeClass("alert alert-danger");
+        $('.error').empty();
+        $('.error').removeClass("alert alert-danger");
         $('input').removeAttr("style");
         $('textarea').removeAttr("style");
         $(".select2-selection__choice").remove();
@@ -121,6 +125,8 @@ $(document).ready(function () {
                 $("#product" + product).remove();
                 $('#ajaxerror').empty();
                 $('#ajaxerror').removeClass("alert alert-danger");
+                $('.error').empty();
+                $('.error').removeClass("alert alert-danger");
                 successMessage();
             },
             error: function (data) {
@@ -134,7 +140,7 @@ $(document).ready(function () {
 
     //create new product / update existing product
     $("#btn-save").click(function (e) {
-        if (valdateAllergyForm()) {
+        if (valdateForm()) {
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -266,6 +272,8 @@ $(document).ready(function () {
                     $('#formProducts').trigger("reset");
                     $('#ajaxerror').empty();
                     $('#ajaxerror').removeClass("alert alert-danger");
+                    $('.error').empty();
+                    $('.error').removeClass("alert alert-danger");
                     $('#myModal').modal("hide");
                     successMessage();
                 },
@@ -438,19 +446,30 @@ $(document).ready(function () {
                 success: function (data) { // success:
                     console.log(data);
                     $('#product' + id + ' > #product-img').replaceWith("<td id='product-img'><img class='img-thumbnail' width='48.2' height='48.2' src='/admin/products/" + data.images + "/image'></td>");
-                    $('#ajaxerror').empty();
-                    $('#ajaxerror').removeClass("alert alert-danger");
+                    $('.error').empty();
+                    $('.error').removeClass("alert alert-danger");
                 },
                 error: function (data) {
                     console.log('Error:', data);
-                    $('#ajaxerror').addClass("alert alert-danger");
-                    $('.error').html("<p>There was an internal error.</p>");
+                    $('.error').addClass("alert alert-danger");
+                    var msg;
+
+                    if (data.status == 422) {
+                        msg = "<ul>";
+                        for (var key in data.responseJSON) {
+                            msg += "<li>" + data.responseJSON[key] + "</li>";
+                        }
+                        msg += "</ul>";
+                    } else {
+                        msg = "<p>There was an internal error. Contact with the admin.</p>";
+                    }
+                    $('.error').html(msg);
                 }
             });
         }
     }
 });
-function valdateAllergyForm() {
+function valdateForm() {
     var retorn = true;
     if (!validateName($('#name').val())) {
         $('#name').css('border-color', "#a94442");
