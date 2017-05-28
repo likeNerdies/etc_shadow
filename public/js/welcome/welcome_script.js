@@ -1,6 +1,14 @@
 $(document).on('scroll', function (e) {
-    var opacity = $(document).scrollTop() / 500;
-    $('.navbar').css('background-color', 'rgba(255, 255, 255,' + opacity);
+
+    // If there's no background-image, we don't want to keep the opacity transition
+    if ($('.background-image').length == 0) {
+      var opacity = 1;
+      $('.navbar').css('background-color', 'rgba(255, 255, 255,' + 8);
+    } else {
+      var opacity = $(document).scrollTop() / 500;
+      $('.navbar').css('background-color', 'rgba(255, 255, 255,' + opacity);
+    }
+
     if ($(document).scrollTop() == 0) {
         $('.navbar').css('box-shadow', '');
     } else {
@@ -63,39 +71,28 @@ $(document).ready(function (event) {
         $(this).toggleClass('arrow-show arrow-show-bg').next().toggleClass('left-0');
     });
 
-    ///////////////////////////////////////////////////////////////////
 
-    //if($('#navbarTogglerDemo02').is(':visible'))alert("hey");
+    //////////////////////////////////////////////////////////////////FUNCTION MEDIA QUERY
+    function mediaQuery() {
 
-    //alert($(document))
-    function mediaQuery(mql) {
-        if(mql.matches){
-            $(document).on('click','#hamburger',function () {
-                if($('.profile-content-show').is(':visible')){
-                    $('.profile-content').toggleClass('profile-content-show');
-                }
+        $(document).on('click', '#hamburger', function () {
+            if ($('.profile-content-show').is(':visible')) {
+                $('.profile-content').toggleClass('profile-content-show');
+            }
+            $('#navbarTogglerDemo02').slideToggle();
+        });
+
+        $(document).on('click', 'span#tog-profile', function () {
+            if ($('#navbarTogglerDemo02').is(':visible') && window.matchMedia('(max-width:860)').matches) {
                 $('#navbarTogglerDemo02').slideToggle();
-            });
+            }
+            $('.profile-content').toggleClass('profile-content-show');
+        });
 
-            $(document).on('click','span#tog-profile',function (e) {
-                if($('#navbarTogglerDemo02').is(':visible')){
-                    $('#navbarTogglerDemo02').slideToggle();
-                }
-                $('.profile-content').toggleClass('profile-content-show');
-            });
-        }else{
-
-            $(document).on('click','span#tog-profile',function () {
-                $('.profile-content').toggleClass('profile-content-show');
-            });
-        }
     }
 
-    var mql = window.matchMedia("(max-width:768px)");
-    mediaQuery(mql);
-    mql.addListener(mediaQuery);
 
-
+    $(document).ready(mediaQuery);
 
 
     //////////////////////////////////////////////////////////////////////SIDEBAR

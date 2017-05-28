@@ -1,7 +1,7 @@
 
 <div id="nav-container" class="container-fluid  nav_in">
 
-  <nav class="navbar navbar-toggleable-md navbar-light bg-faded fixed-top" id="main-navbar" data-spy="affix">
+  <nav class="navbar navbar-toggleable-md navbar-light bg-faded fixed-top" id="navbar_in" data-spy="affix">
     <button id="hamburger" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -19,7 +19,7 @@
           <a class="nav-link only page-scroll" href="/plans">@lang('user/navbar_in.plans')</a>
         </li>
         <li class="nav-item  px-5">
-          <a class="nav-link only page-scroll" href="#about">@lang('welcome.about')</a>
+          <a class="nav-link only page-scroll" href="/#about">@lang('welcome.about')</a>
         </li>
       </ul>
 
@@ -47,11 +47,11 @@
 
 
       <!-- Language -->
-      <ul>
+      <ul style="list-style: none;">
         <li class="nav-item  px-1">
-          <form method="post" action="{{route('change-lang')}}" id="change_lang">
+          <form class="form-inline" method="post" action="{{route('change-lang')}}" id="change_lang">
             {{csrf_field()}}
-           <select id="changelang" name="lang">
+           <select class="form-control" id="changelang" name="lang">
             @if(session()->has('locale'))
                 @if(session()->get('locale')=='es')
                    <option value="es" selected>Español</option>

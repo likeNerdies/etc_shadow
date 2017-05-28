@@ -111,6 +111,7 @@ $(document).ready(function () {
                 $("#product" + product).remove();
                 $('#ajaxerror').empty();
                 $('#ajaxerror').removeClass("alert alert-danger");
+                successMessage();
             },
             error: function (data) {
                 //console.log('Error:', data);
@@ -213,6 +214,7 @@ $(document).ready(function () {
             url: my_url,
             data: formData,
             dataType: 'json',
+
             success: function (data) { // success:
                 console.log(data);
 
@@ -251,6 +253,7 @@ $(document).ready(function () {
                 $('#ajaxerror').empty();
                 $('#ajaxerror').removeClass("alert alert-danger");
                 $('#myModal').modal("hide");
+                successMessage();
             },
             error: function (data) {
                 console.log('Error:', data);
@@ -387,6 +390,36 @@ $(document).ready(function () {
                 url: "/admin/products/" + id + "/image",
                 data: formData,
                 dataType: 'json',
+                beforeSend: function() {
+                    // setting a timeout
+                    //$(placeholder).addClass('loading');
+                    $('#progress').fadeIn();
+                    console.log('ajax before send')
+                },xhr: function () {
+                    var xhr = new window.XMLHttpRequest();
+                    xhr.upload.addEventListener("progress", function (evt) {
+                        if (evt.lengthComputable) {
+                            var percentComplete = evt.loaded / evt.total;
+                            console.log(percentComplete);
+                            $('#progress').css({
+                                width: percentComplete * 100 + '%'
+                            });
+                            if (percentComplete === 1) {
+                                $('#progress').fadeOut();
+                            }
+                        }
+                    }, false);
+                    xhr.addEventListener("progress", function (evt) {
+                        if (evt.lengthComputable) {
+                            var percentComplete = evt.loaded / evt.total;
+                            console.log(percentComplete);
+                            $('#progress').css({
+                                width: percentComplete * 100 + '%'
+                            });
+                        }
+                    }, false);
+                    return xhr;
+                },
                 success: function (data) { // success:
                     console.log(data);
                     $('#product' + id + ' > #product-img').replaceWith("<td id='product-img'><img class='img-thumbnail' width='48.2' height='48.2' src='/admin/products/" + data.images + "/image'></td>");

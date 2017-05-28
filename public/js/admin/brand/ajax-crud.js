@@ -47,6 +47,7 @@ $(document).ready(function() {
                 $("#brand" + brand).remove();
                 $('#ajaxerror').empty();
                 $('#ajaxerror').removeClass("alert alert-danger");
+                successMessage();
             },
             error: function (data) {
                 //console.log('Error:', data);
@@ -111,6 +112,7 @@ $(document).ready(function() {
                 $('#ajaxerror').empty();
                 $('#ajaxerror').removeClass("alert alert-danger");
                 $('#myModal').modal("hide");
+                successMessage();
             },
             error: function (data) {
               //console.log('Error:', data);

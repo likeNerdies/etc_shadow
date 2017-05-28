@@ -1,5 +1,5 @@
 <div id="nav-container" class="container-fluid">
-  <nav class="navbar navbar-toggleable-md navbar-light bg-faded fixed-top" id="main-navbar" data-spy="affix">
+  <nav class="navbar navbar-toggleable-md navbar-light bg-faded fixed-top" id="navbar_out" data-spy="affix">
 
     <button id="hamburger" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
