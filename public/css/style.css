@@ -147,12 +147,24 @@ h2 {
     padding-top: 10%;
     padding-bottom: 10%!important;
     background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/ep_naturalwhite.png");
-    //position: relative;
 }
 
 .fa {
   font-size: 50px;
   margin-right: 15px;
+}
+
+#needHelpFooter {// "Need some help?"
+   text-align: right;
+   bottom: 0;
+   margin-right: 2%;
+   margin-top: 5%;
+   width: 10%;
+   float: right;
+}
+
+#needHelpFooter a, #needHelpFooter a:visited {
+    color: #FB6A5D;
 }
 
 /* PRODUCT SHOW */

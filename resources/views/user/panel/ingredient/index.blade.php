@@ -2,8 +2,7 @@
 @section('title','My ingredients')
 @section('right-panel')
 
-    <div class="ml-15">
-
+    <div class="ml-sm-5">
 
         <div class="card-columns text-center row">
             {{ csrf_field() }}
@@ -19,7 +18,7 @@
                               }
                       }
                       echo '<div class="card-wrapper m-1">';
-                      echo  '<div id="'.$ingredient->id.'" class="card '.$class.'">';
+                      echo  '<div id="'.$ingredient->id.'" class="card mx-auto '.$class.'">';
                       echo  ' <img src="/user/panel/ingredients/'.$ingredient->id .'/image" class="rounded card-img-top ingredient-img img-responsive mx-auto py-3" alt="'. $ingredient->name.'">';
                       echo ' <div class="card-footer">';
                       echo '<small>', $ingredient->name,'</small>';

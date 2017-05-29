@@ -25,6 +25,7 @@
     <i class="fa fa-youtube-play" aria-hidden="true"></i>
   </div>
 
+  <h6 id="needHelpFooter"><a href="/user/panel/help">Need help?</a></h6>
 
 </div>
 
