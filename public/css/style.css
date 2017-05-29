@@ -154,11 +154,19 @@ h2 {
   margin-right: 15px;
 }
 
-.text-bottom {// "Need some help?"
-   position: absolute;
-   padding-bottom: 0!important;
-   right: 0;
+#needHelpFooter {// "Need some help?"
+   text-align: right;
+   bottom: 0;
+   margin-right: 2%;
+   margin-top: 5%;
+   width: 10%;
+   float: right;
 }
+
+#needHelpFooter a, #needHelpFooter a:visited {
+    color: #FB6A5D;
+}
+
 /* PRODUCT SHOW */
 #wrapper-product{
     width: 100%;
