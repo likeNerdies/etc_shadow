@@ -313,12 +313,12 @@ class ProductController extends Controller
     public function dynamicQuery(Request $request)
     {
 
-        $query = App\Product::with('images'); //names of eager loaded relationships
-        $query->join('category_product', 'products.id', '=', 'category_product.product_id');
+        $query = App\Product::with('images','categories'); //names of eager loaded relationships
         if (isset($request->brands)) {
             $query->whereIn('brand_id', $request->brands);
         }
         if (isset($request->categories)) {
+            $query->join('category_product', 'products.id', '=', 'category_product.product_id');
             $query->whereIn('category_id', $request->categories);
         }
 
