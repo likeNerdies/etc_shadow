@@ -1,8 +1,8 @@
 <div class="w-80 mx-auto">
-    <form class="form-horizontal" role="form" method="POST" action="{{ route('my-data-personal') }}">
+    <form class="form-horizontal" role="form" method="POST" action="">
         {{ csrf_field() }}
         {{method_field('PUT')}}
-
+        <input type="hidden" value="{{Auth::user()->id}}" id="user_id" name="user_id">
         <div class="d-flex flex-md-row display-767-column mb-4">
             <div class="group-input">
                 <label for="name" class="col-form-label">@lang('forms.dni')</label>
@@ -118,7 +118,7 @@
 
         <div class="d-flex flex-md-row display-767-column mb-4">
             <div class="group-input mt-3">
-                <button type="submit" class="btn btn-primary float-right">
+                <button type="button" class="btn btn-primary float-right" id="btn_save">
                    @lang('forms.save')
                 </button>
             </div>

@@ -29,4 +29,5 @@
 
 @section('scriptsPersonalizados')
     <script src="/js/welcome/welcome_script.js"></script><!-- Includes navbar animations -->
+    @yield('more-scripts-for-user-panel')
 @endsection

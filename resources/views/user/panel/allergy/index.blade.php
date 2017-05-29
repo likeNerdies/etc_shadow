@@ -51,6 +51,6 @@ BOTON DE YESNO  NADA PERCEPTIBLE
 
 @endsection
 
-@section('scriptsPersonalizados')
+@section('more-scripts-for-user-panel')
   <script src="/js/user/allergies/allergies.js"></script>
 @endsection

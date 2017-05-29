@@ -16,8 +16,9 @@
                         </div>
                         <div id="collapseOne" class="panel-collapse collapse show in w-80 w-sm-100 mx-auto" role="tabpanel" aria-labelledby="headingOne"> <!--content block -->
                             <div class="panel-body pt-3">
-                                {{ var_dump($errors)}}
                                 @include('user.layouts.forms.data-personal-form')
+                                <h2>Change password</h2><!--<-PONERLO EN LANG-->
+                                @include('user.layouts.forms.reset-password-form')
                             </div>
                         </div>
                     </div>
@@ -46,4 +47,7 @@
             </div>
         </div>
     </div>
+@endsection
+@section('more-scripts-for-user-panel')
+    <script src="/js/user/data/data.js"></script><!-- Includes ajax to save the unliked ingredients -->
 @endsection
