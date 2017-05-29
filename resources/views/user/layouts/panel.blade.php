@@ -4,12 +4,12 @@
 
 @include('user.layouts.navbar_in')
 
-    <div class="profile-content">
-        @include('user.layouts.sidebar')
+    <div id="sidebar-float" class="profile-content">
+        @include('user.layouts.sidebar2')
     </div>
-    <div class="mx-auto banner">
+    <!--<div class="mx-auto banner">
 
-    </div>
+    </div>-->
 
     <div id="main-wrapper-in">
         <div id="sidebar-wrapper-in">

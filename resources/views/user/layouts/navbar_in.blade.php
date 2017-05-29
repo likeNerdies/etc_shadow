@@ -1,6 +1,4 @@
-<div id="nav-container" class="container-fluid nav_in">
-
-  <nav class="navbar navbar-toggleable-md navbar-light bg-faded fixed-top" id="navbar_in" data-spy="affix">
+ <nav class="navbar navbar-toggleable-md navbar-light bg-faded fixed-top container-fluid" id="navbar_in" data-spy="affix">
     <button id="hamburger" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -59,5 +57,4 @@
       </ul>
       <!-- / Language -->
     </div>
-  </nav>
-</div><!-- / nav-container -->
+  </nav><!-- / nav-container -->
