@@ -39,10 +39,7 @@
 
                 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                   <label for="password" class="control-label float-left">Password</label>
-                  <a class="btn btn-link float-right forgottenPassword" href="">
-                    Forgot Your Password?
-                  </a>
-                  <di>
+                  <div>
                     <input id="password" type="password" class="form-control" name="password" required>
 
                     @if ($errors->has('password'))

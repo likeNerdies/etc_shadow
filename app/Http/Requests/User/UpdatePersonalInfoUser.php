@@ -33,17 +33,17 @@ class UpdatePersonalInfoUser extends FormRequest
           'name' =>
               array(
                   'required',
-                  'regex:/[a-zA-Z]{3,100}/i'
+                  'regex:/[a-zA-Z]{2,100}/i'
               ),
           'first_surname'=>
               array(
                   'required',
-                  'regex:/[a-zA-Z]{3,100}/i'
+                  'regex:/[a-zA-Z]{2,100}/i'
               ),
           'second_surname'=>
               array(
                   'nullable',
-                  'regex:/[a-zA-Z]{3,100}/i'
+                  'regex:/[a-zA-Z]{2,100}/i'
               ),
             'email' => 'required|email|unique:admins,email, '.$this->id,
            'password' => 'nullable|min:8|confirmed',

@@ -16,6 +16,7 @@
                         </div>
                         <div id="collapseOne" class="panel-collapse collapse show in w-80 w-sm-100 mx-auto" role="tabpanel" aria-labelledby="headingOne"> <!--content block -->
                             <div class="panel-body pt-3">
+                                {{ var_dump($errors)}}
                                 @include('user.layouts.forms.data-personal-form')
                             </div>
                         </div>
@@ -45,6 +46,4 @@
             </div>
         </div>
     </div>
-
-
 @endsection

@@ -94,7 +94,7 @@
                 </span>
                 @endif
             </div>
-            
+
             <div  class="group-input ml-md-4 ml-sm-0">
                 <label for="phone_number" class="col-form-label">@lang('forms.phone_number')</label>
                 @if (count($errors) > 0)
@@ -119,7 +119,7 @@
         <div class="d-flex flex-md-row display-767-column mb-4">
             <div class="group-input mt-3">
                 <button type="submit" class="btn btn-primary float-right">
-                    Save
+                   @lang('forms.save')
                 </button>
             </div>
         </div>

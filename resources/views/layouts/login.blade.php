@@ -38,7 +38,7 @@
             <div class="form-group" id="password-div">
               {{--   <div class="form-group row{{ $errors->has('password') ? ' has-error' : '' }}"> --}}
                 <label for="password" class="control-label float-left">@lang('login.password')</label>
-                <a class="btn btn-link float-right forgottenPassword" href="">
+                <a class="btn btn-link float-right forgottenPassword" href="{{route('password.request')}}">
                   @lang('login.passwordForgot')?
                 </a>
                 <div>
