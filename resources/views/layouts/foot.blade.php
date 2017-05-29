@@ -25,7 +25,6 @@
     <i class="fa fa-youtube-play" aria-hidden="true"></i>
   </div>
 
-
 </div>
 
 

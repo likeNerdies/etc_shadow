@@ -147,7 +147,6 @@ h2 {
     padding-top: 10%;
     padding-bottom: 10%!important;
     background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/ep_naturalwhite.png");
-    //position: relative;
 }
 
 .fa {
@@ -155,6 +154,11 @@ h2 {
   margin-right: 15px;
 }
 
+.text-bottom {// "Need some help?"
+   position: absolute;
+   padding-bottom: 0!important;
+   right: 0;
+}
 /* PRODUCT SHOW */
 #wrapper-product{
     width: 100%;

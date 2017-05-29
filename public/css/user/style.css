@@ -10,7 +10,7 @@ CSS file for logged in users
 }
 
 .ml-15 {
-  margin-left: 15%;
+  margin-left: 15%!important;
 }
 
 .ml-10 {
@@ -64,7 +64,6 @@ CSS file for logged in users
 }
 
 /* MY-DATA MENU */
-
 .profile-accordion {
   background-color: white;
   border: 2px solid #3EDC76;
@@ -89,15 +88,26 @@ CSS file for logged in users
   color: white;
 }
 
-.collapseShow {
-  background-color: #3EDC76;
-}
-
-.collapseShow a {
-  color: white!important;
-}
-
 @media (max-width: 768px) {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .card-columns {
+      padding-top: 15%;
+      overflow-x: hidden;
+      overflow-y: hidden;
+  }
+
+  .card-wrapper {
+    width: 80%!important;
+    margin: auto!important;
+  }
+
+  .card  {
+    margin-bottom: 5%;
+  }
+
   .mt-sm-500 {
     margin-top: 5%;
   }
@@ -105,6 +115,8 @@ CSS file for logged in users
   .w-sm-100 {
     width: 100%!important;
   }
+
+
 }
 
 
@@ -145,6 +157,9 @@ CSS file for logged in users
   .subtitle {
     margin-top: 5%;
     font-size: 22px;
+  }
+  .ml-sm-5 {
+    margin-left: 0;
   }
 }
 
