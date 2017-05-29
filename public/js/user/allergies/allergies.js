@@ -27,7 +27,7 @@ $(document).ready(function () {
                     }
 
                     td.addClass('hasnotAllergy')
-                    td.html("<strong>No</strong>");
+                    td.html("");
 
                 } else {
                     if (td.hasClass("hasnotAllergy")) {

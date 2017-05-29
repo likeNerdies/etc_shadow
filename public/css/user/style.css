@@ -115,8 +115,11 @@ CSS file for logged in users
   .w-sm-100 {
     width: 100%!important;
   }
+}
 
-
+/* ALLERGIES MENU */
+.allergy-ingredient-warning {
+  font-weight: 200;
 }
 
 
