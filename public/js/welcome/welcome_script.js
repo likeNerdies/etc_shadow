@@ -301,9 +301,9 @@ $(document).ready(function () {
 
     ////////////////////////////////////////////MY-DATA COLLAPSE
 
-    $('.profile-accordeon').click(function() {
+    /*$('.profile-accordeon').click(function() {
       $(this).toggleClass('collapseShow');
-    });
+    });*/
 
     ////////////////////////////////////////////END MY-DATA COLLAPSE
 
