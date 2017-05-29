@@ -1,4 +1,5 @@
 @extends('user.layouts.panel')
+@section('title','My plan')
 @section('right-panel')
 
 <div class="container mt-5 justify-content-center">

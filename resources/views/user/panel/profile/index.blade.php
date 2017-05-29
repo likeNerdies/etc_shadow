@@ -1,5 +1,5 @@
 @extends('user.layouts.panel')
-
+@section('title','Profile')
 @section('right-panel')
   <div class="container mt-5">
     <h1 class="text-center">Welcome, {{$user->name}}</h1>

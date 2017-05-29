@@ -5,13 +5,13 @@
 
         <div class="d-flex flex-md-row display-767-column mb-4">
             <div class="group-input">
-                <label for="name" class="col-form-label">Dni</label>
+                <label for="name" class="col-form-label">@lang('forms.dni')</label>
                 @if (count($errors) > 0)
                     <input id="dni" type="text" class="form-control col-md-11 col-12" name="dni" value="{{ old('dni') }}" required autofocus
-                           placeholder="document id">
+                           placeholder="@lang('forms.ph_dni')">
                 @else
                     <input id="dni" type="text" class="form-control col-md-11 col-12" name="dni" value="{{ Auth::user()->dni }}" required
-                           autofocus placeholder="Document id">
+                           autofocus placeholder="@lang('forms.ph_dni')">
                 @endif
 
                 @if ($errors->has('dni'))
@@ -21,7 +21,7 @@
                 @endif
             </div>
             <div class="group-input">
-                <label for="name" class="col-form-label">Name</label>
+                <label for="name" class="col-form-label">@lang('forms.name')</label>
                 @if (count($errors) > 0)
                     <input id="name" type="text" class="form-control col-md-11 col-12" name="name" value="{{ old('name') }}" required
                            autofocus>
@@ -40,7 +40,7 @@
         <!--  surname second_surname-->
         <div class="d-flex flex-md-row display-767-column mb-4">
             <div class="group-input">
-                <label for="name" class="col-form-label">First surname</label>
+                <label for="name" class="col-form-label">@lang('forms.first_surname')</label>
                 @if (count($errors) > 0)
                     <input id="first_surname" type="text" class="form-control col-md-11 col-12" name="first_surname" value="{{ old('first_surname') }}" required autofocus
                            placeholder="First surname">
@@ -57,13 +57,13 @@
             </div>
 
             <div class="group-input">
-                <label for="name" class="col-form-label">Second surname</label>
+                <label for="name" class="col-form-label">@lang('forms.second_surname')</label>
                 @if (count($errors) > 0)
-                    <input id="second_surname" type="text" class="form-control col-md-11 col-12" name="second_surname" value="{{ old('second_surname') }}" required autofocus
-                           placeholder="Second surname">
+                    <input id="second_surname" type="text" class="form-control col-md-11 col-12" name="second_surname" value="{{ old('second_surname') }}"  autofocus
+                           placeholder="@lang('forms.ph_second_surname')">
                 @else
-                    <input id="second_surname" type="text" class="form-control col-md-11 col-12" name="second_surname" value="{{ Auth::user()->second_surname }}" required
-                           autofocus placeholder="Second surname">
+                    <input id="second_surname" type="text" class="form-control col-md-11 col-12" name="second_surname" value="{{ Auth::user()->second_surname }}"
+                           autofocus placeholder="@lang('forms.ph_second_surname')">
                 @endif
 
                 @if ($errors->has('second_surname'))
@@ -79,7 +79,7 @@
 
         <div class="d-flex flex-md-row display-767-column mb-4">
             <div class="group-input">
-                <label for="email" class="col-form-label">Email</label>
+                <label for="email" class="col-form-label">@lang('forms.email')</label>
                 @if (count($errors) > 0)
                     <input id="email" type="text" class="form-control col-md-11 col-12" name="email" value="{{ old('email') }}" required autofocus
                            placeholder="Email">
@@ -96,13 +96,13 @@
             </div>
 
             <div class="group-input">
-                <label for="phone_number" class="col-form-label">Phone number</label>
+                <label for="phone_number" class="col-form-label">@lang('forms.phone_number')</label>
                 @if (count($errors) > 0)
-                    <input id="phone_number" type="text" class="form-control col-md-11 col-12" name="phone_number" value="{{ old('phone_number') }}" required autofocus
-                           placeholder="Phone number">
+                    <input id="phone_number" type="text" class="form-control col-md-11 col-12" name="phone_number" value="{{ old('phone_number') }}"  autofocus
+                           placeholder="@lang('forms.ph_phone_number')">
                 @else
-                    <input id="phone_number" type="text" class="form-control col-md-11 col-12" name="phone_number" value="{{ Auth::user()->phone_number }}" required
-                           autofocus placeholder="Phone number">
+                    <input id="phone_number" type="text" class="form-control col-md-11 col-12" name="phone_number" value="{{ Auth::user()->phone_number }}"
+                           autofocus placeholder="@lang('forms.ph_phone_number')">
                 @endif
 
                 @if ($errors->has('phone_number'))

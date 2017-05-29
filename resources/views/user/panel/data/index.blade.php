@@ -1,4 +1,5 @@
 @extends('user.layouts.panel')
+@section('title','My data')
 @section('right-panel')
     <div class="container mt-5">
         <div class="row">
@@ -9,7 +10,7 @@
                         <div class="w-100" style="background-color: #1DC7B4;height: 60px; border-radius: 4px;" role="tab" id="headingOne"> <!-- heading block -->
                             <h4 class="text-center" style="padding: 14px 0px;">
                                 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    My personal data's
+                                   @lang("user/data/data.myPersonalData")
                                 </a>
                             </h4>
                         </div>
@@ -24,7 +25,7 @@
                         <div class="w-100" style="background-color: #1DC7B4;height: 60px; border-radius: 4px;" role="tab" id="headingTwo">
                             <h4 class="text-center" style="padding: 14px 0px;">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    My address
+                                    @lang("user/data/data.myAddress")
                                 </a>
                             </h4>
                         </div>
@@ -32,15 +33,15 @@
                             <div class="panel-body text-center pt-2">
                                 @if(Auth::user()->address==null)
                                     <a href="{{route("address")}}"><i class="fa fa-plus" aria-hidden="true"></i>
-                                        Add your address</a>
+                                        @lang("user/data/data.addAddress")</a>
                                 @else
-                                    <a href="{{route("address")}}">Update your address</a>
+                                    <a href="{{route("address")}}"> @lang("user/data/data.updateAddress")</a>
                                 @endif
                             </div>
                         </div>
                     </div>
 
-                    <div class="w-75 w-sm-85 mx-auto mt-4">
+                   <!-- <div class="w-75 w-sm-85 mx-auto mt-4">
                         <div class="w-100" style="background-color: #1DC7B4;height: 60px; border-radius: 4px;" role="tab" id="headingThree">
                             <h4 class="text-center" style="padding: 14px 0px;">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -56,7 +57,7 @@
                                 @endif
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>

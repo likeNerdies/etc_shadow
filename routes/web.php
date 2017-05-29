@@ -39,8 +39,8 @@ Route::group(['prefix' => 'user/panel', 'middleware' => 'auth',], function () {
         Route::put('/personal-password', 'User\UserController@updatePassword')->name('my-data-personal-password');//update user personal password
 
         Route::get('/address', 'Address\AddressController@index')->name("address");
-        Route::put('/address', 'Address\AddressController@update')->name('user-address-update');
-        Route::post('/address', 'Address\AddressController@store')->name('user-address-insert');
+        Route::put('/address', 'Address\AddressController@update')->name('user-address');
+        Route::post('/address', 'Address\AddressController@store')->name('user-address');
     });//end user panel my data route
 
 

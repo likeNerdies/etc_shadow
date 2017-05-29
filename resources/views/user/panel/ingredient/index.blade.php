@@ -1,4 +1,5 @@
 @extends('user.layouts.panel')
+@section('title','My ingredients')
 @section('right-panel')
 
     <div class="ml-15">

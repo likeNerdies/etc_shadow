@@ -1,4 +1,5 @@
 @extends('user.layouts.panel')
+@section('title','My allergies')
 @section('right-panel')
 {{--
 
