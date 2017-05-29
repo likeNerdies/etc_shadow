@@ -28,7 +28,10 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="/user/panel/profile">My profile</a>
-                <a class="dropdown-item" href="#">Logout</a>
+                <form class="floating-form" action="/logout" method="post">
+                  {{ csrf_field() }}
+                  <button type="submit" value="logout">Logout</button>
+                </form>
               </div>
             </li>
           @else<!-- No ha iniciado sesión -->

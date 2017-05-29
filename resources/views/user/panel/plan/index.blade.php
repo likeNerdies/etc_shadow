@@ -1,7 +1,6 @@
 @extends('user.layouts.panel')
-@section('title','My plan')
+@section('title','My data')
 @section('right-panel')
-
 <div class="container mt-5 justify-content-center">
   <form class="" action="user/panel/plan/subscribe" method="post">
       @if (Auth::user()->plan_id == null) <!-- If user is not subscribed to any plan -->
@@ -148,10 +147,8 @@
       @endif
   </form>
 </div>
-
 @endsection
 
-@section('scriptsPersonalizados')
-  <script src="/js/welcome/welcome_script.js"></script>
+@section('more-scripts-for-user-panel')
   <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 @endsection

@@ -41,7 +41,6 @@
     </div>
 @endsection
 
-@section('scriptsPersonalizados')
-    <script src="/js/welcome/welcome_script.js"></script><!-- Includes navbar animations -->
+@section('more-scripts-for-user-panel')
     <script src="/js/user/ingredients/ingredients.js"></script><!-- Includes ajax to save the unliked ingredients -->
 @endsection

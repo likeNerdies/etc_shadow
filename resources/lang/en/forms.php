@@ -28,6 +28,9 @@ return [
     "ph_province"=>" province",
     "country"=>" Country",
     "ph_country"=>" country",
-    "save"=>"Save"
+    "save"=>"Save",
+    "old_password"=>"Old password",
+    "new_password"=>"New password",
+    "repeat_password"=>"Repeat password",
 
 ];

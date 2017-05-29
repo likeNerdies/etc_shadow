@@ -28,5 +28,8 @@ return [
     "ph_province"=>" provincia",
     "country"=>" País",
     "ph_country"=>" país",
-    "save"=>"Guardar"
+    "save"=>"Guardar",
+    "old_password"=>"Antigua contraseña",
+    "new_password"=>"Nueva contraseña",
+    "repeat_password"=>"Repita la contraseña",
 ];
