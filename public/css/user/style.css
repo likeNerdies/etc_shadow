@@ -65,27 +65,27 @@ CSS file for logged in users
 
 /* MY-DATA MENU */
 
-.profile-accordeon {
+.profile-accordion {
   background-color: white;
   border: 2px solid #3EDC76;
   border-radius: 4px;
   padding: 14px;
 }
 
-.profile-accordeon a {
+.profile-accordion a {
   color: #3EDC76;
   text-decoration: none;
 }
 
-.profile-accordeon:hover{
+.profile-accordion:hover {
   background-color: #3EDC76;
 }
 
-.profile-accordeon:hover a {
+.profile-accordion:hover a {
   color: white;
 }
 
-.profile-accordeon a:hover {
+.profile-accordion a:hover {
   color: white;
 }
 
@@ -95,6 +95,16 @@ CSS file for logged in users
 
 .collapseShow a {
   color: white!important;
+}
+
+@media (max-width: 768px) {
+  .mt-sm-500 {
+    margin-top: 5%;
+  }
+
+  .w-sm-100 {
+    width: 100%!important;
+  }
 }
 
 

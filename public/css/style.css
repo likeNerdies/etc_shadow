@@ -96,7 +96,10 @@ h2 {
 }
 
 @media (max-width: 768px) {
-  .card-wrapper {
+  .mt-sm-500 {
+    margin-top: 5%;
+  }
+  .card-wrapper, .w-sm-100 {
     width: 100%!important;
   }
 
@@ -177,6 +180,10 @@ h2 {
 
 .w-31{
     width: 31%;
+}
+
+.w-70 {
+    width: 70%;
 }
 
 .w-80{
