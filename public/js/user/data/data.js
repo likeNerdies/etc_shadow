@@ -31,8 +31,7 @@ $(document).ready(function () {
                 data: formData,
                 dataType: 'json',
                 success: function (data) { // success:
-                    $('#btn_save').replaceWith('<button class="btn btn-success float-right text-center disabled"><i class="fa fa-check" aria-hidden="true"></i></button>');
-                    e.stopPropagation();
+                    $('#btn_save').replaceWith('<li class="btn btn-success float-right text-center"><i class="fa fa-check" aria-hidden="true"></i></li>');
                     console.log(data);
                 },
                 error: function (data) {
@@ -73,9 +72,8 @@ $(document).ready(function () {
                 data: formData,
                 dataType: 'json',
                 success: function (data) { // success:
+                  $('#btn_change_pw').replaceWith('<li class="btn btn-success float-right text-center"><i class="fa fa-check" aria-hidden="true"></i></li>');
                     console.log(data);
-
-
                 },
                 error: function (data) {
                     console.log('Error:', data);
@@ -92,7 +90,6 @@ $(document).ready(function () {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-            console.log("hola")
             e.preventDefault();
 
             var formData = $('form').serialize();
@@ -107,9 +104,8 @@ $(document).ready(function () {
                 data: formData,
                 dataType: 'json',
                 success: function (data) { // success:
+                    $('#address_button_user').replaceWith('<li class="btn btn-success float-right text-center"><i class="fa fa-check" aria-hidden="true"></i></li>');
                     console.log(data);
-
-
                 },
                 error: function (data) {
                     console.log('Error:', data);

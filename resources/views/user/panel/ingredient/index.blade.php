@@ -3,9 +3,9 @@
 @section('right-panel')
     <div class="container">
         <div class="row">
-            <div class="col-11 offset-sm-1 mx-auto">
-                <div class="alert alert-warning text-center" role="alert">
-                    <h5 style="font-weight: normal;"><strong>Hey there!</strong> Here you can choose the ingredients you don't like, so we make sure that you don't receive those that you've chosen</h5>
+            <div class="col-11 offset-sm-1 mx-auto text-center">
+                <div class="alert alert-warning mb-5" role="alert">
+                    <h5 class="allergy-ingredient-warning text-warning"><strong>Hey there!</strong> Here you can choose the ingredients you don't like, so we make sure you don't receive them!</h5>
                 </div>
             </div>
         </div>
