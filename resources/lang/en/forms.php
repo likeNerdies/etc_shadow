@@ -22,7 +22,7 @@ return [
     "ph_floor"=>" floor number",
     "postal_code"=>"Postal code",
     "ph_postal_code"=>" postal code",
-    "town"=>"Tow",
+    "town"=>"Town",
     "ph_town"=>" town",
     "province"=>" Province",
     "ph_province"=>" province",

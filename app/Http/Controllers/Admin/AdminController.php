@@ -94,16 +94,22 @@ class AdminController extends Controller
      */
     public function update(StoreValidation $request)
     {
-        // return "hola";
-        $user = Auth::user();
-        $user->dni = $request->dni;
-        $user->name = $request->name;
-        $user->first_surname = $request->first_surname;
-        $user->second_surname = $request->second_surname;
-        $user->email = $request->email;
-        $user->phone_number = $request->phone_number;
-        $user->save();
-        return redirect()->back();
+        $retorn=["success"=>true];
+       try{
+           $user = Auth::user();
+           $user->dni = $request->dni;
+           $user->name = $request->name;
+           $user->first_surname = $request->first_surname;
+           $user->second_surname = $request->second_surname;
+           $user->email = $request->email;
+           $user->phone_number = $request->phone_number;
+           $user->save();
+       }catch(Exception $e){
+           $retorn=["success"=>false];
+       }
+
+
+        return response()->json($retorn);
 
     }
 

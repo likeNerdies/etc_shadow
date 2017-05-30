@@ -20,8 +20,8 @@ class CreateAddressesTable extends Migration
             $table->integer('building_number');
             $table->string('building_block',5)->nullable();
             $table->integer('floor')->nullable();
-            $table->integer('door')->nullable();
-            $table->integer('postal_code');
+            $table->string('door')->nullable();
+            $table->string('postal_code');
             $table->string('town',125);
             $table->string('province',125);
             $table->string('country');

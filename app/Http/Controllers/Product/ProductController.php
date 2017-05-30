@@ -299,7 +299,7 @@ class ProductController extends Controller
         }
         if (!$inserted) {
             $retorn = [
-                'error' => "Failed inserting model in database"
+                'error' => "Failed deleting model in database"
             ];
         } else {
             $retorn = [
@@ -313,12 +313,12 @@ class ProductController extends Controller
     public function dynamicQuery(Request $request)
     {
 
-        $query = App\Product::with('images'); //names of eager loaded relationships
-        $query->join('category_product', 'products.id', '=', 'category_product.product_id');
+        $query = App\Product::with('images','categories'); //names of eager loaded relationships
         if (isset($request->brands)) {
             $query->whereIn('brand_id', $request->brands);
         }
         if (isset($request->categories)) {
+            $query->join('category_product', 'products.id', '=', 'category_product.product_id');
             $query->whereIn('category_id', $request->categories);
         }
 

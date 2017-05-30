@@ -204,6 +204,53 @@ $(document).ready(function() {
         }
     });
 
+    $(document).on('click', '#admin_cofig_data', function (e) {
+        if (valdateUserData()) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            e.preventDefault();
+
+
+            var formData = {
+                id:$('#id').val(),
+                dni: $('#dni').val(),
+                name: $('#name').val(),
+                first_surname: $('#first_surname').val(),
+                second_surname: $('#second_surname').val(),
+                email: $('#email').val(),
+                phone_number: $('#phone_number').val()
+            }
+
+            //used to determine the http verb to use [add=POST], [update=PUT];
+
+            var type = "PUT"; //for creating new resource
+            var my_url = "/admin/update";
+
+            $.ajax({
+                type: type,
+                url: my_url,
+                data: formData,
+                dataType: 'json',
+                success: function (data) { // success:
+                    console.log(data);
+                    $('#ajaxerror').empty();
+                    $('#ajaxerror').removeClass("alert alert-danger");
+                    successMessage();
+
+                },
+                error: function (data) {
+                    console.log('Error:', data);
+                    $('#ajaxerror').addClass("alert alert-danger");
+                    $('#ajaxerror').html("<p>" + data.responseText + "</p>");
+                }
+            });
+        }
+    });
+
 });
 
 function valdateForm() {

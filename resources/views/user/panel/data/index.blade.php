@@ -72,4 +72,9 @@
 @endsection
 @section('more-scripts-for-user-panel')
     <script src="/js/user/data/data.js"></script><!-- Includes ajax to save the unliked ingredients -->
+<<<<<<< HEAD
 @endsection
+=======
+    <script src="{{asset('/js/validations/validator.js')}}"></script><!-- Validaciones campos formularios -->
+@endsection
+>>>>>>> 1f4d9156b993d729daaef74b859939891d424cb5

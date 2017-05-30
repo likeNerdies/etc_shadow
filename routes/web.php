@@ -75,6 +75,11 @@ Route::prefix('/products')->group(function () {//Product route
     Route::get('/search/dynamic', 'Product\ProductController@dynamicQuery')->name('dynamicSearch');
 });// end product route
 
+
+Route::get('/help',function(){
+   return view('help.index');
+})->name('help');
+
 //Route for plans
 
 Route::get('/plans','Plan\PlanController@indexPlan')->name('our-plans');
@@ -90,8 +95,8 @@ Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.logi
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin',], function () {
 
     Route::get('/', 'Admin\AdminController@index')->name('admin.dashboard');
-    Route::get('/configuration', 'Admin\AdminController@configuration')->name('admin.configuration');
     Route::put('/update', 'Admin\AdminController@update')->name('admin.update');
+    Route::get('/configuration', 'Admin\AdminController@configuration')->name('admin.configuration');
 
 
     //Routes for admin users table
