@@ -14,7 +14,7 @@ use App\Http\Requests\Ingredient\StoreImage;
 use DB;
 use Intervention\Image\ImageManagerStatic as Image;
 use App\Image as Imagen;
-
+use App\Http\Requests\Image\ImageValidation;
 class ProductController extends Controller
 {
     /**
@@ -111,13 +111,14 @@ class ProductController extends Controller
      * @param  Request $request
      * @return \Illuminate\Http\Response
      */
-    public function storeImage(Request $request, $id)
+    public function storeImage(ImageValidation $request, $id)
     {
 
-        $this->validate($request, [
-            'image' => 'required',
-            'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5000'
-        ]);
+      /*  $this->validate($request, [
+            'image.0' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5000',
+            'image.1' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5000',
+            'image.2' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5000'
+        ]);*/
         $inserted = true;
         try {
             DB::beginTransaction();
@@ -299,7 +300,7 @@ class ProductController extends Controller
         }
         if (!$inserted) {
             $retorn = [
-                'error' => "Failed deleting model in database"
+                'error' => "Failed inserting model in database"
             ];
         } else {
             $retorn = [
