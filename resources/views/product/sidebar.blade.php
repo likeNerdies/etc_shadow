@@ -2,11 +2,11 @@
 <div id="side-block">
     <form action="" name="filter_form" id="filter_form">
         <div class="filter-block">
-            <div id="title-categories" class="filter-title">
+            <div id="title-categories" class="filter-title filter-title-toggled">
                 <span class="text-left pull-left">Categories</span>
-                <i id="tog-1" class="fa fa-plus pull-right rotate-0"></i>
+                <i id="tog-1" class="fa fa-plus pull-right rotate-45-initial"></i>
             </div>
-            <div id="categories" class="filter-content">
+            <div id="categories" class="filter-content open-filter">
                 <div id="content-categories" class="d-flex flex-column">
 
                     @if(isset($categories[0]))
@@ -68,7 +68,7 @@
         </div>
 
         <div class="filter-block mt-2">
-            <div id="title-brands" class="filter-title">
+            <div id="title-brands" class="filter-title filter-title-closed">
                 <span class="text-left pull-left">Brands</span>
                 <i id="tog-2" class="fa fa-plus pull-right rotate-0"></i>
             </div>
@@ -130,7 +130,7 @@
         </div>
 
         <div class="filter-block mt-2 mb-3">
-            <div id="title-diets" class="filter-title">
+            <div id="title-diets" class="filter-title filter-title-closed">
                 <span class="text-left pull-left">Diets</span>
                 <i id="tog-3" class="fa fa-plus pull-right rotate-0"></i>
             </div>

@@ -99,7 +99,6 @@ h2 {
 
 .card-wrapper-product{
     width:28% !important;
-    height: 100%;
 }
 
 @media (max-width: 768px) {
@@ -250,7 +249,7 @@ h2 {
     //left:-20%;/*JUST A TEST*/
     //z-index:900;
     //transition: left .75s;/*JUST A TEST*/
-    margin-top: 25vh;
+    //margin-top: 25vh;
     border-radius: 2.5px;
 }
 
@@ -266,20 +265,21 @@ h2 {
     height:100%;
 
 }
-
 .filter-block .filter-title{
     width:100%;
     height:50px;
-    transition: background-color .5s;
-    background-color: #FF6053;
     border-radius: .5px;
     cursor: pointer;
     color:white;
 }
+.filter-block .filter-title-closed{
+    transition: background-color .5s;
+    background-color: #FF6053;
+}
 
 .filter-block .filter-title-toggled{
     transition: background-color .75s;
-    background-color: rgba(255,134,112,.95);
+    background-color: yellow;
 }
 
 .filter-block > .filter-title > span{
@@ -296,6 +296,10 @@ h2 {
     width: 100%;
     height:10%;
     overflow: hidden;
+}
+
+.filter-content.open-filter{
+    display: block;
 }
 
 .filter-block > button{
@@ -324,19 +328,30 @@ i.toggle{
     align-items: center;
     width: 2.30769rem;
     height: 2.30769rem;
-    font-size: 1.2692325rem;
+    font-size: 1.111119rem;
     border-radius:50%;
     background: #FB6A5D;
     z-index: 15000;
+    cursor: pointer;
 }
 
 .rotate-0{
-    transform: rotate(0);
+    transform: rotate(0deg);
     transition: all .35s ease-out;
+}
+
+.rotate-45-initial{
+    transform: rotate(45deg);
+    transition:  all .35s ease-out;
 }
 
 .rotate-45{
     transform: rotate(45deg);
+    transition: all .35s ease-out;
+}
+
+.rotate-90{
+    transform: rotate(0deg);
     transition: all .35s ease-out;
 }
 
@@ -382,7 +397,6 @@ i.toggle{
 
 .profile-content{
     width:300px;
-    //background: navajowhite;
     position: fixed;
     top: 60px;
     right: -300px;
@@ -392,7 +406,7 @@ i.toggle{
 
 .profile-content-show{
     width:300px;
-    background: rgba(158, 130, 130, 0.05);
+    background: rgba(158, 130, 130, 0.5);
     position: fixed;
     top: 60px;
     right: 0;
@@ -490,8 +504,9 @@ i.toggle{
         height: 100vh;
         background: white;
         position:fixed;
+        top:0;
         left:-60%;/*JUST A TEST*/
-        z-index:900;
+        z-index:1500;
         transition: left .75s;
     }
 
@@ -659,7 +674,6 @@ i.toggle{
         background: white;
         position:fixed;
         left:-60%;/*JUST A TEST*/
-        z-index:900;
         transition: left .75s;
     }
 }
@@ -723,9 +737,13 @@ i.toggle{
         text-align: center;
     }
 
-    .block-user-profile:hover{
+    #sidebar-wrapper-in .block-user-profile:hover{
         border-top:1px solid black;
         border-bottom: 1px solid black;
+    }
+
+    #sidebar-wrapper{
+        margin-top: 25vh;
     }
 
     .block-user-profile a{
