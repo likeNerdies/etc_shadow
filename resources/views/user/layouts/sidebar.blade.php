@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="block-user-profile mb-3">
-            <a href="/user/panel/help" class="">@lang("user/profile/profile.help")</a>
+            <a href="/help" class="">@lang("user/profile/profile.help")</a>
         </div>
 
 

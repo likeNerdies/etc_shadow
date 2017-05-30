@@ -1,14 +1,6 @@
 @extends('user.layouts.panel')
 @section('title','My allergies')
 @section('right-panel')
-{{--
-
-
-INFO AQUI---...NOS PREOCUPAMOS POR TU SALUD BLABLA... BLABLA..POR ESO QUEREMOS QUE MARQUES LAS ALERGIAS QUE TIENE PARA :..BLABLA OFRECERTE UNA CAJA MAS PERSONALIZADA BLABLA
-
-BOTON DE YESNO  NADA PERCEPTIBLE
-
---}}
 <div class="ml-15">
   <div class="col-md-10 text-center">
 

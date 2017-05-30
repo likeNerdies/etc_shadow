@@ -13,7 +13,7 @@ class ImageValidation extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,10 +23,21 @@ class ImageValidation extends FormRequest
      */
     public function rules()
     {
-
-        return [
-            'image' => 'required',
-            'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5000'
-        ];
+        /*  $nbr = count($this->input('image')) - 1;
+          foreach(range(0, $nbr) as $index) {
+              $rules['image.' . $index] = 'image|mimes:jpeg,png,jpg,gif,svg|max:5000';
+          }
+          return $rules;*/
+        $retorn = [];
+        if (($this->file('image.0'))) {
+            $retorn["image.0"] = 'image|mimes:jpeg,png,jpg,gif,svg|max:5000';
+        }
+        if (($this->file('image.1'))) {
+            $retorn["image.1"] = 'image|mimes:jpeg,png,jpg,gif,svg|max:5000';
+        }
+        if (($this->file('image.2'))) {
+            $retorn["image.2"] = 'image|mimes:jpeg,png,jpg,gif,svg|max:5000';
+        }
+        return $retorn;
     }
 }

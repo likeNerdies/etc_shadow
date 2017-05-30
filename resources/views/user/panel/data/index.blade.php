@@ -1,6 +1,8 @@
 @extends('user.layouts.panel')
 @section('title','My data')
 @section('right-panel')
+<h3 class="lighter-font text-center">My data</h3>
+
     <div class="container mt-5 pb-5">
         <div class="row">
             <div class="col-md-12">
@@ -71,5 +73,6 @@
 </div>
 @endsection
 @section('more-scripts-for-user-panel')
+    <script src="/js/user/data/data.js"></script><!-- Includes ajax to save the unliked ingredients -->
     <script src="{{asset('/js/validations/validator.js')}}"></script><!-- Validaciones campos formularios -->
 @endsection
