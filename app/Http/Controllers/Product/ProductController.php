@@ -132,7 +132,6 @@ class ProductController extends Controller
                     // $product->images()->dissociate();
                     foreach ($product->images as $item) {
                         $item->delete();//eliminamos las antiguas
-                        $item->save();
                     }
                 }
                 if (isset(Input::file('image')[0])) {

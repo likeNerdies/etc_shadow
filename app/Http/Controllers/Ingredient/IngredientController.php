@@ -44,6 +44,9 @@ class IngredientController extends Controller
             DB::beginTransaction();
             $ingredient = App\Ingredient::create($request->all());
             $ingredient->allergies()->attach($request->allergies);
+            $img = Image::make(Storage::disk('local')->get('no_image_available.png'));
+            Response::make($img->encode('jpeg'));
+            $ingredient->image = $img;
             $ingredient->save();
             DB::commit();
         } catch (Exception $e) {
