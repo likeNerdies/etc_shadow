@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Product;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Storage;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\UploadProduct;
 use App;
@@ -15,6 +15,8 @@ use DB;
 use Intervention\Image\ImageManagerStatic as Image;
 use App\Image as Imagen;
 use App\Http\Requests\Image\ImageValidation;
+use File;
+
 class ProductController extends Controller
 {
     /**
@@ -105,6 +107,7 @@ class ProductController extends Controller
         return response()->json($retorn);
     }
 
+
     /**
      * Store a newly image resource in storage.
      *
@@ -114,11 +117,11 @@ class ProductController extends Controller
     public function storeImage(ImageValidation $request, $id)
     {
 
-      /*  $this->validate($request, [
-            'image.0' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5000',
-            'image.1' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5000',
-            'image.2' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5000'
-        ]);*/
+        /*  $this->validate($request, [
+              'image.0' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5000',
+              'image.1' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5000',
+              'image.2' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5000'
+          ]);*/
         $inserted = true;
         try {
             DB::beginTransaction();
@@ -129,21 +132,95 @@ class ProductController extends Controller
                     // $product->images()->dissociate();
                     foreach ($product->images as $item) {
                         $item->delete();//eliminamos las antiguas
+                        $item->save();
                     }
-
-
                 }
-                //adding new images
-                foreach (Input::file('image') as $photo) {//recorriendo todas las fotos
-                    $img = Image::make($photo);
+                if (isset(Input::file('image')[0])) {
+                    if (File::exists(Input::file('image')[0])) {
+                        $img = Image::make(Input::file('image')[0]);
+                        Response::make($img->encode('jpeg'));
+                        App\Image::create([
+                            'image' => $img,
+                            'product_id' => $product->id
+                        ]);
+                    }
+                } else {
+                    //  $img = Image::make(asset('/img/user_products/no_image_available.png'));
+                    $img = Image::make(Storage::disk('local')->get('no_image_available.png'));
                     Response::make($img->encode('jpeg'));
                     App\Image::create([
                         'image' => $img,
                         'product_id' => $product->id
                     ]);
                 }
+
+
+                if (isset(Input::file('image')[1])) {
+                    if (File::exists(Input::file('image')[1])) {
+                        $img = Image::make(Input::file('image')[1]);
+                        Response::make($img->encode('jpeg'));
+                        App\Image::create([
+                            'image' => $img,
+                            'product_id' => $product->id
+                        ]);
+                    }
+                } else {
+                    //$img = Image::make(asset('/img/user_products/no_image_available.png'));
+                    $img = Image::make(Storage::disk('local')->get('no_image_available.png'));
+                    Response::make($img->encode('jpeg'));
+                    App\Image::create([
+                        'image' => $img,
+                        'product_id' => $product->id
+                    ]);
+                }
+
+                if (isset(Input::file('image')[2])) {
+                    if (File::exists(Input::file('image')[2])) {
+                        $img = Image::make(Input::file('image')[2]);
+                        Response::make($img->encode('jpeg'));
+                        App\Image::create([
+                            'image' => $img,
+                            'product_id' => $product->id
+                        ]);
+                    }
+                } else {
+                    //$img = Image::make(asset('/img/user_products/no_image_available.png'));
+                    $img = Image::make(Storage::disk('local')->get('no_image_available.png'));
+                    Response::make($img->encode('jpeg'));
+                    App\Image::create([
+                        'image' => $img,
+                        'product_id' => $product->id
+                    ]);
+                }
+
+
+                /*   if(File::exists(isset(Input::file('image')[1]))){
+                       $img = Image::make(Input::file('image')[0]);
+                       Response::make($img->encode('jpeg'));
+                       App\Image::create([
+                           'image' => $img,
+                           'product_id' => $product->id
+                       ]);
+                   }
+                   if(File::exists(isset(Input::file('image')[2]))){
+                       $img = Image::make(Input::file('image')[0]);
+                       Response::make($img->encode('jpeg'));
+                       App\Image::create([
+                           'image' => $img,
+                           'product_id' => $product->id
+                       ]);
+                   }*/
+                /*  //adding new images
+                  foreach (Input::file('image') as $photo) {//recorriendo todas las fotos
+                      $img = Image::make($photo);
+                      Response::make($img->encode('jpeg'));
+                      App\Image::create([
+                          'image' => $img,
+                          'product_id' => $product->id
+                      ]);
+                  }*/
+                $product->save();
             }
-            $product->save();
             DB::commit();
         } catch (Exception $e) {
             DB::rollBack();
@@ -314,7 +391,7 @@ class ProductController extends Controller
     public function dynamicQuery(Request $request)
     {
 
-        $query = App\Product::with('images','categories'); //names of eager loaded relationships
+        $query = App\Product::with('images', 'categories'); //names of eager loaded relationships
         if (isset($request->brands)) {
             $query->whereIn('brand_id', $request->brands);
         }

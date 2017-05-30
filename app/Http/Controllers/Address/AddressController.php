@@ -41,7 +41,6 @@ class AddressController extends Controller
         }
 
         return response()->json($retorn);
-
     }
 
     /**
