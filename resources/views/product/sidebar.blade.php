@@ -1,3 +1,4 @@
+
 <div id="side-block">
     <form action="" name="filter_form" id="filter_form">
         <div class="filter-block">

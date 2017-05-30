@@ -1,6 +1,5 @@
 <div class="w-100">
-    <form class="form-horizontal" role="form" method="POST" action="{{ route('user-address') }}">
-        {{ csrf_field() }}
+    <form id="address_form" name="address_form" class="form-horizontal" role="form" method="POST" action="{{ route('user-address') }}">
         @if(Auth::user()->address!=null)
             {{method_field('PUT')}}
             <input type="hidden" name="id" value="{{Auth::user()->address->id}}">
@@ -169,9 +168,15 @@
         <div class="d-flex flex-md-row display-767-column mb-4">
             <div class="group-input">
                 <label for="" class="col-form-label">
-                    <button type="submit" class="btn btn-primary">
+                    @if(Auth::user()->address==null)
+                    <button type="button" class="btn btn-primary" id="address_button_user" value="POST">
                         @lang('forms.save')
                     </button>
+                    @else
+                        <button type="button" class="btn btn-primary" id="address_button_user" value="PUT">
+                            @lang('forms.save')
+                        </button>
+                    @endif
                 </label>
             </div>
         </div>

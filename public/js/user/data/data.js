@@ -76,4 +76,36 @@ $(document).ready(function () {
                 }
             });
     });
+
+
+    $(document).on('click', '#address_button_user', function (e) {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        console.log("hola")
+        e.preventDefault();
+
+        var formData = $('form').serialize();
+
+
+        var type = $("#address_button_user").val();
+        var my_url ="/user/panel/my-data/address";
+
+        $.ajax({
+            type: type,
+            url: my_url,
+            data: formData,
+            dataType: 'json',
+            success: function (data) { // success:
+                console.log(data);
+
+
+            },
+            error: function (data) {
+                console.log('Error:', data);
+            }
+        });
+    });
 });

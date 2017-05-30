@@ -299,7 +299,7 @@ class ProductController extends Controller
         }
         if (!$inserted) {
             $retorn = [
-                'error' => "Failed inserting model in database"
+                'error' => "Failed deleting model in database"
             ];
         } else {
             $retorn = [
