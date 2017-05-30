@@ -5,7 +5,7 @@
 
     <a class="navbar-brand w-25" href="/">Brand</a>
 
-    <span id="tog-profile">{{substr(Auth::user()->name,0,1)}}</span>
+    <span id="tog-profile">{{ucfirst(substr(Auth::user()->name,0,1))}}</span>
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mr-auto mt-2 mt-md-0 mx-auto">
