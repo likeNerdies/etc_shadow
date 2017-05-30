@@ -168,14 +168,15 @@ h2 {
 }
 
 #needHelpFooter {// "Need some help?"
-   text-align: right;
    margin-right: 2%;
    margin-top: 5%;
    width: 10%;
+   float: right; // Both necessary
 }
 
 #needHelpFooter a, #needHelpFooter a:visited {
     color: #FB6A5D;
+    float: right; // Both necessary
 }
 
 /* PRODUCT SHOW */

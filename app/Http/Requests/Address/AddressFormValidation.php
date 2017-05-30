@@ -23,12 +23,18 @@ class AddressFormValidation extends FormRequest
     public function rules()
     {
         return [
-            'street'=>'required',
-            'number' => 'required|numeric',
-            'postal_code'=>'required|numeric',
-            'town'=>'required',
-            'province' => 'required',
-            'country'=>'required',
+            'street'=>'required|string',
+            'building_number' => 'required|numeric|between:1,9999',
+            'building_block'=>'nullable|string',
+            'floor'=>'nullable|numeric|between:1,9999',
+            'door'=>'nullable|numeric|between:1,9999',
+            'postal_code'=>array(
+                'required',
+                'regex:/^(5[0-2]|[0-4][0-9])[0-9]{3}$/'
+            ),
+            'town'=>'required|string',
+            'province' => 'required|string',
+            'country'=>'required|string',
         ];
     }
 }

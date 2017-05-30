@@ -181,6 +181,14 @@ function validateEmail(email) {
     }
     return retorn;
 }
+function validateCodePostal(code) {
+    var retorn=true;
+    var regex =/^(5[0-2]|[0-4][0-9])[0-9]{3}$/;
+    if (!(code).match(regex)) {
+        retorn=false;
+    }
+    return retorn;
+}
 
 function validatePassword(password){
     return password.length>=8
@@ -202,3 +210,4 @@ function validateDimensions(dimensions) {
     }
     return retorn;
 }
+
