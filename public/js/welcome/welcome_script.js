@@ -57,6 +57,7 @@ $(document).ready(function (event) {
         interval: 4000
     });
 
+
     //Handles the carousel thumbnails
     $('[id^=carousel-selector-]').click(function () {
         var id_selector = $(this).attr("id");
@@ -64,6 +65,7 @@ $(document).ready(function (event) {
         var id = parseInt(id);
         $('#image').carousel(id);
     });
+
 
     ////////////////////////////////////////////////////////////////////ARROW SLIDER
 

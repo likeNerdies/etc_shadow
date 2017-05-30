@@ -1,5 +1,7 @@
 /* GLOBAL */
-
+html, body{
+    min-height: 100% !important;
+}
 body {
   overflow: hidden;
   overflow-y: scroll;
@@ -91,15 +93,20 @@ h2 {
 /*  ~ Product index ~ */
 
 .card-wrapper{
-  width: 28% !important;
+  width: 100% !important;
   height: 100%;
+}
+
+.card-wrapper-product{
+    width:28% !important;
+    height: 100%;
 }
 
 @media (max-width: 768px) {
   .mt-sm-500 {
     margin-top: 5%;
   }
-  .card-wrapper, .w-sm-100 {
+  .card-wrapper,.card-wrapper-product, .w-sm-100 {
     width: 100%!important;
   }
 
@@ -138,6 +145,12 @@ h2 {
   height: auto;
 }
 
+/*Pagination*/
+
+.pagination{
+    font-size: 19px;
+}
+
 /* Footer */
 #footer {
     width:100%;
@@ -156,11 +169,9 @@ h2 {
 
 #needHelpFooter {// "Need some help?"
    text-align: right;
-   bottom: 0;
    margin-right: 2%;
    margin-top: 5%;
    width: 10%;
-   float: right;
 }
 
 #needHelpFooter a, #needHelpFooter a:visited {
@@ -360,7 +371,7 @@ i.toggle{
 
 .profile-content{
     width:300px;
-    background: navajowhite;
+    //background: navajowhite;
     position: fixed;
     top: 60px;
     right: -300px;
@@ -370,7 +381,7 @@ i.toggle{
 
 .profile-content-show{
     width:300px;
-    background: navajowhite;
+    background: rgba(158, 130, 130, 0.05);
     position: fixed;
     top: 60px;
     right: 0;
@@ -398,7 +409,6 @@ i.toggle{
 .profile-content .block-user-profile{
     width: 100%;
     height:30px;
-    background: #ffffc0;
     text-align: center;
     border-radius: 4px;
 }
@@ -508,6 +518,9 @@ i.toggle{
         left:0;
     }
 
+
+
+
     #sidebar-wrapper > span.arrow{
         display: inline-block !important;
     }
@@ -546,6 +559,24 @@ i.toggle{
         border-bottom-right-radius: 100px;
         border-top-right-radius: 100px;
         background: rgba(5, 5, 5,.9);
+    }
+
+
+
+    #main-wrapper-in{
+        width:100%;
+        height:100%;
+        overflow: hidden;
+    }
+
+    #sidebar-wrapper-in{
+        display: none;
+    }
+
+    #content-wrapper-in{
+        width: 100%;
+        height: 90%;
+        margin-top: 20%;
     }
 
     /*</PSEUDO-ELEMENTS SIDEBAR>*/
@@ -708,7 +739,6 @@ i.toggle{
     .block-user-profile{
         width: 100%;
         height: 60px;
-        background: #ffffc0;
         text-align: center;
         border-radius: 4px;
     }
@@ -730,14 +760,14 @@ i.toggle{
 
     #sidebar-wrapper-in{
         width:20%;
-        height: 100%;
-        margin-top: 9%;
+        height: 90%;
+        margin-top: 10%;
     }
 
     #content-wrapper-in{
         width: 80%;
-        height: 100%;
-        margin-top: 9%;
+        height: 90%;
+        margin-top: 10%;
     }
 
 
