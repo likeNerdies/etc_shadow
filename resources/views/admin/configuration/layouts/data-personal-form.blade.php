@@ -1,7 +1,7 @@
 <form class="form-horizontal" role="form" method="POST" action="{{ route('admin.update') }}">
     {{ csrf_field() }}
     {{method_field('PUT')}}
-
+    <input type="hidden" name="id" value="{{Auth::user()->id}}">
     <div class="form-group{{ $errors->has('dni') ? ' has-error' : '' }}">
         <label for="name" class="col-md-4 control-label">Dni</label>
 
@@ -119,7 +119,7 @@
 
     <div class="form-group">
         <div class="col-md-6 col-md-offset-6">
-            <button type="submit" class="btn btn-primary">
+            <button type="button" id="admin_cofig_data" class="btn btn-primary">
                 Save
             </button>
         </div>
