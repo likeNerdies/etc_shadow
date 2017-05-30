@@ -31,14 +31,17 @@ $(document).ready(function () {
                 data: formData,
                 dataType: 'json',
                 success: function (data) { // success:
+                    $('#btn_save').replaceWith('<button class="btn btn-success float-right text-center disabled"><i class="fa fa-check" aria-hidden="true"></i></button>');
+                    e.stopPropagation();
                     console.log(data);
-
-
                 },
                 error: function (data) {
                     console.log('Error:', data);
                 }
             });
+
+
+
         }
     });
 
