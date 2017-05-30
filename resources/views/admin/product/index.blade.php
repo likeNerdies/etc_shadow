@@ -225,15 +225,37 @@
 
                           </div><!-- / card -->
                       </div> <!--collapse -->
-
-                      {{--END OPTION DATA--}}
-                      {{--test--}}
-                      {{--end test--}}
+                      <script>
+                          function preview_image() {
+                              var fileUpload = document.getElementById("image");
+                              if (typeof (FileReader) != "undefined") {
+                                  var dvPreview = document.getElementById("dvPreview");
+                                  dvPreview.innerHTML = "";
+                                  var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+                                  for (var i = 0; i < fileUpload.files.length; i++) {
+                                      var file = fileUpload.files[i];
+                                      if (regex.test(file.name.toLowerCase())) {
+                                          var reader = new FileReader();
+                                          reader.onload = function (e) {
+                                              var img = document.createElement("IMG");
+                                              img.height = "100";
+                                              img.width = "100";
+                                              img.src = e.target.result;
+                                              dvPreview.appendChild(img);
+                                          }
+                                          reader.readAsDataURL(file);
+                                      }
+                                  }
+                              }
+                          }
+                      </script>
                   </form>
                   <form id="formImage" class="formImage form-horizontal mt-4" novalidate="" enctype="multipart/form-data">
                       <div class="group-input">
                           <label for="image" class="col-form-label">Upload images</label>
-                          <input type="file" class="form-control-file" id="image" name="image[]" multiple >
+                          <input type="file" class="form-control-file" id="image" name="image[]" multiple onchange="preview_image()">
+                      </div>
+                      <div id="dvPreview">
                       </div>
                   </form>
               </div>
