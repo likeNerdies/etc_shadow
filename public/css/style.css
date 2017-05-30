@@ -740,7 +740,11 @@ i.toggle{
         width: 100%;
         height: 60px;
         text-align: center;
-        border-radius: 4px;
+    }
+
+    .block-user-profile:hover{
+        border-top:1px solid black;
+        border-bottom: 1px solid black;
     }
 
     .block-user-profile a{
