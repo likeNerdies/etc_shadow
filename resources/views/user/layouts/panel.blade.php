@@ -2,11 +2,7 @@
 
 @section('content')
 
-@include('user.layouts.navbar_in')
-
-    <div id="sidebar-float" class="profile-content">
-        @include('user.layouts.sidebar2')
-    </div>
+@include('layouts.navbar')
 
     <div id="main-wrapper-in">
         <div id="sidebar-wrapper-in">

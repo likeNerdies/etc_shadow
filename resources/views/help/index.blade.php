@@ -9,9 +9,9 @@
 
 @include('layouts.navbar')
   <div class="container mt-5 justify-content-center">
-
+    <h1 class="text-center red-font lighter-font">@lang("user/help/help.needHelp")</h1>
     <div class="offset-md-1 col-md-10 bg-whitesmoke-sutil">
-      <h1 class="text-center red-font lighter-font">@lang("user/help/help.needHelp")</h1>
+
 
       <div class="mt-5 ml-10 mr-10 text-sm-justify">
           <h4 class=""><i class="fa fa-thumb-tack" aria-hidden="true"></i>@lang("user/help/help.toSubscribe")</h4>

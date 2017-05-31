@@ -71,6 +71,7 @@ $(document).ready(function (event) {
 
     $('.arrow').click(function (e) {
         $(this).toggleClass('arrow-show arrow-show-bg').next().toggleClass('left-0');
+        //$('#main-wrapper').css('opacity','0.5');
     });
 
 
