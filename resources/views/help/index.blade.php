@@ -8,18 +8,15 @@
 
 
 @include('layouts.navbar')
-<<<<<<< HEAD
   <div class="container mt-80p justify-content-center">
 
     <div class="offset-md-1 col-md-10 bg-whitesmoke-sutil">
       <h1 class="text-center red-font lighter-font">@lang("help.needHelp")</h1>
-=======
+<!--
   <div class="container mt-5 justify-content-center">
     <h1 class="text-center red-font lighter-font">@lang("user/help/help.needHelp")</h1>
     <div class="offset-md-1 col-md-10 bg-whitesmoke-sutil">
-
->>>>>>> 611db4825fe7d2ad32b5a21fbe4cb286b64536f1
-
+-->
       <div class="mt-5 ml-10 mr-10 text-sm-justify">
           <h4 class=""><i class="fa fa-thumb-tack" aria-hidden="true"></i>@lang("help.toSubscribe")</h4>
           <p class="big-p">@lang("help.subscribeOptions")</p>

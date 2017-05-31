@@ -48,7 +48,7 @@ Route::group(['prefix' => 'user/panel', 'middleware' => 'auth',], function () {
     Route::prefix('/plan')->group(function () {//user plan route
         Route::get('/', 'User\UserController@plan')->name('user-plan');
         Route::post('/subscribe', 'User\UserController@subscribeToPlan')->name('user-subscribe');
-        Route::get('/subscribe', 'User\UserController@subscribeForm')->name('user-subscribe');
+        Route::get('/subscribe/{plan}', 'User\UserController@subscribeForm')->name('user-subscribe');
         Route::post('/cancelSub', 'User\UserController@cancelSubscription')->name('user-cancelSub');
         Route::post('/changePlan', 'User\UserController@subscribeToPlan')->name('user-change-plan');
     });

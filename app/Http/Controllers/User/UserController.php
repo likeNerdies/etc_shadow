@@ -101,7 +101,7 @@ class UserController extends Controller
 
     public function help()
     {
-        return view('user.panel.help.index');
+        return view('help.index');
     }
 
 
