@@ -12,10 +12,10 @@
           <a class="nav-link only page-scroll" href="/#howitworks">@lang('welcome.howitworks')</a>
         </li>
         <li class="nav-item px-5">
-          <a class="nav-link only page-scroll" href="/#plans">@lang('welcome.plans')</a>
+          <a class="nav-link only page-scroll" href="#plans">@lang('welcome.plans')</a>
         </li>
         <li class="nav-item  px-5">
-          <a class="nav-link only page-scroll" href="/#about">@lang('welcome.about')</a>
+          <a class="nav-link only page-scroll" href="#about">@lang('welcome.about')</a>
         </li>
       </ul>
 
@@ -30,7 +30,7 @@
                 <a class="dropdown-item" href="/user/panel/profile">My profile</a>
                 <form class="floating-form" action="/logout" method="post">
                   {{ csrf_field() }}
-                  <button type="submit" value="logout">Logout</button>
+                  <button type="submit" class="dropdown-item cursor-pointer" value="logout">Logout</button>
                 </form>
               </div>
             </li>

@@ -1,6 +1,6 @@
 <?php
 return [
-    "myPersonalData" => "My personal data's",
+    "myPersonalData" => "My personal data",
     "myAddress"=>"My address",
     "addAddress"=>"Add your address",
     "updateAddress"=>"Update your address",

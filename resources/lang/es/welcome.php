@@ -12,7 +12,7 @@ return [
 
     'howitworks'   => 'Cómo funciona',
     'plans' => 'Planes',
-    'about' => 'Sobre nosotros'
+    'about' => 'Quiénes somos',
 
 
 ];
