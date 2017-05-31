@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-  Welcome
+  Healthy Box
 @endsection
 
 @section('content')
@@ -152,4 +152,17 @@
 
 @section('scriptsPersonalizados')
   <script src="/js/welcome/welcome_script.js"></script>
+
+
+  @if(Session::get('errorLogin'))
+    <script>
+        $(function() {
+            $('#modalLogin').modal('show');
+        });
+    </script>
+
+    @php
+    Session::forget('errorLogin');
+    @endphp
+  @endif
 @endsection
