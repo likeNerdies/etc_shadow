@@ -3,7 +3,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <a class="navbar-brand w-25" href="/">Brand</a>
+    <a class="navbar-brand" href="/">Brand</a>
 
     <span id="tog-profile">{{ucfirst(substr(Auth::user()->name,0,1))}}</span>
 

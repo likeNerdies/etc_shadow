@@ -27,7 +27,7 @@
               </div>
               <div class="content">
                 <p class="text-justify text-center">First go see our products!</p>
-                <button class="mt-3  btn btn-primary page-scroll btn-seeProducts sr-btn" type="button" name="button"><a href="/products">See our products</a></button>
+                <a href="/products"><button class="mt-3  btn btn-primary page-scroll btn-seeProducts sr-btn" type="button" name="button">See our products</button></a>
               </div>
             </div>
           </div>

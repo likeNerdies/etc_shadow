@@ -71,6 +71,7 @@ $(document).ready(function (event) {
 
     $('.arrow').click(function (e) {
         $(this).toggleClass('arrow-show arrow-show-bg').next().toggleClass('left-0');
+        //$('#main-wrapper').css('opacity','0.5');
     });
 
 
@@ -99,11 +100,20 @@ $(document).ready(function (event) {
 
     //////////////////////////////////////////////////////////////////////SIDEBAR
     $('#title-categories, #title-brands, #title-diets').click(function (e) {
-        $(this).toggleClass('filter-title-toggled');
         var idParent = $(this)[0].id;
         var idChildren = $(this).children()[1].id;
 
-        $('#' + idChildren).toggleClass('rotate-45');
+        if($(this)[0].id == 'title-categories'){
+            $(this).toggleClass('filter-title-toggled').addClass('filter-title-closed');
+            $('#' + idChildren).toggleClass('rotate-90');
+        }else{
+            $(this).toggleClass('filter-title-toggled');
+            $('#' + idChildren).toggleClass('rotate-45');
+        }
+
+
+
+
 
         if ('#' + idParent == '#title-categories') $('#categories').slideToggle();
         else if ('#' + idParent == '#title-brands') $('#brands').slideToggle();
@@ -167,7 +177,7 @@ $(document).ready(function (event) {
                         products+="<h2>no result</h2>";
                     }else{
                         for(var i=0;i<data.length;i++){
-                            products+='<div class="card-wrapper mx-2">';
+                            products+='<div class="card-wrapper-product mx-2 mt-2>';
                             products+=' <a href="/products/'+data[i].id+'">';
                             products+=' <div class="card p-2">';
                             if(data[i].images.length==0 || data[i].images==null){

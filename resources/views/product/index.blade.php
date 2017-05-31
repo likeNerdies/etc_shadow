@@ -18,11 +18,11 @@
 
         <div id="content-wrapper" class="text-center">
             <div class="container">
-                <h1 class="text-center mt-5 mb-2">Fall in love with our products</h1>
+                <h1 class="text-center mt-4 mb-5">Fall in love with our products</h1>
 
                 <div class="row pb-5">
                     <div class="col-12">
-                        <div style="padding:2.5%; background:rgb(240,244,243);border-radius:2.5px;" class="card-columns d-flex flex-row flex-wrap justify-content-center" id="products">
+                        <div style="min-height: 600px;height: 100%;padding:2.5%; background:rgb(240,244,243);border-radius:2.5px;" class="card-columns d-flex flex-row flex-wrap justify-content-center" id="products">
                             @foreach ($products as $product)
                                 <div class="card-wrapper-product mx-2 mt-2">
                                     <a href="/products/{{ $product->id }}">
@@ -56,7 +56,7 @@
                     </div>
 
                 </div>
-            </div>  
+            </div>
         </div>
     </div>
   <!--<div class="container">
