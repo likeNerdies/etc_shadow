@@ -140,7 +140,6 @@
         </div>
         <div class="side2 mt-5 col-md-4 col-sm-12">
           <h4>@lang("welcome.aboutUs3Title")</h4>
-          <br />
           <h5>@lang("welcome.aboutUs3Content")</h5>
         </div>
       </div>

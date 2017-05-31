@@ -29,7 +29,7 @@ return [
     "aboutUs1Content" => "Healthy Box es un proyecto para implementar comida exclusiva y saludable a esos que disfrutan un estilo de vida limpio y fresco.",
     "aboutUs2Title" => "Un cuerpo saludable es una mente saludable",
     "aboutUs2Content" => "El cuerpo es un templo, y queremos introducir la alimentación limpia, recibiendo fácilmente comida saludable en cajas personalizadas.",
-    "aboutUs3Title" => "Somos desarrolladores, así que...",
+    "aboutUs3Title" => "Somos desarrolladores,<br />así que...",
     "aboutUs3Content" => "Hemos construido esta startup basada en un algoritmo de Inteligencia Artifical.",
     "linesCode" => "Líneas de código",
     "hoursWorked" => "Horas trabajadas",

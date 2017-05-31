@@ -32,7 +32,7 @@ return [
     "aboutUs2Title" => "A healthy body is a healthy mind",
     "aboutUs2Content" => "The body is a temple, and we want to introduce you to clean eating, easily receveing food in personalized boxes.",
     "aboutUs3Title" => "We're developers, so...",
-    "aboutUs3Content" => ")We've build these startup based on an Artificial Intelligence algorithm.",
+    "aboutUs3Content" => "We've build these startup based on an Artificial Intelligence algorithm.",
     "linesCode" => "Lines of code",
     "hoursWorked" => "Hours worked",
     "cupsCoffee" => "Cups of coffee",
