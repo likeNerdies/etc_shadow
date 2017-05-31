@@ -48,6 +48,7 @@ Route::group(['prefix' => 'user/panel', 'middleware' => 'auth',], function () {
     Route::prefix('/plan')->group(function () {//user plan route
         Route::get('/', 'User\UserController@plan')->name('user-plan');
         Route::post('/subscribe', 'User\UserController@subscribeToPlan')->name('user-subscribe');
+        Route::get('/subscribe', 'User\UserController@subscribeForm')->name('user-subscribe');
         Route::post('/cancelSub', 'User\UserController@cancelSubscription')->name('user-cancelSub');
         Route::post('/changePlan', 'User\UserController@subscribeToPlan')->name('user-change-plan');
     });
@@ -192,6 +193,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin',], function () {
     });
     //end Route Client
 
+
+    Route::post('/box/create', 'Box\BoxController@makeBox')->name('admin.box.create');
+    Route::get('/box', 'Box\BoxController@index')->name('admin.box');
+   // Route::post('/box/create', 'Box\BoxController@makeBox')->middleware('auth:admin');
+
+
+
 });//END ADMIN GROUP ROUTES
 
 
@@ -231,7 +239,6 @@ Route::prefix('/search')->group(function () {
 });
 
 
-Route::get('/box-test', 'Box\BoxController@makeBox')->middleware('auth:admin');
 
 
 //lang change rout

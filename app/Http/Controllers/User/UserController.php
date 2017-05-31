@@ -25,6 +25,7 @@ class UserController extends Controller
     public function index()
     {
         $user = Auth::user();
+
         return view('user.panel.profile.index', compact("user"));
     }
 
@@ -243,6 +244,9 @@ class UserController extends Controller
         return response()->back();
     }
 
+    public function subscribeForm(){
+        return view('user.plan.subscribe');
+    }
 
 
     ////////////////////////for admin panel
