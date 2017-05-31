@@ -89,7 +89,7 @@
                                 @if(count($product->images) == 0)
                                     <td id="product-img"></td>
                                @else
-                                    <td id="product-img"><img class="img-thumbnail" src="/admin/products/{{$product->images->first()->id}}/image" width="48.2" height="48.2"></td>
+                                    <td id="product-img"><img id="myImgPr_{{$product->id}}" class="img-thumbnail" src="/admin/products/{{$product->images->first()->id}}/image" width="48.2" height="48.2"></td>
                                 @endif
 
                                 <td>
@@ -104,6 +104,21 @@
         </div>
     </div>
     {{$products->links()}}
+
+
+    <!-- Modal Image -->
+    <div id="myModalImage2" class="modalimage">
+
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content img-fluid" id="img02">
+        <img class="modal-content img-fluid" id="img03">
+        <img class="modal-content img-fluid" id="img04">
+
+    </div>
+    <!-- /Modal Image -->
 
     <!-- Modal (Pop up when detail button clicked) -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">

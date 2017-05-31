@@ -18,7 +18,7 @@
 
         <div id="content-wrapper" class="text-center">
             <div class="container">
-                <h1 class="text-center mt-4 mb-5">Fall in love with our products</h1>
+                <h1 class="text-center mt-4 mb-5">Fall in <strong>love</strong> with our products</h1>
 
                 <div class="row pb-5">
                     <div class="col-12">

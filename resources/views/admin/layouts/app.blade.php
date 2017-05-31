@@ -35,7 +35,7 @@
 @include('admin.layouts.sidebar')
 
 <div id="wrapper">
-    <div class="container">
+    <div class="container-fluid">
         <div id="succed_message" class="alert alert-success" style="display: none" role="alert">
             <strong>Successfully operation</strong>
         </div>

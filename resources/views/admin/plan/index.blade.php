@@ -27,7 +27,7 @@
               <th>ID</th>
               <th>Name</th>
               <th>Price</th>
-              <th>Info</th>
+              <th class="media-767-delete">Info</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -37,7 +37,7 @@
                 <td id="id">{{$plan->id}}</td>
                 <td>{{$plan->name}}</td>
                 <td>{{$plan->price}}</td>
-                <td>{{$plan->info}}</td>
+                <td class="media-767-delete">{{$plan->info}}</td>
                 <td>
                   <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$plan->id}}"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up"></i></button>
                   <button class="btn btn-danger btn-xs btn-delete delete-plan" value="{{$plan->id}}"><span class="hidden-sm-down">Delete</span> <i class="fa fa-trash hidden-md-up"></i></button>

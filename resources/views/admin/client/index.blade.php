@@ -23,9 +23,9 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th class="media-480-delete">DNI</th>
+                                <th class="media-767-delete">DNI</th>
                                 <th>Name</th>
-                                <th class="media-480-delete">Surname</th>
+                                <th class="media-767-delete">Surname</th>
                                 <th class="media-480-delete">Email</th>
                                 <th class="media-480-delete">Phone Number</th>
                                 <th>Plan</th>
@@ -39,12 +39,12 @@
                                 <tr id="client{{$client->id}}">
                                     <td id="id">{{$client->id}}</td>
                                     @if($client->dni==null)
-                                        <td class="media-480-delete"></td>
+                                        <td class="media-767-delete"></td>
                                     @else
-                                        <td class="media-480-delete">{{$client->dni}}</td>
+                                        <td class="media-767-delete">{{$client->dni}}</td>
                                     @endif
                                     <td>{{$client->name}}</td>
-                                    <td class="media-480-delete">{{$client->first_surname}}</td>
+                                    <td class="media-767-delete">{{$client->first_surname}}</td>
                                     <td class="media-480-delete">{{$client->email}}</td>
                                     @if($client->phone_number==null)
                                         <td class="media-480-delete"></td>
