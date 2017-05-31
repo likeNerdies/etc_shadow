@@ -1,7 +1,7 @@
 @extends('user.layouts.panel')
 @section('title','My data')
 @section('right-panel')
-<div class="container mt-5 justify-content-center">
+<div class="container justify-content-center">
   <form class="" action="user/panel/plan/subscribe" method="post">
       @if (Auth::user()->plan_id == null) <!-- If user is not subscribed to any plan -->
         <h1 class="text-center red-font">@lang("user/plan/plan.noPlan")</h1>
