@@ -39,6 +39,14 @@ h2 {
   margin-top: 80px;
 }
 
+.w-60 {
+  width: 60%;
+}
+
+.w-70 {
+  width: 70%;
+}
+
 .red-font {
   color: #FB6A5D;
 }
@@ -217,7 +225,6 @@ h2 {
 #needHelpFooter {// "Need some help?"
    margin-right: 2%;
    margin-top: 5%;
-   width: 10%;
    float: right; // Both necessary
 }
 

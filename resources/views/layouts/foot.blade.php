@@ -25,7 +25,7 @@
     <i class="fa fa-youtube-play" aria-hidden="true"></i>
   </div>
 
-  <h6 id="needHelpFooter"><a href="/help">Need help?</a></h6>
+  <h6 id="needHelpFooter" class=""><a href="/help">@lang("layouts/footer.needHelp")</a></h6>
 
 </div>
 
