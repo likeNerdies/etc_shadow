@@ -126,5 +126,16 @@ class BoxController extends Controller
 
     }
 
-
+    public function index(){
+        $boxes=DB::table('boxes')->select("id" ,DB::raw("(COUNT(*)) as total_click"))
+            ->orderBy('created_at')
+            ->groupBy(DB::raw("YEAR(created_at), MONTH(created_at)"))
+            ->get();
+        return view('admin.box.index',compact('boxes'));
+    }
+    public function boxPerMotnhCount(){
+        return[
+          "1"=>App\Box::all(),
+        ];
+    }
 }
