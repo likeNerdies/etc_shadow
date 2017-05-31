@@ -130,7 +130,7 @@
                                       img.width = "100";
                                       img.src = e.target.result;
                                       dvPreview.appendChild(img);
-                                  }
+                                  };
                                   reader.readAsDataURL(file);
                               }
                           }
