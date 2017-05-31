@@ -113,16 +113,40 @@
                   <select id="tag_list" name="allergies[]" class="input-group input-group-lg form-group" multiple></select>
               </div>
 
-              {{--test--}}
-              {{--end test--}}
+              <script>
+                  function preview_image() {
+                      var fileUpload = document.getElementById("image");
+                      if (typeof (FileReader) != "undefined") {
+                          var dvPreview = document.getElementById("dvPreview");
+                          dvPreview.innerHTML = "";
+                          var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+                          for (var i = 0; i < fileUpload.files.length; i++) {
+                              var file = fileUpload.files[i];
+                              if (regex.test(file.name.toLowerCase())) {
+                                  var reader = new FileReader();
+                                  reader.onload = function (e) {
+                                      var img = document.createElement("IMG");
+                                      img.height = "100";
+                                      img.width = "100";
+                                      img.src = e.target.result;
+                                      dvPreview.appendChild(img);
+                                  }
+                                  reader.readAsDataURL(file);
+                              }
+                          }
+                      }
+                  }
+              </script>
 
             </form>
             <form id="formImage" class="formImage"  class="form-horizontal" novalidate="" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="image">Upload images</label>
-                    <input type="file" class="image btn btn-info" id="image" name="image" >
+                    <input type="file" class="image btn btn-info" id="image" name="image" onchange="preview_image()">
                 </div>
             </form>
+              <div id="dvPreview">
+              </div>
           </div>
 
           <div class="modal-footer">

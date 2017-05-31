@@ -11,6 +11,7 @@ $(document).ready(function () {
 
         $('#ajaxerror').empty();
         $('#ajaxerror').removeClass("alert alert-danger");
+        $('#dvPreview').empty();
         $('input').removeAttr( "style" );
         $('textarea').removeAttr( "style" );
         var ingredient_id = $(this).val();
@@ -40,6 +41,7 @@ $(document).ready(function () {
         $('input').removeAttr( "style" );
         $('textarea').removeAttr( "style" );
         $('#ajaxerror').empty();
+        $('#dvPreview').empty();
         $('#ajaxerror').removeClass("alert alert-danger");
         $(".select2-selection__choice").remove();
         $("#tag_list").html('');

@@ -13,6 +13,7 @@ $(document).ready(function () {
         var product_id = $(this).val();
         $('#ajaxerror').empty();
         $('#ajaxerror').removeClass("alert alert-danger");
+        $('#dvPreview').empty();
         $('.error').empty();
         $('.error').removeClass("alert alert-danger");
         $('input').removeAttr("style");
@@ -97,6 +98,7 @@ $(document).ready(function () {
         $('#ajaxerror').removeClass("alert alert-danger");
         $('.error').empty();
         $('.error').removeClass("alert alert-danger");
+        $('#dvPreview').empty();
         $('input').removeAttr("style");
         $('textarea').removeAttr("style");
         $(".select2-selection__choice").remove();
