@@ -134,6 +134,7 @@
                 <span class="text-left pull-left">Diets</span>
                 <i id="tog-3" class="fa fa-plus pull-right rotate-0"></i>
             </div>
+
             <div id="diets" class="filter-content">
                 <div id="content-diets" class="d-flex flex-column">
                     <div class="my-form-check pt-2">
