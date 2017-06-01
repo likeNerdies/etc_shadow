@@ -43,9 +43,10 @@ class BoxController extends Controller
     }
 
     /**
-     * @param $products
-     * @param $plan
-     * @param $dimension
+     * Create's a new Box model object and puts Products object into the box until it filled
+     * @param $products array of products
+     * @param $plan the plan
+     * @param $dimension the dimension of the products and box
      * @return App\Box
      */
     public function putProductIntoBox($products, $plan, $dimension)
@@ -61,6 +62,9 @@ class BoxController extends Controller
 
             if ($products[$i]->dimension <= $dimension && $products[$i]->stock>0) {
                 $box->products()->attach([$products[$i]->id]);
+                $prod=App\Product::find($products[$i]->id);
+                $prod->stock=$prod->stock-1;
+                $prod->save();
                 $sumaPrecioProductosCaja += $products[$i]->price;
             }
 
@@ -70,6 +74,7 @@ class BoxController extends Controller
     }
 
     /**
+     * makes a delivery object with user,box and transporter
      * @param $user
      * @param $box
      */
@@ -85,6 +90,7 @@ class BoxController extends Controller
     }
 
     /**
+     * Put products in box per default without logic
      * @param $box
      * @return mixed
      */
@@ -93,6 +99,9 @@ class BoxController extends Controller
         return $box;
     }
     /**
+     * Algoritmo que inicia una transaccion en db, busca todos lo usuarios con plan, por cada user con plan
+     * recoge su pla, por cada plan introduce products en su caja respetivo. En el caso de que reciba un box sin products
+     * se llena con productos por defecto.
      * @return mixed
      */
     public function makeBox()
@@ -126,6 +135,10 @@ class BoxController extends Controller
 
     }
 
+    /**
+     * Returns the admin box view with some datas
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index(){
         $boxes=DB::table('boxes')->select("id" ,DB::raw("(COUNT(*)) as total_click"))
             ->orderBy('created_at')

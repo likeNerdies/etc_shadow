@@ -4,6 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Category for categories table
+ * @package App
+ */
 class Category extends Model
 {
     /**

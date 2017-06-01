@@ -7,22 +7,25 @@ use App\Http\Controllers\Controller;
 use App;
 use App\Http\Requests\Allergy\StoreValidation;
 
+/**
+ * Class AllergyController
+ * This Class controls the Allergy Model
+ * @package App\Http\Controllers\Allergy
+ */
 class AllergyController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
+     * Returns a pagination of 15 allergies to the admin allergy view
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $allergies=App\Allergy::paginate(9);
+        $allergies=App\Allergy::paginate(15);
         return view('admin.allergy.index',compact('allergies'));
     }
 
     /**
      * Store a newly created resource in storage.
-     *
      * @param  \App\Http\Requests\Allergy\StoreValidation $request
      * @return \Illuminate\Http\Response
      */
@@ -33,8 +36,7 @@ class AllergyController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
+     *  Show the specified resource by id in Allergy Model
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -46,7 +48,6 @@ class AllergyController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
      * @param  \App\Http\Requests\Allergy\StoreValidation  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -61,7 +62,6 @@ class AllergyController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */

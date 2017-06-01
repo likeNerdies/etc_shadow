@@ -12,13 +12,17 @@ use App\Http\Requests\User\UpdatePersonalInfoUser;
 
 class UserController extends Controller
 {
+    /**
+     * You need to be authed to make change in db with this controller
+     * UserController constructor.
+     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
     /**
-     * Display a listing of the resource.
+     * Returns the user panel profile view
      *
      * @return \Illuminate\Http\Response
      */
@@ -30,7 +34,7 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for editing user info
+     * Returns the user panel data view
      *
      * @return \Illuminate\Http\Response
      */
@@ -40,6 +44,7 @@ class UserController extends Controller
     }
 
     /**
+     * Current user loged update
      * @param Request $request
      */
     public function update(UpdatePersonalInfo $request)
@@ -63,6 +68,11 @@ class UserController extends Controller
 
     }
 
+    /**
+     * Current user loged password change
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function updatePassword(Request $request){
 
      //   return response()->json(['antiguo'=>Hash::make($request->old_password),'pass'=>$user->password]);
@@ -81,7 +91,7 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified  user resource from storage.
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -93,23 +103,38 @@ class UserController extends Controller
         return redirect('/');
     }
 
+    /**
+     * Returns the destro user menu view
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function destroymenu()
     {
         return view('user.panel.destroy-user');
     }
 
-
+    /**
+     * Returns the help view
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function help()
     {
         return view('help.index');
     }
 
-
+    /**
+     * Returns the ingredient user view
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function unlikeIngredientShow(){
         $ingredients=App\Ingredient::all();
         return view('user.panel.ingredient.index',compact('ingredients'));
     }
 
+    /**
+     * Método que controla el like de un ingrediente  usuario
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function likeIngredientStore(Request $request){
         $user = Auth::user();
         $retorn =[];
@@ -131,6 +156,11 @@ class UserController extends Controller
         return response()->json($retorn);
     }
 
+    /**
+     * Método que controla el unlike de un ingrediente  usuario
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function unlikeIngredientStore(Request $request){
         $user = Auth::user();
         $retorn =[];
@@ -153,11 +183,20 @@ class UserController extends Controller
 
     }
 
+    /**
+     * Returns the allergy user view
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function userAllergyShow(){
         $allergies = App\Allergy::all();
         return view('user.panel.allergy.index',compact('allergies'));
     }
 
+    /**
+     * Método que controla y añade el allergy para  usuario
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function userAllergyStore(Request $request){
         $user = Auth::user();
         $retorn =[];
@@ -180,6 +219,11 @@ class UserController extends Controller
         return response()->json($retorn);
     }
 
+    /**
+     * Método que controla y quita el allergy para  usuario
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function userHasntAllergyStore(Request $request){
         $user = Auth::user();
         $retorn =[];
@@ -203,7 +247,7 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for editing user info
+     * Returns use plan view
      *
      * @return \Illuminate\Http\Response
      */
@@ -228,7 +272,7 @@ class UserController extends Controller
     }
 
     /**
-     * user subsrcibing to plan
+     * user cancel subscription
      * @param Request $request
      */
     public function cancelSubscription(Request $request)
@@ -244,6 +288,10 @@ class UserController extends Controller
         return response()->back();
     }
 
+    /**
+     * Returns the user plan subscribe view
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function subscribeForm(){
         return view('user.plan.subscribe');
     }
@@ -252,7 +300,7 @@ class UserController extends Controller
     ////////////////////////for admin panel
 
     /**
-     * Display a listing of the resource.
+     * Returns the admin user (client) view with pagination
      *
      * @return \Illuminate\Http\Response
      */
@@ -262,6 +310,11 @@ class UserController extends Controller
         return view('admin.client.index', compact("clients"));
     }
 
+    /**
+     * Returns a specified user json format
+     * @param $id
+     * @return array
+     */
     public function adminShow($id)
     {
         $client = App\User::findOrFail($id);
@@ -275,7 +328,7 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified admin resource from storage.
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -288,6 +341,7 @@ class UserController extends Controller
     }
 
     /**
+     * Method for update user from admin panel
      * @param Request $request
      */
     public function adminUpdate(UpdatePersonalInfoUser $request, $id)

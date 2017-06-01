@@ -4,6 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Box for boxes table
+ * @package App
+ */
 class Box extends Model
 {
     /**

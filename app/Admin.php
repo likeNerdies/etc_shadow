@@ -5,6 +5,10 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * Class Admin form admins table
+ * @package App
+ */
 class Admin extends Authenticatable
 {
     use Notifiable;

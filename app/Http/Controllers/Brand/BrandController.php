@@ -7,10 +7,15 @@ use App\Http\Controllers\Controller;
 use App;
 use App\Http\Requests\Brand\StoreValidation;
 
+/**
+ * Class BrandController
+ * This Class controls the Brand model
+ * @package App\Http\Controllers\Brand
+ */
 class BrandController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Returns the view with pagination of 15 brands
      *
      * @return \Illuminate\Http\Response
      */
@@ -33,7 +38,7 @@ class BrandController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display a specified brand resource.
      *
      * @param  int $id
      * @return \Illuminate\Http\Response

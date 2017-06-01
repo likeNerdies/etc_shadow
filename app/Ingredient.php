@@ -4,6 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Storage;
+
+/**
+ * Class Ingredient for ingredients table
+ * @package App
+ */
 class Ingredient extends Model
 {
     protected $fillable=[

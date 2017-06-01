@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 class LocaleController extends Controller
 {
     /**
-     * Change session locale
+     * Change locale in session.
      * @param  Request $request
      * @return Response
      */

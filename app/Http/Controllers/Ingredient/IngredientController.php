@@ -17,19 +17,19 @@ use Intervention\Image\ImageManagerStatic as Image;
 class IngredientController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display the admin ingredient view with pagination of 15
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $ingredients = App\Ingredient::paginate(9);
+        $ingredients = App\Ingredient::paginate(15);
         return view('admin.ingredient.index', compact(["ingredients"]));
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
+     * Store a newly created ingredient resource in storage.
+     * with Image. All images are encoded with jpeg. First insert has default image for ingredient
      * @param  \App\Http\Requests\Ingredient\StoreValidation $request
      * @return \Illuminate\Http\Response
      */
@@ -111,7 +111,12 @@ class IngredientController extends Controller
           }
           return response()->json($retorn);
       }*/
-
+    /**
+     * Store an image for Ingredient
+     * @param StoreImage $request
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function storeImage(StoreImage $request, $id)
     {
         $inserted = true;
@@ -147,6 +152,11 @@ class IngredientController extends Controller
 
     }
 
+    /**
+     * Show the picture with specified id
+     * @param $id
+     * @return array
+     */
     public function showPicture($id)
     {
         $response=["images"=>"This ingredients has no images"];
@@ -162,7 +172,7 @@ class IngredientController extends Controller
 
 
     /**
-     * Display the specified resource.
+     * Display the specified ingredient resource.
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -179,7 +189,7 @@ class IngredientController extends Controller
 
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified ingredient resource in storage.
      *
      * @param  \App\Http\Requests\Ingredient\StoreValidation $request
      * @param  int $id

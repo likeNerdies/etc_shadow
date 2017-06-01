@@ -20,7 +20,7 @@ use File;
 class ProductController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Returns admin product view with products and brands
      *
      * @return \Illuminate\Http\Response
      */
@@ -32,7 +32,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Returns the main product view .app/products  with products paginate 15 , also the categories and brands.
      *
      * @return \Illuminate\Http\Response
      */
@@ -45,7 +45,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Show the specified product for main index .app/products
      *
      * @return \Illuminate\Http\Response
      */
@@ -68,8 +68,8 @@ class ProductController extends Controller
      */
 
     /**
-     * Store a newly created resource in storage.
-     *
+     * Store a newly created product resource in storage.
+     * Return json with the product,ingredients,categories,brand images of the prodcut
      * @param  App\Http\Requests\Product\UploadProduct $request
      * @return \Illuminate\Http\Response
      */
@@ -110,7 +110,9 @@ class ProductController extends Controller
 
     /**
      * Store a newly image resource in storage.
-     *
+     * Primero se empieza borrando todas las imagenes.
+     * Siempre se guardara 3 imagenes. Si el usuario solo envia 1, las otras dos imagenes se
+     * rellenaran con una foto por defecto.
      * @param  Request $request
      * @return \Illuminate\Http\Response
      */
@@ -127,6 +129,7 @@ class ProductController extends Controller
             DB::beginTransaction();
             if ($request->hasFile('image')) {//si existen fotos
                 $product = App\Product::findOrFail($id);
+                //deleting all images
                 if (count($product->images) > 0) {
                     // $product->images()->detach(); detach is for belongstoMany
                     // $product->images()->dissociate();
@@ -239,7 +242,8 @@ class ProductController extends Controller
     }
 
     /**
-     * @param $id
+     * Returns the specified image
+     * @param $id id of image
      * @return mixed
      */
     public function showPicture($id)
@@ -252,7 +256,8 @@ class ProductController extends Controller
     }
 
     /**
-     * @param $id
+     * Returns the number of image of the specified product
+     * @param $id id of product
      * @return mixed
      */
     public function showPictureNumber($id, $number)
@@ -266,7 +271,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Returns a json with al info about the specified product
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -287,7 +292,7 @@ class ProductController extends Controller
 
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified product resource in storage.
      *
      * @param App\Http\Requests\Product\UploadProduct $request
      * @param  int $id
@@ -348,8 +353,8 @@ class ProductController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
+     * Remove the specified product resource from storage.
+     * Also delete's the images of product
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
@@ -386,7 +391,11 @@ class ProductController extends Controller
         return response()->json($retorn);
     }
 
-
+    /**
+     * Búsqueda dinámica. Recibe parametros especificos y monta una query dinámica de la bd con esos parametros.
+     * @param Request $request
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
     public function dynamicQuery(Request $request)
     {
 

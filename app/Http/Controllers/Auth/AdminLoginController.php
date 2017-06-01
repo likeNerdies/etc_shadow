@@ -8,6 +8,11 @@ use App\Http\Controllers\Controller;
 use Auth;
 use Lang;
 
+/**
+ * Class AdminLoginController
+ * This Class controls the Admin Login
+ * @package App\Http\Controllers\Auth
+ */
 class AdminLoginController extends Controller
 {
     public function __construct()
