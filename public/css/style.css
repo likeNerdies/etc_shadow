@@ -1,10 +1,14 @@
 /* GLOBAL */
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif');
+@import url('https://fonts.googleapis.com/css?family=Martel+Sans:300,400');
 html, body{
     min-height: 100% !important;
 }
 body {
-  overflow: hidden;
-  overflow-y: scroll;
+    font-size:16px !important;
+    overflow: hidden;
+    overflow-y: scroll;
+    font-family: 'Martel Sans', sans-serif;
 }
 
 h2 {
@@ -115,7 +119,7 @@ h2 {
 
 .background-image {
   background-image: url("/img/welcome/etc_shadow4.jpg");
-  height: 700px; /* Canviar per algo responsive, tota la pantalla */
+  height: 100vh; /* Canviar per algo responsive, tota la pantalla */
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -505,6 +509,37 @@ i.toggle{
     line-height: 2;
 }
 
+
+/*subscribe section*/
+.radius-0{
+    -webkit-border-radius:0px;
+    -moz-border-radius:0px;
+    border-radius:0px;
+}
+
+span.lock{
+    position: relative;
+}
+
+span.lock::after{
+    content: '\f023';
+    position: absolute;
+    left: 29rem;
+    top:-2rem;
+    font-family: FontAwesome;
+
+}
+
+.payment-cards{
+    position: relative;
+}
+
+.payment-cards::after{
+    content:'|';
+    position: absolute;
+    color: lightgrey;
+    right:0;
+}
 
 /*#hide-show{
     display: none;

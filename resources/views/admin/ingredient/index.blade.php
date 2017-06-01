@@ -59,7 +59,7 @@
                         @if($ingredient->image==null)
                             <td id="ingredient-img"></td>
                         @else
-                            <td id="ingredient-img"><img  class="img-thumbnail"  width='48.2' height='48.2' src="/admin/ingredients/{{ $ingredient->id }}/image"></td>
+                            <td id="ingredient-img"><img id="myImg_{{$ingredient->id}}" class="img-thumbnail modal-toggle"  width='48.2' height='48.2' src="/admin/ingredients/{{ $ingredient->id }}/image"></td>
                         @endif
 
                         <td class="media-767-delete">{{$ingredient->created_at}}</td>
@@ -76,6 +76,21 @@
 </div>
 
     {{$ingredients->links()}}
+
+
+
+
+    <!-- Modal Image -->
+    <div id="myModalImage" class="modalimage">
+
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content img-fluid" id="img01">
+
+    </div>
+    <!-- /Modal Image -->
 
     <!-- Modal (Pop up when detail button clicked) -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">
