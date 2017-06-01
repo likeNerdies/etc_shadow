@@ -1,11 +1,13 @@
 /* GLOBAL */
 @import url('https://fonts.googleapis.com/css?family=Bree+Serif');
 @import url('https://fonts.googleapis.com/css?family=Martel+Sans:300,400');
+html{
+    font-size:1rem;
+}
 html, body{
     min-height: 100% !important;
 }
 body {
-    font-size:16px !important;
     overflow: hidden;
     overflow-y: scroll;
     font-family: 'Martel Sans', sans-serif;
@@ -264,6 +266,10 @@ h2 {
     width: 31%;
 }
 
+.w-45{
+    width: 45%;
+}
+
 .w-70 {
     width: 70%;
 }
@@ -497,18 +503,54 @@ i.toggle{
     border-radius:0px;
 }
 
-span.lock{
+input.form-control{
+    padding:0.7rem 0.85rem;
+}
+
+span.lock,span.lock-mini{
     position: relative;
 }
 
-span.lock::after{
+span.caret-down {
+    position: relative;
+}
+
+input[name="bank-account"]{
+    background-image: url("https://d2c87l0yth4zbw.global.ssl.fastly.net/i/forms/safe-input.gif");
+    background-position: 97% 16px;
+    background-repeat: no-repeat;
+}
+
+input[name="sec-code"]{
+    background-image: url("https://d2c87l0yth4zbw.global.ssl.fastly.net/i/forms/safe-input.gif");
+    background-position: 95% 16px;
+    background-repeat: no-repeat;
+}
+
+input[name="month"],input[name="year"]{
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAAIVBMVEX////5+fnY2Ni/v7+4uLirq6usrKzMzMyysrLl5eXs7OztShxkAAAANUlEQVQImWNgwApYGCE0IwcDJyuYzcjGxcDABGIzsjGBBJhYgMqYIMrYmZnZYVqZmbEbCQIAF8IAZrxsdoEAAAAASUVORK5CYII=");
+    background-position: 95% 16px;
+    background-repeat: no-repeat;
+}
+/*span.lock::after, span.lock-mini::after{
     content: '\f023';
     position: absolute;
-    left: 29rem;
-    top:-2rem;
+    left: 464px;
+    top:-32px;
     font-family: FontAwesome;
-
 }
+
+span.lock-mini::after{
+    left:198.4px;
+}
+
+span.caret-down::after{
+    content: '\f107';
+    position: absolute;
+    left: 198.4px;
+    top:-32px;
+    font-family: FontAwesome;
+}*/
 
 .payment-cards{
     position: relative;
@@ -521,6 +563,14 @@ span.lock::after{
     right:0;
 }
 
+.btn-mb-subscribe{
+    border-radius: 50px;
+    background: mediumspringgreen;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+
+}
 /*#hide-show{
     display: none;
 }*/
