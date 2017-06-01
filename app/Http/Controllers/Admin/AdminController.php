@@ -11,15 +11,27 @@ use Auth;
 use App;
 use Hash;
 
+/**
+ * Class AdminController
+ * This Class controls de Admin Model
+ * @package App\Http\Controllers\Admin
+ */
 class AdminController extends Controller
 {
+    /**
+     * Needs to be authed as admin to make changes with this controller
+     * AdminController constructor.
+     */
     public function __construct()
     {
         $this->middleware('auth:admin');
     }
 
     /**
-     * Display a listing of the resource.
+     * Returns some data to admin dashboard.
+     * Data's: Total users, total box to send , total profit of the next motnh,products about to expire,
+     * las user registered
+     * Display the index page admin/dashboard.
      *
      * @return \Illuminate\Http\Response
      */
@@ -77,11 +89,19 @@ class AdminController extends Controller
         return view('admin.index', compact(['totalUsers', 'boxToSend', 'profit', 'productOBED', 'lastFiveUsers']));
     }
 
+    /**
+     * Display the view of admin configuration
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function configuration()
     {
         return view('admin.configuration.index');
     }
 
+    /**
+     * Display the view of admin/user passing all admin to the view
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function adminUsers()
     {
         $admins = App\Admin::all();
@@ -89,7 +109,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Update information of admin user
+     * Update information of own admin user
      * @param Request $request
      */
     public function update(StoreValidation $request)
@@ -113,7 +133,8 @@ class AdminController extends Controller
 
     }
 
-    /**Update information of admin user
+    /**
+     * Update information of other admin users
      * @param AdminUpdateValidation $request
      * @param $id
      * @return mixed
@@ -135,7 +156,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified admin resource.
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -147,7 +168,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Delete the specified admin resource.
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -160,6 +181,7 @@ class AdminController extends Controller
     }
 
     /**
+     * Store a new admin in the database
      * @param StoreValidation $request
      * @return mixed
      */

@@ -4,6 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Plan for plans table
+ * @package App
+ */
 class Plan extends Model
 {
     /**

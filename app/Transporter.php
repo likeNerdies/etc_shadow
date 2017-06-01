@@ -4,6 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Transporter for transporters table
+ * @package App
+ */
 class Transporter extends Model
 {
     protected $fillable=[

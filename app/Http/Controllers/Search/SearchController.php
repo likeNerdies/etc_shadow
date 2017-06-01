@@ -15,10 +15,17 @@ use Response;
 use App;
 use DB;
 use Storage;
+
+/**
+ * Class SearchController
+ * Searchable Class
+ * @package App\Http\Controllers\Search
+ */
 class SearchController extends Controller
 {
     /**
-     * busqueda ajax para client
+     * busqueda ajax para Users.
+     * Devuelve usuarios con id o name que coicida con los parametros
      * @param Request $request
      */
     public function client(Request $request, User $user)
@@ -39,7 +46,8 @@ class SearchController extends Controller
         return $retorn;
     }
     /**
-     * busqueda ajax para admin
+     * busqueda ajax para admin.
+     * Devuelve admins con id o name que coicida con los parametros
      * @param Request $request
      */
     public function admin(Request $request, Admin $allergy)
@@ -54,7 +62,8 @@ class SearchController extends Controller
         return $retorn;
     }
     /**
-     * busqueda ajax para allergy
+     * busqueda ajax para allergies.
+     * Devuelve allergies con id o name que coicida con los parametros
      * @param Request $request
      */
     public function allergy(Request $request, Allergy $allergy)
@@ -69,7 +78,8 @@ class SearchController extends Controller
         return $retorn;
     }
     /**
-     * busqueda ajax para plan
+     * busqueda ajax para plans.
+     * Devuelve plans con id o name que coicida con los parametros
      * @param Request $request
      */
     public function plan(Request $request, Plan $plan)
@@ -84,7 +94,8 @@ class SearchController extends Controller
         return $retorn;
     }
     /**
-     * busqueda ajax para category
+     * busqueda ajax para categories.
+     * Devuelve categorias con id o name que coicida con los parametros
      * @param Request $request
      */
     public function category(Request $request, Category $category)
@@ -100,7 +111,8 @@ class SearchController extends Controller
     }
 
     /**
-     * busqueda ajax para brand
+     * busqueda ajax para brands.
+     * Devuelve marcas con id o name que coicida con los parametros
      * @param Request $request
      */
     public function brand(Request $request, Brand $brand)
@@ -117,7 +129,9 @@ class SearchController extends Controller
 
 
     /**
-     * busqueda ajax para ingredient
+     * busqueda ajax para ingredient.
+     * Devuelve ingredients con id o name que coicida con los parametros.
+     * a la vez las alergies que tiene ese ingrediente
      * @param Request $request
      */
     public function ingredient(Request $request, Ingredient $ingredient)
@@ -142,7 +156,8 @@ class SearchController extends Controller
     }
 
     /**
-     * busqueda ajax para product
+     * busqueda ajax para product.
+     * Devuelve informacion product con id o name que coicida con los parametros
      * @param Request $request
      */
     public function product(Request $request, Product $product)
@@ -173,7 +188,7 @@ class SearchController extends Controller
     }
 
     /**
-     * busqueda  para allergy Select
+     * busqueda  para la libreria select2. Se devuelve un json con un formato especifico
      * @param Request $request
      */
     public function allergySelect(Request $request, Allergy $allergy)
@@ -188,7 +203,7 @@ class SearchController extends Controller
     }
 
     /**
-     * busqueda  para ingredient Select
+     * busqueda  para la libreria select2. Se devuelve un json con un formato especifico
      * @param Request $request
      */
     public function categorySelect(Request $request, Category $category)
@@ -203,7 +218,7 @@ class SearchController extends Controller
     }
 
     /**
-     * busqueda  para ingredient Select
+     * busqueda  para la libreria select2. Se devuelve un json con un formato especifico
      * @param Request $request
      */
     public function IngredientSelect(Request $request, Ingredient $ingredient)
@@ -218,7 +233,7 @@ class SearchController extends Controller
     }
 
     /**
-     * busqueda  para brand Select
+     * busqueda  para la libreria select2. Se devuelve un json con un formato especifico
      * @param Request $request
      */
     public function brandSelect(Request $request, Brand $brand)
@@ -233,6 +248,7 @@ class SearchController extends Controller
     }
 
     /**
+     * Query que devuelve los usuarios suscritos del año actual group by month
      * @return \Illuminate\Http\JsonResponse
      */
     public function getCurrentYearMonthlySubs(){
@@ -244,6 +260,11 @@ class SearchController extends Controller
         //--end getting current month subscribers
 
     }
+
+    /**
+     * Query que devuelve los plans con el total de usuarios suscritos en cada uno
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function getTotalPlanUser(){
 
            $monthlySubscribers=[];

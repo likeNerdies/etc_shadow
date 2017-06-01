@@ -6,21 +6,26 @@ use App\Http\Requests\Transporter\StoreValidation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+/**
+ * Class TransporterController
+ * This Class controls the Transporter model
+ * @package App\Http\Controllers\Transporter
+ */
 class TransporterController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Returns the admin transporter view with pagintacion of 15 transporter object
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $transporters = App\Transporter::paginate(9);
+        $transporters = App\Transporter::paginate(15);
         return view('admin.transporter.index', compact('transporters'));
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created transporter resource in storage.
      *
      * @param  \App\Http\Requests\Transporter\StoreValidation  $request
      * @return \Illuminate\Http\Response
@@ -33,7 +38,7 @@ class TransporterController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified transporter resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -46,7 +51,7 @@ class TransporterController extends Controller
 
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified transporter resource in storage.
      *
      * @param  \App\Http\Requests\Transporter\StoreValidation  $request
      * @param  int  $id
@@ -64,7 +69,7 @@ class TransporterController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified transporter resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

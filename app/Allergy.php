@@ -4,6 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Allergy for allergies table
+ * @package App
+ */
 class Allergy extends Model
 {
     protected $fillable=[

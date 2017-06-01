@@ -4,6 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Delivery for deliveries table
+ * @package App
+ */
 class Delivery extends Model
 {
     /**

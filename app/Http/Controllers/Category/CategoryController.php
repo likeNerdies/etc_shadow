@@ -7,16 +7,21 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App;
 
+/**
+ * Class CategoryController
+ * This Class controlls the Category model
+ * @package App\Http\Controllers\Category
+ */
 class CategoryController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Returns the admin categoreis view with pagination of 15
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $categories = App\Category::paginate(9);
+        $categories = App\Category::paginate(15);
         return view('admin.category.index', compact('categories'));
     }
 
@@ -34,7 +39,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified category resource.
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -47,7 +52,7 @@ class CategoryController extends Controller
 
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource category in storage.
      *
      * @param  App\Http\Requests\Category\StoreValidation $request
      * @param  int $id

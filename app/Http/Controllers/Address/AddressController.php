@@ -6,15 +6,25 @@ use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Address\AddressFormValidation;
+
+/**
+ * Class AddressController
+ * This class control Address model
+ * @package App\Http\Controllers\Address
+ */
 class AddressController extends Controller
 {
+    /**
+     * Needs to be authed to make change with the controller
+     * AddressController constructor.
+     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
     /**
-     * Display a listing of the resource.
+     * Display the index page of address in user/panel
      *
      * @return \Illuminate\Http\Response
      */
@@ -25,6 +35,7 @@ class AddressController extends Controller
 
 
     /**
+     * Method for store an Address in database. The request is validated by AddressFormValidation Class.
      * @param AddressFormValidation $request
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -44,6 +55,7 @@ class AddressController extends Controller
     }
 
     /**
+     * Method for update an Address in database. The request is validated by AddressFormValidation Class.
      * @param AddressFormValidation $request
      * @return \Illuminate\Http\RedirectResponse
      */

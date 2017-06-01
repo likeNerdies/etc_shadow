@@ -4,6 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Address for addresses table
+ * @package App
+ */
 class Address extends Model
 {
     protected $fillable = [

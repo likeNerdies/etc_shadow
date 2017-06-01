@@ -6,22 +6,27 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Plan\PlanValidation;
 
+/**
+ * Class PlanController
+ * This class controll Plan model
+ * @package App\Http\Controllers\Plan
+ */
 class PlanController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Returns the admin plan view with paginate 15
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $plans=App\Plan::paginate(9);//pasamos todoos ls planes a la vista de admin
+        $plans=App\Plan::paginate(15);//pasamos todoos ls planes a la vista de admin
         return view ('admin.plan.index', compact('plans'));
     }
 
 
     /**
-     * Display a listing of the resource.
+     * Returns the main plan view /plans with plans
      *
      * @return \Illuminate\Http\Response
      */
@@ -31,13 +36,17 @@ class PlanController extends Controller
         return view ('plan.index', compact('plans'));
     }
 
+    /**
+     * Show's the specified plan and returns to the show view.
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showPlan($id){
         $plan = App\Plan::findOrFail($id);
         return view('plan.show',compact('plan'));
     }
     /**
      * Show the form for creating a new resource.
-     *
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -46,7 +55,7 @@ class PlanController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created  plan resource in storage.
      *
      * @param  \App\Http\Requests\Plan\PlanValidation  $request
      * @return \Illuminate\Http\Response
@@ -58,7 +67,7 @@ class PlanController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified plan resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -85,7 +94,7 @@ class PlanController extends Controller
     }*/
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource plan in storage.
      *
      * @param  \App\Http\Requests\Plan\PlanValidation  $request
      * @param  int  $id
@@ -103,7 +112,7 @@ class PlanController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified plan resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
