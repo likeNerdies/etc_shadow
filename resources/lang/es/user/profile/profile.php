@@ -8,6 +8,7 @@ return [
   "ingredients" => "Ingredientes",
   "allergies" => "Alergias",
   "help" => "Ayuda",
+  "logout" => "Cerrar sesión",
 ];
 
  ?>

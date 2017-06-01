@@ -5,11 +5,11 @@
 @include('layouts.navbar')
 
     <div id="main-wrapper-in">
-        <div id="sidebar-wrapper-in">
+        <div id="sidebar-wrapper-in" class="mt-15vh">
             @include('user.layouts.sidebar')
         </div>
 
-        <div id="content-wrapper-in">
+        <div id="content-wrapper-in" class="mt-15vh">
             @yield('right-panel')
         </div>
     </div>
@@ -21,6 +21,7 @@
 @endsection
 
 @section('scriptsPersonalizados')
-    <script src="/js/welcome/welcome_script.js"></script><!-- Includes navbar animations -->
+    <script src="{{asset('/js/welcome/welcome_script.js')}}"></script><!-- Includes navbar animations -->
+    <script src="{{asset('/js/user/dashboard/user_dashboard.js')}}"></script><!-- Includes time remaining to next box -->
     @yield('more-scripts-for-user-panel')
 @endsection

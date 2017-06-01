@@ -21,6 +21,14 @@ h2 {
   cursor: pointer;
 }
 
+.vertical-middle {
+  padding: 25px 0;
+}
+
+.fa-20 {
+  font-size: 20px!important;
+}
+
 .ml-15 {
   margin-left: 15%!important;
 }
@@ -37,12 +45,24 @@ h2 {
     margin-right: 10%;
 }
 
+.mt-10 {
+  margin-top: 10%;
+}
+
 .mt-15 {
   padding-top: 15%;
 }
 
 .mt-80p {
   margin-top: 80px;
+}
+
+.mb-100p {
+  margin-bottom: 100px;
+}
+
+.bp-10 {
+  padding-bottom: 10%;
 }
 
 .w-60 {
@@ -905,13 +925,13 @@ span.caret-down::after{
     #sidebar-wrapper-in{
         width:20%;
         height: 90%;
-        margin-top: 10%;
+        //margin-top: 10%;
     }
 
     #content-wrapper-in{
         width: 80%;
         height: 90%;
-        margin-top: 10%;
+        //margin-top: 10%;
     }
 
 
