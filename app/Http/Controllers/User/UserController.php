@@ -292,8 +292,16 @@ class UserController extends Controller
      * Returns the user plan subscribe view
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function subscribeForm(){
-        return view('user.panel.plan.subscribe');
+    public function subscribeForm($id){
+        $plan = null;
+
+        if($id >=1 && $id <=3){
+            $plan = App\Plan::find($id);
+            return view('user.panel.plan.subscribe',compact('plan'));
+        }else{
+            //TODO
+        }
+
     }
 
 

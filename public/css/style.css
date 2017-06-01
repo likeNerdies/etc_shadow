@@ -5,6 +5,7 @@ html, body{
     min-height: 100% !important;
 }
 body {
+    font-size:16px !important;
     overflow: hidden;
     overflow-y: scroll;
     font-family: 'Martel Sans', sans-serif;
@@ -488,6 +489,37 @@ i.toggle{
     line-height: 2;
 }
 
+
+/*subscribe section*/
+.radius-0{
+    -webkit-border-radius:0px;
+    -moz-border-radius:0px;
+    border-radius:0px;
+}
+
+span.lock{
+    position: relative;
+}
+
+span.lock::after{
+    content: '\f023';
+    position: absolute;
+    left: 29rem;
+    top:-2rem;
+    font-family: FontAwesome;
+
+}
+
+.payment-cards{
+    position: relative;
+}
+
+.payment-cards::after{
+    content:'|';
+    position: absolute;
+    color: lightgrey;
+    right:0;
+}
 
 /*#hide-show{
     display: none;
