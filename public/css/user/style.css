@@ -67,35 +67,6 @@ CSS file for logged in users
   color: white;
 }
 
-@media (max-width: 768px) {
-  body {
-    margin: 0;
-    padding: 0;
-  }
-  .card-columns {
-      padding-top: 15%;
-      overflow-x: hidden;
-      overflow-y: hidden;
-  }
-
-  .card-wrapper {
-    width: 80%!important;
-    margin: auto!important;
-  }
-
-  .card  {
-    margin-bottom: 5%;
-  }
-
-  .mt-sm-500 {
-    margin-top: 5%;
-  }
-
-  .w-sm-100 {
-    width: 100%!important;
-  }
-}
-
 /* ALLERGIES MENU */
 .allergy-ingredient-warning {
   font-weight: 200;
@@ -135,16 +106,6 @@ CSS file for logged in users
   font-weight: lighter;
 }
 
-@media (max-width: 480px){
-  .subtitle {
-    margin-top: 5%;
-    font-size: 22px;
-  }
-  .ml-sm-5 {
-    margin-left: 0;
-  }
-}
-
 /* INGREDIENTS MENU */
 .ingredient-img {
   width: 30%;
@@ -157,4 +118,71 @@ CSS file for logged in users
 
 .unlike {
   border: 1px solid #bf2c1b;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 768px) {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .card-columns {
+      padding-top: 15%;
+      overflow-x: hidden;
+      overflow-y: hidden;
+  }
+
+  .card-wrapper {
+    width: 80%!important;
+    margin: auto!important;
+  }
+
+  .card  {
+    margin-bottom: 5%;
+  }
+
+  .mt-sm-500 {
+    margin-top: 5%;
+  }
+
+  .w-sm-100 {
+    width: 100%!important;
+  }
+}
+
+@media (max-width: 480px){
+  .subtitle {
+    margin-top: 5%;
+    font-size: 22px;
+  }
+  .ml-sm-5 {
+    margin-left: 0;
+  }
+
+  /* For user dashboard */
+  #user-box-img > div {
+    float: none!important;
+    margin-right: 0!important;
+  }
+
+  #user-box-img {
+    margin-bottom: 20px;
+  }
+
+  #date_products_box {
+    text-align: center!important;
+    margin-right: 0!important;
+    padding: 0!important;
+  }
+
+  #date_products_box > h6 {
+    margin-left: 0!important;
+  }
+
+  #products {
+    margin-left: auto;
+    padding-left: 28%;
+  }
 }
