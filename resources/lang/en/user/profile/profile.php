@@ -8,6 +8,7 @@ return [
   "ingredients" => "Ingredients",
   "allergies" => "Allergies",
   "help" => "Help",
+  "logout" => "Logout",
 ];
 
  ?>

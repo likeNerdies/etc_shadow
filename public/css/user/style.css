@@ -9,6 +9,10 @@ CSS file for logged in users
   padding-right: 0;
 }
 
+.bg-f7 {
+  background-color: #F7F7F7!important;
+}
+
 /* NAVBAR */
 .nav_in {
   margin-bottom: 0;
@@ -25,6 +29,18 @@ CSS file for logged in users
   padding-bottom: 5%;
   padding-right: 10%;
 }
+
+/* USER DASHBOARD */
+.mt-15vh {
+  margin-top: 15vh;
+}
+
+#timeRemaining { /* To next box */
+  color: #50c878;
+  font-size: 15px;
+}
+
+
 
 /* MY-DATA MENU */
 .profile-accordion {

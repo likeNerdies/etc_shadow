@@ -25,10 +25,12 @@
         <div class="block-user-profile mb-3">
             <a href="/user/panel/help" class="">@lang("user/profile/profile.help")</a>
         </div>
-
-
-    <!--<a href="{{route('user-delete')}}" class="list-group-item">Delete account</a>-->
-
+        <div class="block-user-profile mb-3">
+          <form class="floating-form" action="/logout" method="post">
+            {{ csrf_field() }}
+            <button type="submit" class="cursor-pointer" value="logout"><a href="">@lang("user/profile/profile.logout")</a></button>
+          </form>
+        </div>
     </div>
 
 </div>
