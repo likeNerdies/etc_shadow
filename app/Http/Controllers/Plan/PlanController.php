@@ -62,8 +62,12 @@ class PlanController extends Controller
      */
     public function store(PlanValidation $request)
     {
-        $plan=App\Plan::create($request->all());
-        return $plan;
+        $retorn=["can_create"=>false];
+        if(Auth::user()->can_create){
+            $plan=App\Plan::create($request->all());
+            $retorn=["can_create"=>true,"plan"=>$plan];
+        }
+        return response()->json($retorn);
     }
 
     /**
@@ -102,13 +106,16 @@ class PlanController extends Controller
      */
     public function update(PlanValidation $request, $id)
     {
-        $plan=App\Plan::findOrFail($id);
-        $plan->name=$request->name;
-        $plan->price=$request->price;
-        $plan->info=$request->info;
-        $plan->save();
-        //return redirect('plan.index');
-        return $plan;
+        $retorn=["can_create"=>false];
+        if(Auth::user()->can_create) {
+            $plan = App\Plan::findOrFail($id);
+            $plan->name = $request->name;
+            $plan->price = $request->price;
+            $plan->info = $request->info;
+            $plan->save();
+            $retorn=["can_create"=>true,"plan"=>$plan];
+        }
+        return response()->json($retorn);
     }
 
     /**
@@ -119,9 +126,12 @@ class PlanController extends Controller
      */
     public function destroy($id)
     {
-        $plan = App\Plan::findOrFail($id);
-        $plan->delete();
-        //return redirect('/');
-        return $plan;
+        $retorn=["can_create"=>false];
+        if(Auth::user()->can_create) {
+            $plan = App\Plan::findOrFail($id);
+            $plan->delete();
+            $retorn=["can_create"=>true];
+        }
+        return response()->json($retorn);
     }
 }

@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->decimal('price',5,2);
             $table->text('description');
             $table->date('expiration_date');
-            $table->string('dimension')->nullable();
+            $table->integer('dimension')->nullable();
             $table->unsignedInteger('weight')->comment('gramos/litros');
             $table->unsignedInteger('real_weight')->comment('gramos/litros')->nullable();
             $table->unsignedInteger('stock')->default(0);

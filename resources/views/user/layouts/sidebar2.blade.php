@@ -3,13 +3,13 @@
         <div class="block-user-profile mb-2">
             <a href="{{route('profile')}}" class="">@lang("user/profile/profile.myProfile")</a>
         </div>
-        <div class="block-user-profile mb-2">
+        <div class="block-user-profile mb-2 hidden-sm-up">
             <a href="{{route('my-data')}}" class="">@lang("user/profile/profile.myData")</a>
         </div>
-        <div class="block-user-profile mb-2">
+        <div class="block-user-profile mb-2 hidden-sm-up">
             <a href="/user/panel/plan" class="">@lang("user/profile/profile.plan")</a>
         </div>
-        <div class="block-user-profile mb-2 hide-show-toggler">
+        <div class="block-user-profile mb-2 hide-show-toggler hidden-sm-up">
             <a href="" data-toggle="collapse" data-target="#hide-show2"  class="">@lang("user/profile/profile.ingredientsAllergies")
                 <i class="fa fa-caret-down pl-2" aria-hidden="true"></i>
             </a>
@@ -22,13 +22,13 @@
                 <a href="/user/panel/allergies" class="">@lang("user/profile/profile.allergies")</a>
             </div>
         </div>
-        <div class="block-user-profile mb-3">
+        <div class="block-user-profile mb-3 hidden-sm-up">
             <a href="/user/panel/help" class="">@lang("user/profile/profile.help")</a>
         </div>
         <div class="block-user-profile mb-3">
           <form class="floating-form" action="/logout" method="post">
             {{ csrf_field() }}
-            <button type="submit" class="cursor-pointer" value="logout"><a href="">@lang("user/profile/profile.logout")</a></button>
+            <button type="submit" class="btn btn-link" value="logout"><a href="">@lang("user/profile/profile.logout")</a></button>
           </form>
         </div>
     </div>

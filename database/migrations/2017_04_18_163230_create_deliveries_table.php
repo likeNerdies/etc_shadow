@@ -15,9 +15,9 @@ class CreateDeliveriesTable extends Migration
     {
         Schema::create('deliveries', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->integer('box_id')->unsigned();
-            $table->integer('transporter_id')->unsigned();
+            $table->integer('user_id')->nullable()->unsigned();
+            $table->integer('box_id')->nullable()->unsigned();
+            $table->integer('transporter_id')->nullable()->unsigned();
             $table->timestamps();
         });
         Schema::table('deliveries', function (Blueprint $table) {

@@ -67,10 +67,9 @@ $(document).ready(function () {
     var img = $('img[id^=myImg_],img[id^=myImgPr_]');
 
     var modalImg = $('[id^=img]');
-
+    console.log( img.parent());
     img.click(function () {
        modal.css('display','block');
-       console.log($(this).attr('src').substring(16,17));
        modalImg.attr('src',$(this).attr('src'));
     });
 
