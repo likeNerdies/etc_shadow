@@ -1,7 +1,7 @@
 @extends('user.layouts.panel')
 @section('title','My data')
 @section('right-panel')
-<div style="height: auto;" class="container justify-content-center">
+<div style="height: auto; margin-left: 3rem;" class="container justify-content-center">
   <div class="row">
     <div style="height: 500px;" class="col-md-6">
       <div style="width: 85%;height: 100%;background: white;border-top:10px solid mediumspringgreen;box-shadow: 0px 3.5px 10.5px rgba(0, 0, 0, 0.32);" class="mx-auto">
@@ -76,7 +76,7 @@
               </div>
 
               <div style="margin-top: 1.7rem">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ex harum incidunt iure quisquam quos rerum totam velit voluptas. Debitis, est magnam modi odio praesentium repellendus. Accusantium aliquid laudantium nobis.
+                <p style="text-align: justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ex harum incidunt iure quisquam quos rerum totam velit voluptas. Debitis, est magnam modi odio praesentium repellendus. Accusantium aliquid laudantium nobis.
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad culpa cumque, eaque pariatur similique tenetur? Alias aspernatur consequuntur debitis explicabo molestiae mollitia officia optio rem similique temporibus? Eos, modi, nam.
                 </p>
               </div>
