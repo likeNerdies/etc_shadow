@@ -66,10 +66,11 @@ $(document).ready(function () {
     // Get the image and insert it inside the modal - use its "alt" text as a caption
     var img = $('img[id^=myImg_],img[id^=myImgPr_]');
 
-    var modalImg = $('#img02');
+    var modalImg = $('[id^=img]');
 
     img.click(function () {
        modal.css('display','block');
+       console.log($(this).attr('src').substring(16,17));
        modalImg.attr('src',$(this).attr('src'));
     });
 

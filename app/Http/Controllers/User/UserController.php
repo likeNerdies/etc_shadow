@@ -245,7 +245,7 @@ class UserController extends Controller
     }
 
     public function subscribeForm(){
-        return view('user.plan.subscribe');
+        return view('user.panel.plan.subscribe');
     }
 
 

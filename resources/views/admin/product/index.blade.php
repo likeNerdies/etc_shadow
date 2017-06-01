@@ -35,9 +35,9 @@
                             <th>Name</th>
                             <th>Price</th>
                             <th>Expiration Date</th>
-                            <th>Weight</th>
-                            <th>Stock</th>
-                            <th>Category</th>
+                            <th class="media-767-delete">Weight</th>
+                            <th class="media-767-delete">Stock</th>
+                            <th class="media-767-delete">Category</th>
                             <th>Images</th>
                             <th>Actions</th>
                         </tr>
@@ -59,9 +59,9 @@
                                 ----}}
                                 {{------------------------}}
                                 @if($product->weight==null)
-                                    <td id="$product-img"></td>
+                                    <td class="media-767-delete" id="$product-img"></td>
                                 @else
-                                    <td>{{$product->weight}}</td>
+                                    <td class="media-767-delete">{{$product->weight}}</td>
                                 @endif
 
                                 {{-------------
@@ -75,11 +75,11 @@
                                 @if($product->stock==null)
                                 <td id="$product-img"></td>
                                 @else----------default 0 stock--}}
-                                <td>{{$product->stock}}</td>
+                                <td class="media-767-delete">{{$product->stock}}</td>
                                 {{--  @endif --}}
                                 {{-----------------------------}}
 
-                                <td>
+                                <td class="media-767-delete">
                                 @if(count($product->categories)>0)
                                   @foreach($product->categories as $category)
                                     <p>{{$category->name}}</p>
@@ -103,7 +103,11 @@
             </div>
         </div>
     </div>
-    {{$products->links()}}
+
+    <nav class="mt-5">
+        {{$products->links()}}
+    </nav>
+
 
 
     <!-- Modal Image -->
@@ -112,10 +116,33 @@
         <!-- The Close Button -->
         <span class="close">&times;</span>
 
-        <!-- Modal Content (The Image) -->
-        <img class="modal-content img-fluid" id="img02">
-        <img class="modal-content img-fluid" id="img03">
-        <img class="modal-content img-fluid" id="img04">
+
+        <div id="carouselExampleIndicators" class="carousel slide w-75 mx-auto" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item justify-content-center active">
+                    <img class="d-block img-fluid" id="img02" alt="First slide">
+                </div>
+                <div class="carousel-item justify-content-center">
+                    <img class="d-block img-fluid" id="img03" alt="Second slide">
+                </div>
+                <div class="carousel-item justify-content-center">
+                    <img class="d-block img-fluid" id="img04" alt="Third slide">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
 
     </div>
     <!-- /Modal Image -->
