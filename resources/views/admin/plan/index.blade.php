@@ -40,7 +40,9 @@
                 <td class="media-767-delete">{{$plan->info}}</td>
                 <td>
                   <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$plan->id}}"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up"></i></button>
+                  @if(Auth::user()->can_create==1)
                   <button class="btn btn-danger btn-xs btn-delete delete-plan" value="{{$plan->id}}"><span class="hidden-sm-down">Delete</span> <i class="fa fa-trash hidden-md-up"></i></button>
+                  @endif
                 </td>
               </tr>
             @endforeach

@@ -62,7 +62,12 @@ class PlanController extends Controller
      */
     public function store(PlanValidation $request)
     {
-        $plan=App\Plan::create($request->all());
+        $retorn=["can_create"=>false];
+        if(Auth::user()->can_create){
+            $plan=App\Plan::create($request->all());
+        }
+
+        $can_create=Auth::user()->can_create;
         return $plan;
     }
 
@@ -107,6 +112,7 @@ class PlanController extends Controller
         $plan->price=$request->price;
         $plan->info=$request->info;
         $plan->save();
+        $can_create=Auth::user()->can_create;
         //return redirect('plan.index');
         return $plan;
     }

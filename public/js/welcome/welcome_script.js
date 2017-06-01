@@ -177,7 +177,7 @@ $(document).ready(function (event) {
                         products+="<h2>no result</h2>";
                     }else{
                         for(var i=0;i<data.length;i++){
-                            products+='<div class="card-wrapper-product mx-2 mt-2>';
+                            products+='<div class="card-wrapper-product mx-2 mt-2">';
                             products+=' <a href="/products/'+data[i].id+'">';
                             products+=' <div class="card p-2">';
                             if(data[i].images.length==0 || data[i].images==null){
