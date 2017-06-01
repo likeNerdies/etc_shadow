@@ -125,7 +125,7 @@
     </div>
   </div><!-- / plans -->
 
-  <div id="aboutUs" class="row mt-15"><!-- About us -->
+  <div id="aboutUs" class="row mt-15 pb-10"><!-- About us -->
     <div id="about" class="col-sm-12 text-center">
       <h2 class="pt-2">@lang("welcome.about")</h2>
       <div class="row">
