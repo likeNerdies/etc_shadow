@@ -23,6 +23,12 @@ class DatabaseSeeder extends Seeder
         'brands',
         'transporters',
         'addresses',
+        'deliveries',
+        'boxes',
+        'products',
+        'allergies'
+        ,'ingredients',
+        'categories'
     );
     public function cleanDatabase()
     {

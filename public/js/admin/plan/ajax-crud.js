@@ -108,18 +108,20 @@ $(document).ready(function() {
                 success: function (data) { // success:
                     console.log(data);
 
-                    var plan = '<tr id="plan' + data.id + '"><td id="id">' + data.id + '</td><td>' + data.name + '</td><td>' + data.price + '</td>';
+                    var plan = '<tr id="plan' + data.plan.id + '"><td id="id">' + data.plan.id + '</td><td>' + data.plan.name + '</td><td>' + data.plan.price + '</td>';
 
-                    if (data.info != null) {
-                        plan += '<td>' + data.info + '</td>';
+                    if (data.plan.info != null) {
+                        plan += '<td>' + data.plan.info + '</td>';
                     } else {
                         plan += '<td></td>';
                     }
 
-                    plan += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
-
-                    plan += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-plan" value="' + data.id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button>';
-
+                    if(data.can_create){
+                    plan += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.plan.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
+                    plan += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-plan" value="' + data.plan.id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button>';
+                    }else{
+                        plan+="<td></td>";
+                    }
                     if (state == "add") { //if user added a new record
                         $('#plan-list').append(plan);
                     } else { //if user updated an existing record
@@ -163,25 +165,26 @@ $(document).ready(function() {
             data:{'plan':$value},
            success:function(data){
                 console.log(data)
-                if(data.length==0){
+                if(data.plan.length==0){
                     $('#plan-list').empty();
                     $('#plan-list').append('<p class="text-center">No results found</p>')
                 }else{
                     $('#plan-list').empty();
-                    for (i=0;i<data.length;i++){
+                    for (i=0;i<data.plan.length;i++){
 
-                        var plan = '<tr id="plan' + data[i].id + '"><td id="id">' + data[i].id + '</td><td>' + data[i].name + '</td><td>' + data[i].price + '</td>';
+                        var plan = '<tr id="plan' + data.plan[i].id + '"><td id="id">' + data.plan[i].id + '</td><td>' + data.plan[i].name + '</td><td>' + data.plan[i].price + '</td>';
 
-                        if(data.info!=null){
-                            plan+='<td>' + data[i].info + '</td>';
+                        if(data.plan[i].info!=null){
+                            plan+='<td>' + data.plan[i].info + '</td>';
                         }else{
                             plan+='<td></td>';
                         }
-
-                        plan += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
-
-                        plan += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-plan" value="' + data[i].id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button></td></tr>';
-
+                        if(data.can_create){
+                        plan += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.plan[i].id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
+                        plan += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-plan" value="' + data.plan[i].id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button></td></tr>';
+                        }else{
+                            plan+="<td></td>";
+                        }
                         $('#plan-list').append(plan);
                     }
 

@@ -22,7 +22,7 @@ h2 {
 }
 
 .vertical-middle {
-  padding: 25px 0;
+  padding: 35px 0!important;
 }
 
 .fa-20 {
@@ -33,12 +33,20 @@ h2 {
   margin-left: 15%!important;
 }
 
+.ml--44 {
+  margin-left: -44%;
+}
+
 .ml-10 {
   margin-left: 10%;
 }
 
 .ml-30 {
   margin-left: 30%;
+}
+
+.ml-24p {
+  margin-left: 24px;
 }
 
 .mr-10 {

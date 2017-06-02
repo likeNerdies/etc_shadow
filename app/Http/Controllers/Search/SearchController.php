@@ -15,6 +15,7 @@ use Response;
 use App;
 use DB;
 use Storage;
+use Auth;
 
 /**
  * Class SearchController
@@ -84,14 +85,14 @@ class SearchController extends Controller
      */
     public function plan(Request $request, Plan $plan)
     {
-        $retorn = "";
+        $retorn = ["can_create"=>Auth::user()->can_create,"plan"=>null];
         if ($request->ajax() && $request->has('plan')) {
-            $retorn = $plan->where('id', '=', $request->plan)
+            $retorn["plan"] = $plan->where('id', '=', $request->plan)
                 ->orWhere('name', 'like', '%' . $request->plan . '%')->get();
         } else {
             //todo
         }
-        return $retorn;
+        return response()->json($retorn);
     }
     /**
      * busqueda ajax para categories.

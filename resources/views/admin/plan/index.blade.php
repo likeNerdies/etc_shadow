@@ -14,7 +14,9 @@
       </div>
 
       <div id="add" class="col-md-6 col-12 mt-4">
+        @if(Auth::user()->can_create==1)
         <button id="btn-add" name="btn-add" class="btn btn-primary btn-xs">Add New Plan</button>
+          @endif
       </div>
     </div>
 
@@ -28,7 +30,9 @@
               <th>Name</th>
               <th>Price</th>
               <th class="media-767-delete">Info</th>
+              @if(Auth::user()->can_create==1)
               <th>Actions</th>
+                @endif
             </tr>
           </thead>
           <tbody id="plan-list" name="plan-list">
@@ -39,8 +43,10 @@
                 <td>{{$plan->price}}</td>
                 <td class="media-767-delete">{{$plan->info}}</td>
                 <td>
+                  @if(Auth::user()->can_create==1)
                   <button class="btn btn-warning btn-xs btn-detail open-modal" value="{{$plan->id}}"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up"></i></button>
                   <button class="btn btn-danger btn-xs btn-delete delete-plan" value="{{$plan->id}}"><span class="hidden-sm-down">Delete</span> <i class="fa fa-trash hidden-md-up"></i></button>
+                  @endif
                 </td>
               </tr>
             @endforeach
