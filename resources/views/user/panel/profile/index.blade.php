@@ -6,7 +6,7 @@
     <!-- Welcome -->
       <div class="row mb-5">
           <div class="col-12">
-              <h1 class="text-center lighter-font">Welcome, {{$user->name}}</h1>
+              <h1 class="text-center lighter-font">@lang('user/profile/profile.welcome'), {{$user->name}}</h1>
           </div>
       </div>
 
@@ -28,9 +28,16 @@
       </div><!-- / row -->
 
       <div class="row mt-10">
-        <h3 class="col-12 text-center mt-10 mb-5">Your box chronology</h3>
+
+
+        <div class="col-8" style="background-color: #0a6aa1"></div>
+
+
+        <div class="col-4">
+          <h3 class="col-12 text-center mt-10 mb-5">@lang('user/profile/profile.last_boxes')</h3>
+       @if(!count($boxes)==0)
         <?php $id = 0 ?>
-        @foreach (Auth::user()->deliveries as $delivery)<!-- Si ya ha recibido anteriormente cajas -->
+        @for ($i=0;$i<5;$i++)<!-- Si ya ha recibido anteriormente cajas -->
 
           <div id="user-box-img" class="col-md-6 col-sm-12 d-inline-block mx-auto">
             <div class="mr-5 float-right">
@@ -39,28 +46,34 @@
           </div>
 
           <div id="date_products_box" class="col-md-5 col-sm-12 mr-5 d-inline-block vertical-middle text-left">
-            <h6 class="date-received ml-24p">{{ $delivery->updated_at->toDateString() }}</h6>
-            <?php $productId = "products".$id ?>
+            <h6 class="date-received ml-24p">{{ $boxes[$i]["from"] }}</h6>
+              <?php $productId = "products".$id ?>
             <button type="button" class="date-received btn btn-default text-brown cursor-pointer button-no-decoration px-0" data-toggle="collapse" data-target=#{{$productId}} aria-expanded="false" aria-controls="{{$productId}}">
               <i class="fa fa-plus " aria-hidden="true"></i> Products
             </button>
             <div class="collapse" id={{$productId}}>
               <div id="products" class="card card-block ingredients-card">
-                  @foreach ($delivery->box->products as $product)
-                    <span class="text-left"><i class="fa fa-envira" aria-hidden="true"></i>{{ $product->name }}</span>
-                  @endforeach
+                @foreach ($boxes[$i]["products"] as $product)
+                  <span class="text-left"><i class="fa fa-envira" aria-hidden="true"></i>{{ $product->name }}</span>
+                @endforeach
               </div>
             </div>
 
-            @if ($delivery->box->id != Auth::user()->deliveries->last()->box->id)
-              <div class="mt-5 ml--44"><img src="/img/user/2.png" class="mx-auto hidden-md-down" alt=""></div>
-            @endif
-
+            {{--  @if ($delivery->box->id != Auth::user()->deliveries->last()->box->id)
+                <div class="mt-5 ml--44"><img src="/img/user/2.png" class="mx-auto hidden-md-down" alt=""></div>
+              @endif
+  --}}
           </div>
 
-          <?php $id++ ?>
+            <?php $id++ ?>
 
-        @endforeach
+          @endfor
+
+         @else
+
+           <p class="col-12 text-center mt-10 mb-5">@lang('user/profile/profile.no_boxes_yet')</p>
+          @endif
+        </div><!---end div col4---->
       </div><!-- / row-->
   </div><!-- / container -->
 
