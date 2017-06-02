@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\User;
-
+use DB;
 use Auth;
 use Hash;
 use App;
@@ -28,9 +28,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-
-        return view('user.panel.profile.index', compact("user"));
+        $id = Auth::user()->id;
+        $user=Auth::user();
+        $deliveries= DB::table('deliveries')->where('user_id', '=', $id)->orderBy('created_at','dsc')->get();
+        return view('user.panel.profile.index', compact(["user","deliveries"]));
     }
 
     /**
