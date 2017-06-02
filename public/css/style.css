@@ -6,7 +6,6 @@ html{
 }
 html, body{
     min-height: 100% !important;
-    overflow-x: hidden;
 }
 body {
     overflow-y: scroll;
