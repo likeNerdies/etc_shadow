@@ -12,6 +12,7 @@ $(document).ready(function () {
         console.log("client_id edit: " + client_id);
 
         $.get(url + '/' + client_id, function (data) {
+            console.log(data)
             //success data
             $('#id').val(data.client.id);
             $('#dni').val(data.client.dni);
@@ -19,9 +20,8 @@ $(document).ready(function () {
             $('#first_surname').val(data.client.first_surname);
             $('#second_surname').val(data.client.second_surname);
             $('#email').val(data.client.email);
-            $('#phone_number').val(data.phone_number);
+            $('#phone_number').val(data.client.phone_number);
             //$('#plan').append("<option value=''>No plan</option>");
-            console.log($('select#plan option').length)
             if (data.plans.length != 0) {//adding initial options
 
                 if ($('select#plan option').length == 1) {
@@ -100,8 +100,9 @@ $(document).ready(function () {
 
             e.preventDefault();
 
-
+            var client_id = $('#id').val();
             var formData = {
+                id:client_id,
                 dni: $('#dni').val(),
                 name: $('#name').val(),
                 first_surname: $('#first_surname').val(),
@@ -117,7 +118,6 @@ $(document).ready(function () {
             var state = $('#btn-save').val();
 
             var type = "POST"; //for creating new resource
-            var client_id = $('#id').val();
             var my_url = url;
 
             if (state == "update") {
