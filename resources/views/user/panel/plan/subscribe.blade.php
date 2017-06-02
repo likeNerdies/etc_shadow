@@ -23,7 +23,7 @@
           <hr width="80%">
 
           <h6 class="text-center"><strong>Despues solo 9,99 €/mes</strong></h6>
-          <p class="text-center">Puedes cancelar cuando quieras</p>
+          <p class="text-center pb-5rem">Puedes cancelar cuando quieras</p>
         </div>
       </div>
     </div>
