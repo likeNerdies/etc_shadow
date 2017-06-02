@@ -55,11 +55,11 @@
 <!-- </FLOATING LOG OUT BUTTON> -->
 
 
+
 <script src="{{asset('/js/libraries/jquery/jquery-3.2.1.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script src="{{asset('/js/libraries/tether/tether.js')}}"></script><!-- IMPORTANT: Always before the bootstrap file -->
 <script src="{{asset('/js/libraries/bootstrap4/bootstrap.js')}}"></script>
-<script src="{{asset('/js/admin/light-bootstrap-dashboard.js')}}"></script>
 <script src="{{asset('/js/validations/validator.js')}}"></script><!-- Validaciones campos formularios -->
 <script>
     function successMessage(){

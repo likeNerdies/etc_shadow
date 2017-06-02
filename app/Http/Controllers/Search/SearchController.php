@@ -33,7 +33,7 @@ class SearchController extends Controller
     {
         $retorn = [];
         if ($request->ajax() && $request->has('client')) {
-            $clients = $user->where('id', '=', $request->client)
+            $clients = $user->where('dni', 'like','%'. $request->client.'%')
                 ->orWhere('name', 'like', '%' . $request->client . '%')->get();
             for ($i = 0; $i < count($clients); $i++) {
                 $retorn[$i] = [

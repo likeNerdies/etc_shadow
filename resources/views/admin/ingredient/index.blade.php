@@ -178,4 +178,5 @@
 @section('scripts')
     <script src="{{asset('/js/libraries/select2/js/select2.js')}}"></script>
     <script src="{{asset('/js/admin/ingredient/ajax-crud.js')}}"></script>
+    <script src="{{asset('/js/admin/ingredient/modal_gallery.js')}}"></script>
 @endsection
