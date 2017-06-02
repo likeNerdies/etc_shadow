@@ -45,7 +45,7 @@ class UpdatePersonalInfoUser extends FormRequest
                   'nullable',
                   'regex:/[a-zA-Z]{2,100}/i'
               ),
-            'email' => 'required|email|unique:admins,email, '.$this->id,
+            'email' => 'required|email|unique:users,email, '.$this->id,
            'password' => 'nullable|min:8|confirmed',
           'phone_number'=>
               array(

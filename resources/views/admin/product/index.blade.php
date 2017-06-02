@@ -111,7 +111,7 @@
 
 
     <!-- Modal Image -->
-    <div id="myModalImage2" class="modalimage">
+    <div id="myModalImage" class="modalimage">
 
         <!-- The Close Button -->
         <span class="close">&times;</span>
@@ -125,13 +125,13 @@
             </ol>
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item justify-content-center active">
-                    <img class="d-block img-fluid" id="img02" alt="First slide">
+                    <img class="d-block img-fluid" id="img01" alt="First slide">
                 </div>
                 <div class="carousel-item justify-content-center">
-                    <img class="d-block img-fluid" id="img03" alt="Second slide">
+                    <img class="d-block img-fluid" id="img02" alt="Second slide">
                 </div>
                 <div class="carousel-item justify-content-center">
-                    <img class="d-block img-fluid" id="img04" alt="Third slide">
+                    <img class="d-block img-fluid" id="img03" alt="Third slide">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -317,4 +317,5 @@
 @section('scripts')
     <script src="{{asset('/js/libraries/select2/js/select2.js')}}"></script>
     <script src="{{asset('/js/admin/product/ajax-crud.js')}}"></script>
+    <script src="{{asset('/js/admin/product/modal_gallery.js')}}"></script>
 @endsection

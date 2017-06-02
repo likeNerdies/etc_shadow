@@ -299,7 +299,7 @@ class UserController extends Controller
             $plan = App\Plan::find($id);
             return view('user.panel.plan.subscribe',compact('plan'));
         }else{
-            //TODO
+           return view('errors.404');
         }
 
     }
@@ -362,6 +362,9 @@ class UserController extends Controller
         $client->second_surname = $request->second_surname;
         $client->email = $request->email;
         $client->phone_number = $request->phone_number;
+        if(isset($request->password)){
+            $client->password=bcrypt($request->password);
+        }
         if (isset($request->plan)) {
             $client->plan()->associate($request->plan);
             $client->subscribed_at = date("Y-m-d");

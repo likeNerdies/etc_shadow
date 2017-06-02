@@ -268,7 +268,7 @@ $(document).ready(function () {
                         $("#product" + product_id).replaceWith(product);
                     }
                     if (data.images.length > 1) {
-                        $('#product' + product_id + ' > #product-img').replaceWith("<td id='product-img'><img class='img-thumbnail' width='48.2' height='48.2' src='/admin/products/" + data.images[0].id + "/image'></td>");
+                        $('#product' + product_id + ' > #product-img').replaceWith("<td id='product-img'><img  id='myImgPr_"+data.product.id +"' class='img-thumbnail' width='48.2' height='48.2' src='/admin/products/" + data.images[0].id + "/image'></td>");
                     }
                     insertImg(e, data.product.id, type);//en el caso de update y no poner imagen, la imagen se queda con la linea anterior
                     $('#formProducts').trigger("reset");
@@ -330,7 +330,7 @@ $(document).ready(function () {
                             if (data[i].images.length == 0) {
                                 product += '<td id="product-img"></td>';//for images
                             } else {
-                                product += '<td id="product-img"><img class="img-thumbnail" src="/admin/products/' + data[i].images + '/image" width="48.2" height="48.2"></td>';//for images
+                                product += '<td id="product-img"><img id="myImgPr_'+ data[i].product.id+'" class="img-thumbnail" src="/admin/products/' + data[i].images + '/image" width="48.2" height="48.2"></td>';//for images
                             }
 
 
@@ -446,8 +446,7 @@ $(document).ready(function () {
                     return xhr;
                 },
                 success: function (data) { // success:
-                    console.log(data);
-                    $('#product' + id + ' > #product-img').replaceWith("<td id='product-img'><img class='img-thumbnail' width='48.2' height='48.2' src='/admin/products/" + data.images + "/image'></td>");
+                    $('#product' + id + ' > #product-img').replaceWith("<td id='product-img'><img id='myImgPr_"+data.images+"' class='img-thumbnail' width='48.2' height='48.2' src='/admin/products/" + data.images + "/image'></td>");
                     $('.error').empty();
                     $('.error').removeClass("alert alert-danger");
                 },

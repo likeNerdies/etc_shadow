@@ -172,7 +172,7 @@ $(document).ready(function () {
                     } else { //if user updated an existing record
                         $("#ingredient" + ingredient_id).replaceWith(ingredient);
                     }
-                    $('#ingredient' + ingredient_id + ' > #ingredient-img').replaceWith("<td id='ingredient-img'><img class='img-thumbnail' width='48.2' height='48.2' src='/admin/ingredients/" + data.ingredient.id + "/image'></td>");
+                    $('#ingredient' + ingredient_id + ' > #ingredient-img').replaceWith("<td id='ingredient-img'><img id='myImg_"+data.ingredient.id+"' class='img-thumbnail' width='48.2' height='48.2' src='/admin/ingredients/" + data.ingredient.id + "/image'></td>");
                     insertImg(e, data.ingredient.id, type);
                     $('#formIngredients').trigger("reset");
                     $('#ajaxerror').empty();
@@ -235,7 +235,7 @@ $(document).ready(function () {
                                 }
                             }
                             ingredient += '</td>';
-                            ingredient += '<td id="ingredient-img"><img class="img-thumbnail" src="/admin/ingredients/'+data[i].ingredient.id+'/image" width="48.2" height="48.2"></td>';//for images
+                            ingredient += '<td id="ingredient-img"><img  id="myImg_'+data[i].ingredient.id+'" class="img-thumbnail" src="/admin/ingredients/'+data[i].ingredient.id+'/image" width="48.2" height="48.2"></td>';//for images
                             ingredient += '<td>' + data[i].ingredient.created_at + '</td>';
                             ingredient += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].ingredient.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
 
@@ -328,7 +328,7 @@ $(document).ready(function () {
                     console.log(data);
 
                     $('#ingredient'+id+' > #ingredient-img').empty();
-                    $('#ingredient'+id+' > #ingredient-img').replaceWith("<td id='ingredient-img'><img class='img-thumbnail' width='48.2' height='48.2' src='/admin/ingredients/"+data.id+"/image'></td>");
+                    $('#ingredient'+id+' > #ingredient-img').replaceWith("<td id='ingredient-img'><img id='myImg_"+data.id+"' class='img-thumbnail' width='48.2' height='48.2' src='/admin/ingredients/"+data.id+"/image'></td>");
                     $('#ajaxerror').empty();
                     $('#ajaxerror').removeClass("alert alert-danger");
                 },

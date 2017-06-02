@@ -12,7 +12,7 @@
 
             <div class="row mt-4">
                 <div class="col-md-6 col-12 mt-4">
-                    <input type="text" id="search" class="form-control" placeholder="Search by ID or name">
+                    <input type="text" id="search" class="form-control" placeholder="Search by DNI or name">
                 </div>
             </div>
 

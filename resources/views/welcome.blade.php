@@ -175,7 +175,7 @@
       <div class="row justify-content-center mt-2">
         <!--<div class="col-sm-12 col-md-4">
           <h4><i class="fa fa-code mr-0" aria-hidden="true"></i></h4>
-          <h4><span data-count-from="4500" data-count-to="6000" class="stats">0</span></h4>
+          <h4><span data-count-from="4500" data-count-to="22000" class="stats">0</span></h4>
           <h6 class="text-uppercase lighter-font">@lang("welcome.linesCode")</h6>
         </div>-->
 
