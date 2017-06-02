@@ -31,7 +31,15 @@ class UserController extends Controller
         $id = Auth::user()->id;
         $user=Auth::user();
         $deliveries= DB::table('deliveries')->where('user_id', '=', $id)->orderBy('created_at','dsc')->get();
-        return view('user.panel.profile.index', compact(["user","deliveries"]));
+        $boxes=[];
+        for($index=0;$index<count($deliveries);$index++) {
+            $delivery=App\Delivery::find($deliveries[$index]->id);
+            $boxes[$index]=[
+                "products"=>$delivery->box->products,
+                "from"=>$delivery->created_at->diffForHumans()
+            ];
+        }
+        return view('user.panel.profile.index', compact(["user","boxes"]));
     }
 
     /**

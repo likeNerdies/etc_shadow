@@ -9,6 +9,9 @@ return [
   "allergies" => "Alergias",
   "help" => "Ayuda",
   "logout" => "Cerrar sesión",
+    "welcome"=>"Bienvenido",
+    "no_boxes_yet"=>"Aún no has recibido ninguna caja",
+    "last_boxes"=>"Últimas cajas recibidas",
 ];
 
  ?>

@@ -86,218 +86,9 @@ class TableSeeders extends Seeder
         Product::create(["name"=>"Water","price"=>"4.49","description"=>"Fresh pure water from the Rock Mountain","expiration_date"=>"2018-10-31","dimension"=>1,"weight"=>1500,"real_weight"=>1505,"stock"=>2900,"vegetarian"=>1,"organic"=>1,"vegan"=>1]);
 
 /*************************************************************USER CREATING****/
-        //users without plan
-        foreach (range(1, 500) as $index) {
-            $user = User::create([
-                'dni' => $faker->dni,
-                'name' => $faker->name,
-                'first_surname' => $faker->firstName,
-                'second_surname' => $faker->lastName,
-                'email' => $faker->unique()->safeEmail,
-                'password' => bcrypt('secret'),
-                'phone_number' => $faker->phoneNumber,
-                // 'plan_id'=>$faker->numberBetween(1,3),
-                'subscribed_at' => $faker->dateTimeBetween('2017-01-01', 'now'),
-                'remember_token' => str_random(10),
-            ]);
-        }
-
-        //users with plan Juny
-        foreach (range(1, 300) as $index) {
-            $user = User::create([
-                'dni' => $faker->dni,
-                'name' => $faker->name,
-                'first_surname' => $faker->firstName,
-                'second_surname' => $faker->lastName,
-                'email' => $faker->unique()->safeEmail,
-                'password' => bcrypt('secret'),
-                'phone_number' => $faker->phoneNumber,
-                'plan_id' => $faker->numberBetween(1, 3),
-                'subscribed_at' => $faker->dateTimeBetween('2017-06-01', 'now'),
-                'remember_token' => str_random(10),
-            ]);
-            $address = Address::create([
-                'street' => $faker->streetName,
-                'building_number' => $faker->numberBetween(1, 400),
-                'floor' => $faker->numberBetween(1, 10),
-                'door' => $faker->numberBetween(1, 5),
-                'postal_code' => $faker->numberBetween(1000, 9999),
-                'town' => $faker->city,
-                'province' => $faker->city,
-                'country' => $faker->country,
-            ]);
-            $address->user()->associate($user);
-            $address->save();
-
-        }
-
-
-        //users with plan MAY
-        foreach (range(1, 320) as $index) {
-            $user = User::create([
-                'dni' => $faker->dni,
-                'name' => $faker->name,
-                'first_surname' => $faker->firstName,
-                'second_surname' => $faker->lastName,
-                'email' => $faker->unique()->safeEmail,
-                'password' => bcrypt('secret'),
-                'phone_number' => $faker->phoneNumber,
-                'plan_id' => $faker->numberBetween(1, 3),
-                'subscribed_at' => $faker->dateTimeBetween('2017-05-01', '2017-05-31'),
-                'remember_token' => str_random(10),
-            ]);
-            $address = Address::create([
-                'street' => $faker->streetName,
-                'building_number' => $faker->numberBetween(1, 400),
-                'floor' => $faker->numberBetween(1, 10),
-                'door' => $faker->numberBetween(1, 5),
-                'postal_code' => $faker->numberBetween(1000, 9999),
-                'town' => $faker->city,
-                'province' => $faker->city,
-                'country' => $faker->country,
-            ]);
-            $address->user()->associate($user);
-            $address->save();
-
-            $box=new Box;
-            $box->save();
-            $box->created_at="2017-06-01";
-            $box->products()->attach([$faker->numberBetween(1, 16),$faker->numberBetween(1, 16),$faker->numberBetween(1, 16),$faker->numberBetween(1, 16),$faker->numberBetween(1, 16)]);
-            $box->save();
-            $delivery=new Delivery;
-            $delivery->save();
-            $delivery->created_at="2017-06-01";
-            $delivery->user()->associate($user);
-            $delivery->transporter()->associate(Transporter::find($faker->numberBetween(1, 3)));
-            $delivery->box()->associate($box);
-            $delivery->save();
-        }
-
-        //users with plan April
-        foreach (range(1, 290) as $index) {
-            $user = User::create([
-                'dni' => $faker->dni,
-                'name' => $faker->name,
-                'first_surname' => $faker->firstName,
-                'second_surname' => $faker->lastName,
-                'email' => $faker->unique()->safeEmail,
-                'password' => bcrypt('secret'),
-                'phone_number' => $faker->phoneNumber,
-                'plan_id' => $faker->numberBetween(1, 3),
-                'subscribed_at' => $faker->dateTimeBetween('2017-04-01', '2017-04-31'),
-                'remember_token' => str_random(10),
-            ]);
-            $address = Address::create([
-                'street' => $faker->streetName,
-                'building_number' => $faker->numberBetween(1, 400),
-                'floor' => $faker->numberBetween(1, 10),
-                'door' => $faker->numberBetween(1, 5),
-                'postal_code' => $faker->numberBetween(1000, 9999),
-                'town' => $faker->city,
-                'province' => $faker->city,
-                'country' => $faker->country,
-            ]);
-            $address->user()->associate($user);
-            $address->save();
-
-            $box=new Box;
-            $box->save();
-            $box->created_at="2017-05-01";
-            $box->products()->attach([$faker->numberBetween(1, 16),$faker->numberBetween(1, 16),$faker->numberBetween(1, 16),$faker->numberBetween(1, 16),$faker->numberBetween(1, 16)]);
-            $box->save();
-            $delivery=new Delivery;
-            $delivery->save();
-            $delivery->user()->associate($user);
-            $delivery->created_at="2017-05-01";
-            $delivery->transporter()->associate(Transporter::find($faker->numberBetween(1, 3)));
-            $delivery->box()->associate($box);
-            $delivery->save();
-        }
-
-        //users with plan March
-        foreach (range(1, 250) as $index) {
-            $user = User::create([
-                'dni' => $faker->dni,
-                'name' => $faker->name,
-                'first_surname' => $faker->firstName,
-                'second_surname' => $faker->lastName,
-                'email' => $faker->unique()->safeEmail,
-                'password' => bcrypt('secret'),
-                'phone_number' => $faker->phoneNumber,
-                'plan_id' => $faker->numberBetween(1, 3),
-                'subscribed_at' => $faker->dateTimeBetween('2017-03-01', '2017-03-31'),
-                'remember_token' => str_random(10),
-            ]);
-            $address = Address::create([
-                'street' => $faker->streetName,
-                'building_number' => $faker->numberBetween(1, 400),
-                'floor' => $faker->numberBetween(1, 10),
-                'door' => $faker->numberBetween(1, 5),
-                'postal_code' => $faker->numberBetween(1000, 9999),
-                'town' => $faker->city,
-                'province' => $faker->city,
-                'country' => $faker->country,
-            ]);
-            $address->user()->associate($user);
-            $address->save();
-
-            $box=new Box;
-            $box->save();
-            $box->created_at="2017-04-01";
-            $box->products()->attach([$faker->numberBetween(1, 16),$faker->numberBetween(1, 16),$faker->numberBetween(1, 16),$faker->numberBetween(1, 16),$faker->numberBetween(1, 16)]);
-            $box->save();
-            $delivery=new Delivery;
-            $delivery->save();
-            $delivery->user()->associate($user);
-            $delivery->created_at="2017-04-01";
-            $delivery->transporter()->associate(Transporter::find($faker->numberBetween(1, 3)));
-            $delivery->box()->associate($box);
-            $delivery->save();
-        }
-
-        //users with plan February
-        foreach (range(1, 200) as $index) {
-            $user = User::create([
-                'dni' => $faker->dni,
-                'name' => $faker->name,
-                'first_surname' => $faker->firstName,
-                'second_surname' => $faker->lastName,
-                'email' => $faker->unique()->safeEmail,
-                'password' => bcrypt('secret'),
-                'phone_number' => $faker->phoneNumber,
-                'plan_id' => $faker->numberBetween(1, 3),
-                'subscribed_at' => $faker->dateTimeBetween('2017-02-01', '2017-02-31'),
-                'remember_token' => str_random(10),
-            ]);
-            $address = Address::create([
-                'street' => $faker->streetName,
-                'building_number' => $faker->numberBetween(1, 400),
-                'floor' => $faker->numberBetween(1, 10),
-                'door' => $faker->numberBetween(1, 5),
-                'postal_code' => $faker->numberBetween(1000, 9999),
-                'town' => $faker->city,
-                'province' => $faker->city,
-                'country' => $faker->country,
-            ]);
-            $address->user()->associate($user);
-            $address->save();
-
-            $box=new Box;
-            $box->save();
-            $box->created_at="2017-03-01";
-            $box->products()->attach([$faker->numberBetween(1, 16),$faker->numberBetween(1, 16),$faker->numberBetween(1, 16),$faker->numberBetween(1, 16),$faker->numberBetween(1, 16)]);
-            $box->save();
-            $delivery=new Delivery;
-            $delivery->save();
-            $delivery->user()->associate($user);
-            $delivery->created_at="2017-03-01";
-            $delivery->transporter()->associate(Transporter::find($faker->numberBetween(1, 3)));
-            $delivery->box()->associate($box);
-            $delivery->save();
-        }
 
         //users with plan January
-        foreach (range(1, 100) as $index) {
+        foreach (range(1, 250) as $index) {
             $user = User::create([
                 'dni' => $faker->dni,
                 'name' => $faker->name,
@@ -337,6 +128,238 @@ class TableSeeders extends Seeder
             $delivery->save();
         }
 
-/********************************************************************END USER CREATING*/
+
+        //users with plan February
+        foreach (range(1, 450) as $index) {
+            $user = User::create([
+                'dni' => $faker->dni,
+                'name' => $faker->name,
+                'first_surname' => $faker->firstName,
+                'second_surname' => $faker->lastName,
+                'email' => $faker->unique()->safeEmail,
+                'password' => bcrypt('secret'),
+                'phone_number' => $faker->phoneNumber,
+                'plan_id' => $faker->numberBetween(1, 3),
+                'subscribed_at' => $faker->dateTimeBetween('2017-02-01', '2017-02-31'),
+                'remember_token' => str_random(10),
+            ]);
+            $address = Address::create([
+                'street' => $faker->streetName,
+                'building_number' => $faker->numberBetween(1, 400),
+                'floor' => $faker->numberBetween(1, 10),
+                'door' => $faker->numberBetween(1, 5),
+                'postal_code' => $faker->numberBetween(1000, 9999),
+                'town' => $faker->city,
+                'province' => $faker->city,
+                'country' => $faker->country,
+            ]);
+            $address->user()->associate($user);
+            $address->save();
+        }
+
+        foreach (range(1, 700) as $index) {
+            $user=App\User::find($index);
+            $box=new Box;
+            $box->save();
+            $box->created_at="2017-03-01";
+            $box->products()->attach([$faker->numberBetween(1, 16),$faker->numberBetween(1, 16),$faker->numberBetween(1, 16),$faker->numberBetween(1, 16),$faker->numberBetween(1, 16)]);
+            $box->save();
+            $delivery=new Delivery;
+            $delivery->save();
+            $delivery->user()->associate($user);
+            $delivery->created_at="2017-03-01";
+            $delivery->transporter()->associate(Transporter::find($faker->numberBetween(1, 3)));
+            $delivery->box()->associate($box);
+            $delivery->save();
+        }
+
+        //users with plan March
+        foreach (range(1, 500) as $index) {
+            $user = User::create([
+                'dni' => $faker->dni,
+                'name' => $faker->name,
+                'first_surname' => $faker->firstName,
+                'second_surname' => $faker->lastName,
+                'email' => $faker->unique()->safeEmail,
+                'password' => bcrypt('secret'),
+                'phone_number' => $faker->phoneNumber,
+                'plan_id' => $faker->numberBetween(1, 3),
+                'subscribed_at' => $faker->dateTimeBetween('2017-03-01', '2017-03-31'),
+                'remember_token' => str_random(10),
+            ]);
+            $address = Address::create([
+                'street' => $faker->streetName,
+                'building_number' => $faker->numberBetween(1, 400),
+                'floor' => $faker->numberBetween(1, 10),
+                'door' => $faker->numberBetween(1, 5),
+                'postal_code' => $faker->numberBetween(1000, 9999),
+                'town' => $faker->city,
+                'province' => $faker->city,
+                'country' => $faker->country,
+            ]);
+            $address->user()->associate($user);
+            $address->save();
+        }
+
+        foreach (range(1, 1200) as $index) {
+            $user=App\User::find($index);
+            $box=new Box;
+            $box->save();
+            $box->created_at="2017-04-01";
+            $box->products()->attach([$faker->numberBetween(1, 16),$faker->numberBetween(1, 16),$faker->numberBetween(1, 16),$faker->numberBetween(1, 16),$faker->numberBetween(1, 16)]);
+            $box->save();
+            $delivery=new Delivery;
+            $delivery->save();
+            $delivery->user()->associate($user);
+            $delivery->created_at="2017-04-01";
+            $delivery->transporter()->associate(Transporter::find($faker->numberBetween(1, 3)));
+            $delivery->box()->associate($box);
+            $delivery->save();
+        }
+
+        //users with plan April
+        foreach (range(1, 750) as $index) {
+            $user = User::create([
+                'dni' => $faker->dni,
+                'name' => $faker->name,
+                'first_surname' => $faker->firstName,
+                'second_surname' => $faker->lastName,
+                'email' => $faker->unique()->safeEmail,
+                'password' => bcrypt('secret'),
+                'phone_number' => $faker->phoneNumber,
+                'plan_id' => $faker->numberBetween(1, 3),
+                'subscribed_at' => $faker->dateTimeBetween('2017-04-01', '2017-04-31'),
+                'remember_token' => str_random(10),
+            ]);
+            $address = Address::create([
+                'street' => $faker->streetName,
+                'building_number' => $faker->numberBetween(1, 400),
+                'floor' => $faker->numberBetween(1, 10),
+                'door' => $faker->numberBetween(1, 5),
+                'postal_code' => $faker->numberBetween(1000, 9999),
+                'town' => $faker->city,
+                'province' => $faker->city,
+                'country' => $faker->country,
+            ]);
+            $address->user()->associate($user);
+            $address->save();
+
+        }
+
+        foreach (range(1, 1950) as $index) {
+            $user=App\User::find($index);
+            $box=new Box;
+            $box->save();
+            $box->created_at="2017-05-01";
+            $box->products()->attach([$faker->numberBetween(1, 16),$faker->numberBetween(1, 16),$faker->numberBetween(1, 16),$faker->numberBetween(1, 16),$faker->numberBetween(1, 16)]);
+            $box->save();
+            $delivery=new Delivery;
+            $delivery->save();
+            $delivery->user()->associate($user);
+            $delivery->created_at="2017-05-01";
+            $delivery->transporter()->associate(Transporter::find($faker->numberBetween(1, 3)));
+            $delivery->box()->associate($box);
+            $delivery->save();
+        }
+
+        //users with plan MAY
+        foreach (range(1, 850) as $index) {
+            $user = User::create([
+                'dni' => $faker->dni,
+                'name' => $faker->name,
+                'first_surname' => $faker->firstName,
+                'second_surname' => $faker->lastName,
+                'email' => $faker->unique()->safeEmail,
+                'password' => bcrypt('secret'),
+                'phone_number' => $faker->phoneNumber,
+                'plan_id' => $faker->numberBetween(1, 3),
+                'subscribed_at' => $faker->dateTimeBetween('2017-05-01', '2017-05-31'),
+                'remember_token' => str_random(10),
+            ]);
+            $address = Address::create([
+                'street' => $faker->streetName,
+                'building_number' => $faker->numberBetween(1, 400),
+                'floor' => $faker->numberBetween(1, 10),
+                'door' => $faker->numberBetween(1, 5),
+                'postal_code' => $faker->numberBetween(1000, 9999),
+                'town' => $faker->city,
+                'province' => $faker->city,
+                'country' => $faker->country,
+            ]);
+            $address->user()->associate($user);
+            $address->save();
+        }
+
+
+        foreach (range(1, 2800) as $index) {
+            $user=App\User::find($index);
+            $box=new Box;
+            $box->save();
+            $box->created_at="2017-06-01";
+            $box->products()->attach([$faker->numberBetween(1, 16),$faker->numberBetween(1, 16),$faker->numberBetween(1, 16),$faker->numberBetween(1, 16),$faker->numberBetween(1, 16)]);
+            $box->save();
+            $delivery=new Delivery;
+            $delivery->save();
+            $delivery->user()->associate($user);
+            $delivery->created_at="2017-06-01";
+            $delivery->transporter()->associate(Transporter::find($faker->numberBetween(1, 3)));
+            $delivery->box()->associate($box);
+            $delivery->save();
+        }
+
+
+        //users with plan Juny
+        foreach (range(1, 300) as $index) {
+            $user = User::create([
+                'dni' => $faker->dni,
+                'name' => $faker->name,
+                'first_surname' => $faker->firstName,
+                'second_surname' => $faker->lastName,
+                'email' => $faker->unique()->safeEmail,
+                'password' => bcrypt('secret'),
+                'phone_number' => $faker->phoneNumber,
+                'plan_id' => $faker->numberBetween(1, 3),
+                'subscribed_at' => $faker->dateTimeBetween('2017-06-01', 'now'),
+                'remember_token' => str_random(10),
+            ]);
+            $address = Address::create([
+                'street' => $faker->streetName,
+                'building_number' => $faker->numberBetween(1, 400),
+                'floor' => $faker->numberBetween(1, 10),
+                'door' => $faker->numberBetween(1, 5),
+                'postal_code' => $faker->numberBetween(1000, 9999),
+                'town' => $faker->city,
+                'province' => $faker->city,
+                'country' => $faker->country,
+            ]);
+            $address->user()->associate($user);
+            $address->save();
+
+        }
+
+
+
+
+
+        $dates=["2017-02-01","2017-03-01","2017-04-01","2017-05-01","2017-06-01"];
+
+
+        //users without plan
+        foreach (range(1, 500) as $index) {
+            $user = User::create([
+                'dni' => $faker->dni,
+                'name' => $faker->name,
+                'first_surname' => $faker->firstName,
+                'second_surname' => $faker->lastName,
+                'email' => $faker->unique()->safeEmail,
+                'password' => bcrypt('secret'),
+                'phone_number' => $faker->phoneNumber,
+                // 'plan_id'=>$faker->numberBetween(1,3),
+                'subscribed_at' => $faker->dateTimeBetween('2017-01-01', 'now'),
+                'remember_token' => str_random(10),
+            ]);
+        }
+
+        /********************************************************************END USER CREATING*/
     }
 }
