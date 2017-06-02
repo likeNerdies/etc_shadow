@@ -61,6 +61,7 @@
 <script src="{{asset('/js/libraries/tether/tether.js')}}"></script><!-- IMPORTANT: Always before the bootstrap file -->
 <script src="{{asset('/js/libraries/bootstrap4/bootstrap.js')}}"></script>
 <script src="{{asset('/js/validations/validator.js')}}"></script><!-- Validaciones campos formularios -->
+<script src="{{asset('/js/admin/light.js')}}"></script><!-- Validaciones campos formularios -->
 <script>
     function successMessage(){
         $("#succed_message").fadeIn();
