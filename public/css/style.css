@@ -16,6 +16,10 @@ h2 {
   font-size: 42px!important;
 }
 
+.font-22 {
+  font-size: 22px;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -195,6 +199,11 @@ h2 {
   .mt-sm-500 {
     margin-top: 5%;
   }
+
+  .h-sm-50 {
+    height: 60%!important;
+  }
+
   .card-wrapper,.card-wrapper-product, .w-sm-100 {
     width: 100%!important;
   }
@@ -202,6 +211,8 @@ h2 {
   .card {
     width: 100%;
   }
+
+  .
 }
 
 .card {
@@ -297,6 +308,10 @@ h2 {
     padding-top: 10%;
     padding-bottom: 10%!important;
     background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/ep_naturalwhite.png");
+}
+
+.btn-yellow {
+  background-color: #ffb640;
 }
 
 .fa {

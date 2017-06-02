@@ -13,8 +13,3 @@ $(document).ready(function () {
   }
   setClock();
 });
-
-/*#timeRemaining {
-    border: 1px solid #000;
-    padding: 10px;
-}*/

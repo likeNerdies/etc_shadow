@@ -130,29 +130,56 @@
       <h2 class="pt-2">@lang("welcome.about")</h2>
       <div class="row">
         <div class="side1 mt-5 col-md-4 col-sm-12">
-          <h4>@lang("welcome.aboutUs1Title")</h4>
-          <p class="mx-auto">@lang("welcome.aboutUs1Content")
-          </p>
+          <div class="h-75 h-sm-50">
+            <h4 class="font-22">@lang("welcome.aboutUs1Title")</h4>
+            <p class="mx-auto">@lang("welcome.aboutUs1Content")</p>
+          </div>
+          <!-- Lines of code -->
+          <div class="">
+            <h4><i class="fa fa-code mr-0" aria-hidden="true"></i></h4>
+            <h4><span data-count-from="4500" data-count-to="6000" class="stats">0</span></h4>
+            <h6 class="text-uppercase lighter-font">@lang("welcome.linesCode")</h6>
+          </div>
+
         </div>
+
         <div class="side2 mt-5 col-md-4 col-sm-12">
-          <h4>@lang("welcome.aboutUs2Title")</h4>
-          <p class="mx-auto">@lang("welcome.aboutUs2Content")</p>
+          <div class="h-75 h-sm-50">
+            <h4 class="font-22">@lang("welcome.aboutUs2Title")</h4>
+            <p class="mx-auto">@lang("welcome.aboutUs2Content")</p>
+          </div>
+          <!-- Hours worked -->
+          <div class="">
+            <h4><i class="fa fa-clock-o mr-0" aria-hidden="true"></i></h4>
+            <h4><span data-count-from="100" data-count-to="400" class="stats">0</span></h4>
+            <h6 class="text-uppercase lighter-font">@lang("welcome.hoursWorked")</h6>
+          </div>
         </div>
+
         <div class="side2 mt-5 col-md-4 col-sm-12">
-          <h4>@lang("welcome.aboutUs3Title")</h4>
-          <h5>@lang("welcome.aboutUs3Content")</h5>
+          <div class="h-75 h-sm-50">
+            <h4 class="font-22">@lang("welcome.aboutUs3Title")</h4>
+            <h5>@lang("welcome.aboutUs3Content")</h5>
+          </div>
+          <!-- Coffee cups -->
+          <div class="">
+            <h4><i class="fa fa-coffee mr-0" aria-hidden="true"></i></h4>
+            <h4><span data-count-from="-80" data-count-to="101" class="stats">0</span></h4>
+            <h6 class="text-uppercase lighter-font">@lang("welcome.cupsCoffee")</h6>
+          </div>
+
         </div>
       </div>
 
-      <!-- Animated counters -->
+      <!-- Animated counters
       <div class="row justify-content-center mt-2">
-        <div class="col-sm-12 col-md-4">
+        <!--<div class="col-sm-12 col-md-4">
           <h4><i class="fa fa-code mr-0" aria-hidden="true"></i></h4>
           <h4><span data-count-from="4500" data-count-to="6000" class="stats">0</span></h4>
           <h6 class="text-uppercase lighter-font">@lang("welcome.linesCode")</h6>
-        </div>
+        </div>-->
 
-        <div class="col-sm-12 col-md-4">
+        <!--<div class="col-sm-12 col-md-4">
           <h4><i class="fa fa-clock-o mr-0" aria-hidden="true"></i></h4>
           <h4><span data-count-from="100" data-count-to="400" class="stats">0</span></h4>
           <h6 class="text-uppercase lighter-font">@lang("welcome.hoursWorked")</h6>
@@ -164,7 +191,7 @@
           <h4><span data-count-from="-80" data-count-to="101" class="stats">0</span></h4>
           <h6 class="text-uppercase lighter-font">@lang("welcome.cupsCoffee")</h6>
         </div>
-      </div>
+      </div>-->
     </div>
   </div><!-- / about us -->
 
