@@ -26,9 +26,9 @@
             <a href="/user/panel/help" class="">@lang("user/profile/profile.help")</a>
         </div>
         <div class="block-user-profile mb-3">
-          <form class="floating-form" action="/logout" method="post">
+          <form id="logoutformuser" class="floating-form" action="/logout" method="post">
             {{ csrf_field() }}
-            <button type="submit" class="btn btn-link" value="logout"><a href="">@lang("user/profile/profile.logout")</a></button>
+            <a href="#" onclick="document.getElementById('logoutformuser').submit();">@lang("user/profile/profile.logout")</a>
           </form>
         </div>
     </div>
