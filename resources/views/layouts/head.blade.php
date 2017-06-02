@@ -30,10 +30,11 @@
         <title> @yield('title') </title>
     </head>
     <body>
-    @if (Route::has('login'))
-        @if (Auth::check())
-            <div id="sidebar-float" class="profile-content">
-              @include('user.layouts.sidebar2')
-            </div>
+    <div id="main-app">
+        @if (Route::has('login'))
+            @if (Auth::check())
+                <div id="sidebar-float" class="profile-content">
+                  @include('user.layouts.sidebar2')
+                </div>
+            @endif
         @endif
-    @endif

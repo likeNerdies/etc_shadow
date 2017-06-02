@@ -31,7 +31,7 @@
 
 </div>
 
-
+</div>
 @include('layouts.scripts')
 @yield('scriptsPersonalizados')
 

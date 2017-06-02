@@ -1,9 +1,10 @@
 @extends('user.layouts.panel')
 @section('title','My data')
 @section('right-panel')
-<h3 class="lighter-font text-center">My data</h3>
 
-    <div class="container mt-5 pb-5">
+
+    <div class="container mt-4 pb-5 ml-3rem">
+        <h3 class="lighter-font text-center mb-5">My data</h3>
         <div class="row">
             <div class="col-md-12">
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">

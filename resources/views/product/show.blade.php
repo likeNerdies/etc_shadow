@@ -10,7 +10,7 @@
         <div id="content-wrapper-show">
             <div id="wrapper-product" class="d-flex flex-md-row flex-column">
                 <div id="wrapper-image"><!-- carousel -->
-                    <div id="image" class="carousel slide h-70" data-ride="false">
+                    <div id="image" class="carousel w-80 mx-auto slide h-70" data-ride="false">
                         <ol class="carousel-indicators">
                             <li data-target="#image" data-slide-to="0" class="active ci-1"></li>
                             <li data-target="#image" data-slide-to="1" class="ci-2"></li>

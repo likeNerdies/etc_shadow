@@ -51,8 +51,10 @@
                         </div>
                     </div>
 
-                    <div class="d-flex justify-content-center mt-4">
-                        {{ $products->links() }}
+                    <div class="w-100 d-flex justify-content-center mt-5">
+                        <nav>
+                            {{ $products->links() }}
+                        </nav>
                     </div>
 
                 </div>

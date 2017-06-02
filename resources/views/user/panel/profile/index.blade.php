@@ -1,7 +1,7 @@
 @extends('user.layouts.panel')
 @section('title','Profile')
 @section('right-panel')
-  <div class="container text-center">
+  <div class="container text-center ml-3rem">
 
     <!-- Welcome -->
       <div class="row mb-5">

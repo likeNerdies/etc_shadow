@@ -9,7 +9,7 @@ return [
     |Las siguientes lineas son de traduccion para la parte index (welcome) del sitio web
     |
     */
-
+    'products' => 'Productos',
     'howitworks'   => 'Cómo funciona',
     "shoppingFlow" => "Cómo funciona",
     "seeProducts" => "¡Primero mira nuestros productos!",
