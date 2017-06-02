@@ -39,7 +39,7 @@
               </div>
             </li>-->
           <!-- No ha iniciado sesión -->
-            <ul class="navbar-nav log-re">
+            <ul class="navbar-nav log-reg">
             {{--
                 @if(!Auth::check())
                   @include('layouts.register')
@@ -54,7 +54,7 @@
         @endif
 
       <!-- Lang -->
-      <ul style="list-style: none;">
+      <ul class="pl-0 pb-4" style="list-style: none;">
         <li class="nav-item  px-1">
           <form class="form-inline" method="post" action="{{route('change-lang')}}" id="change_lang">
             {{csrf_field()}}
@@ -80,4 +80,5 @@
       </ul><!-- / lang -->
     </div><!-- / navbar-collapse -->
   </nav>
+
 </div><!-- / nav-container -->

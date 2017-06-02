@@ -10,11 +10,11 @@
 @include('layouts.navbar')
 
 
-<div class="container-fluid pr-0 pl-0">
+<div class="w-100">
   <div class="background-image"></div>
 </div>
-<div class="container">
 
+<div class="container">
   <div id="shoppingFlow" class="row mt-15"><!-- Shopping flow -->
     <div id="howitworks" class="col-sm-12">
       <h2 class="text-center pt-2 mb-5">@lang("welcome.shoppingFlow")</h2>
