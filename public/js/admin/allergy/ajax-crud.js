@@ -33,7 +33,7 @@ $(document).ready(function() {
     $(document).on('click', '.delete-allergy', function(e) {
    // $('.delete-allergy').click(function() {
         var allergy = $(this).val();
-        console.log("allergy: " + allergy);
+       // console.log("allergy: " + allergy);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -43,7 +43,7 @@ $(document).ready(function() {
             type: "DELETE",
             url: url + '/' + allergy,
             success: function (data) {
-                console.log(data);
+               // console.log(data);
                 $("#allergy" + allergy).remove();
                 $('#ajaxerror').empty();
                 $('#ajaxerror').removeClass("alert alert-danger");
@@ -85,7 +85,7 @@ $(document).ready(function() {
             my_url += '/' + allergy_id;
         }
 
-        console.log(formData);
+       // console.log(formData);
 
         $.ajax({
             type: type,
@@ -93,7 +93,7 @@ $(document).ready(function() {
             data: formData,
             dataType: 'json',
             success: function (data) { // success:
-                console.log(data);
+              //  console.log(data);
 
                 var allergy = '<tr id="allergy' + data.id + '"><td id="id">' + data.id + '</td><td>' + data.name + '</td><td class="media-767-delete">' + data.created_at + '</td>';
                 allergy += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
@@ -141,7 +141,7 @@ $(document).ready(function() {
             url:'/search/allergy',
             data:{'allergy':$value},
            success:function(data){
-                console.log(data)
+               // console.log(data)
                 if(data.length==0){
                     $('#allergy-list').empty();
                     $('#allergy-list').append('<p class="text-center">No results found</p>')
@@ -158,7 +158,7 @@ $(document).ready(function() {
                 }
            },
            error:function (data) {
-               console.log(data);
+               //console.log(data);
            }
        });
         }else{
@@ -174,6 +174,6 @@ function valdateForm(){
     }else{
         $('#name').css('border-color', "#5cb85c");
     }
-    console.log(retorn);
+   // console.log(retorn);
         return retorn;
 }

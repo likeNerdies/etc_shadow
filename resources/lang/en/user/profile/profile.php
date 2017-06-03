@@ -12,6 +12,8 @@ return [
   "welcome"=>"Welcome",
     "last_boxes"=>"Your box chronology",
     "no_boxes_yet"=>"You have not received any boxes yet",
+    "box_coming"=>"Box coming in...",
+
 
 ];
 

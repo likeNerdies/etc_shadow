@@ -21,6 +21,7 @@
 
                         <!-- Personal data collapse -->
                         <div id="collapseOne" class="panel-collapse collapse show in w-80 w-sm-100 mx-auto" role="tabpanel" aria-labelledby="headingOne"> <!--content block -->
+                            <div class="error_user_data mt-3 text-center"></div>
                             <div class="panel-body pt-3">
                                 @include('user.layouts.forms.data-personal-form')
 

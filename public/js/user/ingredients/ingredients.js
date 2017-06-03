@@ -27,7 +27,6 @@ $(document).ready(function () {
                    }
                    div.addClass('unlike')*/
                    div.removeClass("like").addClass("unlike");
-                   console.log('unlike');
 
                } else { // The ingredient was already marked as "unliked", now it will be as "liked".
                    /*if (div.hasClass( "unlike" )) {
@@ -36,11 +35,9 @@ $(document).ready(function () {
                    }
                    div.addClass('like')*/
                   div.removeClass("unlike").addClass("like");
-                  console.log('like');
                }
             },
             error: function (data) {
-              console.log('Error:', data);
               $('.error').addClass("alert alert-danger").html("There was an internal error");
             }
         });

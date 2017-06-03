@@ -18,7 +18,7 @@
           <h3 class="text-center subtitle">@lang("user/plan/plan.charmingSubtitle")</h3>
           <h6 class="mt-5">@lang("user/plan/plan.charmingSlogan")</h6>
           <p class="">@lang("user/plan/plan.charmingProductsList")</p>
-          <small class="price">9.95€</small>
+          <small class="price">{{$plans[0]->price}}€</small>
         </div>
         <div class="col-md-3 text-center">
           <button class="mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button"><a href="/user/panel/plan/subscribe/1">@lang("user/plan/plan.btnSubscribe")</a></button>
@@ -32,7 +32,7 @@
           <h3 class="text-center subtitle">@lang("user/plan/plan.proSubtitle")</h3>
           <h6 class="mt-5">@lang("user/plan/plan.proSlogan")</h6>
           <p class="">@lang("user/plan/plan.proProductsList")</p>
-          <small class="price">17.95€</small>
+          <small class="price">{{$plans[1]->price}}€</small>
         </div>
         <div class="col-md-3 text-center">
           <button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button"><a href="/user/panel/plan/subscribe/1">@lang("user/plan/plan.btnSubscribe")</a></button>
@@ -46,7 +46,7 @@
           <h3 class="text-center subtitle">@lang("user/plan/plan.premiumSubtitle")</h3>
           <h6 class="mt-5">@lang("user/plan/plan.premiumSlogan")</h6>
           <p class="">@lang("user/plan/plan.premiumProductsList")</p>
-          <small class="price">29.95€</small>
+          <small class="price">{{$plans[2]->price}}€</small>
         </div>
         <div class="col-md-3 text-center">
           <button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button"><a href="/user/panel/plan/subscribe/1">@lang("user/plan/plan.btnSubscribe")</a></button>
