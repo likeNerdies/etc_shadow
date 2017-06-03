@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 use DB;
 use Auth;
 use Hash;
+use Session;
 use App;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -272,12 +273,38 @@ class UserController extends Controller
      */
     public function subscribeToPlan(Request $request)
     {
-        $user = Auth::user();
-        $plan = App\Plan::findOrFail($request->plan_id);
-        $user->plan()->associate($plan);
-        $user->subscribed_at = date("Y-m-d");
-        $user->save();
-        return response()->back();
+        $this->validate($request,[
+            "plan_id"=>array(
+                'required',
+                'regex:/[123]{1}/'
+            ),
+        ]);
+        $retorn=["succed"=>true];
+        try{
+            $user = Auth::user();
+            $plan = App\Plan::findOrFail($request->plan_id);
+            $user->plan()->associate($plan);
+            $user->subscribed_at = date("Y-m-d");
+            $user->save();
+
+            if(Session::get('locale')=='es'){
+                $retorn=[
+                    "succeed"=>true,
+                    "mensaje1"=>"Bien Hecho!",
+                    "mensaje2"=>"Ya estás suscrito en el plan"
+                ];
+            }else{
+                $retorn=[
+                    "succeed"=>true,
+                    "mensaje1"=>"Well done!",
+                    "mensaje2"=>"You are already subscribed to the plan"
+                ];
+            }
+        }catch(Exception $e){
+
+        }
+
+        return response()->json($retorn);
     }
 
     /**

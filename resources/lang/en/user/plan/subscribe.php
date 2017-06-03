@@ -11,4 +11,5 @@ return [
     "start"=>"Start with my plan",
     "sec_code"=>"Security code",
     "change"=>"Change my plan",
+    "already_subscribed_in"=>"You are already subscribed in this plan",
 ];

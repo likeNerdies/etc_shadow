@@ -26,6 +26,7 @@ return [
   "charmingSubtitle" => "¡Tenemos el plan para ti!",
   "charmingSlogan" => "El plan Charming es pequeño pero lleno de encanto.",
   "charmingProductsList" => "4 productos: Una bebida (leche sin lácteos o zumo natural), un paquete de galletas, una caja de cereales y un paquete de barritas.",
+    "notSufficient"=>"Echa un ojo a otros planes que tenemos para ti"
 
 ];
 

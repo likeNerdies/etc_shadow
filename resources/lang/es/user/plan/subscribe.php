@@ -11,5 +11,6 @@ return [
     "start"=>"Empezar con mi plan",
     "sec_code"=>"Código de seguridad",
     "change"=>"Cambiar de plan",
+    "already_subscribed_in"=>"Actualmente ya estás suscrito en este plan",
 
 ];
