@@ -32,4 +32,6 @@ return [
     "old_password"=>"Antigua contraseña",
     "new_password"=>"Nueva contraseña",
     "repeat_password"=>"Repita la contraseña",
+    "month"=>"Mes",
+    "year"=>"Año",
 ];
