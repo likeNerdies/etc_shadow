@@ -28,18 +28,20 @@ class TableSeeders extends Seeder
         Admin::create(["name" => "Razon", "first_surname" => "Miah", "password" => Hash::make("12345678"), "email" => "miahrazon@gmail.com", "can_create" => 1]);
         Admin::create(["name" => "Clara", "first_surname" => "Ameller", "password" => Hash::make("12345678"), "email" => "cameller@gmail.com", "can_create" => 1]);
         Admin::create(['name' => "Adria", 'first_surname' => "Vinas", 'email' => "avinas@gmail.com", 'password' => Hash::make("NtRnStR1617"), "can_create" => 1]);
-        Admin::create(['name' => "Admin1", 'first_surname' => "Test1", 'email' => "testadmin1@gmail.com", 'password' => Hash::make("12345678"), "can_create" => 1]);
-        Admin::create(['name' => "Admin2", 'first_surname' => "Test2", 'email' => "testadmin2@gmail.com", 'password' => Hash::make("12345678"), "can_create" => 1]);
+        Admin::create(['name' => "Admin1", 'first_surname' => "Test1", 'email' => "testadmin1@gmail.com", 'password' => Hash::make("12345678")]);
+        Admin::create(['name' => "Admin2", 'first_surname' => "Test2", 'email' => "testadmin2@gmail.com", 'password' => Hash::make("12345678")]);
         Admin::create(['name' => "Admin3", 'first_surname' => "Test3", 'email' => "testadmin3@gmail.com", 'password' => Hash::make("12345678")]);
         Admin::create(['name' => "Admin4", 'first_surname' => "Test4", 'email' => "testadmin4@gmail.com", 'password' => Hash::make("12345678")]);
         Admin::create(['name' => "Admin5", 'first_surname' => "Test5", 'email' => "testadmin5@gmail.com", 'password' => Hash::make("12345678")]);
-        Admin::create(['name' => "Admin6", 'first_surname' => "Test6", 'email' => "testadmin6@gmail.com", 'password' => Hash::make("12345678"), "can_create" => 1]);
+        Admin::create(['name' => "Admin6", 'first_surname' => "Test6", 'email' => "testadmin6@gmail.com", 'password' => Hash::make("12345678")]);
         Admin::create(['name' => "Admin7", 'first_surname' => "Test7", 'email' => "testadmin7@gmail.com", 'password' => Hash::make("12345678")]);
-        Admin::create(['name' => "Admin8", 'first_surname' => "Test8", 'email' => "testadmin8@gmail.com", 'password' => Hash::make("12345678"), "can_create" => 1]);
+        Admin::create(['name' => "Admin8", 'first_surname' => "Test8", 'email' => "testadmin8@gmail.com", 'password' => Hash::make("12345678")]);
+        Admin::create(['name' => "Admin8", 'first_surname' => "Test9", 'email' => "testadmin9@gmail.com", 'password' => Hash::make("12345678")]);
+        Admin::create(['name' => "Admin8", 'first_surname' => "Test10", 'email' => "testadmin10@gmail.com", 'password' => Hash::make("12345678")]);
 
 
         Plan::create(['name' => "charming", "price" => 9.95, "info" => "The Charming plan is small but plenty of delightfulness. 4 products: One drink (no dairy milk or juicies), a cookies box, a cereal box and a bar pack."]);
-        Plan::create(['name' => "pro", "price" => 18.95, "info" => "The Pro plan is as pro as you are. 8 products: One drink (no dairy milk or juicies), a cookies box, a cereal box and a bar pack."]);
+        Plan::create(['name' => "pro", "price" => 17.95, "info" => "The Pro plan is as pro as you are. 8 products: One drink (no dairy milk or juicies), a cookies box, a cereal box and a bar pack."]);
         Plan::create(['name' => "premium", "price" => 29.95, "info" => "The Premium plan will change you. 12 products: One drink (no dairy milk or juicies), a cookies box, a cereal box and a bar pack."]);
 
 

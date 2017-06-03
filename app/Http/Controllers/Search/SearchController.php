@@ -9,6 +9,7 @@ use App\Ingredient;
 use App\Product;
 use App\Plan;
 use App\Admin;
+use App\Transporter;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Response;
@@ -57,6 +58,22 @@ class SearchController extends Controller
         if ($request->ajax() && $request->has('admin')) {
             $retorn = $allergy->where('id', '=', $request->admin)
                 ->orWhere('name', 'like', '%' . $request->admin . '%')->get();
+        } else {
+            //todo
+        }
+        return $retorn;
+    }
+    /**
+     * busqueda ajax para transporter.
+     * Devuelve admins con id o name que coicida con los parametros
+     * @param Request $request
+     */
+    public function transporter(Request $request, Transporter $transporter)
+    {
+        $retorn = "";
+        if ($request->ajax() && $request->has('transporter')) {
+            $retorn = $transporter->where('id', '=', $request->transporter)
+                ->orWhere('name', 'like', '%' . $request->transporter . '%')->get();
         } else {
             //todo
         }

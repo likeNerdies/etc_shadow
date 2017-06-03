@@ -104,8 +104,8 @@ $(document).ready(function() {
 
                     var category = '<tr id="category' + data.id + '"><td id="id">' + data.id + '</td><td>' + data.name + '</td>';
                     category+='<td>';
-                    if(!data.info==null){
-                        categor+=data.info;
+                    if(data.info){
+                        category+=data.info;
                     }
                     category+='</td><td class="media-480-delete">' + data.created_at + '</td>';
 
@@ -164,8 +164,8 @@ $(document).ready(function() {
                     for (i=0;i<data.length;i++){
                         var category = '<tr id="category' + data[i].id + '"><td id="id">' + data[i].id + '</td><td>' + data[i].name + '</td>';
                         category+='<td>';
-                        if(!data.info==null){
-                            categor+=data[i].info;
+                        if(data[i].info){
+                            category+=data[i].info;
                         }
                         category+='</td><td class="media-480-delete">' + data[i].created_at + '</td>';
                         category += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up"></i></button>';
