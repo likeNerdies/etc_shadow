@@ -8,7 +8,7 @@ html, body{
     min-height: 100% !important;
 }
 body {
-    overflow-y: scroll;
+    overflow-y: auto;
     font-family: 'Martel Sans', sans-serif;
 }
 
@@ -740,7 +740,7 @@ span.caret-down::after{
 
     #main-app{
         overflow-x: hidden;
-        overflow-y: scroll;
+        overflow-y: hidden;
     }
 
     /*test*/

@@ -38,7 +38,7 @@
                                 <div class="row section p-5 mr-md-5">
                                     <div class="col-md-9 text-center">
                                         <h3 class="">@lang("user/plan/plan.notSufficient")</h3>
-                                        <button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="button" name="button"><a href="/plans">@lang("user/plan/plan.btnMoreInfo")</a></button>
+                                        <a href="/plans"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="button" name="button">@lang("user/plan/plan.btnMoreInfo")</button></a>
                                     </div>
                                     <div class="col-md-3 text-center">
                                     </div>
