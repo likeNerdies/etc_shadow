@@ -19,15 +19,15 @@
 
                         <div class="carousel-inner h-100" role="listbox">
                             <div class="active carousel-item" data-slide-number="0">
-                                <img class="d-block img-fluid" src="/products/{{$product->images->first()->id}}/image">
+                                <img class="d-block img-fluid" src="/products/{{$product->id}}/image/0">
                             </div>
 
                             <div class="carousel-item" data-slide-number="1">
-                                <img class="d-block img-fluid" src="/products/{{$product->images->first()->id}}/image">
+                                <img class="d-block img-fluid" src="/products/{{$product->id}}/image/1">
                             </div>
 
                             <div class="carousel-item" data-slide-number="2">
-                                <img class="d-block img-fluid" src="/products/{{$product->images->first()->id}}/image">
+                                <img class="d-block img-fluid" src="/products/{{$product->id}}/image/2">
                             </div>
 
                         </div><!-- Carousel nav -->
@@ -45,19 +45,19 @@
 
                         <div id="min-img-1" class="w-31 h-100">
                             <a id="carousel-selector-0">
-                                <img class="w-100 h-100" src="/products/{{$product->images->first()->id}}/image">
+                                <img class="w-100 h-100" src="/products/{{$product->id}}/image/0">
                             </a>
                         </div>
 
                         <div id="min-img-2" class="w-31 h-100">
                             <a id="carousel-selector-1">
-                                <img class="w-100 h-100" src="/products/{{$product->images->first()->id}}/image">
+                                <img class="w-100 h-100" src="/products/{{$product->id}}/image/1">
                             </a>
                         </div>
 
                         <div id="min-img-3" class="w-31 h-100">
                             <a id="carousel-selector-2">
-                                <img class="w-100 h-100" src="/products/{{$product->images->first()->id}}/image">
+                                <img class="w-100 h-100" src="/products/{{$product->id}}/image/2">
                             </a>
                         </div>
                     </div>
