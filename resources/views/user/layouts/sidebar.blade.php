@@ -6,9 +6,6 @@
         <div class="block-user-profile mb-2">
             <a href="{{route('my-data')}}" class="">@lang("user/profile/profile.myData")</a>
         </div>
-        <div class="block-user-profile mb-2">
-            <a href="/user/panel/plan" class="">@lang("user/profile/profile.plan")</a>
-        </div>
         <div class="block-user-profile mb-2 hide-show-toggler">
             <a href="" data-toggle="collapse" data-target="#hide-show1"  class="">@lang("user/profile/profile.ingredientsAllergies")
                 <i class="fa fa-caret-down pl-2" aria-hidden="true"></i>
