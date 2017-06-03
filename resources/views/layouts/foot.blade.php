@@ -1,17 +1,14 @@
 <div class="container-fluid" id="footer">
 
   <div class="justify-content-md-center text-center">
-    <h4 class="tex-center">@lang("layouts/footer.subscribeToPlanning")</h4>
+    <h4 class="tex-center">@lang("layouts/footer.tellUsSomething")</h4>
   </div>
 
   <div class="mt-5 text-center">
     <form class="" action="" method="post">
       <div class="form-group">
         <div class="input-group emailInput offset-md-4 col-md-4 offset-md-4">
-          <!--<div class="input-group-addon">@</div>
-          <input type="text" class="form-control text-center  col-xs-9" name="email" value="" placeholder='@lang("layouts/footer.writeEmail")'>
-          <a href="mailto:balmeshealthybox@gmail.com" class="mx-auto text-center  col-xs-9" target="_top"><button type="button" class="btn btn-default" name="button">Write email</button></a>-->
-          <button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts btn-yellow"><a href="mailto:balmeshealthybox@gmail.com" class="" target="_top">Write email</a></button>
+          <button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts btn-yellow"><a href="mailto:balmeshealthybox@gmail.com" class="" target="_top">@lang("layouts/footer.sendEmail")</a></button>
         </div>
       </div>
     </form>

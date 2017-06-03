@@ -184,6 +184,10 @@ h2 {
   color: black!important;
 }
 
+.btn-font-black a:hover {
+  font: gray!important;
+}
+
 /*  ~ Product index ~ */
 
 .card-wrapper{

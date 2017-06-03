@@ -87,21 +87,33 @@
           </ol>
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
-              <img class="image-fluid" src="/img/plans/2.png" alt="Charming plan">
+              @if(Session::get('locale')=='es')
+                <img class="image-fluid" src="/img/plans/charming_es.png" alt="Charming plan">
+              @else
+                <img class="image-fluid" src="/img/plans/charming_en.png" alt="Charming plan">
+              @endif
               <div class="carousel-caption d-md-block">
-                <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel" type="button" name="button"><a href="/products">@lang("welcome.subscribe")</a></button>
+                <a href="/user/panel/plan/subscribe/1"><button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel" type="button" name="button">@lang("welcome.subscribe")</button></a>
               </div>
             </div>
             <div class="carousel-item">
-              <img class="image-fluid" src="/img/plans/3.png" alt="Pro plan">
+              @if(Session::get('locale')=='es')
+                <img class="image-fluid" src="/img/plans/pro_es.png" alt="Pro plan">
+              @else
+                <img class="image-fluid" src="/img/plans/pro_en.png" alt="Pro plan">
+              @endif
               <div class="carousel-caption d-md-block">
-                <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel" type="button" name="button"><a href="/products">@lang("welcome.subscribe")</a></button>
+                <a href="/user/panel/plan/subscribe/2"><button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel" type="button" name="button">@lang("welcome.subscribe")</button></a>
               </div>
             </div>
             <div class="carousel-item">
-              <img class="image-fluid" src="/img/plans/4.png" alt="Premium plan">
+              @if(Session::get('locale')=='es')
+                <img class="image-fluid" src="/img/plans/premium_es.png" alt="Premium plan">
+              @else
+                <img class="image-fluid" src="/img/plans/premium_es.png" alt="Premium plan">
+              @endif
               <div class="carousel-caption d-md-block">
-                <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel" type="button" name="button"><a href="/products">@lang("welcome.subscribe")</a></button>
+                <a href="/user/panel/plan/subscribe/3"><button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-font-black btn-middle-carousel" type="button" name="button">@lang("welcome.subscribe")</button></a>
               </div>
             </div>
           </div>
@@ -116,10 +128,16 @@
         </div><!-- / Carousel -->
         <!-- Alternative to Carousel - hidden md up -->
         <div class="hidden-md-up">
-          <img src="/img/plans/2.png" class="img-fluid mb-1" alt="">
-          <img src="/img/plans/3.png" class="img-fluid mb-1" alt="">
-          <img src="/img/plans/4.png" class="img-fluid mb-1" alt="">
-          <button class="btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="button" name="button"><a href="/products">@lang("welcome.subscribe")</a></button>
+          @if(Session::get('locale')=='es')
+            <img class="img-fluid mb-2" src="/img/plans/charming_es.png" alt="Charming plan">
+            <img class="img-fluid mb-2" src="/img/plans/pro_es.png" alt="Pro plan">
+            <img class="img-fluid mb-2" src="/img/plans/premium_es.png" alt="Premium plan">
+          @else
+            <img class="img-fluid mb-2" src="/img/plans/charming_en.png" alt="Charming plan">
+            <img class="img-fluid mb-2" src="/img/plans/pro_en.png" alt="Pro plan">
+            <img class="img-fluid mb-2" src="/img/plans/premium_en.png" alt="Premium plan">
+          @endif
+          <button class="btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="button" name="button"><a href="/plans">@lang("welcome.subscribe")</a></button>
         </div><!-- / Alternative to Carousel -->
       </div>
     </div>
@@ -129,6 +147,7 @@
     <div id="about" class="col-sm-12 text-center">
       <h2 class="pt-2">@lang("welcome.about")</h2>
       <div class="row">
+
         <div class="side1 mt-5 col-md-4 col-sm-12">
           <div class="h-75 h-sm-50">
             <h4 class="font-22">@lang("welcome.aboutUs1Title")</h4>
@@ -140,7 +159,6 @@
             <h4><span data-count-from="4500" data-count-to="6000" class="stats">0</span></h4>
             <h6 class="text-uppercase lighter-font">@lang("welcome.linesCode")</h6>
           </div>
-
         </div>
 
         <div class="side2 mt-5 col-md-4 col-sm-12">
@@ -167,31 +185,9 @@
             <h4><span data-count-from="-80" data-count-to="101" class="stats">0</span></h4>
             <h6 class="text-uppercase lighter-font">@lang("welcome.cupsCoffee")</h6>
           </div>
-
         </div>
+
       </div>
-
-      <!-- Animated counters
-      <div class="row justify-content-center mt-2">
-        <!--<div class="col-sm-12 col-md-4">
-          <h4><i class="fa fa-code mr-0" aria-hidden="true"></i></h4>
-          <h4><span data-count-from="4500" data-count-to="22000" class="stats">0</span></h4>
-          <h6 class="text-uppercase lighter-font">@lang("welcome.linesCode")</h6>
-        </div>-->
-
-        <!--<div class="col-sm-12 col-md-4">
-          <h4><i class="fa fa-clock-o mr-0" aria-hidden="true"></i></h4>
-          <h4><span data-count-from="100" data-count-to="400" class="stats">0</span></h4>
-          <h6 class="text-uppercase lighter-font">@lang("welcome.hoursWorked")</h6>
-        </div>
-
-
-        <div class=" col-sm-12 col-md-4">
-          <h4><i class="fa fa-coffee mr-0" aria-hidden="true"></i></h4>
-          <h4><span data-count-from="-80" data-count-to="101" class="stats">0</span></h4>
-          <h6 class="text-uppercase lighter-font">@lang("welcome.cupsCoffee")</h6>
-        </div>
-      </div>-->
     </div>
   </div><!-- / about us -->
 
