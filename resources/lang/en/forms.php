@@ -1,6 +1,6 @@
 <?php
 return [
-    "dni" => "Identy card",
+    "dni" => "DNI",
     "ph_dni" => "Identy card number",
     "name"=>"Name",
     "first_surname"=>"First surname",
