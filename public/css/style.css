@@ -12,6 +12,10 @@ body {
     font-family: 'Martel Sans', sans-serif;
 }
 
+.sans-serif {
+  font-family: sans-serif;
+}
+
 h2 {
   font-size: 42px!important;
 }
@@ -186,6 +190,10 @@ h2 {
   color: black!important;
 }
 
+.btn-font-black a:hover {
+  font: gray!important;
+}
+
 /*  ~ Product index ~ */
 
 .card-wrapper{
@@ -310,6 +318,11 @@ h2 {
     padding-top: 10%;
     padding-bottom: 10%!important;
     background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/ep_naturalwhite.png");
+}
+
+.icon-anchor:link, .icon-anchor:visited {
+  text-decoration: inherit;
+  color: inherit;
 }
 
 .btn-yellow {
