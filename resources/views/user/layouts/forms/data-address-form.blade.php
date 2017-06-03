@@ -1,9 +1,10 @@
 @if(Auth::user()->address==null)
-    <h3 class="lighter-font text-center">@lang("user/data/data.addAddress")</h3>
+    <h3 class="text-center">@lang("user/data/data.addAddress")</h3>
 @else
-    <h3 CLASS="lighter-font text-center">@lang("user/data/data.updateAddress")</h3>
+    <h3 class="text-center">@lang("user/data/data.updateAddress")</h3>
 @endif
 <div class="offset-md-3 w-100">
+    <div class="error-address mt-3 text-center"></div>
     <form id="address_form" name="address_form" class="form-horizontal" role="form" method="POST" action="{{ route('user-address') }}">
         @if(Auth::user()->address!=null)
             {{method_field('PUT')}}

@@ -8,6 +8,8 @@
       <h5 class="allergy-ingredient-warning text-warning"><strong>Hey there!</strong> To make you sure we don't sent you stuff you're alergic at, please select your allergies on the list!</h5>
     </div>
 
+    <div class="error mt-3 text-center"></div>
+
     <table class="table">
       <th class="text-center">Allergy</th>
       <th class="text-center">Do you have it?</th>

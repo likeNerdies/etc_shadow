@@ -1,8 +1,8 @@
 <?php
 
 return [
-  "subscribeToPlanning" => "Suscríbete a nuestros planes",
-  "writeEmail" => "Escribe tu email",
+  "tellUsSomething" => "¿Quieres decirnos algo?",
+  "sendEmail" => "Envíanos un email",
   "needHelp" => "¿Necesitas ayuda?",
 ];
 

@@ -1,6 +1,6 @@
 <?php
 return [
-    "dni" => "Identy card",
+    "dni" => "DNI",
     "ph_dni" => "Identy card number",
     "name"=>"Name",
     "first_surname"=>"First surname",
@@ -32,5 +32,7 @@ return [
     "old_password"=>"Old password",
     "new_password"=>"New password",
     "repeat_password"=>"Repeat password",
+    "month"=>"Month",
+    "year"=>"Year",
 
 ];

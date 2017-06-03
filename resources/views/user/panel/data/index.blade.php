@@ -12,7 +12,7 @@
                     <div class="w-75 w-sm-85 mx-auto"> <!--block -->
                         <!-- Personal data -->
                         <div class="w-70 w-sm-100 mt-sm-500 profile-accordion mx-auto" role="tab" id="headingOne"> <!-- heading block -->
-                            <h4 class="text-center">
+                            <h4 class="text-center mb-0">
                                 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                    @lang("user/data/data.myPersonalData")
                                 </a>
@@ -27,15 +27,16 @@
                                 <!-- Change password -->
                                 <div class="w-75 w-sm-85 mx-auto mt-3">
                                   <div class="w-90 w-sm-100 mt-sm-500 profile-accordion mx-auto" role="tab" id="headingOneTwo"> <!-- heading block -->
-                                      <h4 class="text-center">
+                                      <h4 class="text-center mb-0">
                                           <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOneTwo" aria-expanded="true" aria-controls="collapseOneTwo">
-                                            <h5 class="text-center">@lang("user/data/data.changePassword")</h5>
+                                            <h5 class="text-center mb-0">@lang("user/data/data.changePassword")</h5>
                                           </a>
                                       </h4>
                                   </div>
 
                                   <!-- Change password collapse -->
                                   <div id="collapseOneTwo" class="panel-collapse collapse in w-80 w-sm-100 mx-auto" role="tabpanel" aria-labelledby="headingOneTwo"> <!--content block -->
+                                      <div class="error-password mt-3 text-center"></div>
                                       <div class="panel-body pt-3">
                                         @include('user.layouts.forms.reset-password-form')
                                       </div>
@@ -47,7 +48,7 @@
                     <div class="w-100 w-sm-100 mx-auto mt-4">
                         <!-- Address -->
                         <div class="w-70 w-sm-100 mx-auto profile-accordion" role="tab" id="headingTwo">
-                            <h4 class="text-center">
+                            <h4 class="text-center mb-0">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                     @lang("user/data/data.myAddress")
                                 </a>

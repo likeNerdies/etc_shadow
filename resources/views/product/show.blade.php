@@ -19,25 +19,24 @@
 
                         <div class="carousel-inner w-100 h-100 mx-auto" role="listbox">
                             <div class="active carousel-item" data-slide-number="0">
-                                <img class="d-block img-fluid mx-auto" src="/products/{{$product->images->first()->id}}/image">
+                                <img class="d-block img-fluid" src="/products/{{$product->id}}/image/0" alt="{{_t($product->name,[],Session::get('locale'))}}">
                             </div>
 
                             <div class="carousel-item" data-slide-number="1">
-                                <img class="d-block img-fluid mx-auto" src="/products/{{$product->images->first()->id}}/image">
+                                <img class="d-block img-fluid" src="/products/{{$product->id}}/image/1" alt="{{_t($product->name,[],Session::get('locale'))}}">
                             </div>
 
                             <div class="carousel-item" data-slide-number="2">
-                                <img class="d-block img-fluid mx-auto" src="/products/{{$product->images->first()->id}}/image">
+                                <img class="d-block img-fluid" src="/products/{{$product->id}}/image/2" alt="{{_t($product->name,[],Session::get('locale'))}}">
                             </div>
-
                         </div><!-- Carousel nav -->
                         <a style="top:-30%;" class="carousel-control-prev" href="#image" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
+                            <span class="sr-only">@lang('product/product.previous')</span>
                         </a>
                         <a style="top:-30%;" class="carousel-control-next" href="#image" role="button" data-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
+                            <span class="sr-only">@lang('product/product.next')</span>
                         </a>
                     </div>
 
@@ -45,19 +44,19 @@
 
                         <div id="min-img-1" class="w-31 h-100">
                             <a id="carousel-selector-0">
-                                <img class="w-100 h-100" src="/products/{{$product->images->first()->id}}/image">
+                                <img class="w-100 h-100" src="/products/{{$product->id}}/image/0" alt="{{_t($product->name,[],Session::get('locale'))}}">
                             </a>
                         </div>
 
                         <div id="min-img-2" class="w-31 h-100">
                             <a id="carousel-selector-1">
-                                <img class="w-100 h-100" src="/products/{{$product->images->first()->id}}/image">
+                                <img class="w-100 h-100" src="/products/{{$product->id}}/image/1" alt="{{_t($product->name,[],Session::get('locale'))}}">
                             </a>
                         </div>
 
                         <div id="min-img-3" class="w-31 h-100">
                             <a id="carousel-selector-2">
-                                <img class="w-100 h-100" src="/products/{{$product->images->first()->id}}/image">
+                                <img class="w-100 h-100" src="/products/{{$product->id}}/image/2" alt="{{_t($product->name,[],Session::get('locale'))}}">
                             </a>
                         </div>
                     </div>
@@ -66,8 +65,8 @@
                 <!-- Product information -->
                 <div id="wrapper-info" class="ml-md-2 pl-md-5">
                     <div id="info" class="w-100 h-100 pull-right px-4">
-                        <h3 class="product-name pt-5 text-center">{{$product->name}}<small class="product-brand">@if(isset($product->brand->name)){{$product->brand->name}}@else Brand @endif</small></h3>
-                        <h5 class="text-left mt-5">Description</h5>
+                        <h3 class="product-name pt-5 text-center">{{_t($product->name,[],Session::get('locale'))}}<small class="product-brand">@if(isset($product->brand->name)){{$product->brand->name}}@else  @endif</small></h3>
+                        <h5 class="text-left mt-5">@lang('product/product.description')</h5>
                         <p class="text-justify">{{_t($product->description,[],Session::get('locale'))}}</p>
                         <button type="button" class="btn btn-default text-brown button-no-decoration hidden-md-up" data-toggle="collapse" data-target="#ingredients" aria-expanded="false" aria-controls="ingredients">
                           <i class="fa fa-plus" aria-hidden="true"></i> Ingredients
@@ -75,14 +74,14 @@
                         <div class="collapse hidden-md-up" id="ingredients">
                           <div class="card card-block ingredients-card">
                               @foreach ($product->ingredients as $ingredient)
-                                <span><i class="fa fa-envira" aria-hidden="true"></i>{{ $ingredient->name }}</span>
+                                <span><i class="fa fa-envira" aria-hidden="true"></i>{{ _t($ingredient->name,[],Session::get('locale')) }}</span>
                               @endforeach
                           </div>
                         </div>
                         <div class="ingredients hidden-md-down">
-                          <h5 class="text-left mt-5 text-brown">Ingredients</h5>
+                          <h5 class="text-left mt-5 text-brown">@lang('product/product.ingredients')</h5>
                           @foreach ($product->ingredients as $ingredient)
-                            <p><span><i class="fa fa-envira" aria-hidden="true"></i>{{ $ingredient->name }}</span></p>
+                            <p><span><i class="fa fa-envira" aria-hidden="true"></i>{{ _t($ingredient->name,[],Session::get('locale')) }}</span></p>
                           @endforeach
                         </div>
 

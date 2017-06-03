@@ -1,6 +1,8 @@
 <?php
 
 return [
+  "planExplanation" => "¡Elijas el que elijas, nuestra IA te preparará una caja con productos personalizados!",
+  "planExplanation2" => "Haznos saber tus alergias/intolerancias y los ingredientes que no te gustan en el menú <strong>Alergias e ingredientes</strong> de tu perfil.",
   "noPlan" => "¡Aún no tienes ningún plan!",
   "wannaSubscribe" => "¿Quieres suscribirte?",
   "hasPlan" => "Genial! Estás suscrito al plan ",
@@ -24,6 +26,7 @@ return [
   "charmingSubtitle" => "¡Tenemos el plan para ti!",
   "charmingSlogan" => "El plan Charming es pequeño pero lleno de encanto.",
   "charmingProductsList" => "4 productos: Una bebida (leche sin lácteos o zumo natural), un paquete de galletas, una caja de cereales y un paquete de barritas.",
+    "notSufficient"=>"Echa un ojo a otros planes que tenemos para ti"
 
 ];
 

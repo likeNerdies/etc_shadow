@@ -12,8 +12,16 @@ body {
     font-family: 'Martel Sans', sans-serif;
 }
 
+.sans-serif {
+  font-family: sans-serif;
+}
+
 h2 {
   font-size: 42px!important;
+}
+
+.small {
+  font-size: 15px;
 }
 
 .font-22 {
@@ -57,7 +65,7 @@ h2 {
 }
 
 .mt-10 {
-  margin-top: 10%;
+  margin-top: 10vh;
 }
 
 .mt-15 {
@@ -66,6 +74,10 @@ h2 {
 
 .mt-80p {
   margin-top: 80px;
+}
+
+.mt-100p {
+  margin-top: 100px;
 }
 
 .mb-100p {
@@ -186,6 +198,10 @@ h2 {
   color: black!important;
 }
 
+.btn-font-black a:hover {
+  font: gray!important;
+}
+
 /*  ~ Product index ~ */
 
 .card-wrapper{
@@ -198,8 +214,19 @@ h2 {
 }
 
 @media (max-width: 768px) {
+
+  #needHelpFooter {
+    text-align: center!important;
+    float: none!important;
+    margin-left: 27%;
+  }
+
   .mt-sm-500 {
     margin-top: 5%;
+  }
+
+  .mt-sm-80p {
+    margin-top: 80px;
   }
 
   .h-sm-50 {
@@ -214,7 +241,14 @@ h2 {
     width: 100%;
   }
 
-  .
+  #plans-explanation {
+    font-size: 20px;
+  }
+
+  #plans-explanation-p {
+    margin-top: 15px;
+    font-size: 12px;
+  }
 }
 
 .card {
@@ -312,6 +346,11 @@ h2 {
     background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/ep_naturalwhite.png");
 }
 
+.icon-anchor:link, .icon-anchor:visited {
+  text-decoration: inherit;
+  color: inherit;
+}
+
 .btn-yellow {
   background-color: #ffb640;
 }
@@ -321,7 +360,7 @@ h2 {
   margin-right: 15px;
 }
 
-#needHelpFooter {// "Need some help?"
+#needHelpFooter {
    margin-right: 2%;
    margin-top: 5%;
    float: right; // Both necessary
@@ -932,6 +971,10 @@ span.caret-down::after{
 
 
 @media (max-width: 480px){
+
+  .plan-section {
+    padding: 1rem 1rem!important;
+  }
 
     #tog-profile{
         top: 10px;
