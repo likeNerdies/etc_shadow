@@ -1,6 +1,9 @@
 <?php
 
 return [
+  "planExplanation" => "Whichever you choose, our AI will set up a box for you with personalized products!",
+  "planExplanation2" => "Just let usknow your allergies/intolerances and the ingredients you don't like in the
+  <strong>Allergies and ingredients</strong> menu on your profile.",
   "noPlan" => "You don't have any plan yet!",
   "wannaSubscribe" => "Wanna subscribe?",
   "hasPlan" => "Great! You're subscribed to ",

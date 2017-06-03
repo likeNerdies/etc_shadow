@@ -8,9 +8,8 @@
   @include('layouts.navbar')
 
   <div class="container justify-content-center mt-100p mt-sm-80p">
-    <h4 id="plans-explanation" class="text-center">Whichever you choose, our IA will send you a box with personalized products in it!</h4>
-    <p id="plans-explanation-p" class="text-center small hidden-md-down">Just let usknow your allergies/intolerances and the ingredients you don't like in the
-    "Allergies and ingredients" menu on your profile.</p>
+    <h4 id="plans-explanation" class="text-center">@lang("user/plan/plan.planExplanation")</h4>
+    <p id="plans-explanation-p" class="text-center small hidden-md-down">@lang("user/plan/plan.planExplanation2")</p>
 
       <!-- Charming -->
       <div class="row mr-sm-0 section charming-bg-color plan-section p-5 mr-md-5">
@@ -54,8 +53,7 @@
         </div>
       </div>
 
-      <p id="plans-explanation-p" class="text-center small hidden-md-up">Let usknow your allergies/intolerances and the ingredients you don't like in the
-      "Allergies and ingredients" menu on your profile.</p>
+      <p id="plans-explanation-p" class="text-center small hidden-md-up">@lang("user/plan/plan.planExplanation2")</p>
 
      <!-- <div class="row section p-5 mr-md-5">
         <div class="col-md-9 text-center">
