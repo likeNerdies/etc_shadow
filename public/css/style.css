@@ -8,7 +8,6 @@ html, body{
     min-height: 100% !important;
 }
 body {
-    overflow-y: scroll;
     font-family: 'Martel Sans', sans-serif;
 }
 
@@ -444,6 +443,8 @@ h2 {
 
 }
 
+
+
 #sidebar-wrapper{
     display: block;
     width: 20%;
@@ -740,7 +741,7 @@ span.caret-down::after{
 
     #main-app{
         overflow-x: hidden;
-        overflow-y: scroll;
+        overflow-y: hidden;
     }
 
     /*test*/
@@ -1066,6 +1067,8 @@ span.caret-down::after{
 
 /* For footer */
 @media (min-width: 768px) {
+
+
     #tog-profile{
         left: 86%;
         top: 11px;
@@ -1143,10 +1146,12 @@ span.caret-down::after{
 
 
     .group-input{
-        width: 100%;
+        width: 50%;
     }
 
-
+    .mar-auto{
+        margin: auto;
+    }
     /*</USER>*/
 
 
