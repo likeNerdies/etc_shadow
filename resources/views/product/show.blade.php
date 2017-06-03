@@ -9,33 +9,33 @@
     <div id="main-wrapper">
         <div id="content-wrapper-show">
             <div id="wrapper-product" class="d-flex flex-md-row flex-column">
-                <div id="wrapper-image"><!-- carousel -->
-                    <div id="image" class="carousel w-80 mx-auto slide h-70" data-ride="false">
+                <div style="position:relative;background: lightblue;" id="wrapper-image" style="background: lightblue"><!-- carousel -->
+                    <div style="position:static;" id="image" class="carousel w-80 mx-auto slide h-70" data-ride="false">
                         <ol class="carousel-indicators">
                             <li data-target="#image" data-slide-to="0" class="active ci-1"></li>
                             <li data-target="#image" data-slide-to="1" class="ci-2"></li>
                             <li data-target="#image" data-slide-to="2" class="ci-3"></li>
                         </ol>
 
-                        <div class="carousel-inner h-100" role="listbox">
+                        <div class="carousel-inner w-100 h-100 mx-auto" role="listbox">
                             <div class="active carousel-item" data-slide-number="0">
-                                <img class="d-block img-fluid" src="/products/{{$product->images->first()->id}}/image">
+                                <img class="d-block img-fluid mx-auto" src="/products/{{$product->images->first()->id}}/image">
                             </div>
 
                             <div class="carousel-item" data-slide-number="1">
-                                <img class="d-block img-fluid" src="/products/{{$product->images->first()->id}}/image">
+                                <img class="d-block img-fluid mx-auto" src="/products/{{$product->images->first()->id}}/image">
                             </div>
 
                             <div class="carousel-item" data-slide-number="2">
-                                <img class="d-block img-fluid" src="/products/{{$product->images->first()->id}}/image">
+                                <img class="d-block img-fluid mx-auto" src="/products/{{$product->images->first()->id}}/image">
                             </div>
 
                         </div><!-- Carousel nav -->
-                        <a class="carousel-control-prev" href="#image" role="button" data-slide="prev">
+                        <a style="top:-30%;" class="carousel-control-prev" href="#image" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Previous</span>
                         </a>
-                        <a class="carousel-control-next" href="#image" role="button" data-slide="next">
+                        <a style="top:-30%;" class="carousel-control-next" href="#image" role="button" data-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="sr-only">Next</span>
                         </a>

@@ -1,7 +1,7 @@
 @extends('user.layouts.panel')
 @section('title','Profile')
 @section('right-panel')
-    
+
   <div class="container text-center ml-3rem">
 
     <!-- Welcome -->
@@ -31,7 +31,7 @@
         <div class="row mt-10">
 
 
-            <div class="col-8">
+            <div class="col-md-8">
                 @if(Auth::user()->plan==null)
                     <div class="container-fluid pr-0 pl-0 mt-10">
                         <div class="plans-background-image"></div><!-- Potser un carousel -->
@@ -172,8 +172,8 @@
             </div>
 
             <!----------------boxes recibidos-------------->
-            <div class="col-4">
-                <h3 class="col-12 text-center mt-10 mb-5">@lang('user/profile/profile.last_boxes')</h3>
+            <div class="col-md-4">
+                <h3 class="text-center mt-10 mb-5">@lang('user/profile/profile.last_boxes')</h3>
             @if(!count($boxes)==0)
                 <?php $id = 0 ?>
                 @for ($i=0;$i<5;$i++)<!-- Si ya ha recibido anteriormente cajas -->
