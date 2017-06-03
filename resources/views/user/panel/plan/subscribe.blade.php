@@ -101,7 +101,9 @@
                                                     <input  id="subscribe_btn" type="button" class="btn btn-mb-subscribe" value="@lang('user/plan/subscribe.change')">
                                                 </div>
 
-
+                                        </div>
+                                    </form>
+                                </div>
                             @endif
                         @else
 
@@ -169,6 +171,7 @@
                 @endif
             </div>
         </div>
+    </div>
     </div>
     </div>
     </div>
