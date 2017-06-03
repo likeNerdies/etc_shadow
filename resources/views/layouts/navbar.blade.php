@@ -20,10 +20,14 @@
             @endif
         </li>
         <li class="nav-item px-5">
-          <a class="nav-link only page-scroll" href="#plans">@lang('welcome.plans')</a>
+          @if(Auth::check())
+            <a class="nav-link only page-scroll" href="/plans">@lang('welcome.plans')</a>
+          @else
+            <a class="nav-link only page-scroll" href="/#plans">@lang('welcome.plans')</a>
+          @endif
         </li>
         <li class="nav-item  px-5">
-          <a class="nav-link only page-scroll" href="#about">@lang('welcome.about')</a>
+          <a class="nav-link only page-scroll" href="/#about">@lang('welcome.about')</a>
         </li>
       </ul>
 

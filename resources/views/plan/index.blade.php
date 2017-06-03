@@ -6,13 +6,14 @@
 
 @section('content')
   @include('layouts.navbar')
-  <div class="container-fluid pr-0 pl-0 mt-10">
-    <div class="plans-background-image"></div><!-- Potser un carousel -->
-  </div>
-  <div class="container justify-content-center">
+
+  <div class="container justify-content-center mt-100p mt-sm-80p">
+    <h4 id="plans-explanation" class="text-center">Whichever you choose, our IA will send you a box with personalized products in it!</h4>
+    <p id="plans-explanation-p" class="text-center small hidden-md-down">Just let usknow your allergies/intolerances and the ingredients you don't like in the
+    "Allergies and ingredients" menu on your profile.</p>
 
       <!-- Charming -->
-      <div class="row mr-sm-0 section charming-bg-color p-5 mr-md-5">
+      <div class="row mr-sm-0 section charming-bg-color plan-section p-5 mr-md-5">
         <div class="col-md-9">
           <h3 class="text-center">@lang("user/plan/plan.charmingTitle")</h3>
           <h3 class="text-center subtitle">@lang("user/plan/plan.charmingSubtitle")</h3>
@@ -26,7 +27,7 @@
       </div>
 
       <!-- Pro -->
-      <div class="row section pro-bg-color p-5 mr-md-5">
+      <div class="row section pro-bg-color plan-section p-5 mr-md-5">
         <div class="col-md-9">
           <h3 class="text-center">@lang("user/plan/plan.proTitle")</h3>
           <h3 class="text-center subtitle">@lang("user/plan/plan.proSubtitle")</h3>
@@ -40,7 +41,7 @@
       </div>
 
       <!-- Premium -->
-      <div class="row section premium-bg-color p-5 mr-md-5">
+      <div class="row section premium-bg-color plan-section p-5 mr-md-5">
         <div class="col-md-9">
           <h3 class="text-center">@lang("user/plan/plan.premiumTitle")</h3>
           <h3 class="text-center subtitle">@lang("user/plan/plan.premiumSubtitle")</h3>
@@ -53,6 +54,9 @@
         </div>
       </div>
 
+      <p id="plans-explanation-p" class="text-center small hidden-md-up">Let usknow your allergies/intolerances and the ingredients you don't like in the
+      "Allergies and ingredients" menu on your profile.</p>
+
      <!-- <div class="row section p-5 mr-md-5">
         <div class="col-md-9 text-center">
           <h3 class="">@lang("user/plan/plan.notEnough")</h3>
@@ -64,12 +68,5 @@
     </div>
 @endsection
 @section('scriptsPersonalizados')
-  <script src="{{asset('/js/libraries/slick/jquery-migrate.min.js')}}"></script>
-  <script src="{{asset('/js/libraries/slick/slick.min.js')}}"></script>
-
-  <script type="text/javascript">
-      $(document).ready(function(){
-        $('.single-item').slick();
-      });
-  </script>
+  <script src="{{asset('/js/welcome/welcome_script.js')}}"></script><!-- Includes navbar animations --->
 @endSection
