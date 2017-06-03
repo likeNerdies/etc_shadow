@@ -231,6 +231,8 @@ Route::prefix('/search')->group(function () {
 
     Route::get('/client', 'Search\SearchController@client')->middleware('auth:admin')->name('search.client');
 
+    Route::get('/transporter', 'Search\SearchController@transporter')->middleware('auth:admin')->name('search.transporter');
+
     //per graphics
     Route::get('/currentYearMonthSubs', 'Search\SearchController@getCurrentYearMonthlySubs')->middleware('auth:admin')->name('search.currentMonthSubscribers');
     Route::get('/totalUserPerPlan', 'Search\SearchController@getTotalPlanUser')->middleware('auth:admin')->name('search.usersPerPlan');

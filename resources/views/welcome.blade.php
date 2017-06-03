@@ -88,19 +88,19 @@
             <div class="carousel-item active">
               <img class="image-fluid" src="/img/plans/2.png" alt="Charming plan">
               <div class="carousel-caption d-md-block">
-                <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel" type="button" name="button"><a href="/products">@lang("welcome.subscribe")</a></button>
+                <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel" type="button" name="button"><a href="/user/panel/plan/subscribe/1">@lang("welcome.subscribe")</a></button>
               </div>
             </div>
             <div class="carousel-item">
               <img class="image-fluid" src="/img/plans/3.png" alt="Pro plan">
               <div class="carousel-caption d-md-block">
-                <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel" type="button" name="button"><a href="/products">@lang("welcome.subscribe")</a></button>
+                <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel" type="button" name="button"><a href="/user/panel/plan/subscribe/2">@lang("welcome.subscribe")</a></button>
               </div>
             </div>
             <div class="carousel-item">
               <img class="image-fluid" src="/img/plans/4.png" alt="Premium plan">
               <div class="carousel-caption d-md-block">
-                <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel" type="button" name="button"><a href="/products">@lang("welcome.subscribe")</a></button>
+                <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel" type="button" name="button"><a href="/user/panel/plan/subscribe/3">@lang("welcome.subscribe")</a></button>
               </div>
             </div>
           </div>
@@ -118,7 +118,7 @@
           <img src="/img/plans/2.png" class="img-fluid mb-1" alt="">
           <img src="/img/plans/3.png" class="img-fluid mb-1" alt="">
           <img src="/img/plans/4.png" class="img-fluid mb-1" alt="">
-          <button class="btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="button" name="button"><a href="/products">@lang("welcome.subscribe")</a></button>
+          <button class="btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="button" name="button"><a href="/plans">@lang("welcome.subscribe")</a></button>
         </div><!-- / Alternative to Carousel -->
       </div>
     </div>
