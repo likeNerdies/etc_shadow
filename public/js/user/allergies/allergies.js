@@ -38,7 +38,8 @@ $(document).ready(function () {
                 }
             },
             error: function (data) {
-                //todo
+              console.log('Error:', data);
+              $('.error').addClass("alert alert-danger").html("There was an internal error");
             }
 
         });

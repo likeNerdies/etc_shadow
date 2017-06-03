@@ -44,6 +44,7 @@ $(document).ready(function () {
         }
     });
 
+    // update password
     $(document).on('click', '#btn_change_pw', function (e) {
         if (validateUserPWReset()) {
             $.ajaxSetup({
@@ -53,7 +54,6 @@ $(document).ready(function () {
             });
 
             e.preventDefault();
-
 
             var formData = {
                 old_password: $('#old_password').val(),
@@ -72,7 +72,15 @@ $(document).ready(function () {
                 data: formData,
                 dataType: 'json',
                 success: function (data) { // success:
-                  $('#btn_change_pw').replaceWith('<li class="btn btn-success float-right text-center"><i class="fa fa-check" aria-hidden="true"></i></li>');
+                  console.log("Data:")
+                  console.log(data.success);
+                  if (data.success) {
+                    $('#btn_change_pw').replaceWith('<li class="btn btn-success float-right text-center"><i class="fa fa-check" aria-hidden="true"></i></li>');
+                  } else {
+                    $('.error-password').addClass("alert alert-danger").html("The old password is not correct");
+                    $('#old_password').css('border-color', 'rgb(169, 68, 66)');
+                  }
+
                     console.log(data);
                 },
                 error: function (data) {
@@ -83,6 +91,7 @@ $(document).ready(function () {
     });
 
 
+    // add / update user address
     $(document).on('click', '#address_button_user', function (e) {
         if (validateAddress()) {
             $.ajaxSetup({
@@ -104,11 +113,12 @@ $(document).ready(function () {
                 data: formData,
                 dataType: 'json',
                 success: function (data) { // success:
-                    $('#address_button_user').replaceWith('<li class="btn btn-success float-right text-center"><i class="fa fa-check" aria-hidden="true"></i></li>');
                     console.log(data);
-                },
+                      $('#address_button_user').replaceWith('<li class="btn btn-success float-right text-center"><i class="fa fa-check" aria-hidden="true"></i></li>');
+                    },
                 error: function (data) {
                     console.log('Error:', data);
+                    $('.error-address').addClass("alert alert-danger").html("There was an internal error");
                 }
             });
         }

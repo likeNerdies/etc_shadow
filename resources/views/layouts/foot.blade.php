@@ -15,14 +15,14 @@
     </form>
   </div>
 
-  <div class="justify-content-md-center mt-5 text-center div-footer-i">
+  <div class="justify-content-md-center mt-5 mb-3 text-center div-footer-i">
     <a href="http://www.jaumebalmes.net/" class="icon-anchor"><i class="fa fa-graduation-cap" aria-hidden="true"></i></a>
     <a href="https://github.com/likeNerdies/etc_shadow" class="icon-anchor"><i class="fa fa-github" aria-hidden="true"></i></a>
     <a href="https://plus.google.com/106213986352561208329?hl=es" class="icon-anchor"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
   </div>
 
   <!--<h6 id="needHelpFooter" class=""><a href="/help">@lang("layouts/footer.needHelp")</a></h6>-->
-  <a id="needHelpFooter" href="/help" class="icon-anchor"><i class="fa fa-question-circle" aria-hidden="true"></i>@lang("layouts/footer.needHelp")</a>
+  <span><a id="needHelpFooter" href="/help" class="icon-anchor"><i class="fa fa-question-circle" aria-hidden="true"></i>@lang("layouts/footer.needHelp")</a></span>
 
 </div>
 
