@@ -222,11 +222,11 @@ $(document).ready(function () {
                         for (i = 0; i < data.length; i++) {
                             var ingredient = '<tr id="ingredient' + data[i].ingredient.id + '"><td id="id">' + data[i].ingredient.id + '</td><td>' + data[i].ingredient.name + '</td>';
                             if (data[i].ingredient.info == null) {
-                                ingredient += '<td></td>';
+                                ingredient += '<td class="media-480-delete"></td>';
                             } else {
-                                ingredient += '<td>' + data[i].ingredient.info + '</td>';
+                                ingredient += '<td class="media-480-delete">' + data[i].ingredient.info + '</td>';
                             }
-                            ingredient += '<td>';
+                            ingredient += '<td class="media-767-delete">';
                             if (data[i].allergies.length == 0) {
                                 ingredient += '<p>This ingredient has no allergies</p>';
                             } else {
@@ -236,7 +236,7 @@ $(document).ready(function () {
                             }
                             ingredient += '</td>';
                             ingredient += '<td id="ingredient-img"><img  id="myImg_'+data[i].ingredient.id+'" class="img-thumbnail" src="/admin/ingredients/'+data[i].ingredient.id+'/image" width="48.2" height="48.2"></td>';//for images
-                            ingredient += '<td>' + data[i].ingredient.created_at + '</td>';
+                            ingredient += '<td class="media-767-delete">' + data[i].ingredient.created_at + '</td>';
                             ingredient += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].ingredient.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
 
                             ingredient += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-ingredient" value="' + data[i].ingredient.id  + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button>';

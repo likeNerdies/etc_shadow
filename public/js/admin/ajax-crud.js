@@ -125,15 +125,15 @@ $(document).ready(function() {
                     console.log(data);
                     var admin = '<tr id="admin' + data.id + '"><td id="id">' + data.id + '</td>';
                     if (data.dni != null) {
-                        admin += '<td>' + data.dni + '</td>';
+                        admin += '<td class="media-767-delete">' + data.dni + '</td>';
                     } else {
-                        admin += '<td></td>';
+                        admin += '<td class="media-767-delete"></td>';
                     }
-                    admin += '<td>' + data.name + '</td><td>' + data.first_surname + '</td><td>' + data.email + '</td>';
+                    admin += '<td>' + data.name + '</td><td class="media-767-delete">' + data.first_surname + '</td><td>' + data.email + '</td>';
                     if (data.phone_number != null) {
-                        admin += '<td>' + data.phone_number + '</td>';
+                        admin += '<td class="media-767-delete">' + data.phone_number + '</td>';
                     } else {
-                        admin += '<td></td>';
+                        admin += '<td class="media-767-delete"></td>';
                     }
                     admin += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
 
@@ -177,15 +177,15 @@ $(document).ready(function() {
                     for (i=0;i<data.length;i++){
                         var admin='<tr id="admin' + data[i].id + '"><td id="id">' + data[i].id + '</td>';
                         if(data[i].dni!=null){
-                            admin+='<td>'+data[i].dni+'</td>';
+                            admin+='<td class="media-767-delete">'+data[i].dni+'</td>';
                         }else{
-                            admin+='<td></td>';
+                            admin+='<td class="media-767-delete"></td>';
                         }
-                        admin += '<td>' + data[i].name + '</td><td>' + data[i].first_surname + '</td><td>' + data[i].email + '</td>';
+                        admin += '<td>' + data[i].name + '</td><td class="media-767-delete">' + data[i].first_surname + '</td><td>' + data[i].email + '</td>';
                         if(data[i].phone_number!=null){
-                            admin+='<td>'+data[i].phone_number+'</td>';
+                            admin+='<td class="media-767-delete">'+data[i].phone_number+'</td>';
                         }else{
-                            admin+='<td></td>';
+                            admin+='<td class="media-767-delete"></td>';
                         }
                         admin += '<td><button style="margin-right:2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
 

@@ -20,8 +20,8 @@ class CreateIngredientUserTable extends Migration
             $table->timestamps();
         });
         Schema::table('ingredient_user',function (Blueprint $table){
-            $table->foreign('ingredient_id')->references('id')->on('ingredients');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('ingredient_id')->references('id')->on('ingredients')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

@@ -20,8 +20,8 @@ class CreateAllergyUserTable extends Migration
             $table->timestamps();
         });
         Schema::table('allergy_user',function (Blueprint $table){
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('allergy_id')->references('id')->on('allergies');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('allergy_id')->references('id')->on('allergies')->onDelete('cascade');
         });
     }
 
