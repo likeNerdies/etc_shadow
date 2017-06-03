@@ -206,15 +206,15 @@ $(document).ready(function () {
                         for (i = 0; i < data.length; i++) {
                             var client = '<tr id="client' + data[i].client.id + '"><td id="id">' + data[i].client.id + '</td>';
                             if (data[i].client.dni != null) {
-                                client += '<td>' + data[i].client.dni + '</td>';
+                                client += '<td class="media-767-delete">' + data[i].client.dni + '</td>';
                             } else {
-                                client += '<td></td>';
+                                client += '<td class="media-767-delete"></td>';
                             }
-                            client += '<td>' + data[i].client.name + '</td><td>' + data[i].client.first_surname + '</td><td>' + data[i].client.email + '</td>';
+                            client += '<td>' + data[i].client.name + '</td><td class="media-767-delete">' + data[i].client.first_surname + '</td><td class="media-480-delete">' + data[i].client.email + '</td>';
                             if (data[i].client.phone_number != null) {
-                                client += '<td>' + data[i].client.phone_number + '</td>';
+                                client += '<td class="media-480-delete">' + data[i].client.phone_number + '</td>';
                             } else {
-                                client += '<td></td>';
+                                client += '<td class="media-480-delete"></td>';
                             }
                             if (data[i].plan != null) {
                                 client += '<td>Plan : ' + data[i].plan.name + '</td>';

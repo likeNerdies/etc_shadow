@@ -155,7 +155,7 @@ $(document).ready(function() {
                 }else{
                     $('#brand-list').empty();
                     for (i=0;i<data.length;i++){
-                        var brand = '<tr id="brand' + data[i].id + '"><td id="id">' + data[i].id + '</td><td>' + data[i].name + '</td><td>' + data[i].info + '</td><td>' + data[i].created_at + '</td>';
+                        var brand = '<tr id="brand' + data[i].id + '"><td id="id">' + data[i].id + '</td><td>' + data[i].name + '</td><td>' + data[i].info + '</td><td class="media-767-delete">' + data[i].created_at + '</td>';
                         brand += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
 
                         brand += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-brand" value="' + data[i].id + '"><span class="hidden-md-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button></td></tr>';

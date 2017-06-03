@@ -111,9 +111,9 @@ $(document).ready(function() {
                     var plan = '<tr id="plan' + data.plan.id + '"><td id="id">' + data.plan.id + '</td><td>' + data.plan.name + '</td><td>' + data.plan.price + '</td>';
 
                     if (data.plan.info != null) {
-                        plan += '<td>' + data.plan.info + '</td>';
+                        plan += '<td class="media-767-delete">' + data.plan.info + '</td>';
                     } else {
-                        plan += '<td></td>';
+                        plan += '<td class="media-767-delete"></td>';
                     }
 
                     if(data.can_create){
@@ -175,9 +175,9 @@ $(document).ready(function() {
                         var plan = '<tr id="plan' + data.plan[i].id + '"><td id="id">' + data.plan[i].id + '</td><td>' + data.plan[i].name + '</td><td>' + data.plan[i].price + '</td>';
 
                         if(data.plan[i].info!=null){
-                            plan+='<td>' + data.plan[i].info + '</td>';
+                            plan+='<td class="media-767-delete">' + data.plan[i].info + '</td>';
                         }else{
-                            plan+='<td></td>';
+                            plan+='<td class="media-767-delete"></td>';
                         }
                         if(data.can_create){
                         plan += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.plan[i].id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';

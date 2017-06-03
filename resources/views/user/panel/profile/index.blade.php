@@ -30,15 +30,14 @@
 
         <div class="row mt-10">
 
-
             <div class="col-md-8">
                 @if(Auth::user()->plan==null)
-                    <div class="container-fluid pr-0 pl-0 mt-10">
-                        <div class="plans-background-image"></div><!-- Potser un carousel -->
-                    </div>
-                    <div class="container text-center mt-5">
+                    <!--<div class="container-fluid pr-0 pl-0 mt-10">
+                        <div class="plans-background-image"></div>--><!-- Potser un carousel -->
+                    <!--</div>-->
+                    <div class="text-center">
                         <h1 class="lighter-font">Hey! Take a look at our plans!</h1>
-                        <div id="carousel-plans" class="carousel slide mt-5 ml-5 hidden-md-down w-90"
+                        <div id="carousel-plans" class="carousel slide mt-5 hidden-md-down w-90"
                              data-ride="carousel">
                             <ol class="carousel-indicators">
                                 <li data-target="#carousel-plans" data-slide-to="0" class="active"></li>

@@ -103,7 +103,7 @@ $(document).ready(function() {
                 success: function (data) { // success:
                     console.log(data);
 
-                    var transporter = '<tr id="transporter' + data.id + '"><td>' + data.id + '</td><td>' + data.name + '</td><td>' + data.cif + '</td><td>' + data.phone_number + '</td>';
+                    var transporter = '<tr id="transporter' + data.id + '"><td>' + data.id + '</td><td>' + data.name + '</td><td class="media-480-delete">' + data.cif + '</td><td>' + data.phone_number + '</td>';
 
                     transporter += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
 
@@ -157,7 +157,7 @@ $(document).ready(function() {
                 }else{
                     $('#transporter-list').empty();
                     for (i=0;i<data.length;i++){
-                        var transporter = '<tr id="transporter' + data[i].id + '"><td>' + data[i].id + '</td><td>' + data[i].name + '</td><td>' + data[i].cif + '</td><td>' + data[i].phone_number + '</td>';
+                        var transporter = '<tr id="transporter' + data[i].id + '"><td>' + data[i].id + '</td><td>' + data[i].name + '</td><td class="media-480-delete">' + data[i].cif + '</td><td>' + data[i].phone_number + '</td>';
                         transporter += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
 
                         transporter += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-transporter" value="' + data[i].id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button></td></tr>';

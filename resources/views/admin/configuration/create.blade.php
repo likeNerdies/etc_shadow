@@ -28,11 +28,11 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th class="media-480-delete media-767-delete">DNI</th>
+                                <th class="media-767-delete">DNI</th>
                                 <th>Name</th>
-                                <th class="media-480-delete media-767-delete">Surname</th>
+                                <th class="media-767-delete">Surname</th>
                                 <th>Email</th>
-                                <th class="media-480-delete media-767-delete">Phone Number</th>
+                                <th class="media-767-delete">Phone Number</th>
                                 @if(Auth::user()->can_create)
                                     <th>Actions</th>
                                 @endif
@@ -43,17 +43,17 @@
                                 <tr id="admin{{$admin->id}}">
                                     <td id="id">{{$admin->id}}</td>
                                     @if($admin->dni==null)
-                                        <td class="media-480-delete media-767-delete"></td>
+                                        <td class="media-767-delete"></td>
                                     @else
-                                        <td class="media-480-delete media-767-delete">{{$admin->dni}}</td>
+                                        <td class="media-767-delete">{{$admin->dni}}</td>
                                     @endif
                                         <td>{{$admin->name}}</td>
-                                        <td class="media-480-delete media-767-delete">{{$admin->first_surname}}</td>
+                                        <td class="media-767-delete">{{$admin->first_surname}}</td>
                                         <td>{{$admin->email}}</td>
                                     @if($admin->phone_number==null)
-                                        <td class="media-480-delete media-767-delete"></td>
+                                        <td class="media-767-delete"></td>
                                     @else
-                                        <td class="media-480-delete media-767-delete">{{$admin->phone_number}}</td>
+                                        <td class="media-767-delete">{{$admin->phone_number}}</td>
                                     @endif
                                     @if(Auth::user()->can_create)
                                         <td>
