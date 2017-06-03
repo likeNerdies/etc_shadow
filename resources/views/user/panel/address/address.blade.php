@@ -1,7 +1,7 @@
 @extends("user.layouts.panel")
 @section('title','Address')
 @section("right-panel")
-    <div class="container">
+    <div class="container ml-3rem">
         <div class="row">
             <div class="col-md-12">
                 @include("user.layouts.forms.data-address-form")

@@ -1,7 +1,7 @@
 @extends('user.layouts.panel')
 @section('title','My allergies')
 @section('right-panel')
-<div class="ml-15">
+<div class="ml-5rem">
   <div class="col-md-10 text-center">
 
     <div class="alert alert-warning mb-5">

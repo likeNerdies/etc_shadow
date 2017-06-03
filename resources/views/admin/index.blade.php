@@ -23,7 +23,7 @@
                             <span>{{ $profit["charming"] + $profit["pro"] + $profit["premium"]}}</span>
                             <small>€</small>
                         </h3>
-                        <small>TOTAL PROFIT</small>
+                        <small>CURRENT MONTH SUBSCRIPTION INCOME</small>
                     </div>
 
                     <div class="icon">

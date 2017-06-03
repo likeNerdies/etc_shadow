@@ -9,7 +9,6 @@
 
 @include('layouts.navbar')
 
-
 <div class="w-100">
   <div class="background-image"></div>
 </div>

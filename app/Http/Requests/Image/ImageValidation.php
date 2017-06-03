@@ -30,13 +30,13 @@ class ImageValidation extends FormRequest
           return $rules;*/
         $retorn = [];
         if (($this->file('image.0'))) {
-            $retorn["image.0"] = 'image|mimes:jpeg,png,jpg,gif,svg|max:5000';
+            $retorn["image.0"] = 'image|mimes:jpeg,png,jpg,gif,svg|max:3000';
         }
         if (($this->file('image.1'))) {
-            $retorn["image.1"] = 'image|mimes:jpeg,png,jpg,gif,svg|max:5000';
+            $retorn["image.1"] = 'image|mimes:jpeg,png,jpg,gif,svg|max:3000';
         }
         if (($this->file('image.2'))) {
-            $retorn["image.2"] = 'image|mimes:jpeg,png,jpg,gif,svg|max:5000';
+            $retorn["image.2"] = 'image|mimes:jpeg,png,jpg,gif,svg|max:3000';
         }
         return $retorn;
     }

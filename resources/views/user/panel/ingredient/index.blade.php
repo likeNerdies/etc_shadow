@@ -1,7 +1,7 @@
 @extends('user.layouts.panel')
 @section('title','My ingredients')
 @section('right-panel')
-    <div class="container">
+    <div class="container ml-3rem">
         <div class="row">
             <div class="col-11 offset-sm-1 mx-auto text-center">
                 <div class="alert alert-warning mb-5" role="alert">

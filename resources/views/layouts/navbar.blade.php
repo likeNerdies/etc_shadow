@@ -13,7 +13,11 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mr-auto mt-2 mt-md-0 mx-auto">
         <li class="nav-item px-5">
-          <a class="nav-link only page-scroll" href="/#howitworks">@lang('welcome.howitworks')</a>
+            @if(Auth::check())
+                <a class="nav-link only page-scroll" href="/products">@lang('welcome.products')</a>
+            @else
+                <a class="nav-link only page-scroll" href="/#howitworks">@lang('welcome.howitworks')</a>
+            @endif
         </li>
         <li class="nav-item px-5">
           <a class="nav-link only page-scroll" href="#plans">@lang('welcome.plans')</a>
@@ -54,7 +58,7 @@
         @endif
 
       <!-- Lang -->
-      <ul class="pl-0 pb-4" style="list-style: none;">
+      <ul class="pl-mysm-0 pl-mysm-4" style="list-style: none;">
         <li class="nav-item  px-1">
           <form class="form-inline" method="post" action="{{route('change-lang')}}" id="change_lang">
             {{csrf_field()}}

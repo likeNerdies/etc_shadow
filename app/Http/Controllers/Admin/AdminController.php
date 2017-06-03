@@ -45,9 +45,9 @@ class AdminController extends Controller
         $profit = [];
                try{
                     //calculando total ganancias
-                    $charming=App\Plan::find(1)->value('price');
-                    $pro =App\Plan::find(1)->value('price');
-                    $premium =App\Plan::find(1)->value('price');
+                    $charming=App\Plan::find(1);
+                    $pro =App\Plan::find(2);
+                    $premium =App\Plan::find(3);
 
                     $usersCharming=App\User::whereHas('plan', function ($query) {
                         $query->where('id', '=', 1);
@@ -61,9 +61,9 @@ class AdminController extends Controller
                         $query->where('id', '=', 3);
                     })->get()->count();
                     $profit=[
-                        "charming"=>$charming*$usersCharming,
-                        "pro"=>$pro*$usersPro,
-                        "premium"=>$premium*$usersPremium,
+                        "charming"=>$charming->price*$usersCharming,
+                        "pro"=>$pro->price*$usersPro,
+                        "premium"=>$premium->price*$usersPremium,
                     ];
                 }catch(Exception $e){
                     $profit=[

@@ -11,6 +11,7 @@ return [
     |
     */
 
+    'products' => 'Products',
     'howitworks'   => 'How it works',
     "shoppingFlow" => "Shopping flow",
     "seeProducts" => "First go see our products!",
