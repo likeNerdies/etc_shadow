@@ -1141,6 +1141,7 @@ span.caret-down::after{
     #content-wrapper-in{
         width: 80%;
         height: 90%;
+        overflow-x: hidden;
         //margin-top: 10%;
     }
 
