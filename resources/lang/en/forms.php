@@ -32,5 +32,7 @@ return [
     "old_password"=>"Old password",
     "new_password"=>"New password",
     "repeat_password"=>"Repeat password",
+    "month"=>"Month",
+    "year"=>"Year",
 
 ];
