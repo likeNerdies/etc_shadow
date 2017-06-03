@@ -22,8 +22,8 @@ class CreateDeliveriesTable extends Migration
         });
         Schema::table('deliveries', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('box_id')->references('id')->on('boxes');
-            $table->foreign('transporter_id')->references('id')->on('transporters');
+            $table->foreign('box_id')->references('id')->on('boxes')->onDelete('cascade');
+            $table->foreign('transporter_id')->references('id')->on('transporters')->onDelete('cascade');
 
         });
     }

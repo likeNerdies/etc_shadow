@@ -23,7 +23,7 @@ $(document).ready(function () {
 
             },
             error: function (data) {
-                //todo
+                $('#subscribe_btn').replaceWith('<div class="alert alert-warning" role="alert">  <strong>Something went wrong</strong> </div> ');
             }
 
         });
