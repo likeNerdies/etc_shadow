@@ -13,7 +13,7 @@ $(document).ready(function () {
         var allergy_id = $(this).prev().attr('id');
         var _token = $('input[name="_token"]').val();
         var datas = {"allergy_id": allergy_id, _token: _token};
-        console.log(datas);
+        //console.log(datas);
 
         $.ajax({
             type: "POST",
@@ -38,7 +38,7 @@ $(document).ready(function () {
                 }
             },
             error: function (data) {
-              console.log('Error:', data);
+             // console.log('Error:', data);
               $('.error').addClass("alert alert-danger").html("There was an internal error");
             }
 

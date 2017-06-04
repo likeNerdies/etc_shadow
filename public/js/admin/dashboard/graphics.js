@@ -43,7 +43,7 @@ $(document).ready(function() {
 
   var repeated, month, plan, total, cont = 0;
   $.get('/search/currentYearMonthSubs', function (data) {
-  console.log(data);
+  //console.log(data);
   // Converting data to the chart's format
   for (var key in data) {
   for (var i in data[key]) {
@@ -120,7 +120,7 @@ return chart;
 });*/
 
   $.get('/search/currentYearMonthSubs', function (data) {
-    console.log(data);
+   // console.log(data);
     var charmData = new Array();
     var proData = new Array();
     var premiumData = new Array();
@@ -137,7 +137,7 @@ return chart;
         break;
       }
     }
-    console.log(charmData);
+   // console.log(charmData);
     $('#subscribers').highcharts({
       title: {
         text: 'Currnt Year Monthly Subscribers',

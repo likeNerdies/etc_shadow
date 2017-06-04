@@ -5,7 +5,7 @@ $(document).ready(function () {
         var plan_id = $('#plan_id').val();
         var _token = $('input[name="_token"]').val();
         var datas = {"plan_id": plan_id, _token: _token};
-        console.log(datas);
+       // console.log(datas);
 
         $.ajax({
             type: "POST",

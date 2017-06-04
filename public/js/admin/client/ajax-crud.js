@@ -9,10 +9,10 @@ $(document).ready(function () {
         $('#ajaxerror').removeClass("alert alert-danger");
         $('input').removeAttr("style");
         var client_id = $(this).val();
-        console.log("client_id edit: " + client_id);
+       // console.log("client_id edit: " + client_id);
 
         $.get(url + '/' + client_id, function (data) {
-            console.log(data)
+          //  console.log(data)
             //success data
             $('#id').val(data.client.id);
             $('#dni').val(data.client.dni);
@@ -64,7 +64,7 @@ $(document).ready(function () {
     $(document).on('click', '.delete-client', function (e) {
         // $('.delete-client').click(function() {
         var client = $(this).val();
-        console.log("client: " + client);
+       // console.log("client: " + client);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -74,7 +74,7 @@ $(document).ready(function () {
             type: "DELETE",
             url: url + '/' + client,
             success: function (data) {
-                console.log(data);
+               // console.log(data);
                 $("#client" + client).remove();
                 $('#ajaxerror').empty();
                 $('#ajaxerror').removeClass("alert alert-danger");
@@ -121,12 +121,12 @@ $(document).ready(function () {
             var my_url = url;
 
             if (state == "update") {
-                console.log("update: " + client_id);
+               // console.log("update: " + client_id);
                 type = "PUT"; //for updating existing resource
                 my_url += '/' + client_id;
             }
 
-            console.log(formData);
+           // console.log(formData);
 
             $.ajax({
                 type: type,
@@ -134,7 +134,7 @@ $(document).ready(function () {
                 data: formData,
                 dataType: 'json',
                 success: function (data) { // success:
-                    console.log(data);
+                  //  console.log(data);
                     var client = '<tr id="client' + data.client.id + '"><td id="id">' + data.client.id + '</td>';
                     if (data.client.dni != null) {
                         client += '<td>' + data.client.dni + '</td>';
@@ -230,7 +230,7 @@ $(document).ready(function () {
                     }
                 },
                 error: function (data) {
-                    console.log(data);
+                   // console.log(data);
                 }
             });
         } else {
@@ -311,6 +311,6 @@ function valdateForm() {
             $('#phone_number').css('border-color', "#5cb85c");
         }
     }
-    console.log(retorn);
+   // console.log(retorn);
     return retorn;
 }

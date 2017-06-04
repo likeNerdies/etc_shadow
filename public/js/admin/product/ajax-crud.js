@@ -51,7 +51,7 @@ $(document).ready(function () {
             }
 
             if (data.brand != null) {
-                console.log(data.brand.id);
+              //  console.log(data.brand.id);
                 var id = data.brand.id;
                 //$("#brand_id").select2().select2('val',id);
                // $('#brand_id option[value=' + id + ']').prop('selected', true)
@@ -113,7 +113,7 @@ $(document).ready(function () {
     $(document).on('click', '.delete-product', function (e) {
         // $('.delete-product').click(function() {
         var product = $(this).val();
-        console.log("product: " + product);
+       // console.log("product: " + product);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -123,7 +123,7 @@ $(document).ready(function () {
             type: "DELETE",
             url: url + '/' + product,
             success: function (data) {
-                console.log(data);
+             //   console.log(data);
                 $("#product" + product).remove();
                 $('#ajaxerror').empty();
                 $('#ajaxerror').removeClass("alert alert-danger");
@@ -228,7 +228,7 @@ $(document).ready(function () {
             }
 
             //console.log(formData);
-            console.log("update");
+          //  console.log("update");
             $.ajax({
                 type: type,
                 //contentType: false,
@@ -238,7 +238,7 @@ $(document).ready(function () {
                 dataType: 'json',
 
                 success: function (data) { // success:
-                    console.log(data);
+                  //  console.log(data);
 
 
                     //info
@@ -280,7 +280,7 @@ $(document).ready(function () {
                     successMessage();
                 },
                 error: function (data) {
-                    console.log('Error:', data);
+                  //  console.log('Error:', data);
                     $('#ajaxerror').addClass("alert alert-danger");
                     var msg;
 
@@ -308,7 +308,7 @@ $(document).ready(function () {
                 url: '/search/product',
                 data: {'product': $value},
                 success: function (data) {
-                    console.log(data)
+                  //  console.log(data)
                     if (data.length == 0) {
                         $('#product-list').empty();
                         $('#product-list').append('<p class="text-center">No results found</p>')
@@ -343,7 +343,7 @@ $(document).ready(function () {
                     }
                 },
                 error: function (data) {
-                    console.log(data);
+                   // console.log(data);
                 }
             });
         } else {
@@ -419,13 +419,13 @@ $(document).ready(function () {
                     // setting a timeout
                     //$(placeholder).addClass('loading');
                     $('#progress').fadeIn();
-                    console.log('ajax before send')
+                  //  console.log('ajax before send')
                 },xhr: function () {
                     var xhr = new window.XMLHttpRequest();
                     xhr.upload.addEventListener("progress", function (evt) {
                         if (evt.lengthComputable) {
                             var percentComplete = evt.loaded / evt.total;
-                            console.log(percentComplete);
+                       //     console.log(percentComplete);
                             $('#progress').css({
                                 width: percentComplete * 100 + '%'
                             });
@@ -437,7 +437,7 @@ $(document).ready(function () {
                     xhr.addEventListener("progress", function (evt) {
                         if (evt.lengthComputable) {
                             var percentComplete = evt.loaded / evt.total;
-                            console.log(percentComplete);
+                           // console.log(percentComplete);
                             $('#progress').css({
                                 width: percentComplete * 100 + '%'
                             });
@@ -451,7 +451,7 @@ $(document).ready(function () {
                     $('.error').removeClass("alert alert-danger");
                 },
                 error: function (data) {
-                    console.log('Error:', data);
+                  //  console.log('Error:', data);
                     $('.error').addClass("alert alert-danger");
                     var msg;
 
@@ -527,6 +527,6 @@ function valdateForm() {
             $('#dimension').css('border-color', "#5cb85c");
         }
     }
-    console.log(retorn);
+  //  console.log(retorn);
     return retorn;
 }

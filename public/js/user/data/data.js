@@ -74,7 +74,7 @@ $(document).ready(function () {
                 password: $('#new_password').val(),
                 password_confirmation: $('#password_confirmation').val(),
             }
-            console.log(formData)
+           // console.log(formData)
             //used to determine the http verb to use [add=POST], [update=PUT]
 
             var type = "POST"; //for creating new resource
@@ -86,8 +86,8 @@ $(document).ready(function () {
                 data: formData,
                 dataType: 'json',
                 success: function (data) { // success:
-                  console.log("Data:")
-                  console.log(data.success);
+                 // console.log("Data:")
+                  //console.log(data.success);
                   if (data.success) {
                       $('#old_password').empty();
                     $('#btn_change_pw').replaceWith('<li class="btn btn-success float-right text-center"><i class="fa fa-check" aria-hidden="true"></i></li>');
@@ -141,7 +141,7 @@ $(document).ready(function () {
                 dataType: 'json',
                 success: function (data) { // success:
                     $('.error-address').empty();
-                    console.log(data);
+                 //   console.log(data);
                       $('#address_button_user').replaceWith('<li class="btn btn-success float-right text-center"><i class="fa fa-check" aria-hidden="true"></i></li>');
                     },
                 error: function (data) {
@@ -250,7 +250,7 @@ function validateUserPWReset() {
             $('#new_password').css('border-color', "#5cb85c");
         }
     }
-    console.log(retorn);
+   // console.log(retorn);
     return retorn;
 }
 function validateAddress() {
@@ -323,6 +323,6 @@ function validateAddress() {
         $('#country').css('border-color', "#5cb85c");
     }
 
-    console.log(retorn)
+  //  console.log(retorn)
     return retorn;
 }

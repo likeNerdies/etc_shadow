@@ -16,11 +16,11 @@ $(document).on('scroll', function (e) {
     }
 
 });
-console.log($(document).scrollTop());
+//console.log($(document).scrollTop());
 // jQuery for page scrolling feature - requires jQuery Easing plugin
 $(document).on('click', 'a.page-scroll', function (event) {
     var $anchor = $(this);
-    console.log("anchor: " + $anchor);
+   // console.log("anchor: " + $anchor);
     $('html, body').stop().animate({
         scrollTop: ($($anchor.attr('href')).offset().top - 50)
     }, 1250, 'easeInOutExpo');
@@ -169,7 +169,7 @@ $(document).ready(function (event) {
                 type: 'GET',
                 data: formData,
                 success: function (data) {
-                    console.log(data)
+                   // console.log(data)
                     $('#products').empty();
 
                     var products="";
@@ -205,7 +205,7 @@ $(document).ready(function (event) {
                     $('#products').html(products);
                 },
                 error: function (data) {
-                    console.log(data.responseText);
+                  //  console.log(data.responseText);
                 }
             });
 
@@ -250,7 +250,7 @@ $(document).ready(function () {
                 location.reload(true);
             },
             error: function (data) {
-                console.log(data.responseText);
+              //  console.log(data.responseText);
                 var obj = jQuery.parseJSON(data.responseText);
                 if (obj.name) {
                     $("#register-name").addClass("has-error");
@@ -291,7 +291,7 @@ $(document).ready(function () {
                 location.reload(true);
             },
             error: function (data) {
-                console.log(data.responseText);
+               // console.log(data.responseText);
                 var obj = jQuery.parseJSON(data.responseText);
                 if (obj.email) {
                     $("#email-div").addClass("has-error");
