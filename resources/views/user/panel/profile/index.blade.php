@@ -2,7 +2,7 @@
 @section('title','Profile')
 @section('right-panel')
 
-  <div class="container text-center ml-3rem">
+  <div class="container text-center ml-3rem mr-3rem">
 
     <!-- Welcome -->
       <div class="row mb-5">
@@ -13,7 +13,7 @@
 
       <!-- Next box / Subscribe to plans -->
       <div class="row">
-          <div class="col-md-6 col-12">
+          <div class="col-12">
             @if (Auth::user()->plan_id == null) <!--  Si no tiene plan, mostrar para suscribirse -->
                 <h1 class="text-center red-font">@lang("user/plan/plan.noPlan")</h1>
                 <h4 class="text-center mt-3">@lang("user/plan/plan.wannaSubscribe")</h4>
@@ -25,7 +25,7 @@
                 </div>
                 @endif
             </div>
-            <div class="col-md-6 col-12" style="background: beige; padding: 2.5%"></div>
+            <!--<div class="col-md-6 col-12" style="background: beige; padding: 2.5%"></div>-->
         </div><!-- / row -->
 
         <div class="row mt-10">

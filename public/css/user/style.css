@@ -90,6 +90,7 @@ CSS file for logged in users
   background-color: transparent;
   border: 1px solid #FB6A5D;
   transition: all .1s ease-in-out;
+  color: #FB6A5D;
 }
 
 .btn-subscribe:hover a {
