@@ -35,7 +35,7 @@
           <small class="price">{{$plans[1]->price}}€</small>
         </div>
         <div class="col-md-3 text-center">
-          <button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button"><a href="/user/panel/plan/subscribe/1">@lang("user/plan/plan.btnSubscribe")</a></button>
+          <button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button"><a href="/user/panel/plan/subscribe/2">@lang("user/plan/plan.btnSubscribe")</a></button>
         </div>
       </div>
 
@@ -49,7 +49,7 @@
           <small class="price">{{$plans[2]->price}}€</small>
         </div>
         <div class="col-md-3 text-center">
-          <button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button"><a href="/user/panel/plan/subscribe/1">@lang("user/plan/plan.btnSubscribe")</a></button>
+          <button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button"><a href="/user/panel/plan/subscribe/3">@lang("user/plan/plan.btnSubscribe")</a></button>
         </div>
       </div>
 
