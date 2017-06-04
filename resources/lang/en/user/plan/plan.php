@@ -7,7 +7,7 @@ return [
   "noPlan" => "You don't have any plan yet!",
   "wannaSubscribe" => "Wanna subscribe?",
   "hasPlan" => "Great! You're subscribed to ",
-  "wannaChange" => "Wanna change?",
+  "wannaChange" => "Want to change?",
   "btnChangePlan" => "Change plan",
   "btnSubscribe" => "Subscribe",
   "notEnough" => "Not enough?",
