@@ -6,41 +6,38 @@ $(document).ready(function () {
         if ($value != '') {
             $.ajax({
                 type: 'get',
-                url: '/search/ingredient/user',
-                data: {'ingredient': $value},
+                url: '/search/allergy/user',
+                data: {'allergy': $value},
                 success: function (data) {
                     //  console.log(data)
-                    if (data.ingredients.length == 0) {
-                        $('#ingredients_user').empty();
-                        $('#ingredients_user').append('<p class="text-center">No results found</p>')
+                    $('.error').empty();
+                        if (data.length == 0) {
+                        $('#allergies_user').empty();
+                        $('#allergies_user').append('<p class="text-center">No results found</p>')
                     } else {
-                        $('#ingredients_user').empty();
-                        for (var i = 0; i < data.ingredients.length; i++) {
+                        $('#allergies_user').empty();
+                        for (var i = 0; i < data.allergies.length; i++) {
                             //if (i != data.length - 1) {
                             var exists = false;
-                            var clas = "like";
-                            for (var j = 0; j < data.user_ingredients.length && !exists; j++) {
-                                if (data.ingredients[i].id == data.user_ingredients[j].id) {
-                                    exists = true;
-                                    clas = "unlike";
+                            var clas = "hasnotAllergy";
+                            var text="";
+                            for (var j = 0; j < data.user_allergies.length && !exists; j++) {
+                                if (data.allergies[i].id == data.user_allergies[j].id) {
+                                    exists=true;
+                                    clas="hasAllergy";
+                                    text="Yes";
                                 }
                             }
-                            var ingredient = '<div class="card-wrapper m-1">';
-                            ingredient += '<div id="' +data.ingredients[i].id + '" class="card mx-auto ' + clas + '">';
-                            ingredient += ' <img src="/user/panel/ingredients/' + data.ingredients[i].id + '/image" class="rounded card-img-top ingredient-img img-responsive mx-auto py-3" alt="' + data.ingredients[i].name + '">';
-                            ingredient += '<div class="card-footer">';
-                            ingredient += '<small>' + data.ingredients[i].name + '</small>';
-                            ingredient += ' </div> </div> </div>';
-
-                            $('#ingredients_user').append(ingredient);
+                            $('#allergies_user').append('<tr><td id="'+data.allergies[i].id +'">'+data.allergies[i].name+'</td><td class="'+clas+' allergy" style="cursor: pointer"><strong>'+text+'</strong></td></tr>');
                             // }
                         }
 
                     }
-                    console.log(data)
+                   // console.log(data)
                 },
                 error: function (data) {
-                    console.log(data);
+                   // console.log(data);
+                    $('.error').addClass("alert alert-danger").html("There was an internal error");
                 }
             });
         } else {

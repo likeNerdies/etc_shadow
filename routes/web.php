@@ -229,6 +229,8 @@ Route::prefix('/search')->group(function () {
 
     Route::get('/allergy', 'Search\SearchController@allergy')->middleware('auth:admin')->name('search.allergy');
 
+    Route::get('/allergy/user', 'Search\SearchController@allergyforUser')->middleware('auth')->name('search.allergy.user');
+
     Route::get('/admin', 'Search\SearchController@admin')->middleware('auth:admin')->name('search.admin');
 
     Route::get('/client', 'Search\SearchController@client')->middleware('auth:admin')->name('search.client');

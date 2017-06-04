@@ -9,7 +9,8 @@ $(document).ready(function () {
                 data: {'ingredient': $value},
                 success: function (data) {
                     //  console.log(data)
-                    if (data.ingredients.length == 0) {
+                    $('.error').empty();
+                    if (data.length == 0) {
                         $('#ingredients_user').empty();
                         $('#ingredients_user').append('<p class="text-center">No results found</p>')
                     } else {
@@ -39,7 +40,7 @@ $(document).ready(function () {
                     console.log(data)
                 },
                 error: function (data) {
-                    console.log(data);
+                    $('.error').addClass("alert alert-danger").html("There was an internal error");
                 }
             });
         } else {

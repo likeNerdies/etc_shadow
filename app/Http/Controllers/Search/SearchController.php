@@ -52,11 +52,11 @@ class SearchController extends Controller
      * Devuelve admins con id o name que coicida con los parametros
      * @param Request $request
      */
-    public function admin(Request $request, Admin $allergy)
+    public function admin(Request $request, Admin $admin)
     {
         $retorn = "";
         if ($request->ajax() && $request->has('admin')) {
-            $retorn = $allergy->where('id', '=', $request->admin)
+            $retorn = $admin->where('id', '=', $request->admin)
                 ->orWhere('name', 'like', '%' . $request->admin . '%')->get();
         } else {
             //todo
@@ -94,6 +94,42 @@ class SearchController extends Controller
             //todo
         }
         return $retorn;
+    }
+    /**
+     * busqueda ajax para allergies.
+     * Devuelve allergies con id o name que coicida con los parametros
+     * @param Request $request
+     */
+    public function allergyforUser(Request $request, Allergy $allergy)
+    {
+        $retorn = [];
+
+        if ($request->ajax() && $request->has('allergy')) {
+            $allergy_traducido= $request->allergy;
+            //
+            /*  if(Session::get('locale')=='es'){
+                  $ingredient_traducido= _t($ingredient_traducido,[],'es');
+              }*/
+            $ale = $allergy->where('name', 'like', '%' .$allergy_traducido . '%')
+                ->get();
+            if(count($ale)>0){
+                for ($i = 0; $i < count($ale); $i++) {
+                    if(Session::get('locale')=='es'){
+                        $retorn["allergies"][$i] = [
+                            "id"=>$ale[$i]->id,
+                            "name"=> _t($ale[$i]->name,[],'es'),
+                        ];
+                    }else{
+                        $retorn["allergies"][$i] = $ale[$i];
+                    }
+                }
+                $retorn["user_allergies"]=Auth::user()->allergies;
+            }
+
+        } else {
+            //todo
+        }
+        return response()->json($retorn);
     }
     /**
      * busqueda ajax para plans.
@@ -182,13 +218,13 @@ class SearchController extends Controller
     {
         $retorn = [];
 
-        $ingredient_traducido= $request->ingredient;
-       //
-      /*  if(Session::get('locale')=='es'){
-            $ingredient_traducido= _t($ingredient_traducido,[],'es');
-        }*/
 
         if ($request->ajax() && $request->has('ingredient')) {
+            $ingredient_traducido= $request->ingredient;
+            //
+            /*  if(Session::get('locale')=='es'){
+                  $ingredient_traducido= _t($ingredient_traducido,[],'es');
+              }*/
             $ing = $ingredient->where('name', 'like', '%' .$ingredient_traducido . '%')
                 ->get();
             if(count($ing)>0){
