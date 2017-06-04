@@ -31,11 +31,25 @@ $(document).ready(function () {
                 data: formData,
                 dataType: 'json',
                 success: function (data) { // success:
+                    $('.error_user_data').empty();
                     $('#btn_save').replaceWith('<li class="btn btn-success float-right text-center"><i class="fa fa-check" aria-hidden="true"></i></li>');
-                    console.log(data);
                 },
                 error: function (data) {
-                    console.log('Error:', data);
+
+                    $('.error_user_data').addClass("alert alert-danger");
+                    var msg;
+
+                    if (data.status == 422) {
+                        msg = "<ul>";
+                        for (var key in data.responseJSON) {
+                            msg += "<li>" + data.responseJSON[key] + "</li>";
+                        }
+                        msg += "</ul>";
+                    } else {
+                        msg = "<p>There was an internal error. Contact with the admin.</p>";
+                    }
+                    $('.error_user_data').html(msg);
+
                 }
             });
 
@@ -60,7 +74,7 @@ $(document).ready(function () {
                 password: $('#new_password').val(),
                 password_confirmation: $('#password_confirmation').val(),
             }
-            console.log(formData)
+           // console.log(formData)
             //used to determine the http verb to use [add=POST], [update=PUT]
 
             var type = "POST"; //for creating new resource
@@ -72,19 +86,32 @@ $(document).ready(function () {
                 data: formData,
                 dataType: 'json',
                 success: function (data) { // success:
-                  console.log("Data:")
-                  console.log(data.success);
+                 // console.log("Data:")
+                  //console.log(data.success);
                   if (data.success) {
+                      $('#old_password').empty();
                     $('#btn_change_pw').replaceWith('<li class="btn btn-success float-right text-center"><i class="fa fa-check" aria-hidden="true"></i></li>');
                   } else {
                     $('.error-password').addClass("alert alert-danger").html("The old password is not correct");
                     $('#old_password').css('border-color', 'rgb(169, 68, 66)');
                   }
 
-                    console.log(data);
+
                 },
                 error: function (data) {
-                    console.log('Error:', data);
+                    $('.error-password').addClass("alert alert-danger");
+                    var msg;
+
+                    if (data.status == 422) {
+                        msg = "<ul>";
+                        for (var key in data.responseJSON) {
+                            msg += "<li>" + data.responseJSON[key] + "</li>";
+                        }
+                        msg += "</ul>";
+                    } else {
+                        msg = "<p>There was an internal error. Contact with the admin.</p>";
+                    }
+                    $('.error-password').html(msg);
                 }
             });
         }
@@ -113,12 +140,27 @@ $(document).ready(function () {
                 data: formData,
                 dataType: 'json',
                 success: function (data) { // success:
-                    console.log(data);
+                    $('.error-address').empty();
+                 //   console.log(data);
                       $('#address_button_user').replaceWith('<li class="btn btn-success float-right text-center"><i class="fa fa-check" aria-hidden="true"></i></li>');
                     },
                 error: function (data) {
-                    console.log('Error:', data);
-                    $('.error-address').addClass("alert alert-danger").html("There was an internal error");
+                   // console.log('Error:', data);
+                   // $('.error-address').addClass("alert alert-danger").html("There was an internal error");
+                    //console.log('Error:', data);
+                    $('.error-address').addClass("alert alert-danger");
+                    var msg;
+
+                    if (data.status == 422) {
+                        msg = "<ul>";
+                        for (var key in data.responseJSON) {
+                            msg += "<li>" + data.responseJSON[key] + "</li>";
+                        }
+                        msg += "</ul>";
+                    } else {
+                        msg = "<p>There was an internal error. Contact with the admin.</p>";
+                    }
+                    $('.error-address').html(msg);
                 }
             });
         }
@@ -208,7 +250,7 @@ function validateUserPWReset() {
             $('#new_password').css('border-color', "#5cb85c");
         }
     }
-    console.log(retorn);
+   // console.log(retorn);
     return retorn;
 }
 function validateAddress() {
@@ -281,6 +323,6 @@ function validateAddress() {
         $('#country').css('border-color', "#5cb85c");
     }
 
-    console.log(retorn)
+  //  console.log(retorn)
     return retorn;
 }

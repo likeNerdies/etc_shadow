@@ -12,11 +12,11 @@ $(document).ready(function() {
         $('input').removeAttr( "style" );
         $('textarea').removeAttr( "style" );
         var plan_id = $(this).val();
-        console.log("transporter_id: " + plan_id);
+      //  console.log("transporter_id: " + plan_id);
 
         $.get(url + '/' + plan_id, function (data) {
             //success data
-            console.log(data)
+          //  console.log(data)
             $('#id').val(data.id);
             $('#name').val(data.name);
             $('#price').val(data.price);
@@ -43,7 +43,7 @@ $(document).ready(function() {
     $(document).on('click', '.delete-plan', function(e) {
    // $('.delete-plan').click(function() {
         var plan = $(this).val();
-        console.log("plan: " + plan);
+     //   console.log("plan: " + plan);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -53,7 +53,7 @@ $(document).ready(function() {
             type: "DELETE",
             url: url + '/' + plan,
             success: function (data) {
-                console.log(data);
+              //  console.log(data);
                 $("#plan" + plan).remove();
                 $('#ajaxerror').empty();
                 $('#ajaxerror').removeClass("alert alert-danger");
@@ -89,16 +89,16 @@ $(document).ready(function() {
 
             var type = "POST"; //for creating new resource
             var plan_id = $('#id').val();
-            console.log("id: " + plan_id);
+          //  console.log("id: " + plan_id);
             var my_url = url;
 
             if (state == "update") {
-                console.log("update");
+             //   console.log("update");
                 type = "PUT"; //for updating existing resource
                 my_url += '/' + plan_id;
             }
-            console.log("URL:" + my_url);
-            console.log(formData);
+           // console.log("URL:" + my_url);
+          //  console.log(formData);
 
             $.ajax({
                 type: type,
@@ -106,7 +106,7 @@ $(document).ready(function() {
                 data: formData,
                 dataType: 'json',
                 success: function (data) { // success:
-                    console.log(data);
+                  //  console.log(data);
 
                     var plan = '<tr id="plan' + data.plan.id + '"><td id="id">' + data.plan.id + '</td><td>' + data.plan.name + '</td><td>' + data.plan.price + '</td>';
 
@@ -164,7 +164,7 @@ $(document).ready(function() {
             url:'/search/plan',
             data:{'plan':$value},
            success:function(data){
-                console.log(data)
+              //  console.log(data)
                 if(data.plan.length==0){
                     $('#plan-list').empty();
                     $('#plan-list').append('<p class="text-center">No results found</p>')
@@ -191,7 +191,7 @@ $(document).ready(function() {
                 }
            },
            error:function (data) {
-               console.log(data);
+             //  console.log(data);
            }
        });
         }else{
@@ -228,6 +228,6 @@ function valdateForm() {
      $('#image').css('border-color', "#a94442");
      //todo mensaje sellecione imagen
      }*/
-    console.log(retorn);
+  //  console.log(retorn);
     return retorn;
 }

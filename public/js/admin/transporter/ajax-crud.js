@@ -9,7 +9,7 @@ $(document).ready(function() {
         $('input').removeAttr( "style" );
    // $('.open-modal').click(function() {
         var transporter_id = $(this).val();
-        console.log("transporter_id: " + transporter_id);
+       // console.log("transporter_id: " + transporter_id);
 
         $.get(url + '/' + transporter_id, function (data) {
             //success data
@@ -38,7 +38,7 @@ $(document).ready(function() {
     $(document).on('click', '.delete-transporter', function(e) {
    // $('.delete-transporter').click(function() {
         var transporter = $(this).val();
-        console.log("transporter: " + transporter);
+      //  console.log("transporter: " + transporter);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -48,14 +48,14 @@ $(document).ready(function() {
             type: "DELETE",
             url: url + '/' + transporter,
             success: function (data) {
-                console.log(data);
+              //  console.log(data);
                 $("#transporter" + transporter).remove();
                 $('#ajaxerror').empty();
                 $('#ajaxerror').removeClass("alert alert-danger");
                 successMessage();
             },
             error: function (data) {
-                console.log('Error:', data);
+              //  console.log('Error:', data);
                 $('.error').addClass("alert alert-danger");
                 $('.error').html("<p>There was an internal error.</p>");
             }
@@ -84,16 +84,16 @@ $(document).ready(function() {
 
             var type = "POST"; //for creating new resource
             var transporter_id = $('#id').val();
-            console.log("id: " + transporter_id);
+          //  console.log("id: " + transporter_id);
             var my_url = url;
 
             if (state == "update") {
-                console.log("update");
+             //   console.log("update");
                 type = "PUT"; //for updating existing resource
                 my_url += '/' + transporter_id;
             }
-            console.log("URL:" + my_url);
-            console.log(formData);
+           // console.log("URL:" + my_url);
+          //  console.log(formData);
 
             $.ajax({
                 type: type,
@@ -101,7 +101,7 @@ $(document).ready(function() {
                 data: formData,
                 dataType: 'json',
                 success: function (data) { // success:
-                    console.log(data);
+                  //  console.log(data);
 
                     var transporter = '<tr id="transporter' + data.id + '"><td>' + data.id + '</td><td>' + data.name + '</td><td class="media-480-delete">' + data.cif + '</td><td>' + data.phone_number + '</td>';
 
@@ -150,7 +150,7 @@ $(document).ready(function() {
             url:'/search/transporter',
             data:{'transporter':$value},
            success:function(data){
-                console.log(data)
+              //  console.log(data)
                 if(data.length==0){
                     $('#transporter-list').empty();
                     $('#transporter-list').append('<p class="text-center">No results found</p>')
@@ -167,7 +167,7 @@ $(document).ready(function() {
                 }
            },
            error:function (data) {
-               console.log(data);
+            //   console.log(data);
            }
        });
         }else{
@@ -202,6 +202,6 @@ function valdateForm() {
             $('#phone_number').css('border-color', "#5cb85c");
         }
     //}
-    console.log(retorn);
+ //   console.log(retorn);
     return retorn;
 }

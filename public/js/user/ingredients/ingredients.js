@@ -12,7 +12,7 @@ $(document).ready(function () {
         var ingredient_id = $(this).attr('id');
         var _token = $('input[name="_token"]').val();
         var datas = {"ingredient_id": ingredient_id, _token: _token};
-        console.log(datas);
+      //  console.log(datas);
 
         $.ajax({
             type: "POST",
@@ -23,24 +23,21 @@ $(document).ready(function () {
                if (unlike) { // If unlike is true, it means that this ingredient does not have the 'unlike' class, so it can be "unliked".
                    /*if (div.hasClass( "like" )) {
                        div.removeClass('like');
-                       console.log('unlike')
+                     //  console.log('unlike')
                    }
                    div.addClass('unlike')*/
                    div.removeClass("like").addClass("unlike");
-                   console.log('unlike');
 
                } else { // The ingredient was already marked as "unliked", now it will be as "liked".
                    /*if (div.hasClass( "unlike" )) {
                        div.removeClass('unlike');
-                       console.log('like')
+                      // console.log('like')
                    }
                    div.addClass('like')*/
                   div.removeClass("unlike").addClass("like");
-                  console.log('like');
                }
             },
             error: function (data) {
-              console.log('Error:', data);
               $('.error').addClass("alert alert-danger").html("There was an internal error");
             }
         });

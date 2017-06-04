@@ -15,7 +15,7 @@ $(document).ready(function () {
         $('input').removeAttr( "style" );
         $('textarea').removeAttr( "style" );
         var ingredient_id = $(this).val();
-        console.log("edit")
+       // console.log("edit")
         $.get(url + '/' + ingredient_id, function (data) {
             //success data
             $('#id').val(data.ingredient.id);
@@ -54,7 +54,7 @@ $(document).ready(function () {
     $(document).on('click', '.delete-ingredient', function (e) {
         // $('.delete-ingredient').click(function() {
         var ingredient = $(this).val();
-        console.log("brand: " + ingredient);
+      //  console.log("brand: " + ingredient);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -64,7 +64,7 @@ $(document).ready(function () {
             type: "DELETE",
             url: url + '/' + ingredient,
             success: function (data) {
-                console.log(data);
+            //    console.log(data);
                 $("#ingredient" + ingredient).remove();
                 //location.reload(true);
                 $('#ajaxerror').empty();
@@ -115,7 +115,7 @@ $(document).ready(function () {
              formData.append('allergies',allergies);
              formData.append('info',$('#info').val());*/
 
-            console.log(allergies)
+           // console.log(allergies)
             //used to determine the http verb to use [add=POST], [update=PUT]
             var state = $('#btn-save').val();
 
@@ -124,12 +124,12 @@ $(document).ready(function () {
             var my_url = url;
 
             if (state == "update") {
-                console.log("update");
+             //   console.log("update");
                 type = "PUT"; //for updating existing resource
                 my_url += '/' + ingredient_id;
             }
 
-            console.log(formData);
+          //  console.log(formData);
 
             $.ajax({
                 type: type,
@@ -139,7 +139,7 @@ $(document).ready(function () {
                 data: formData,
                 dataType: 'json',
                 success: function (data) { // success:
-                    console.log(data);
+                  //  console.log(data);
                     //info
                     var ingredient = '<tr id="ingredient' + data.ingredient.id + '"><td id="id">' + data.ingredient.id + '</td><td>' + data.ingredient.name + '</td>';
                     if (data.ingredient.info == null) {
@@ -182,7 +182,7 @@ $(document).ready(function () {
                     //location.reload(true);
                 },
                 error: function (data) {
-                    console.log('Error:', data);
+                  //  console.log('Error:', data);
                     $('#ajaxerror').addClass("alert alert-danger");
                     var msg;
 
@@ -210,7 +210,7 @@ $(document).ready(function () {
                 url: '/search/ingredient',
                 data: {'ingredient': $value},
                 success: function (data) {
-                    console.log(data)
+                  //  console.log(data)
                     if (data.length == 0) {
                         $('#ingredient-list').empty();
                         $('#ingredient-list').append('<p class="text-center">No results found</p>')
@@ -246,7 +246,7 @@ $(document).ready(function () {
                     }
                 },
                 error: function (data) {
-                    console.log(data);
+                   // console.log(data);
                 }
             });
         } else {
@@ -297,13 +297,13 @@ $(document).ready(function () {
                     // setting a timeout
                     //$(placeholder).addClass('loading');
                     $('#progress').fadeIn();
-                    console.log('ajax before send')
+                  //  console.log('ajax before send')
                 },xhr: function () {
                     var xhr = new window.XMLHttpRequest();
                     xhr.upload.addEventListener("progress", function (evt) {
                         if (evt.lengthComputable) {
                             var percentComplete = evt.loaded / evt.total;
-                            console.log(percentComplete);
+                         //   console.log(percentComplete);
                             $('#progress').css({
                                 width: percentComplete * 100 + '%'
                             });
@@ -315,7 +315,7 @@ $(document).ready(function () {
                     xhr.addEventListener("progress", function (evt) {
                         if (evt.lengthComputable) {
                             var percentComplete = evt.loaded / evt.total;
-                            console.log(percentComplete);
+                           // console.log(percentComplete);
                             $('#progress').css({
                                 width: percentComplete * 100 + '%'
                             });
@@ -325,7 +325,7 @@ $(document).ready(function () {
                 },
                 success: function (data) { // success:
                     img_id=data.id;
-                    console.log(data);
+                    //console.log(data);
 
                     $('#ingredient'+id+' > #ingredient-img').empty();
                     $('#ingredient'+id+' > #ingredient-img').replaceWith("<td id='ingredient-img'><img id='myImg_"+data.id+"' class='img-thumbnail' width='48.2' height='48.2' src='/admin/ingredients/"+data.id+"/image'></td>");
@@ -333,7 +333,7 @@ $(document).ready(function () {
                     $('#ajaxerror').removeClass("alert alert-danger");
                 },
                 error: function (data) {
-                    console.log('Error:', data);
+                  //  console.log('Error:', data);
                     $('.error').addClass("alert alert-danger");
                     $('.error').html("<p>" + data.responseJSON.image + "</p>");
                   //  $('#ajaxerror').addClass("alert alert-danger");
@@ -364,6 +364,6 @@ function valdateForm() {
         $('#image').css('border-color', "#a94442");
         //todo mensaje sellecione imagen
     }*/
-    console.log(retorn);
+    //console.log(retorn);
     return retorn;
 }

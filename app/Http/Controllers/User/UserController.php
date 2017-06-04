@@ -40,7 +40,8 @@ class UserController extends Controller
                 "from"=>$delivery->created_at->diffForHumans()
             ];
         }
-        return view('user.panel.profile.index', compact(["user","boxes"]));
+        $plans=App\Plan::all();
+        return view('user.panel.profile.index', compact(["user","boxes","plans"]));
     }
 
     /**

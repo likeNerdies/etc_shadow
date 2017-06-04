@@ -48,7 +48,7 @@ $(document).ready(function() {
     $(document).on('click', '.delete-admin', function(e) {
    // $('.delete-admin').click(function() {
         var admin = $(this).val();
-        console.log("admin: " + admin);
+       // console.log("admin: " + admin);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -58,7 +58,7 @@ $(document).ready(function() {
             type: "DELETE",
             url: url + '/' + admin,
             success: function (data) {
-                console.log(data);
+            //    console.log(data);
                 $("#admin" + admin).remove();
                 $('#ajaxerror').empty();
                 $('#ajaxerror').removeClass("alert alert-danger");
@@ -109,12 +109,12 @@ $(document).ready(function() {
             var my_url = url;
 
             if (state == "update") {
-                console.log("update");
+               // console.log("update");
                 type = "PUT"; //for updating existing resource
                 my_url += '/' + admin_id;
             }
 
-            console.log(formData);
+          //  console.log(formData);
 
             $.ajax({
                 type: type,
@@ -122,7 +122,7 @@ $(document).ready(function() {
                 data: formData,
                 dataType: 'json',
                 success: function (data) { // success:
-                    console.log(data);
+                  //  console.log(data);
                     var admin = '<tr id="admin' + data.id + '"><td id="id">' + data.id + '</td>';
                     if (data.dni != null) {
                         admin += '<td class="media-767-delete">' + data.dni + '</td>';
@@ -153,7 +153,7 @@ $(document).ready(function() {
                     successMessage();
                 },
                 error: function (data) {
-                    console.log('Error:', data);
+                  //  console.log('Error:', data);
                     $('#ajaxerror').addClass("alert alert-danger");
                     $('#ajaxerror').html("<p>" + data.responseText + "</p>");
                 }
@@ -196,7 +196,7 @@ $(document).ready(function() {
                 }
            },
            error:function (data) {
-               console.log(data);
+             //  console.log(data);
            }
        });
         }else{
@@ -236,14 +236,14 @@ $(document).ready(function() {
                 data: formData,
                 dataType: 'json',
                 success: function (data) { // success:
-                    console.log(data);
+                  //  console.log(data);
                     $('#ajaxerror').empty();
                     $('#ajaxerror').removeClass("alert alert-danger");
                     successMessage();
 
                 },
                 error: function (data) {
-                    console.log('Error:', data);
+                  //  console.log('Error:', data);
                     $('#ajaxerror').addClass("alert alert-danger");
                     $('#ajaxerror').html("<p>" + data.responseText + "</p>");
                 }
@@ -325,6 +325,6 @@ function valdateForm() {
             $('#phone_number').css('border-color', "#5cb85c");
         }
     }
-    console.log(retorn);
+  //  console.log(retorn);
     return retorn;
 }

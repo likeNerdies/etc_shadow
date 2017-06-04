@@ -7,7 +7,7 @@
     <!-- Welcome -->
       <div class="row mb-5">
           <div class="col-12">
-              <h1 class="text-center lighter-font">Welcome, {{$user->name}}</h1>
+              <h1 class="text-center lighter-font">@lang('user/profile/profile.welcome'), {{$user->name}}</h1>
           </div>
       </div>
 
@@ -19,7 +19,7 @@
                 <h4 class="text-center mt-3">@lang("user/plan/plan.wannaSubscribe")</h4>
             @else <!-- Si tiene plan, enseñar tiempo restante para la entrega de su próxima caja -->
                 <div class="user-dashboard-block text-center bg-f7 p-3">
-                    <h4>Box coming in...</h4>
+                    <h4>@lang('user/profile/profile.box_coming')</h4>
                     <i class="fa fa-clock-o mr-0 fa-20" aria-hidden="true"></i>
                     <h5 id="timeRemaining">...</h5>
                 </div>
@@ -90,7 +90,7 @@
                                     <h3 class="text-center subtitle">@lang("user/plan/plan.proSubtitle")</h3>
                                     <h6 class="mt-5">@lang("user/plan/plan.proSlogan")</h6>
                                     <p class="">@lang("user/plan/plan.proProductsList")</p>
-                                    <small class="price">17.95€</small>
+                                    <small class="price">{{$plans[1]->price}}€</small>
                                 </div>
                                 <div class="col-md-3 text-center">
                                     <button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" ><a href="/user/panel/profile/plan/subscribe/2">@lang("user/plan/plan.btnChangePlan")</a></button>
@@ -103,7 +103,7 @@
                                     <h3 class="text-center subtitle">@lang("user/plan/plan.premiumSubtitle")</h3>
                                     <h6 class="mt-5">@lang("user/plan/plan.premiumSlogan")</h6>
                                     <p class="">@lang("user/plan/plan.premiumProductsList")</p>
-                                    <small class="price">29.95€</small>
+                                    <small class="price">{{$plans[2]->price}}€</small>
                                 </div>
                                 <div class="col-md-3 text-center">
                                     <button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" ><a href="/user/panel/profile/plan/subscribe/3">@lang("user/plan/plan.btnChangePlan")</a></button>
@@ -117,7 +117,7 @@
                                     <h3 class="text-center subtitle">@lang("user/plan/plan.charmingSubtitle")</h3>
                                     <h6 class="mt-5">@lang("user/plan/plan.charmingSlogan")</h6>
                                     <p class="">@lang("user/plan/plan.charmingProductsList")</p>
-                                    <small class="price">9.95€</small>
+                                    <small class="price">{{$plans[0]->price}}€</small>
                                 </div>
                                 <div class="col-md-3 text-center">
                                     <button class="mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" ><a href="/user/panel/profile/plan/subscribe/1">@lang("user/plan/plan.btnChangePlan")</a></button>
@@ -130,7 +130,7 @@
                                     <h3 class="text-center subtitle">@lang("user/plan/plan.premiumSubtitle")</h3>
                                     <h6 class="mt-5">@lang("user/plan/plan.premiumSlogan")</h6>
                                     <p class="">@lang("user/plan/plan.premiumProductsList")</p>
-                                    <small class="price">29.95€</small>
+                                    <small class="price">{{$plans[3]->price}}€</small>
                                 </div>
                                 <div class="col-md-3 text-center">
                                     <button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" ><a href="/user/panel/profile/plan/subscribe/3">@lang("user/plan/plan.btnChangePlan")</a></button>
@@ -144,7 +144,7 @@
                                     <h3 class="text-center subtitle">@lang("user/plan/plan.charmingSubtitle")</h3>
                                     <h6 class="mt-5">@lang("user/plan/plan.charmingSlogan")</h6>
                                     <p class="">@lang("user/plan/plan.charmingProductsList")</p>
-                                    <small class="price">9.95€</small>
+                                    <small class="price">{{$plans[0]->price}}€</small>
                                 </div>
                                 <div class="col-md-3 text-center">
                                     <button class="mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" ><a href="/user/panel/profile/plan/subscribe/1">@lang("user/plan/plan.btnChangePlan")</a></button>
@@ -157,7 +157,7 @@
                                     <h3 class="text-center subtitle">@lang("user/plan/plan.proSubtitle")</h3>
                                     <h6 class="mt-5">@lang("user/plan/plan.proSlogan")</h6>
                                     <p class="">@lang("user/plan/plan.proProductsList")</p>
-                                    <small class="price">17.95€</small>
+                                    <small class="price">{{$plans[1]->price}}€</small>
                                 </div>
                                 <div class="col-md-3 text-center">
                                     <button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" ><a href="/user/panel/profile/plan/subscribe/2">@lang("user/plan/plan.btnChangePlan")</a></button>
@@ -174,8 +174,8 @@
             <div class="col-md-4">
                 <h3 class="text-center mt-10 mb-5">@lang('user/profile/profile.last_boxes')</h3>
             @if(!count($boxes)==0)
-                <?php $id = 0 ?>
-                @for ($i=0;$i<5;$i++)<!-- Si ya ha recibido anteriormente cajas -->
+                <?php $id = 0; $more=true; ?>
+                @for ($i=0;$i<count($boxes)&&$more;$i++)<!-- Si ya ha recibido anteriormente cajas -->
 
                     <div id="user-box-img" class="col-md-6 col-sm-12 d-inline-block mx-auto">
                         <div class="mr-5 float-right">
@@ -208,7 +208,7 @@
               --}}
                     </div>
 
-                    <?php $id++ ?>
+                    <?php $id++; if($i==5){$more=false;} ?>
 
                     @endfor
 
@@ -222,12 +222,5 @@
 
 @endsection
 @section('more-scripts-for-user-panel')
-    <script src="{{asset('/js/libraries/slick/jquery-migrate.min.js')}}"></script>
-    <script src="{{asset('/js/libraries/slick/slick.min.js')}}"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.single-item').slick();
-        });
-    </script>
+    <script src="{{asset('/js/user/dashboard/user_dashboard.js')}}"></script><!-- Includes time remaining to next box -->
 @endSection

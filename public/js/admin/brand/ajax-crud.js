@@ -38,7 +38,7 @@ $(document).ready(function() {
     $(document).on('click', '.delete-brand', function(e) {
    // $('.delete-brand').click(function() {
         var brand = $(this).val();
-        console.log("brand: " + brand);
+       // console.log("brand: " + brand);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -48,7 +48,7 @@ $(document).ready(function() {
             type: "DELETE",
             url: url + '/' + brand,
             success: function (data) {
-                console.log(data);
+               // console.log(data);
                 $("#brand" + brand).remove();
                 $('#ajaxerror').empty();
                 $('#ajaxerror').removeClass("alert alert-danger");
@@ -86,12 +86,12 @@ $(document).ready(function() {
             var my_url = url;
 
             if (state == "update") {
-                console.log("update");
+               // console.log("update");
                 type = "PUT"; //for updating existing resource
                 my_url += '/' + brand_id;
             }
 
-            console.log(formData);
+           // console.log(formData);
 
             $.ajax({
                 type: type,
@@ -99,9 +99,14 @@ $(document).ready(function() {
                 data: formData,
                 dataType: 'json',
                 success: function (data) { // success:
-                    console.log(data);
+                 //   console.log(data);
 
-                    var brand = '<tr id="brand' + data.id + '"><td id="id">' + data.id + '</td><td>' + data.name + '</td><td>' + data.info + '</td><td class="media-767-delete">' + data.created_at + '</td>';
+                    var brand = '<tr id="brand' + data.id + '"><td id="id">' + data.id + '</td><td>' + data.name + '</td>';
+                    brand+='<td>';
+                    if(data.info){
+                        brand+=data.info;
+                    }
+                    brand+='</td><td class="media-767-delete">' + data.created_at + '</td>';
                     brand += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
 
                     brand += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-brand" value="' + data.id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button></td></tr>';
@@ -148,14 +153,20 @@ $(document).ready(function() {
             url:'/search/brand',
             data:{'brand':$value},
            success:function(data){
-                console.log(data)
+              //  console.log(data)
                 if(data.length==0){
                     $('#brand-list').empty();
                     $('#brand-list').append('<p class="text-center">No results found</p>')
                 }else{
                     $('#brand-list').empty();
                     for (i=0;i<data.length;i++){
-                        var brand = '<tr id="brand' + data[i].id + '"><td id="id">' + data[i].id + '</td><td>' + data[i].name + '</td><td>' + data[i].info + '</td><td class="media-767-delete">' + data[i].created_at + '</td>';
+                        var brand = '<tr id="brand' + data[i].id + '"><td id="id">' + data[i].id + '</td><td>' + data[i].name + '</td>';
+                        brand+='<td>';
+                        if(data[i].info){
+                            brand+=data[i].info;
+                        }
+
+                        brand+='</td><td class="media-767-delete">' + data[i].created_at + '</td>';
                         brand += '<td><button style="margin-right: 2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
 
                         brand += '<button style="margin-left: 2px !important;" class="btn btn-danger btn-xs btn-delete delete-brand" value="' + data[i].id + '"><span class="hidden-md-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button></td></tr>';
@@ -165,7 +176,7 @@ $(document).ready(function() {
                 }
            },
            error:function (data) {
-               console.log(data);
+              // console.log(data);
            }
        });
         }else{
@@ -183,7 +194,7 @@ function valdateForm(){
     else{
         $('#name').css('border-color', "#5cb85c");
     }
-    console.log($('#info').val())
+   // console.log($('#info').val())
     if($('#info').val()){
       if(!validateLongText($('#info').val())){
           $('#info').css('border-color',"#a94442");
@@ -192,6 +203,6 @@ function valdateForm(){
           $('#info').css('border-color', "#5cb85c");
       }
     }
-    console.log(retorn);
+    //console.log(retorn);
     return retorn;
 }

@@ -38,7 +38,7 @@ $(document).ready(function() {
     $(document).on('click', '.delete-category', function(e) {
    // $('.delete-category').click(function() {
         var category = $(this).val();
-        console.log("category: " + category);
+       // console.log("category: " + category);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -48,7 +48,7 @@ $(document).ready(function() {
             type: "DELETE",
             url: url + '/' + category,
             success: function (data) {
-                console.log(data);
+              //  console.log(data);
                 $("#category" + category).remove();
                 $('#ajaxerror').empty();
                 $('#ajaxerror').removeClass("alert alert-danger");
@@ -87,12 +87,12 @@ $(document).ready(function() {
             var my_url = url;
 
             if (state == "update") {
-                console.log("update");
+               // console.log("update");
                 type = "PUT"; //for updating existing resource
                 my_url += '/' + category_id;
             }
 
-            console.log(formData);
+          //  console.log(formData);
 
             $.ajax({
                 type: type,
@@ -100,7 +100,7 @@ $(document).ready(function() {
                 data: formData,
                 dataType: 'json',
                 success: function (data) { // success:
-                    console.log(data);
+                  //  console.log(data);
 
                     var category = '<tr id="category' + data.id + '"><td id="id">' + data.id + '</td><td>' + data.name + '</td>';
                     category+='<td>';
@@ -176,7 +176,7 @@ $(document).ready(function() {
                 }
            },
            error:function (data) {
-               console.log(data);
+             //  console.log(data);
            }
        });
         }else{
@@ -193,7 +193,7 @@ function valdateForm(){
     }else{
         $('#name').css('border-color', "#5cb85c");
     }
-    console.log($('#info').val())
+    //console.log($('#info').val())
     if($('#info').val()){
         if(!validateLongText($('#info').val())){
             $('#info').css('border-color',"#a94442");
@@ -202,6 +202,6 @@ function valdateForm(){
             $('#info').css('border-color', "#5cb85c");
         }
     }
-    console.log(retorn);
+   // console.log(retorn);
     return retorn;
 }

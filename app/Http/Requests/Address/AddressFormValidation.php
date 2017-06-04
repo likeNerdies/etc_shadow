@@ -27,7 +27,7 @@ class AddressFormValidation extends FormRequest
             'building_number' => 'required|numeric|between:1,9999',
             'building_block'=>'nullable|string',
             'floor'=>'nullable|numeric|between:1,9999',
-            'door'=>'nullable|numeric|between:1,9999',
+            'door'=>'nullable|string',
             'postal_code'=>array(
                 'required',
                 'regex:/^(5[0-2]|[0-4][0-9])[0-9]{3}$/'
