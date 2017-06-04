@@ -174,8 +174,8 @@
             <div class="col-md-4">
                 <h3 class="text-center mt-10 mb-5">@lang('user/profile/profile.last_boxes')</h3>
             @if(!count($boxes)==0)
-                <?php $id = 0 ?>
-                @for ($i=0;$i<5;$i++)<!-- Si ya ha recibido anteriormente cajas -->
+                <?php $id = 0; $more=true; ?>
+                @for ($i=0;$i<count($boxes)&&$more;$i++)<!-- Si ya ha recibido anteriormente cajas -->
 
                     <div id="user-box-img" class="col-md-6 col-sm-12 d-inline-block mx-auto">
                         <div class="mr-5 float-right">
@@ -208,7 +208,7 @@
               --}}
                     </div>
 
-                    <?php $id++ ?>
+                    <?php $id++; if($i==5){$more=false;} ?>
 
                     @endfor
 
