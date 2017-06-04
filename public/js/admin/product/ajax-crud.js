@@ -308,6 +308,7 @@ $(document).ready(function () {
                 url: '/search/product',
                 data: {'product': $value},
                 success: function (data) {
+                    $('#pagquit_search').empty();
                   //  console.log(data)
                     if (data.length == 0) {
                         $('#product-list').empty();

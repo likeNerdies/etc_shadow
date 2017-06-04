@@ -198,6 +198,7 @@ $(document).ready(function () {
                 url: '/search/client',
                 data: {'client': $value},
                 success: function (data) {
+                    $('#pagquit_search').empty();
                     if (data.length == 0) {
                         $('#client-list').empty();
                         $('#client-list').append('<p class="text-center">No results found</p>')

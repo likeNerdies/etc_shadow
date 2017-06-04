@@ -28,7 +28,7 @@ class UpdatePersonalInfo extends FormRequest
                 array(
                     'nullable',
                     'regex:/((^[A-Z,a-z]{1})(\d{7})([A-Z,a-z]{1}))|(^\d{8}[aA-zZ]{1}$)/',
-                    'unique:admins,dni,'.Auth::user()->id
+                    'unique:users,dni,'.Auth::user()->id
                 ),
             'name' =>
                 array(
@@ -45,7 +45,7 @@ class UpdatePersonalInfo extends FormRequest
                     'nullable',
                     'regex:/[a-zA-Z]{2,100}/i'
                 ),
-            'email' => 'required|email|unique:admins,email,' . Auth::user()->id,//esto evita que de 'error' de email repetido para el mismo usuario
+            'email' => 'required|email|unique:users,email,' . Auth::user()->id,//esto evita que de 'error' de email repetido para el mismo usuario
             'phone_number'=>
                 array(
                     'nullable',

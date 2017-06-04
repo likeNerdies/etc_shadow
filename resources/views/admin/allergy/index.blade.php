@@ -47,6 +47,11 @@
       </div><!-- End of Table-to-load-the-data Part -->
     </div>
   </div>
+
+  <nav id="pagquit_search" class="mt-5">
+    {{$allergies->links()}}
+  </nav>
+
   <!-- Modal (Pop up when detail button clicked) -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">

@@ -215,6 +215,8 @@ Route::prefix('/search')->group(function () {
 
     Route::get('/ingredient', 'Search\SearchController@ingredient')->middleware('auth:admin')->name('search.ingredient');
 
+    Route::get('/ingredient/user', 'Search\SearchController@ingredientforUser')->middleware('auth')->name('search.ingredient-user');
+
     Route::get('/categorySelect', 'Search\SearchController@categorySelect')->middleware('auth:admin')->name('search.categorySelect');
 
     Route::get('/ingredientSelect', 'Search\SearchController@IngredientSelect')->middleware('auth:admin')->name('search.ingredientSelect');
@@ -226,6 +228,8 @@ Route::prefix('/search')->group(function () {
     Route::get('/plan', 'Search\SearchController@plan')->middleware('auth:admin')->name('search.plan');
 
     Route::get('/allergy', 'Search\SearchController@allergy')->middleware('auth:admin')->name('search.allergy');
+
+    Route::get('/allergy/user', 'Search\SearchController@allergyforUser')->middleware('auth')->name('search.allergy.user');
 
     Route::get('/admin', 'Search\SearchController@admin')->middleware('auth:admin')->name('search.admin');
 

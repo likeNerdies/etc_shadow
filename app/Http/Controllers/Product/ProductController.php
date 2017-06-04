@@ -399,12 +399,15 @@ class ProductController extends Controller
     public function dynamicQuery(Request $request)
     {
 
-        $query = App\Product::with('images', 'categories'); //names of eager loaded relationships
+      /*  $query = App\Product::with('images'); //names of eager loaded relationships
         if (isset($request->brands)) {
             $query->whereIn('brand_id', $request->brands);
         }
+
         if (isset($request->categories)) {
-            $query->join('category_product', 'products.id', '=', 'category_product.product_id');
+            $query->leftJoin('category_product', 'products.id', '=', 'category_product.product_id');
+           // $query->join('products', 'category_product.product_id', '=', 'products.id');
+            //$query->join('categories', 'category_product.category_id', '=', 'categories.id');
             $query->whereIn('category_id', $request->categories);
         }
 
@@ -427,5 +430,32 @@ class ProductController extends Controller
               ->where('vegetarian','=',1)
               ->get();
           return $products;*/
+
+        $products = DB::table('products');
+        if (isset($request->categories)) {
+            $categories=$request->categories;
+            $products = App\Product::whereHas('categories', function ($query) use($categories){
+               // foreach ($categories as $category){
+                    //$query->where('categories.id','=', $category);
+                    $query->whereIn('categories.id', $categories);
+               // }
+            });
+        }
+        if (isset($request->brands)) {
+            $products->whereIn('brand_id', $request->brands);
+        }
+
+        if (isset($request->organic)) {
+            $products->where('organic', '=', 1);
+        }
+        if (isset($request->vegetarian)) {
+            $products->where('vegetarian', '=', 1);
+        }
+        if (isset($request->vegan)) {
+            $products->where('vegan', '=', 1);
+        }
+
+
+        return $products->get();
     }
 }
