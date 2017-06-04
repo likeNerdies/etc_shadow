@@ -23,12 +23,12 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th class="media-767-delete">DNI</th>
+                                <th>DNI</th>
                                 <th>Name</th>
                                 <th class="media-767-delete">Surname</th>
                                 <th class="media-480-delete">Email</th>
-                                <th class="media-480-delete">Phone Number</th>
-                                <th>Plan</th>
+                                <th class="media-767-delete">Phone Number</th>
+                                <th class="media-767-delete">Plan</th>
                                 @if(Auth::user()->can_create)
                                     <th>Actions</th>
                                 @endif
@@ -39,23 +39,23 @@
                                 <tr id="client{{$client->id}}">
                                     <td id="id">{{$client->id}}</td>
                                     @if($client->dni==null)
-                                        <td class="media-767-delete"></td>
+                                        <td></td>
                                     @else
-                                        <td class="media-767-delete">{{$client->dni}}</td>
+                                        <td>{{$client->dni}}</td>
                                     @endif
                                     <td>{{$client->name}}</td>
                                     <td class="media-767-delete">{{$client->first_surname}}</td>
                                     <td class="media-480-delete">{{$client->email}}</td>
                                     @if($client->phone_number==null)
-                                        <td class="media-480-delete"></td>
+                                        <td class="media-767-delete"></td>
                                     @else
-                                        <td class="media-480-delete">{{$client->phone_number}}</td>
+                                        <td class="media-767-delete">{{$client->phone_number}}</td>
                                     @endif
 
                                     @if($client->plan==null)
-                                        <td>Without plan</td>
+                                        <td class="media-767-delete">Without plan</td>
                                     @else
-                                        <td>Plan : {{$client->plan->name}}</td>
+                                        <td class="media-767-delete">Plan : {{$client->plan->name}}</td>
                                     @endif
                                     @if(Auth::user()->can_create)
                                         <td>
@@ -70,6 +70,11 @@
                 </div>
             </div>
         </div>
+
+        <nav class="mt-5">
+            {{$clients->links()}}
+        </nav>
+
         <!-- Modal (Pop up when detail button clicked) -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">

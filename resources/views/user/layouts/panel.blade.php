@@ -21,6 +21,6 @@
 @endsection
 
 @section('scriptsPersonalizados')
-    <script src="{{asset('/js/welcome/welcome_script.js')}}"></script><!-- Includes navbar animations -->s
+    <script src="{{asset('/js/welcome/welcome_script.js')}}"></script><!-- Includes navbar animations -->
     @yield('more-scripts-for-user-panel')
 @endsection
