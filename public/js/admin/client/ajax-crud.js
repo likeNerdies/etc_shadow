@@ -153,9 +153,9 @@ $(document).ready(function () {
                         client += '<td class="media-767-delete">Without plan</td>';
                     }
 
-                    client += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.client.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
+                    client += '<td><button style="margin-right:2px !important;" class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.client.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
 
-                    client += '<button class="btn btn-danger btn-xs btn-delete delete-client" value="' + data.client.id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button></td></tr>';
+                    client += '<button style="margin-left:2px !important;" class="btn btn-danger btn-xs btn-delete delete-client" value="' + data.client.id + '"><span class="hidden-sm-down">Delete</span><i class="fa fa-trash hidden-md-up" aria-hidden="true"></i></button></td></tr>';
 
                     if (state == "add") { //if user added a new record
                         $('#client-list').append(client);
