@@ -173,9 +173,9 @@ CSS file for logged in users
   }
 
   #date_products_box {
-    text-align: center!important;
-    margin-right: 0!important;
-    padding: 0!important;
+    //text-align: center!important;
+    //margin-right: 0!important;
+    //padding: 0!important;
   }
 
   #date_products_box > h6 {

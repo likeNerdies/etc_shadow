@@ -15,11 +15,27 @@ body {
   font-family: sans-serif;
 }
 
+.overflow-y-hidden {
+  overflow-y: hidden;
+}
+
 h2 {
   font-size: 42px!important;
 }
 
+.float-md-right {
+  overflow: hidden!important;
+}
+
 .small {
+  font-size: 15px;
+}
+
+.font-18 {
+  font-size: 18px!important;
+}
+
+.btn-font-15 {
   font-size: 15px;
 }
 
@@ -85,6 +101,10 @@ h2 {
 
 .mb-100p {
   margin-bottom: 100px;
+}
+
+.mb-200p {
+  margin-bottom: 200px;
 }
 
 .bp-10 {
@@ -232,6 +252,14 @@ h2 {
     text-align: center!important;
     float: none!important;
     margin-left: 27%;
+  }
+
+  .text-md-center {
+    text-align: center!important;
+  }
+
+  .overflow-sm-x-hidden {
+    overflow-x: hidden;
   }
 
   .mt-sm-500 {
