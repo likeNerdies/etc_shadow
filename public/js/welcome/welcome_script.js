@@ -169,7 +169,7 @@ $(document).ready(function (event) {
                 type: 'GET',
                 data: formData,
                 success: function (data) {
-                   // console.log(data)
+                    console.log(data)
                     $('#products').empty();
 
                     var products="";
@@ -180,11 +180,11 @@ $(document).ready(function (event) {
                             products+='<div class="card-wrapper-product mx-2 mt-2">';
                             products+=' <a href="/products/'+data[i].id+'">';
                             products+=' <div class="card p-2">';
-                            if(data[i].images.length==0 || data[i].images==null){
-                                products+=' <img src="/img/user_products/no_image_available.png" class="rounded product-img card-img-top img-fluid" alt="No image available">';
-                            }else{
+                          //  if(data[i].images.length==0 || data[i].images==null){
+                          //      products+=' <img src="/img/user_products/no_image_available.png" class="rounded product-img card-img-top img-fluid" alt="No image available">';
+                           // }else{
                                 products+=' <div class="mt-2"><img class="rounded product-img card-img-top img-fluid" src="/products/'+data[i].id+'/image/'+0+'"></div>';
-                            }
+                         //   }
                             products+='   <div class="card-block pt-1"><h4 class="card-title"> '+data[i].name+'</h4></div>';
                             products+=' <div class="card-footer">';
 
@@ -205,7 +205,7 @@ $(document).ready(function (event) {
                     $('#products').html(products);
                 },
                 error: function (data) {
-                  //  console.log(data.responseText);
+                   console.log(data.responseText);
                 }
             });
 
