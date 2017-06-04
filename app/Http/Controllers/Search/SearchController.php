@@ -17,7 +17,7 @@ use App;
 use DB;
 use Storage;
 use Auth;
-
+use Session;
 /**
  * Class SearchController
  * Searchable Class
@@ -165,6 +165,44 @@ class SearchController extends Controller
                     "allergies" => $ing[$i]->allergies,
                     //"imageUrl"=>Storage::url($ing[$i]->image_path),
                 ];
+            }
+
+        } else {
+            //todo
+        }
+        return response()->json($retorn);
+    }
+    /**
+     * busqueda ajax para ingredient.
+     * Devuelve ingredients con id o name que coicida con los parametros.
+     * a la vez las alergies que tiene ese ingrediente
+     * @param Request $request
+     */
+    public function ingredientforUser(Request $request, Ingredient $ingredient)
+    {
+        $retorn = [];
+
+        $ingredient_traducido= $request->ingredient;
+       //
+      /*  if(Session::get('locale')=='es'){
+            $ingredient_traducido= _t($ingredient_traducido,[],'es');
+        }*/
+
+        if ($request->ajax() && $request->has('ingredient')) {
+            $ing = $ingredient->where('name', 'like', '%' .$ingredient_traducido . '%')
+                ->get();
+            if(count($ing)>0){
+                for ($i = 0; $i < count($ing); $i++) {
+                    if(Session::get('locale')=='es'){
+                        $retorn["ingredients"][$i] = [
+                                "id"=>$ing[$i]->id,
+                                "name"=> _t($ing[$i]->name,[],'es'),
+                        ];
+                    }else{
+                        $retorn["ingredients"][$i] = $ing[$i];
+                    }
+                }
+                $retorn["user_ingredients"]=Auth::user()->ingredients;
             }
 
         } else {

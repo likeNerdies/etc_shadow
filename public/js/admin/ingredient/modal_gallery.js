@@ -1,5 +1,7 @@
 $(document).ready(function () {
-    $(".img-thumbnail").click(function (e) {
+
+    $(document).on('click', '.img-thumbnail', function (e) {
+    //$(".img-thumbnail").click(function (e) {
 
 
         var modal = $('#myModalImage');

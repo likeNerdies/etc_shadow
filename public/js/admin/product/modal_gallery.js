@@ -3,8 +3,8 @@ $(document).ready(function () {
 
     // Get the modal
 
-
-    $(".img-thumbnail").click(function (e) {
+    $(document).on('click', '.img-thumbnail', function (e) {
+  //  $(".img-thumbnail").click(function (e) {
 
         var modal = $('#myModalImage');
         // Get the image and insert it inside the modal - use its "alt" text as a caption

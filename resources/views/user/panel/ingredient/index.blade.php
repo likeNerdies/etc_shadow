@@ -13,8 +13,9 @@
 
         <div class="row">
             <div class="col-md-11 col-12 mx-auto">
+                <div><input  type="text" id="search" name="ingredient" placeholder="search"></div>
               <div class="error mt-3 text-center"></div>
-                <div class="card-columns text-center">
+                <div id="ingredients_user" class="card-columns text-center">
                     {{ csrf_field() }}
                     @php
                         foreach ($ingredients as $ingredient){
