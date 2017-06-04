@@ -27,7 +27,7 @@
 
     <div class="row mt-2">
         <!-- Table-to-load-the-data Part -->
-        <div class="col-12 col-md-11">
+        <div class="col-12">
             <table class="table mt-4">
                 <thead>
                 <tr>
@@ -75,7 +75,9 @@
         </div>
 </div>
 
-    {{$ingredients->links()}}
+    <nav class="mt-5">
+        {{$ingredients->links()}}
+    </nav>
 
 
 

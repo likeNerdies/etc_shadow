@@ -19,7 +19,7 @@
 
     <div class="row mt-2">
       <!-- Table-to-load-the-data Part -->
-      <div class="col-12 col-md-11">
+      <div class="col-12">
         <table class="table mt-4">
           <thead>
           <tr>
@@ -49,7 +49,11 @@
 
   </div>
 
-  <!-- Modal (Pop up when detail button clicked) -->
+  <nav class="mt-5">
+    {{$brands->links()}}
+  </nav>
+
+    <!-- Modal (Pop up when detail button clicked) -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
 

@@ -53,7 +53,9 @@
   </div>
 </div>
 
-
+<nav class="mt-5">
+  {{$categories->links()}}
+</nav>
 
 
   <!-- Modal (Pop up when detail button clicked) -->

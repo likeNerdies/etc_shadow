@@ -26,7 +26,7 @@
         </div>
 
         <div class="row mt-2">
-            <div class="col-12 col-md-11">
+            <div class="col-12">
                 <!-- Table-to-load-the-data Part -->
                 <table class="table">
                     <thead>
