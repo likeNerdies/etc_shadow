@@ -29,7 +29,7 @@
                   <h4 id="timeRemaining" class="font-18 mt-2">...</h4>
               </div>
             </div>
-            <div class="col-sm-12 col-md-6">
+            <div class="col-sm-12 col-md-6 mt-mysm-2">
               <div class="user-dashboard-block text-center bg-f7 p-3">
                   <h4 class="text-center">@lang("user/plan/plan.hasPlan"){{ Auth::user()->plan->name}}!</h4>
                   <a href="/plans"><button class="mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe btn-font-15" type="submit" name="button">@lang("user/plan/plan.wannaChange")</button></a>

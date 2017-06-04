@@ -1,5 +1,5 @@
 
-<div id="side-block">
+<div style="overflow-y: auto;" id="side-block">
     <form action="" name="filter_form" id="filter_form">
         <div class="filter-block">
             <div id="title-categories" class="filter-title filter-title-toggled">
