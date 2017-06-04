@@ -141,16 +141,16 @@ $(document).ready(function () {
                     } else {
                         client += '<td></td>';
                     }
-                    client += '<td>' + data.client.name + '</td><td>' + data.client.first_surname + '</td><td>' + data.client.email + '</td>';
+                    client += '<td>' + data.client.name + '</td><td class="media-767-delete">' + data.client.first_surname + '</td><td class="media-480-delete">' + data.client.email + '</td>';
                     if (data.client.phone_number != null) {
-                        client += '<td>' + data.client.phone_number + '</td>';
+                        client += '<td class="media-767-delete">' + data.client.phone_number + '</td>';
                     } else {
-                        client += '<td></td>';
+                        client += '<td class="media-767-delete"></td>';
                     }
                     if (data.plan != null) {
-                        client += '<td>Plan : ' + data.plan.name + '</td>';
+                        client += '<td class="media-767-delete">Plan : ' + data.plan.name + '</td>';
                     } else {
-                        client += '<td>Without plan</td>';
+                        client += '<td class="media-767-delete">Without plan</td>';
                     }
 
                     client += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.client.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
@@ -206,20 +206,20 @@ $(document).ready(function () {
                         for (i = 0; i < data.length; i++) {
                             var client = '<tr id="client' + data[i].client.id + '"><td id="id">' + data[i].client.id + '</td>';
                             if (data[i].client.dni != null) {
-                                client += '<td class="media-767-delete">' + data[i].client.dni + '</td>';
+                                client += '<td>' + data[i].client.dni + '</td>';
                             } else {
-                                client += '<td class="media-767-delete"></td>';
+                                client += '<td></td>';
                             }
                             client += '<td>' + data[i].client.name + '</td><td class="media-767-delete">' + data[i].client.first_surname + '</td><td class="media-480-delete">' + data[i].client.email + '</td>';
                             if (data[i].client.phone_number != null) {
-                                client += '<td class="media-480-delete">' + data[i].client.phone_number + '</td>';
+                                client += '<td class="media-767-delete">' + data[i].client.phone_number + '</td>';
                             } else {
-                                client += '<td class="media-480-delete"></td>';
+                                client += '<td class="media-767-delete"></td>';
                             }
                             if (data[i].plan != null) {
-                                client += '<td>Plan : ' + data[i].plan.name + '</td>';
+                                client += '<td class="media-767-delete">Plan : ' + data[i].plan.name + '</td>';
                             } else {
-                                client += '<td>Without plan</td>';
+                                client += '<td class="media-767-delete">Without plan</td>';
                             }
                             client += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data[i].client.id + '"><span class="hidden-sm-down">Edit</span><i class="fa fa-pencil hidden-md-up" aria-hidden="true"></i></button>';
 
