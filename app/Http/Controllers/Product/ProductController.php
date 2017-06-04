@@ -38,7 +38,7 @@ class ProductController extends Controller
      */
     public function productsIndex()
     {
-        $products = App\Product::paginate(15);
+        $products = App\Product::orderBy('created_at', 'desc')->paginate(15);
         $categories = App\Category::all();
         $brands = App\Brand::all();
         return view('product.index', compact(['products', 'brands', 'categories']));
