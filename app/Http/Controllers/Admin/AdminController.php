@@ -147,7 +147,9 @@ class AdminController extends Controller
         $user->first_surname = $request->first_surname;
         $user->second_surname = $request->second_surname;
         $user->email = $request->email;
-        $user->password = Hash::make($request->password);
+        if(isset($request->password)){
+            $user->password = Hash::make($request->password);
+        }
         $user->phone_number = $request->phone_number;
         $user->can_create = $request->can_create;
         $user->save();

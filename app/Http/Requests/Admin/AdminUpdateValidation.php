@@ -38,7 +38,7 @@ class AdminUpdateValidation extends FormRequest
             'first_surname'=>'required|min:3|max:65',
             'second_surname'=>'nullable|min:3|max:65',
             'email' => 'required|email|unique:admins,email, '.$this->id,
-             'password' => 'required|min:8|confirmed',
+             'password' => 'nullable|min:8|confirmed',
             'phone_number'=>
                 array(
                     'nullable',
