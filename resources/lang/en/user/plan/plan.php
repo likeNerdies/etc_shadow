@@ -27,7 +27,7 @@ return [
   "charmingSubtitle" => "We have the perfect plan for you!",
   "charmingSlogan" => "The Charming plan is small but plenty of delightfulness.",
   "charmingProductsList" => "4 products: One drink (no dairy milk or juicies), a cookies box, a cereal box and a bar pack",
-    "notSufficient"=>"Keep an eye on other plans we have for you"
+  "notSufficient"=>"Keep an eye on the other plans we have for you",
 ];
 
 ?>
