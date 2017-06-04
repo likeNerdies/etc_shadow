@@ -35,6 +35,12 @@ CSS file for logged in users
   margin-top: 15vh;
 }
 
+/*USER BOXES - CHANGE PLAN*/
+
+.user-dashboard-block{
+  box-shadow: 0px 4px 7px lightgrey;
+}
+
 #timeRemaining { /* To next box */
   color: #50c878;
   font-size: 15px;

@@ -30,9 +30,9 @@
                                             @if(count($product->images) == 0)
                                                 <img src="/img/user_products/no_image_available.png" class="rounded product-img card-img-top img-fluid" alt="No image available">
                                             @else
-                                                <div class="mt-2"><img class="rounded product-img card-img-top img-fluid" src="/products/{{$product->images->first()->id}}/image"></div>
+                                                <div style="display:flex; width: 241px;height: 375px; margin: auto; justify-content: center; align-items: center; overflow-y: hidden;" class="mt-2"><img style="width: auto; max-height: 375px;" class="rounded product-img card-img-top img-fluid" src="/products/{{$product->images->first()->id}}/image"></div>
                                             @endif
-                                            <div class="card-block pt-1"><h4 class="card-title"> {{ $product->name }}</h4></div>
+                                            <div class="card-block pt-3"><h4 class="card-title"> {{ $product->name }}</h4></div>
                                             <div class="card-footer">
                                                 @if ($product->vegan == 1)
                                                     <p class="d-inline diet card-text"><i class="fa fa-check mx-1" aria-hidden="true"></i>Vegan</p>
