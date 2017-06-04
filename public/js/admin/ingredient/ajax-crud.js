@@ -211,6 +211,7 @@ $(document).ready(function () {
                 data: {'ingredient': $value},
                 success: function (data) {
                   //  console.log(data)
+                    $('#pagquit_search').empty();
                     if (data.length == 0) {
                         $('#ingredient-list').empty();
                         $('#ingredient-list').append('<p class="text-center">No results found</p>')

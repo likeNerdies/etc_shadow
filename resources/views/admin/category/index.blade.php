@@ -53,7 +53,7 @@
   </div>
 </div>
 
-<nav class="mt-5">
+<nav id="pagquit_search" class="mt-5">
   {{$categories->links()}}
 </nav>
 

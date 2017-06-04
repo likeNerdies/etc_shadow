@@ -154,6 +154,7 @@ $(document).ready(function() {
             data:{'brand':$value},
            success:function(data){
               //  console.log(data)
+               $('#pagquit_search').empty();
                 if(data.length==0){
                     $('#brand-list').empty();
                     $('#brand-list').append('<p class="text-center">No results found</p>')

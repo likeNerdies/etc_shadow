@@ -156,6 +156,7 @@ $(document).ready(function() {
             url:'/search/category',
             data:{'category':$value},
            success:function(data){
+               $('#pagquit_search').empty();
                 if(data.length==0){
                     $('#category-list').empty();
                     $('#category-list').append('<p class="text-center">No results found</p>')

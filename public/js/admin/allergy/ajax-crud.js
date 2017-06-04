@@ -142,6 +142,7 @@ $(document).ready(function() {
             data:{'allergy':$value},
            success:function(data){
                // console.log(data)
+               $('#pagquit_search').empty();
                 if(data.length==0){
                     $('#allergy-list').empty();
                     $('#allergy-list').append('<p class="text-center">No results found</p>')
