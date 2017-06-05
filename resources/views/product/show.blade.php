@@ -43,19 +43,19 @@
                     <div id="wrapper-min-img" class="d-flex flex-row justify-content-between h-30 mt-2">
 
                         <div id="min-img-1" class="w-31">
-                            <a id="carousel-selector-0">
+                            <a style="cursor: pointer;" id="carousel-selector-0">
                                 <img src="/products/{{$product->id}}/image/0" alt="{{_t($product->name,[],Session::get('locale'))}}">
                             </a>
                         </div>
 
                         <div id="min-img-2" class="w-31">
-                            <a id="carousel-selector-1">
+                            <a style="cursor: pointer;" id="carousel-selector-1">
                                 <img  src="/products/{{$product->id}}/image/1" alt="{{_t($product->name,[],Session::get('locale'))}}">
                             </a>
                         </div>
 
                         <div id="min-img-3" class="w-31">
-                            <a id="carousel-selector-2">
+                            <a style="cursor: pointer;" id="carousel-selector-2">
                                 <img  src="/products/{{$product->id}}/image/2" alt="{{_t($product->name,[],Session::get('locale'))}}">
                             </a>
                         </div>
@@ -91,6 +91,11 @@
         </div><!-- / content-wrapper-show -->
     </div><!-- / main-wrapper -->
 @endsection
+
+@if(!Auth::check())
+    @include('layouts.register')
+    @include('layouts.login')
+@endif
 
 <!-- Aquí hi ha el footer -->
 

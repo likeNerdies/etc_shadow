@@ -44,7 +44,13 @@
 
   </div>
 
-  @endsection
+
+@if(!Auth::check())
+    @include('layouts.register')
+    @include('layouts.login')
+@endif
+
+@endsection
   @section('scriptsPersonalizados')
     <script src="/js/welcome/welcome_script.js"></script>
   @endsection

@@ -89,7 +89,7 @@
         <span class="close">&times;</span>
 
         <!-- Modal Content (The Image) -->
-        <img class="modal-content img-fluid" id="img01">
+        <img class="modal-content img-modal-products" id="img01">
 
     </div>
     <!-- /Modal Image -->

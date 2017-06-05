@@ -70,6 +70,12 @@
 
   </div> / container -->
 
+@if(!Auth::check())
+    @include('layouts.register')
+    @include('layouts.login')
+@endif
+
+
 @endsection
 
 @section('scriptsPersonalizados')
