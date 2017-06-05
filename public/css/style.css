@@ -330,6 +330,10 @@ h2 {
   background-color: white!important;
 }
 
+.card-columns {
+  column-count: 4;
+}
+
 .card-columns a {
   text-decoration: none!important;
 }
@@ -349,6 +353,7 @@ h2 {
 .pagination{
     font-size: 19px;
 }
+
 
 
 /*Subscribe*/
