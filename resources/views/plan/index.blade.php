@@ -23,7 +23,7 @@
           </div>
           <div class="col-md-3 text-center">
             <form class="" action="/user/panel/plan/subscribe/1" method="get">
-              <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel cursor-pointer" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button>
+              <button class="mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button>
             </form>
             <!--<a href="/user/panel/plan/subscribe/1"><button class="mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnSubscribe")</button></a>-->
           </div>
@@ -40,7 +40,7 @@
           </div>
           <div class="col-md-3 text-center">
             <form class="" action="/user/panel/plan/subscribe/2" method="get">
-              <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel cursor-pointer" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button>
+              <button class="mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button>
             </form>
             <!--<a href="/user/panel/plan/subscribe/2"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>-->
           </div>
@@ -57,7 +57,7 @@
           </div>
           <div class="col-md-3 text-center">
             <form class="" action="/user/panel/plan/subscribe/3" method="get">
-              <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel cursor-pointer" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button>
+              <button class="mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button>
             </form>
             <!--<a href="/user/panel/plan/subscribe/3"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>-->
           </div>
@@ -80,7 +80,7 @@
               <div class="col-md-3 text-center">
                 <!--<a href="/user/panel/plan/subscribe/2"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>-->
                 <form class="" action="/user/panel/plan/subscribe/2" method="get">
-                  <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel cursor-pointer" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button>
+                  <button class="mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button>
                 </form>
               </div>
             </div>
@@ -96,7 +96,7 @@
               <div class="col-md-3 text-center">
                 <!--<a href="/user/panel/plan/subscribe/3"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>-->
                 <form class="" action="/user/panel/plan/subscribe/3" method="get">
-                  <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel cursor-pointer" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button>
+                  <button class="mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button>
                 </form>
               </div>
             </div>
@@ -113,7 +113,7 @@
                 <div class="col-md-3 text-center">
                   <!--<a href="/user/panel/plan/subscribe/1"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>-->
                   <form class="" action="/user/panel/plan/subscribe/1" method="get">
-                    <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel cursor-pointer" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button>
+                    <button class="mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button>
                   </form>
                 </div>
               </div>
@@ -129,7 +129,7 @@
                 <div class="col-md-3 text-center">
                   <!--<a href="/user/panel/plan/subscribe/3"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>-->
                   <form class="" action="/user/panel/plan/subscribe/3" method="get">
-                    <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel cursor-pointer" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button>
+                    <button class="mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button>
                   </form>
                 </div>
               </div>
@@ -146,7 +146,7 @@
                   <div class="col-md-3 text-center">
                     <!--<a href="/user/panel/plan/subscribe/1"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>-->
                     <form class="" action="/user/panel/plan/subscribe/1" method="get">
-                      <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel cursor-pointer" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button>
+                      <button class="mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button>
                     </form>
                   </div>
                 </div>
@@ -162,7 +162,7 @@
                   <div class="col-md-3 text-center">
                     <!--<a href="/user/panel/plan/subscribe/3"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>-->
                     <form class="" action="/user/panel/plan/subscribe/3" method="get">
-                      <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel cursor-pointer" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button>
+                      <button class="mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button>
                     </form>
                   </div>
                 </div>
