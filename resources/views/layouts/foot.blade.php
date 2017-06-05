@@ -22,7 +22,7 @@
   </div>
 
   <!--<h6 id="needHelpFooter" class=""><a href="/help">@lang("layouts/footer.needHelp")</a></h6>-->
-  <span><a id="needHelpFooter" href="/help" class="icon-anchor"><i class="fa fa-question-circle" aria-hidden="true"></i>@lang("layouts/footer.needHelp")</a></span>
+  <span class="d-block text-center"><a id="needHelpFooter" href="/help" class="icon-anchor mx-auto"><i class="fa fa-question-circle" aria-hidden="true"></i>@lang("layouts/footer.needHelp")</a></span>
 
 </div>
 

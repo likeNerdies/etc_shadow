@@ -125,13 +125,13 @@
             </ol>
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item justify-content-center active">
-                    <img style="width:300px; height: 300px;" class="d-block" id="img01" alt="First slide">
+                    <img class="d-block img-modal-products" id="img01" alt="First slide">
                 </div>
                 <div class="carousel-item justify-content-center">
-                    <img style="width:300px; height: 300px;" class="d-block" id="img02" alt="Second slide">
+                    <img class="d-block img-modal-products" id="img02" alt="Second slide">
                 </div>
                 <div class="carousel-item justify-content-center">
-                    <img style="width:300px; height: 300px;" class="d-block" id="img03" alt="Third slide">
+                    <img class="d-block img-modal-products" id="img03" alt="Third slide">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
