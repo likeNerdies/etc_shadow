@@ -25,7 +25,7 @@ $(document).ready(function () {
                                         clas = "unlike";
                                     }
                                 }
-                                var ingredient = '<div class="card-wrapper m-1">';
+                                var ingredient = '<div class="card-wrapper">';
                                 ingredient += '<div id="' +data.ingredients[i].id + '" class="card mx-auto ' + clas + '">';
                                 ingredient += ' <img src="/user/panel/ingredients/' + data.ingredients[i].id + '/image" class="rounded card-img-top ingredient-img img-responsive mx-auto py-3" alt="' + data.ingredients[i].name + '">';
                                 ingredient += '<div class="card-footer">';
