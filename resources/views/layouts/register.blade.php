@@ -16,7 +16,7 @@ aria-hidden="true">
 
     <!-- Body -->
       <div class="modal-body">
-        <form  id="registerForm" class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
+        <form  id="registerForm" class="form-horizontal" method="POST" action="{{ route('register') }}">
           {{ csrf_field() }}
 
           {{--  <div class="form-group row{{ $errors->has('name') ? ' has-error' : '' }}">--}}

@@ -22,7 +22,10 @@
             <small class="price">{{$plans[0]->price}}€</small>
           </div>
           <div class="col-md-3 text-center">
-            <a href="/user/panel/plan/subscribe/1"><button class="mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnSubscribe")</button></a>
+            <form class="" action="/user/panel/plan/subscribe/1" method="get">
+              <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel cursor-pointer" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button>
+            </form>
+            <!--<a href="/user/panel/plan/subscribe/1"><button class="mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnSubscribe")</button></a>-->
           </div>
         </div>
 
@@ -36,7 +39,10 @@
             <small class="price">{{$plans[1]->price}}€</small>
           </div>
           <div class="col-md-3 text-center">
-            <a href="/user/panel/plan/subscribe/2"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>
+            <form class="" action="/user/panel/plan/subscribe/2" method="get">
+              <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel cursor-pointer" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button>
+            </form>
+            <!--<a href="/user/panel/plan/subscribe/2"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>-->
           </div>
         </div>
 
@@ -50,7 +56,10 @@
             <small class="price">{{$plans[2]->price}}€</small>
           </div>
           <div class="col-md-3 text-center">
-            <a href="/user/panel/plan/subscribe/3"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>
+            <form class="" action="/user/panel/plan/subscribe/3" method="get">
+              <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel cursor-pointer" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button>
+            </form>
+            <!--<a href="/user/panel/plan/subscribe/3"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>-->
           </div>
         </div>
 
@@ -69,7 +78,10 @@
                 <small class="price">{{$plans[1]->price}}€</small>
               </div>
               <div class="col-md-3 text-center">
-                <a href="/user/panel/plan/subscribe/2"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>
+                <!--<a href="/user/panel/plan/subscribe/2"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>-->
+                <form class="" action="/user/panel/plan/subscribe/2" method="get">
+                  <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel cursor-pointer" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button>
+                </form>
               </div>
             </div>
             <!-- Premium -->
@@ -82,7 +94,10 @@
                 <small class="price">{{$plans[2]->price}}€</small>
               </div>
               <div class="col-md-3 text-center">
-                <a href="/user/panel/plan/subscribe/3"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>
+                <!--<a href="/user/panel/plan/subscribe/3"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>-->
+                <form class="" action="/user/panel/plan/subscribe/3" method="get">
+                  <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel cursor-pointer" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button>
+                </form>
               </div>
             </div>
           @elseif (Auth::user()->plan->name == "pro")
@@ -96,7 +111,10 @@
                   <small class="price">{{$plans[0]->price}}€</small>
                 </div>
                 <div class="col-md-3 text-center">
-                  <a href="/user/panel/plan/subscribe/1"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>
+                  <!--<a href="/user/panel/plan/subscribe/1"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>-->
+                  <form class="" action="/user/panel/plan/subscribe/1" method="get">
+                    <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel cursor-pointer" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button>
+                  </form>
                 </div>
               </div>
               <!-- Premium -->
@@ -109,7 +127,10 @@
                   <small class="price">{{$plans[2]->price}}€</small>
                 </div>
                 <div class="col-md-3 text-center">
-                  <a href="/user/panel/plan/subscribe/3"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>
+                  <!--<a href="/user/panel/plan/subscribe/3"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>-->
+                  <form class="" action="/user/panel/plan/subscribe/3" method="get">
+                    <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel cursor-pointer" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button>
+                  </form>
                 </div>
               </div>
             @else
@@ -123,7 +144,10 @@
                     <small class="price">{{$plans[0]->price}}€</small>
                   </div>
                   <div class="col-md-3 text-center">
-                    <a href="/user/panel/plan/subscribe/1"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>
+                    <!--<a href="/user/panel/plan/subscribe/1"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>-->
+                    <form class="" action="/user/panel/plan/subscribe/1" method="get">
+                      <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel cursor-pointer" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button>
+                    </form>
                   </div>
                 </div>
                 <!-- Pro -->
@@ -136,7 +160,10 @@
                     <small class="price">{{$plans[1]->price}}€</small>
                   </div>
                   <div class="col-md-3 text-center">
-                    <a href="/user/panel/plan/subscribe/3"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>
+                    <!--<a href="/user/panel/plan/subscribe/3"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>-->
+                    <form class="" action="/user/panel/plan/subscribe/3" method="get">
+                      <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel cursor-pointer" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button>
+                    </form>
                   </div>
                 </div>
             @endif

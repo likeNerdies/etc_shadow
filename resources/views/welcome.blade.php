@@ -26,7 +26,10 @@
               </div>
               <div class="content">
                 <p class="text-justify text-center">@lang("welcome.seeProducts")</p>
-                <a href="/products"><button class="mt-3  btn btn-primary page-scroll btn-seeProducts sr-btn" type="button" name="button">@lang("welcome.btnSeeProducts")</button></a>
+                <form class="" action="/products" method="get">
+                  <button class="mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn cursor-pointer" type="submit" name="button">@lang("welcome.btnSeeProducts")</button>
+                </form>
+                <!--<a href="/products"><button class="mt-3  btn btn-primary page-scroll btn-seeProducts sr-btn" type="button" name="button">@lang("welcome.btnSeeProducts")</button></a>-->
               </div>
             </div>
           </div>
@@ -92,7 +95,10 @@
                 <img class="image-fluid" src="/img/plans/charming_en.png" alt="Charming plan">
               @endif
               <div class="carousel-caption d-md-block">
-                <a href="/user/panel/plan/subscribe/1"><button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel" type="button" name="button">@lang("welcome.subscribe")</button></a>
+                <form class="" action="/user/panel/plan/subscribe/1" method="get">
+                  <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel cursor-pointer" type="submit" name="button">@lang("welcome.subscribe")</button>
+                </form>
+                <!--<a href="/user/panel/plan/subscribe/1"><button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel" type="button" name="button">@lang("welcome.subscribe")</button></a>-->
               </div>
             </div>
             <div class="carousel-item">
@@ -102,7 +108,10 @@
                 <img class="image-fluid" src="/img/plans/pro_en.png" alt="Pro plan">
               @endif
               <div class="carousel-caption d-md-block">
-                <a href="/user/panel/plan/subscribe/2"><button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel" type="button" name="button">@lang("welcome.subscribe")</button></a>
+                <form class="" action="/user/panel/plan/subscribe/2" method="get">
+                  <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel cursor-pointer" type="submit" name="button">@lang("welcome.subscribe")</button>
+                </form>
+                <!--<a href="/user/panel/plan/subscribe/2"><button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel" type="button" name="button">@lang("welcome.subscribe")</button></a>-->
               </div>
             </div>
             <div class="carousel-item">
@@ -112,15 +121,18 @@
                 <img class="image-fluid" src="/img/plans/premium_es.png" alt="Premium plan">
               @endif
               <div class="carousel-caption d-md-block">
-                <a href="/user/panel/plan/subscribe/3"><button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-font-black btn-middle-carousel" type="button" name="button">@lang("welcome.subscribe")</button></a>
+                <form class="" action="/user/panel/plan/subscribe/3" method="get">
+                  <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel cursor-pointer" type="submit" name="button">@lang("welcome.subscribe")</button>
+                </form>
+                <!--<a href="/user/panel/plan/subscribe/3"><button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-font-black btn-middle-carousel" type="button" name="button">@lang("welcome.subscribe")</button></a>-->
               </div>
             </div>
           </div>
-          <a class="carousel-control-prev" href="#carousel-plans" role="button" data-slide="prev">
+          <a class="carousel-control-prev" href="#carousel-plans" data-slide="prev"><!-- role="button" -->
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">@lang("welcome.previous")</span>
           </a>
-          <a class="carousel-control-next" href="#carousel-plans" role="buton" data-slide="next">
+          <a class="carousel-control-next" href="#carousel-plans" data-slide="next"><!-- role="button" -->
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">@lang("welcome.next")</span>
           </a>
@@ -136,7 +148,10 @@
             <img class="img-fluid mb-2" src="/img/plans/pro_en.png" alt="Pro plan">
             <img class="img-fluid mb-2" src="/img/plans/premium_en.png" alt="Premium plan">
           @endif
-          <button class="btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="button" name="button"><a href="/plans">@lang("welcome.subscribe")</a></button>
+          <form class="" action="/plans" method="get">
+            <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel cursor-pointer" type="submit" name="button">@lang("welcome.subscribe")</button>
+          </form>
+          <!--<button class="btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="button" name="button"><a href="/plans">@lang("welcome.subscribe")</a></button>-->
         </div><!-- / Alternative to Carousel -->
       </div>
     </div>
