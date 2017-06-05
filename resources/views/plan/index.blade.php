@@ -13,7 +13,7 @@
 
     @if (Auth::user()->plan_id == null)
         <!-- Charming -->
-        <div class="row mr-sm-0 section charming-bg-color plan-section p-5">
+        <div class="row section charming-bg-color plan-section p-5">
           <div class="col-md-9">
             <h3 class="text-center">@lang("user/plan/plan.charmingTitle")</h3>
             <h3 class="text-center subtitle">@lang("user/plan/plan.charmingSubtitle")</h3>
@@ -92,7 +92,7 @@
             </div>
           @elseif (Auth::user()->plan->name == "pro")
               <!-- Charming -->
-              <div class="row mr-sm-0 section charming-bg-color p-5">
+              <div class="row section charming-bg-color p-5">
                 <div class="col-md-9">
                   <h3 class="text-center">@lang("user/plan/plan.charmingTitle")</h3>
                   <h3 class="text-center subtitle">@lang("user/plan/plan.charmingSubtitle")</h3>
@@ -121,7 +121,7 @@
               </div>
             @else
                 <!-- Charming -->
-                <div class="row mr-sm-0 section charming-bg-color p-5">
+                <div class="row section charming-bg-color p-5">
                   <div class="col-md-9">
                     <h3 class="text-center">@lang("user/plan/plan.charmingTitle")</h3>
                     <h3 class="text-center subtitle">@lang("user/plan/plan.charmingSubtitle")</h3>

@@ -8,7 +8,7 @@
         <h4 class="text-center mt-3">@lang("user/plan/plan.wannaSubscribe")</h4>
 
         <!-- Charming -->
-        <div class="row mr-sm-0 section charming-bg-color p-5 mr-md-5">
+        <div class="row section charming-bg-color p-5 mr-md-5">
           <div class="col-md-9">
             <h3 class="text-center">@lang("user/plan/plan.charmingTitle")</h3>
             <h3 class="text-center subtitle">@lang("user/plan/plan.charmingSubtitle")</h3>
