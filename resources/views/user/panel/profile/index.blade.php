@@ -7,7 +7,7 @@
     <!-- Welcome -->
       <div class="row mb-5">
           <div class="col-12">
-              <h1 class="text-center lighter-font">@lang('user/profile/profile.welcome'), {{$user->name}}</h1>
+              <h1 class="text-center lighter-font">@lang('user/profile/profile.welcome'), <span style=" text-transform: capitalize;">{{$user->name}}</span></h1>
           </div>
       </div>
 
@@ -65,7 +65,7 @@
                                   class="date-received btn btn-default text-brown cursor-pointer button-no-decoration mx-auto sm-pl"
                                   data-toggle="collapse" data-target=#{{$productId}} aria-expanded="false"
                                   aria-controls="{{$productId}}">
-                                    <i class="fa fa-plus" aria-hidden="true"></i> Products
+                                    <i class="fa fa-plus" aria-hidden="true"></i> @lang('product/product.products')
                             </button>
                         </span>
                         </div>
@@ -75,7 +75,7 @@
                             <div id="products" class="card card-block ingredients-card pl-0">
                               <ul class="ul-no-style pl-md-0">
                                 @foreach ($boxes[$i]["products"] as $product)
-                                    <li><i class="fa fa-envira" aria-hidden="true"></i>{{ $product->name }}</li>
+                                    <li><i class="fa fa-envira" aria-hidden="true"></i>{{ _t($product->name,[],Session::get('locale'))}}</li>
                                 @endforeach
                               </ul>
                             </div>

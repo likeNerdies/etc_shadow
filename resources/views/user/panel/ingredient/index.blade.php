@@ -14,7 +14,7 @@
 
       <!--<div class="row">-->
         <div class="col-md-6 ml-2_7rem">
-          <input type="text" id="search" class="form-control" name="ingredient" placeholder="Search">
+          <input type="text" id="search" class="form-control" name="ingredient" placeholder="@lang('product/product.search')">
         </div>
       <!--</div>-->
 
