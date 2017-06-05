@@ -148,8 +148,8 @@
             <img class="img-fluid mb-2" src="/img/plans/pro_en.png" alt="Pro plan">
             <img class="img-fluid mb-2" src="/img/plans/premium_en.png" alt="Premium plan">
           @endif
-          <form class="" action="/plans" method="get">
-            <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel cursor-pointer" type="submit" name="button">@lang("welcome.subscribe")</button>
+          <form action="/plans" method="post">
+            <button class="btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe cursor-pointer" type="submit">@lang("welcome.subscribe")</button>
           </form>
           <!--<button class="btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="button" name="button"><a href="/plans">@lang("welcome.subscribe")</a></button>-->
         </div><!-- / Alternative to Carousel -->
