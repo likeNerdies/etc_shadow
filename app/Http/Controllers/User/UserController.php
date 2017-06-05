@@ -37,7 +37,7 @@ class UserController extends Controller
             $delivery=App\Delivery::find($deliveries[$index]->id);
             $boxes[$index]=[
                 "products"=>$delivery->box->products,
-                "from"=>$delivery->created_at->diffForHumans()
+                "from"=>_t($delivery->created_at->diffForHumans(),[],Session::get('locale'))
             ];
         }
         $plans=App\Plan::all();
