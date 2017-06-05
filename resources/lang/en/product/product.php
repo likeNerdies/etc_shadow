@@ -14,4 +14,5 @@ return[
     "brands"=>"Brands",
     "categories"=>"Categories",
     "search"=>"Search",
+    "products"=>"Products",
 ];

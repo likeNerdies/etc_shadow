@@ -10,7 +10,7 @@
             </div>
 
             <div class="col-md-4 pl-0 pr-0">
-              <input id="search" class="form-control" name="search" type="text" placeholder="Search"/>
+              <input id="search" class="form-control" name="search" type="text" placeholder="@lang('product/product.search')"/>
             </div>
 
             <div class="error mt-3 text-center"></div>
