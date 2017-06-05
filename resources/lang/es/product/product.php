@@ -14,4 +14,5 @@ return[
     "categories"=>"Categorías",
     "search"=>"Buscar",
     "products"=>"Productos",
+    "filter"=>"Filtro",
 ];
