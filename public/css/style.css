@@ -801,11 +801,11 @@ span.caret-down::after{
         top:-17%;
     }
     
-    .ci1, .ci2, .ci3{
+    .ci-1, .ci-2, .ci-3{
         background: rgba(105, 96, 96, 0.5) !important;
     }
 
-    .ci1.active, .ci2.active, .ci3.active{
+    .ci-1.active, .ci-2.active, .ci-3.active{
         background-color: black !important;
     }
 /*#hide-show{
