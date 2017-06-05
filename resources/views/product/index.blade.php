@@ -31,7 +31,7 @@
                                                 <img src="/img/user_products/no_image_available.png" class="rounded product-img card-img-top img-fluid" alt="No image available">
                                             @else
 
-                                                <div style="display:flex; width: 241px;height: 375px; margin: auto; justify-content: center; align-items: center; overflow-y: hidden;" class="mt-2"><img style="width: auto; max-height: 375px;" class="rounded product-img card-img-top img-fluid" src="/products/{{$product->id}}/image/0"  alt="{{ _t($product->name,[],Session::get('locale')) }}"></div>
+                                                <div style="display:flex; width: 241px;height: 300px; margin: auto; justify-content: center; align-items: center; overflow-y: hidden;" class="mt-2"><img style="width: auto; max-height: 375px;" class="rounded product-img card-img-top img-fluid" src="/products/{{$product->id}}/image/0"  alt="{{ _t($product->name,[],Session::get('locale')) }}"></div>
 
                                             @endif
                                             <div class="card-block pt-1"><h4 class="card-title"> {{ _t($product->name,[],Session::get('locale')) }}</h4></div>
