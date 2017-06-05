@@ -5,7 +5,7 @@
         <div class="col-md-11 offset-sm-1 mx-auto text-center">
             <div class="alert alert-warning mb-5">
                 <h5 class="allergy-ingredient-warning text-warning">
-                    <strong>@lang('user/allergy/allergy.hey')</strong> @lang('user/allergy/allergy.make_sure')
+                    <strong style="text-transform: capitalize;">{{Auth::user()->name}}</strong>, @lang('user/allergy/allergy.make_sure')
                 </h5>
             </div>
 

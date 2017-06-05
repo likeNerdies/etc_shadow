@@ -15,7 +15,7 @@ return [
 
   "proTitle" => "Feeling pro and you want a box to match?",
   "proSubtitle" => "We can do that!",
-  "proSlogan" => "The Pro plan is as pro as you are.",
+  "proSlogan" => "The Pro plan is very complete and diversified.",
   "proProductsList" => "8 products: One drink (no dairy milk or juicies), a cookies box, a cereal box and a bar pack.",
 
   "premiumTitle" => "Feeling extra? Just like this box.",
