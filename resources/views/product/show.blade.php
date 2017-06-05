@@ -49,13 +49,13 @@
                         </div>
 
                         <div id="min-img-2" class="w-31">
-                            <a style="cursor: pointer;" id="carousel-selector-1">
+                            <a style="cursor: pointer;" class="d-flex" id="carousel-selector-1">
                                 <img  src="/products/{{$product->id}}/image/1" alt="{{_t($product->name,[],Session::get('locale'))}}">
                             </a>
                         </div>
 
                         <div id="min-img-3" class="w-31">
-                            <a style="cursor: pointer;" id="carousel-selector-2">
+                            <a style="cursor: pointer;" class="d-flex" id="carousel-selector-2">
                                 <img  src="/products/{{$product->id}}/image/2" alt="{{_t($product->name,[],Session::get('locale'))}}">
                             </a>
                         </div>

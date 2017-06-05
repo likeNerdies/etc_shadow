@@ -1309,7 +1309,7 @@ span.caret-down::after{
         border:1px solid transparent;
         border-radius: 2.5px;
         text-align: center;
-        box-shadow: 0px 6px 6px lightgrey;
+        box-shadow: 0px 3px 6px lightgrey;
     }
 
     #carousel-selector-0 > img, #carousel-selector-1 > img, #carousel-selector-2 > img{
