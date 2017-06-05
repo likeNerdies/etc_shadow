@@ -11,7 +11,7 @@
             <div id="wrapper-product" class="d-flex flex-md-row flex-column">
                 <div style="position:relative;" id="wrapper-image"><!-- carousel -->
                     <div style="position:static;" id="image" class="carousel w-80 mx-auto slide h-70" data-ride="false">
-                        <ol style="top:calc(100% - 25%); max-height: 10px;" class="carousel-indicators">
+                        <ol class="carousel-indicators">
                             <li data-target="#image" data-slide-to="0" class="active ci-1"></li>
                             <li data-target="#image" data-slide-to="1" class="ci-2"></li>
                             <li data-target="#image" data-slide-to="2" class="ci-3"></li>
@@ -30,11 +30,11 @@
                                 <img class="d-block img-fluid img-480-fluid img-768-fluid" src="/products/{{$product->id}}/image/2" alt="{{_t($product->name,[],Session::get('locale'))}}">
                             </div>
                         </div><!-- Carousel nav -->
-                        <a class="carousel-control-prev top-min768-28 top-17" href="#image" role="button" data-slide="prev">
+                        <a class="carousel-control-prev top-min768-28" href="#image" role="button" data-slide="prev">
                             <i style="color: black;" class="fa fa-angle-left fa-2x" aria-hidden="true"></i>
                             <span class="sr-only">@lang('product/product.previous')</span>
                         </a>
-                        <a style="right: -14px;" class="carousel-control-next top-17 top-min768-28" href="#image" role="button" data-slide="next">
+                        <a style="right: -14px;" class="carousel-control-next top-min768-28" href="#image" role="button" data-slide="next">
                             <i style="color:black;" class="fa fa-angle-right fa-2x" aria-hidden="true"></i>
                             <span class="sr-only">@lang('product/product.next')</span>
                         </a>
@@ -64,7 +64,7 @@
 
                 <!-- Product information -->
                 <div id="wrapper-info" class="ml-md-2 pl-md-5">
-                    <div id="info" class="w-100 h-100 pull-right px-4">
+                    <div id="info" class="pull-right px-4">
                         <h3 class="product-name pt-5 text-center">{{_t($product->name,[],Session::get('locale'))}}<small class="product-brand">@if(isset($product->brand->name)){{$product->brand->name}}@else  @endif</small></h3>
                         <h5 class="text-left mt-5">@lang('product/product.description')</h5>
                         <p class="text-justify">{{_t($product->description,[],Session::get('locale'))}}</p>
