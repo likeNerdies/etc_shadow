@@ -71,22 +71,24 @@
         <div id="ajaxerror"></div>
 
         <div class="modal-body">
-          <form id="formCategories" name="formCategories" class="form-horizontal" novalidate="">
-            {{ csrf_field() }}
-            <div class="form-group error">
-              <label for="name" class="col-sm-3 control-label">Name</label>
-              <div class="col-sm-9">
-                <input type="text" class="form-control has-error" id="name" name="name" placeholder=" category name" value="" required />
+          <div class="display-center">
+            <form id="formCategories" name="formCategories" class="form-horizontal" novalidate="">
+              {{ csrf_field() }}
+              <div class="d-flex flex-md-row display-767-column error">
+                <div class="group-input">
+                  <label for="name" class="col-form-label">Name</label>
+                  <input type="text" class="form-control col-md-11 col-12 has-error" id="name" name="name" placeholder=" category name" value="" required />
+                </div>
               </div>
-            </div>
 
-            <div class="form-group">
-              <label for="info" class="col-sm-3 control-label">Info</label>
-              <div class="col-sm-9">
-                <textarea  class="form-control" name="info" id="info" rows="5" cols="38" placeholder=" some information.."></textarea>
+              <div class="d-flex flex-md-row display-767-column">
+                <div class="group-input">
+                  <label for="info" class="col-form-label">Info</label>
+                  <textarea  class="form-control col-md-11 col-12" name="info" id="info" rows="5" cols="38" placeholder=" some information.."></textarea>
+                </div>
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
 
         <div class="modal-footer">
