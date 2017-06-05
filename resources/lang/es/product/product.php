@@ -8,4 +8,9 @@ return[
     "vegan"=>"Vegano",
     "organic"=>"Orgánico",
     "vegetarian"=>"Vegetariano",
+    "diets"=>"Dietas",
+    "see_more"=>"Ver más",
+    "brands"=>"Marcas",
+    "categories"=>"Categorías",
+    "search"=>"Buscar",
 ];
