@@ -152,6 +152,12 @@
     @endif
     </div>
 @endsection
+
+@if(!Auth::check())
+  @include('layouts.register')
+  @include('layouts.login')
+@endif
+
 @section('scriptsPersonalizados')
   <script src="{{asset('/js/welcome/welcome_script.js')}}"></script><!-- Includes navbar animations --->
 @endSection
