@@ -115,7 +115,7 @@ h2 {
   margin-bottom: 200px;
 }
 
-.bp-10 {
+.pb-10 {
   padding-bottom: 10%;
 }
 
@@ -153,7 +153,7 @@ h2 {
 
 /* NAVBAR */
 #nav-container {
-    //background-image: url("/img/welcome/etc_shadow4.jpg");
+    //background-image: url("/img/welcome/etc_shadow.jpeg");
     //height: 700px; /* Canviar per algo responsive, tota la pantalla */
     /*background-size: cover;
     background-repeat: no-repeat;
@@ -178,7 +178,7 @@ h2 {
 /* CONTENT */
 
 .background-image {
-    background-image: url("/img/welcome/etc_shadow4.jpg");
+    background-image: url("/img/welcome/etc_shadow.jpg");
     width: 100%;
     height: 100vh; /* Canviar per algo responsive, tota la pantalla */
     background-repeat: no-repeat;
@@ -800,7 +800,7 @@ span.caret-down::after{
     .top-17{
         top:-17%;
     }
-    
+
     .ci-1, .ci-2, .ci-3{
         background: rgba(105, 96, 96, 0.5) !important;
     }
