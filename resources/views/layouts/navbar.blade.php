@@ -66,6 +66,7 @@
         <li class="nav-item  px-1">
           <form class="form-inline" method="post" action="{{route('change-lang')}}" id="change_lang">
             {{csrf_field()}}
+              <label for="changelang"></label>
            <select class="form-control" id="changelang" name="lang">
             @if(session()->has('locale'))
                 @if(session()->get('locale')=='es')

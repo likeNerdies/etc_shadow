@@ -1,14 +1,18 @@
 @extends('user.layouts.panel')
 @section('title','My allergies')
 @section('right-panel')
-    <div class="ml-5rem">
-        <div class="col-md-10 text-center">
-
+    <div class="mar-auto">
+        <div class="col-md-11 offset-sm-1 mx-auto text-center">
             <div class="alert alert-warning mb-5">
                 <h5 class="allergy-ingredient-warning text-warning">
-                    <strong>@lang('user/allergy/allergy.hey')</strong> @lang('user/allergy/allergy.make_sure')</h5>
+                    <strong>@lang('user/allergy/allergy.hey')</strong> @lang('user/allergy/allergy.make_sure')
+                </h5>
             </div>
-            <input id="search" name="search" type="text"/>
+
+            <div class="col-md-4 pl-0 pr-0">
+              <input id="search" class="form-control" name="search" type="text" placeholder="Search"/>
+            </div>
+
             <div class="error mt-3 text-center"></div>
 
             <table class="table">

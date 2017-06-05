@@ -183,7 +183,7 @@ $(document).ready(function (event) {
                           //  if(data[i].images.length==0 || data[i].images==null){
                           //      products+=' <img src="/img/user_products/no_image_available.png" class="rounded product-img card-img-top img-fluid" alt="No image available">';
                            // }else{
-                                products+=' <div class="mt-2"><img class="rounded product-img card-img-top img-fluid" src="/products/'+data[i].id+'/image/'+0+'"></div>';
+                                products+=' <div  style="display:flex; width: 241px;height: 375px; margin: auto; justify-content: center; align-items: center; overflow-y: hidden;" class="mt-2"><img style="width: auto; max-height: 375px;" class="rounded product-img card-img-top img-fluid" src="/products/'+data[i].id+'/image/'+0+'" alt="'+data[i].name+'"></div>';
                          //   }
                             products+='   <div class="card-block pt-1"><h4 class="card-title"> '+data[i].name+'</h4></div>';
                             products+=' <div class="card-footer">';

@@ -18,7 +18,7 @@
 
         <div id="content-wrapper" class="text-center">
             <div class="container">
-                <h1 class="text-center mt-4 mb-5">Fall in <strong>love</strong> with our products</h1>
+                <h1 class="text-center mt-4 mb-5">@lang('product/product.love_our_products')</h1>
 
                 <div class="row pb-5">
                     <div class="col-12">
@@ -30,18 +30,22 @@
                                             @if(count($product->images) == 0)
                                                 <img src="/img/user_products/no_image_available.png" class="rounded product-img card-img-top img-fluid" alt="No image available">
                                             @else
-                                                <div style="display:flex; width: 241px;height: 375px; margin: auto; justify-content: center; align-items: center; overflow-y: hidden;" class="mt-2"><img style="width: auto; max-height: 375px;" class="rounded product-img card-img-top img-fluid" src="/products/{{$product->images->first()->id}}/image"></div>
+
+                                                <div style="display:flex; width: 241px;height: 375px; margin: auto; justify-content: center; align-items: center; overflow-y: hidden;" class="mt-2"><img style="width: auto; max-height: 375px;" class="rounded product-img card-img-top img-fluid" src="/products/{{$product->id}}/image/0"  alt="{{ _t($product->name,[],Session::get('locale')) }}"></div>
+
                                             @endif
-                                            <div class="card-block pt-3"><h4 class="card-title"> {{ $product->name }}</h4></div>
+                                            <div class="card-block pt-1"><h4 class="card-title"> {{ _t($product->name,[],Session::get('locale')) }}</h4></div>
+
+
                                             <div class="card-footer">
                                                 @if ($product->vegan == 1)
-                                                    <p class="d-inline diet card-text"><i class="fa fa-check mx-1" aria-hidden="true"></i>Vegan</p>
+                                                    <p class="d-inline diet card-text"><i class="fa fa-check mx-1" aria-hidden="true"></i>@lang('product/product.vegan')</p>
                                                 @endif
                                                 @if ($product->vegetarian == 1)
-                                                    <p class="d-inline diet"><i class="fa fa-check mx-1" aria-hidden="true"></i>Vegetarian</p>
+                                                    <p class="d-inline diet"><i class="fa fa-check mx-1" aria-hidden="true"></i>@lang('product/product.vegetarian')</p>
                                                 @endif
                                                 @if ($product->organic == 1)
-                                                    <p class="d-inline diet"><i class="fa fa-check mx-1" aria-hidden="true"></i>Organic</p>
+                                                    <p class="d-inline diet"><i class="fa fa-check mx-1" aria-hidden="true"></i>@lang('product/product.organic')</p>
                                                 @endif
                                             </div>
                                         </div>
