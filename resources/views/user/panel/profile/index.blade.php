@@ -18,7 +18,8 @@
               <div class="user-dashboard-block text-center bg-f7 p-3">
                 <h1 class="text-center red-font">@lang("user/plan/plan.noPlan")</h1>
                 <h4 class="text-center mt-3">@lang("user/plan/plan.wannaSubscribe")</h4>
-                <a href="/plans"><button class="mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe btn-font-15" type="submit" name="button">@lang("user/plan/plan.btnMoreInfo")</button></a>
+                <!--<a href="/plans"><button class="mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe btn-font-15" type="submit" name="button">@lang("user/plan/plan.btnMoreInfo")</button></a>-->
+                <a href="/plans" class="mt-3 btn btn-primary page-scroll btn-seeProducts sans-serif sr-btn btn-subscribe btn-font-15" role="button">@lang("user/plan/plan.btnMoreInfo")</a>
               </div>
             </div>
           @else <!-- Si tiene plan, enseñar tiempo restante para la entrega de su próxima caja -->
@@ -32,7 +33,8 @@
             <div class="col-sm-12 col-md-6 mt-mysm-2">
               <div class="user-dashboard-block text-center bg-f7 p-3">
                   <h4 class="text-center">@lang("user/plan/plan.hasPlan"){{ Auth::user()->plan->name}}!</h4>
-                  <a href="/plans"><button class="mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe btn-font-15" type="submit" name="button">@lang("user/plan/plan.wannaChange")</button></a>
+                  <!--<a href="/plans"><button class="mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe btn-font-15" type="submit" name="button">@lang("user/plan/plan.wannaChange")</button></a>-->
+                  <a href="/plans" class="mt-3 btn btn-primary page-scroll btn-seeProducts sans-serif sr-btn btn-subscribe btn-font-15" role="button">@lang("user/plan/plan.wannaChange")</a>
               </div>
             </div>
           @endif
@@ -54,20 +56,22 @@
                     </div>
 
                     <!-- Box date + Products -->
-                    <div id="date_products_box" class="col-md-5 col-sm-12 mr-5 d-inline-block text-left text-md-center float-md-right vertical-middle">
-                        <h6 class="date-received ml-24p">{{ $boxes[$i]["from"] }}</h6>
+                    <div id="date_products_box" class="col-md-5 col-sm-12 mr-5 d-inline-block text-left float-md-right vertical-middle">
+                        <h6 class="date-received ml-24p text-sm-center">{{ $boxes[$i]["from"] }}</h6>
                         <?php $productId = "products" . $id ?>
-                        <button type="button"
-                                class="date-received btn btn-default text-brown cursor-pointer button-no-decoration px-0"
+                        <span class="text-sm-center"><button type="button"
+                                class="date-received btn btn-default text-brown cursor-pointer button-no-decoration px-0 sm-pl"
                                 data-toggle="collapse" data-target=#{{$productId}} aria-expanded="false"
                                 aria-controls="{{$productId}}">
-                                  <i class="fa fa-plus " aria-hidden="true"></i> Products
-                        </button>
+                                  <i class="fa fa-plus" aria-hidden="true"></i> Products
+                        </button></span>
                         <div class="collapse" id={{$productId}}>
-                            <div id="products" class="card card-block ingredients-card">
+                            <div id="products" class="card card-block ingredients-card pl-0">
+                              <ul class="ul-no-style pl-0">
                                 @foreach ($boxes[$i]["products"] as $product)
-                                    <span class="text-left"><i class="fa fa-envira" aria-hidden="true"></i>{{ $product->name }}</span>
+                                    <li><i class="fa fa-envira" aria-hidden="true"></i>{{ $product->name }}</li>
                                 @endforeach
+                              </ul>
                             </div>
                         </div>
                     </div>

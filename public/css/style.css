@@ -11,8 +11,12 @@ body {
     font-family: 'Martel Sans', sans-serif;
 }
 
+.ul-no-style {
+  list-style: none;
+}
+
 .sans-serif {
-  font-family: sans-serif;
+  font-family: sans-serif!important;
 }
 
 .overflow-y-hidden {
@@ -264,6 +268,14 @@ h2 {
   }
 
   .text-md-center {
+    text-align: center!important;
+  }
+
+  .sm-pl {
+    padding-left: 1.5rem!important;
+  }
+
+  .text-sm-center {
     text-align: center!important;
   }
 

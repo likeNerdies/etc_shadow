@@ -26,9 +26,7 @@
               </div>
               <div class="content">
                 <p class="text-justify text-center">@lang("welcome.seeProducts")</p>
-                <form class="" action="/products" method="get">
-                  <button class="mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn cursor-pointer" type="submit" name="button">@lang("welcome.btnSeeProducts")</button>
-                </form>
+                <a href="/products" class="mt-3 btn btn-primary page-scroll sans-serif btn-seeProducts sr-btn" role="button">@lang("welcome.btnSeeProducts")</a>
                 <!--<a href="/products"><button class="mt-3  btn btn-primary page-scroll btn-seeProducts sr-btn" type="button" name="button">@lang("welcome.btnSeeProducts")</button></a>-->
               </div>
             </div>
@@ -95,9 +93,7 @@
                 <img class="image-fluid" src="/img/plans/charming_en.png" alt="Charming plan">
               @endif
               <div class="carousel-caption d-md-block">
-                <form class="" action="/user/panel/plan/subscribe/1" method="get">
-                  <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel cursor-pointer" type="submit" name="button">@lang("welcome.subscribe")</button>
-                </form>
+                <a href="/user/panel/plan/subscribe/1" class="btn btn-primary page-scroll btn-seeProducts sans-serif btn-subscribe btn-middle-carousel" role="button">@lang("welcome.subscribe")</a>
                 <!--<a href="/user/panel/plan/subscribe/1"><button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel" type="button" name="button">@lang("welcome.subscribe")</button></a>-->
               </div>
             </div>
@@ -108,9 +104,7 @@
                 <img class="image-fluid" src="/img/plans/pro_en.png" alt="Pro plan">
               @endif
               <div class="carousel-caption d-md-block">
-                <form class="" action="/user/panel/plan/subscribe/2" method="get">
-                  <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel cursor-pointer" type="submit" name="button">@lang("welcome.subscribe")</button>
-                </form>
+                <a href="/user/panel/plan/subscribe/2" class="btn btn-primary page-scroll btn-seeProducts sans-serif btn-subscribe btn-middle-carousel cursor-pointer" role="button">@lang("welcome.subscribe")</a>
                 <!--<a href="/user/panel/plan/subscribe/2"><button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel" type="button" name="button">@lang("welcome.subscribe")</button></a>-->
               </div>
             </div>
@@ -121,9 +115,7 @@
                 <img class="image-fluid" src="/img/plans/premium_es.png" alt="Premium plan">
               @endif
               <div class="carousel-caption d-md-block">
-                <form class="" action="/user/panel/plan/subscribe/3" method="get">
-                  <button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-middle-carousel cursor-pointer" type="submit" name="button">@lang("welcome.subscribe")</button>
-                </form>
+                <a href="/user/panel/plan/subscribe/3" class="btn btn-primary page-scroll btn-seeProducts btn-subscribe sans-serif btn-middle-carousel cursor-pointer" role="button">@lang("welcome.subscribe")</a>
                 <!--<a href="/user/panel/plan/subscribe/3"><button class="btn btn-primary page-scroll btn-seeProducts btn-subscribe btn-font-black btn-middle-carousel" type="button" name="button">@lang("welcome.subscribe")</button></a>-->
               </div>
             </div>
@@ -148,10 +140,7 @@
             <img class="img-fluid mb-2" src="/img/plans/pro_en.png" alt="Pro plan">
             <img class="img-fluid mb-2" src="/img/plans/premium_en.png" alt="Premium plan">
           @endif
-          <form action="/plans" method="post">
-            <button class="btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe cursor-pointer" type="submit">@lang("welcome.subscribe")</button>
-          </form>
-          <!--<button class="btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="button" name="button"><a href="/plans">@lang("welcome.subscribe")</a></button>-->
+          <a href="/plans" class="btn btn-primary page-scroll sans-serif btn-seeProducts sr-btn btn-subscribe" role="button">@lang("welcome.subscribe")</a>
         </div><!-- / Alternative to Carousel -->
       </div>
     </div>
