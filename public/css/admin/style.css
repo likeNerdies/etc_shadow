@@ -85,6 +85,14 @@
     width: 100%;
   }
 }
+
+.img-modal-products{
+  width:auto;
+  max-width: 600px;
+  max-height: 550px;
+}
+
+
 /*</TEST MODAL IMAGE>*/
 
 
@@ -437,6 +445,12 @@ input[type="search"] {
     display: none !important;
   }
 
+  .img-modal-products{
+    width:auto;
+    max-width: 300px;
+    max-height: 275px;
+  }
+
 }
 @media (min-width: 767px) {
   .nav-side-menu .menu-list .menu-content {
@@ -532,6 +546,12 @@ input[type="search"] {
   tr > th, tr > td{
     text-align: center !important;
     padding: .3rem !important;
+  }
+
+  .img-modal-products{
+    width:auto;
+    max-width: 400px ;
+    max-height: 350px;
   }
 
 

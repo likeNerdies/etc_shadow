@@ -409,9 +409,9 @@ h2 {
 }
 
 #needHelpFooter {
-   margin-right: 2%;
-   margin-top: 5%;
-   float: right; // Both necessary
+    margin-right: 2%;
+    margin-top: 5%;
+    float: right; // Both necessary
 }
 
 #needHelpFooter a, #needHelpFooter a:visited {
@@ -779,7 +779,15 @@ span.caret-down::after{
     border: 1px solid #ddd;
     border-radius: 2px;
 }
+    /*PRODUCTS*/
+    .height-carousel{
+        height:350px;
+    }
 
+    /*PRODUCTS - CAROUSEL NAVIGATORS*/
+    .top-17{
+        top:-17%;
+    }
 /*#hide-show{
     display: none;
 }*/
@@ -982,9 +990,11 @@ span.caret-down::after{
         margin-top: 5%!important;
     }
 
-    .img-fluid{
-        width: 100% !important;
-        height: 100% !important;
+    .img-768-fluid{
+        width: auto;
+        max-height: 270px;
+        margin: auto;
+        transform: translateY(12%);
     }
 
 
@@ -995,6 +1005,7 @@ span.caret-down::after{
     #wrapper-min-img, #min-img-1,#min-img-2, #min-img-3{
         display: none;
     }
+
 
     #info h3, #info h4, #info h5, #info p{
         padding-left: 5% !important;
@@ -1095,6 +1106,15 @@ span.caret-down::after{
         left:-60%;/*JUST A TEST*/
         transition: left .75s;
     }
+
+    /*PRODUCTS SHOW NAV*/
+    .img-480-fluid{
+        width: auto;
+        max-height: 235px !important;
+        margin: auto;
+        transform: translateY(25%);
+    }
+
 }
 
 .text-brown {
@@ -1232,6 +1252,51 @@ span.caret-down::after{
         height: 100%;
         margin: auto !important;
         padding: 0 15px;
+    }
+    .height-min768-carousel{
+        height:484px;
+    }
+    /*PRODUCT*/
+    .img-fluid{
+        width: auto;
+        max-height: 450px;
+        margin: auto;
+        transform: translateY(2.5%);
+    }
+
+    #min-img-1, #min-img-2, #min-img-3{
+        width:auto;
+        margin:auto;
+    }
+
+    /*#min-img-1 > div, #min-img-2 > div, #min-img-3 > div{
+        width:100px;
+        height: 100px;
+        border:2.5px solid lightgreen;
+        border-radius: 2.5px;
+    }
+*/
+    #carousel-selector-0, #carousel-selector-1, #carousel-selector-2{
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        border:1px solid transparent;
+        border-radius: 2.5px;
+        text-align: center;
+        box-shadow: 0px 6px 6px lightgrey;
+    }
+
+    #carousel-selector-0 > img, #carousel-selector-1 > img, #carousel-selector-2 > img{
+        display: inline-block;
+        width:auto;
+        max-height: 100%;
+        margin:auto;
+        padding:2px;
+    }
+
+    /*PRODUCT SHOW NAVIGATOR*/
+    .top-min768-28{
+        top:-28%;
     }
 
     /*SUBSCRIBE*/

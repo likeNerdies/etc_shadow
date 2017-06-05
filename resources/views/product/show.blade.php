@@ -9,7 +9,7 @@
     <div id="main-wrapper">
         <div id="content-wrapper-show">
             <div id="wrapper-product" class="d-flex flex-md-row flex-column">
-                <div style="position:relative;background: lightblue;" id="wrapper-image" style="background: lightblue"><!-- carousel -->
+                <div style="position:relative;" id="wrapper-image"><!-- carousel -->
                     <div style="position:static;" id="image" class="carousel w-80 mx-auto slide h-70" data-ride="false">
                         <ol class="carousel-indicators">
                             <li data-target="#image" data-slide-to="0" class="active ci-1"></li>
@@ -17,46 +17,46 @@
                             <li data-target="#image" data-slide-to="2" class="ci-3"></li>
                         </ol>
 
-                        <div class="carousel-inner w-100 h-100 mx-auto" role="listbox">
+                        <div class="carousel-inner w-100 mx-auto height-carousel height-min768-carousel" role="listbox">
                             <div class="active carousel-item" data-slide-number="0">
-                                <img class="d-block img-fluid" src="/products/{{$product->id}}/image/0" alt="{{_t($product->name,[],Session::get('locale'))}}">
+                                <img class="d-block img-fluid img-480-fluid img-768-fluid" src="/products/{{$product->id}}/image/0" alt="{{_t($product->name,[],Session::get('locale'))}}">
                             </div>
 
                             <div class="carousel-item" data-slide-number="1">
-                                <img class="d-block img-fluid" src="/products/{{$product->id}}/image/1" alt="{{_t($product->name,[],Session::get('locale'))}}">
+                                <img class="d-block img-fluid img-480-fluid img-768-fluid" src="/products/{{$product->id}}/image/1" alt="{{_t($product->name,[],Session::get('locale'))}}">
                             </div>
 
                             <div class="carousel-item" data-slide-number="2">
-                                <img class="d-block img-fluid" src="/products/{{$product->id}}/image/2" alt="{{_t($product->name,[],Session::get('locale'))}}">
+                                <img class="d-block img-fluid img-480-fluid img-768-fluid" src="/products/{{$product->id}}/image/2" alt="{{_t($product->name,[],Session::get('locale'))}}">
                             </div>
                         </div><!-- Carousel nav -->
-                        <a style="top:-30%;" class="carousel-control-prev" href="#image" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <a class="carousel-control-prev top-min768-28 top-17" href="#image" role="button" data-slide="prev">
+                            <i style="color: black;" class="fa fa-angle-left fa-2x" aria-hidden="true"></i>
                             <span class="sr-only">@lang('product/product.previous')</span>
                         </a>
-                        <a style="top:-30%;" class="carousel-control-next" href="#image" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <a style="right: -4px;" class="carousel-control-next top-17 top-min768-28" href="#image" role="button" data-slide="next">
+                            <i style="color:black;" class="fa fa-angle-right fa-2x" aria-hidden="true"></i>
                             <span class="sr-only">@lang('product/product.next')</span>
                         </a>
                     </div>
 
                     <div id="wrapper-min-img" class="d-flex flex-row justify-content-between h-30 mt-2">
 
-                        <div id="min-img-1" class="w-31 h-100">
+                        <div id="min-img-1" class="w-31">
                             <a id="carousel-selector-0">
-                                <img class="w-100 h-100" src="/products/{{$product->id}}/image/0" alt="{{_t($product->name,[],Session::get('locale'))}}">
+                                <img src="/products/{{$product->id}}/image/0" alt="{{_t($product->name,[],Session::get('locale'))}}">
                             </a>
                         </div>
 
-                        <div id="min-img-2" class="w-31 h-100">
+                        <div id="min-img-2" class="w-31">
                             <a id="carousel-selector-1">
-                                <img class="w-100 h-100" src="/products/{{$product->id}}/image/1" alt="{{_t($product->name,[],Session::get('locale'))}}">
+                                <img  src="/products/{{$product->id}}/image/1" alt="{{_t($product->name,[],Session::get('locale'))}}">
                             </a>
                         </div>
 
-                        <div id="min-img-3" class="w-31 h-100">
+                        <div id="min-img-3" class="w-31">
                             <a id="carousel-selector-2">
-                                <img class="w-100 h-100" src="/products/{{$product->id}}/image/2" alt="{{_t($product->name,[],Session::get('locale'))}}">
+                                <img  src="/products/{{$product->id}}/image/2" alt="{{_t($product->name,[],Session::get('locale'))}}">
                             </a>
                         </div>
                     </div>
