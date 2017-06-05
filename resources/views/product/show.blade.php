@@ -11,7 +11,7 @@
             <div id="wrapper-product" class="d-flex flex-md-row flex-column">
                 <div style="position:relative;" id="wrapper-image"><!-- carousel -->
                     <div style="position:static;" id="image" class="carousel w-80 mx-auto slide h-70" data-ride="false">
-                        <ol class="carousel-indicators">
+                        <ol style="top: 31rem;" class="carousel-indicators">
                             <li data-target="#image" data-slide-to="0" class="active ci-1"></li>
                             <li data-target="#image" data-slide-to="1" class="ci-2"></li>
                             <li data-target="#image" data-slide-to="2" class="ci-3"></li>

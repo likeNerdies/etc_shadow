@@ -6,7 +6,7 @@
             <div class="col-11 offset-sm-1 mx-auto text-center">
                 <div class="alert alert-warning mb-5" role="alert">
                     <h5 class="allergy-ingredient-warning text-warning">
-                      <strong>@lang('user/ingredient/ingredient.hey')</strong> @lang('user/ingredient/ingredient.make_sure')
+                      <strong style="text-transform: capitalize;">{{Auth::user()->name}}</strong>, @lang('user/ingredient/ingredient.make_sure')
                     </h5>
                 </div>
             </div>
@@ -14,7 +14,7 @@
 
       <!--<div class="row">-->
         <div class="col-md-6 ml-2_7rem">
-          <input type="text" id="search" class="form-control" name="ingredient" placeholder="Search">
+          <input type="text" id="search" class="form-control" name="ingredient" placeholder="@lang('product/product.search')">
         </div>
       <!--</div>-->
 

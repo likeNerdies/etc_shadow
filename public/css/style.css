@@ -547,7 +547,7 @@ h2 {
 
 .filter-block .filter-title-toggled{
     transition: background-color .75s;
-    background-color: yellow;
+    background-color: #ffd300;
 }
 
 .filter-block > .filter-title > span{
@@ -799,6 +799,14 @@ span.caret-down::after{
     /*PRODUCTS - CAROUSEL NAVIGATORS*/
     .top-17{
         top:-17%;
+    }
+    
+    .ci-1, .ci-2, .ci-3{
+        background: rgba(105, 96, 96, 0.5) !important;
+    }
+
+    .ci-1.active, .ci-2.active, .ci-3.active{
+        background-color: black !important;
     }
 /*#hide-show{
     display: none;

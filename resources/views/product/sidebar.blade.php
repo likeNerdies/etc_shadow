@@ -69,7 +69,7 @@
 
         <div class="filter-block mt-2">
             <div id="title-brands" class="filter-title filter-title-closed">
-                <span class="text-left pull-left"> @lang('product/product.brands')</span>
+                <span class="text-left pull-left">@lang('product/product.brands')</span>
                 <i id="tog-2" class="fa fa-plus pull-right rotate-0"></i>
             </div>
             <div id="brands" class="filter-content">

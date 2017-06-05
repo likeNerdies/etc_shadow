@@ -13,4 +13,5 @@ return[
     "brands"=>"Marcas",
     "categories"=>"Categorías",
     "search"=>"Buscar",
+    "products"=>"Productos",
 ];
