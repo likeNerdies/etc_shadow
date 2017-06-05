@@ -7,6 +7,11 @@
 @section('content')
   @include('layouts.navbar')
 
+  @if(!Auth::check())
+    @include('layouts.register')
+    @include('layouts.login')
+  @endif
+
   <div class="container justify-content-center mt-100p mt-sm-80p">
     <h4 id="plans-explanation" class="text-center">@lang("user/plan/plan.planExplanation")</h4>
     <p id="plans-explanation-p" class="text-center small hidden-md-down">@lang("user/plan/plan.planExplanation2")</p>
@@ -152,11 +157,6 @@
     @endif
     </div>
 @endsection
-
-@if(!Auth::check())
-  @include('layouts.register')
-  @include('layouts.login')
-@endif
 
 @section('scriptsPersonalizados')
   <script src="{{asset('/js/welcome/welcome_script.js')}}"></script><!-- Includes navbar animations --->
