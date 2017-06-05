@@ -547,7 +547,7 @@ h2 {
 
 .filter-block .filter-title-toggled{
     transition: background-color .75s;
-    background-color: yellow;
+    background-color: #ffd300;
 }
 
 .filter-block > .filter-title > span{
