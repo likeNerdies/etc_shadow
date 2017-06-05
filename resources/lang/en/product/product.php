@@ -15,4 +15,5 @@ return[
     "categories"=>"Categories",
     "search"=>"Search",
     "products"=>"Products",
+    "filter"=>"Filter",
 ];

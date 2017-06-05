@@ -140,7 +140,7 @@ return chart;
    // console.log(charmData);
     $('#subscribers').highcharts({
       title: {
-        text: 'Currnt Year Monthly Subscribers',
+        text: 'Current Year Monthly Subscribers',
         x: -20 //center
       },
       xAxis: {
