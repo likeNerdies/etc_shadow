@@ -159,13 +159,18 @@ CSS file for logged in users
   }
 }
 
-@media (max-width: 480px){
+@media (max-width: 480px) {
   .subtitle {
     margin-top: 5%;
     font-size: 22px;
   }
-  .ml-sm-5 {
+  
+  .ml-sm-5, .ml-2_7rem {
     margin-left: 0;
+  }
+
+  .mb-sm-0 {
+    margin-bottom: 0!important;
   }
 
   /* For user dashboard */
