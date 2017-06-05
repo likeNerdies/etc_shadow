@@ -18,15 +18,15 @@
                         </ol>
 
                         <div class="carousel-inner w-100 mx-auto height-carousel height-min768-carousel" role="listbox">
-                            <div class="active carousel-item h-100" data-slide-number="0">
+                            <div class="active carousel-item h-90" data-slide-number="0">
                                 <img class="d-block img-fluid img-480-fluid img-768-fluid" src="/products/{{$product->id}}/image/0" alt="{{_t($product->name,[],Session::get('locale'))}}">
                             </div>
 
-                            <div class="carousel-item h-100" data-slide-number="1">
+                            <div class="carousel-item h-90" data-slide-number="1">
                                 <img class="d-block img-fluid img-480-fluid img-768-fluid" src="/products/{{$product->id}}/image/1" alt="{{_t($product->name,[],Session::get('locale'))}}">
                             </div>
 
-                            <div class="carousel-item h-100" data-slide-number="2">
+                            <div class="carousel-item h-90" data-slide-number="2">
                                 <img class="d-block img-fluid img-480-fluid img-768-fluid" src="/products/{{$product->id}}/image/2" alt="{{_t($product->name,[],Session::get('locale'))}}">
                             </div>
                         </div><!-- Carousel nav -->
