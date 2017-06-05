@@ -45,7 +45,7 @@ aria-hidden="true">
 
                 <div>
                   <input id="first_surname" type="text" class="form-control" name="first_surname"
-                  value="{{ old('first_surname') }}" required autofocus>
+                  value="{{ old('first_surname') }}" required><!-- autofocus-->
 
                   {{--   @if ($errors->has('first_surname'))
                   <span class="help-block">

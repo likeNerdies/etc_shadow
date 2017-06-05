@@ -14,7 +14,7 @@
 
       <!-- Body -->
       <div class="modal-body justify-content-center">
-        <form class="form-horizontal" role="form" method="POST" id="loginForm" action="{{ route('login') }}">
+        <form class="form-horizontal" method="POST" id="loginForm" action="{{ route('login') }}">
           {{ csrf_field() }}
           <div class="form-group" id="email-div">
             {{--    <div class="form-group row{{ $errors->has('email') ? ' has-error' : '' }}">--}}
@@ -85,5 +85,4 @@
       </div>
     </div>
   </div>
-</div>
 </div>
