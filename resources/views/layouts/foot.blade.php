@@ -6,7 +6,6 @@
 
   <div class="mt-5 text-center">
     <div class="offset-md-4 col-md-4 offset-md-4">
-      <!--<button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts btn-yellow"><a href="mailto:balmeshealthybox@gmail.com" class="" target="_top">@lang("layouts/footer.sendEmail")</a></button>-->
       <a href="mailto:balmeshealthybox@gmail.com" class="mx-auto mt-3 sans-serif btn btn-primary page-scroll btn-seeProducts btn-yellow" target="_top">@lang("layouts/footer.sendEmail")</a>
     </div>
   </div>
