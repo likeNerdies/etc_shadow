@@ -446,8 +446,8 @@ h2 {
 
 #wrapper-info{
     width: 50%;
-    height: 90vh;
-    overflow-y: hidden;
+    height: 90%;
+    //overflow-y: hidden;
 }
 
 .w-10{
