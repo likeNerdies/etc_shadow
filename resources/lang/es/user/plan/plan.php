@@ -12,9 +12,9 @@ return [
   "notEnough" => "¿Aún no te hemos convencido?",
   "btnMoreInfo" => "Más información",
 
-  "proTitle" => "¿Sintiéndote pro y quieres una caja a conjunto?",
+  "proTitle" => "¿Quieres una caja a conjunto?",
   "proSubtitle" => "¡Podemos con eso!",
-  "proSlogan" => "El plan Pro es tan pro como tú.",
+  "proSlogan" => "El plan Pro es muy completo y diversificado.",
   "proProductsList" => "8 productos: Una bebida (leche sin lácteos o zumo natural), un paquete de galletas, una caja de cereales y un paquete de barritas.",
 
   "premiumTitle" => "¿Sintiéndote exagerado? Como esta caja.",

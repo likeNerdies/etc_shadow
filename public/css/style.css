@@ -127,6 +127,10 @@ h2 {
   width: 70%;
 }
 
+.w-85 {
+  width: 85%;
+}
+
 .red-font {
   color: #FB6A5D;
 }
@@ -273,10 +277,6 @@ h2 {
 
   .sm-pl {
     padding-left: 1.5rem!important;
-  }
-
-  .text-sm-center {
-    text-align: center!important;
   }
 
   .overflow-sm-x-hidden {
@@ -1062,6 +1062,8 @@ span.caret-down::after{
     padding: 1rem 1rem!important;
   }
 
+
+
     #tog-profile{
         top: 10px;
         left: 65%;
@@ -1161,6 +1163,10 @@ span.caret-down::after{
 
 /* For footer */
 @media (min-width: 768px) {
+
+      .pl-md-0 {
+        padding-left: 0!important;
+      }
 
 
     #tog-profile{

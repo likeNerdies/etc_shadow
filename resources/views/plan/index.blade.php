@@ -11,7 +11,7 @@
     <h4 id="plans-explanation" class="text-center">@lang("user/plan/plan.planExplanation")</h4>
     <p id="plans-explanation-p" class="text-center small hidden-md-down">@lang("user/plan/plan.planExplanation2")</p>
 
-    @if (Auth::user()->plan_id == null)
+    @if ( Auth::check() == false || Auth::user()->plan_id == null)<!-- If not registered or not subscribed to any plan -->
         <!-- Charming -->
         <div class="row section charming-bg-color plan-section p-5">
           <div class="col-md-9">

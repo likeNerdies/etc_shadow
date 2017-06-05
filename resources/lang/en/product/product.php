@@ -9,4 +9,9 @@ return[
     "vegan"=>"Vegan",
     "organic"=>"Organic",
     "vegetarian"=>"Vegetarian",
+    "diets"=>"Diets",
+    "see_more"=>"See more",
+    "brands"=>"Brands",
+    "categories"=>"Categories",
+    "search"=>"Search",
 ];

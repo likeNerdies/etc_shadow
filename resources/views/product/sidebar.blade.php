@@ -3,7 +3,7 @@
     <form action="" name="filter_form" id="filter_form">
         <div class="filter-block">
             <div id="title-categories" class="filter-title filter-title-toggled">
-                <span class="text-left pull-left">Categories</span>
+                <span class="text-left pull-left">@lang('product/product.categories')</span>
                 <i id="tog-1" class="fa fa-plus pull-right rotate-45-initial"></i>
             </div>
             <div id="categories" class="filter-content open-filter">
@@ -14,7 +14,7 @@
                             <label class="form-check-label">
                                 <input type="checkbox" class="form-check-input" name="categories[]" class="categories"
                                        value="{{$categories[0]->id}}">
-                                {{$categories[0]->name}}
+                                {{_t($categories[0]->name,[],Session::get('locale'))}}
                             </label>
                         </div>
                     @endif
@@ -24,7 +24,7 @@
                             <label class="form-check-label">
                                 <input type="checkbox" class="form-check-input" name="categories[]" class="categories"
                                        value="{{$categories[1]->id}}">
-                                {{$categories[1]->name}}
+                                {{_t($categories[1]->name,[],Session::get('locale'))}}
                             </label>
                         </div>
                     @endif
@@ -34,7 +34,7 @@
                             <label class="form-check-label">
                                 <input type="checkbox" class="form-check-input" name="categories[]" class="categories"
                                        value="{{$categories[2]->id}}">
-                                {{$categories[2]->name}}
+                                {{_t($categories[2]->name,[],Session::get('locale'))}}
                             </label>
                         </div>
                     @endif
@@ -44,20 +44,20 @@
                             <label class="form-check-label">
                                 <input type="checkbox" class="form-check-input" name="categories[]"  class="categories"
                                        value="{{$categories[3]->id}}">
-                                {{$categories[3]->name}}
+                                {{_t($categories[3]->name,[],Session::get('locale'))}}
                             </label>
                         </div>
                     @endif
 
                     @if(count($categories)>=5)
                         <span class="tog-more pt-3"><i class="fa fa-plus ml-2rem toggle"
-                                                       aria-hidden="true"></i>See More</span>
+                                                       aria-hidden="true"></i> @lang('product/product.organic')</span>
                         <div id="sm-categories">
                             @for($i=4;$i<count($categories);$i++)
                                 <div class="my-form-check pt-2">
                                     <label class="form-check-label">
                                         <input type="checkbox" class="form-check-input" name="categories[]" value="{{$categories[$i]->id}}" class="categories">
-                                        {{$categories[$i]->name}}
+                                        {{_t($categories[$i]->name,[],Session::get('locale'))}}
                                     </label>
                                 </div>
                             @endfor
@@ -69,7 +69,7 @@
 
         <div class="filter-block mt-2">
             <div id="title-brands" class="filter-title filter-title-closed">
-                <span class="text-left pull-left">Brands</span>
+                <span class="text-left pull-left">@lang('product/product.brands')</span>
                 <i id="tog-2" class="fa fa-plus pull-right rotate-0"></i>
             </div>
             <div id="brands" class="filter-content">
@@ -112,7 +112,7 @@
 
                     @if(count($brands)>=5)
                         <span class="tog-more pt-3"><i class="fa fa-plus ml-2rem toggle"
-                                                       aria-hidden="true"></i>See More</span>
+                                                       aria-hidden="true"></i> @lang('product/product.see_more')</span>
                         <div id="sm-brands">
                             @for($i=4;$i<count($brands);$i++)
                                 <div class="my-form-check pt-2">
@@ -131,7 +131,7 @@
 
         <div class="filter-block mt-2 mb-3">
             <div id="title-diets" class="filter-title filter-title-closed">
-                <span class="text-left pull-left">Diets</span>
+                <span class="text-left pull-left"> @lang('product/product.diets')</span>
                 <i id="tog-3" class="fa fa-plus pull-right rotate-0"></i>
             </div>
 
@@ -140,21 +140,21 @@
                     <div class="my-form-check pt-2">
                         <label class="form-check-label">
                             <input type="checkbox" class="form-check-input" name="organic" value="1" id="organic">
-                            Organic
+                            @lang('product/product.organic')
                         </label>
                     </div>
 
                     <div class="my-form-check pt-2">
                         <label class="form-check-label">
                             <input type="checkbox" class="form-check-input" name="vegetarian" value="1" id="vegetarian">
-                            Vegetarian
+                            @lang('product/product.vegetarian')
                         </label>
                     </div>
 
                     <div class="my-form-check pt-2">
                         <label class="form-check-label">
                             <input type="checkbox" class="form-check-input" name="vegan" value="1" id="vegan">
-                            Vegan
+                            @lang('product/product.vegan')
                         </label>
                     </div>
 
@@ -193,7 +193,7 @@
         </div>
 
         <div class="filter-block text-center">
-            <button class="btn btn-info" id="filter_submit_btn">Search</button>
+            <button class="btn btn-info" id="filter_submit_btn"> @lang('product/product.search')</button>
         </div>
 
     </form>
