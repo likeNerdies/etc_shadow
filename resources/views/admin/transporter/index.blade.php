@@ -64,31 +64,33 @@
         <div id="ajaxerror"></div>
 
         <div class="modal-body">
-          <form id="formTransporters" name="formTransporters" class="form-horizontal" novalidate="">
+          <div class="display-center">
+            <form id="formTransporters" name="formTransporters" class="form-horizontal" novalidate="">
 
-            {{ csrf_field() }}
+              {{ csrf_field() }}
 
-            <div class="form-group error">
-              <label for="inputTransporter" class="col-sm-3 control-label">Name</label>
-              <div class="col-sm-9">
-                <input type="text" class="form-control has-error" id="name" name="name" placeholder=" transporter name" >
+              <div class="d-flex flex-md-row display-767-column error">
+                <div class="group-input">
+                  <label for="inputTransporter" class="col-form-label">Name</label>
+                  <input type="text" class="form-control col-md-11 col-12has-error" id="name" name="name" placeholder=" transporter name" >
+                </div>
               </div>
-            </div>
 
-            <div class="form-group">
-              <label for="cif" class="col-sm-3 control-label">CIF</label>
-              <div class="col-sm-9">
-                <input type="text" class="form-control" id="cif" name="cif" placeholder="  cif number" >
+              <div class="d-flex flex-md-row display-767-column">
+                <div class="group-input">
+                  <label for="cif" class="col-form-label">CIF</label>
+                  <input type="text" class="form-control col-md-11 col-12" id="cif" name="cif" placeholder="  cif number" >
+                </div>
               </div>
-            </div>
 
-            <div class="form-group">
-              <label for="phone_number" class="col-sm-5 control-label">Phone number</label>
-              <div class="col-sm-9">
-                <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder=" phone number">
+              <div class="d-flex flex-md-row display-767-column">
+                <div class="group-input">
+                  <label for="phone_number" class="col-form-label">Phone number</label>
+                  <input type="text" class="form-control col-md-11 col-12" id="phone_number" name="phone_number" placeholder=" phone number">
+                </div>
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
 
         <div class="modal-footer">

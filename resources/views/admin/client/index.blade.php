@@ -88,75 +88,77 @@
                     <div id="ajaxerror"></div>
 
                     <div class="modal-body">
-                        <form id="formClients" name="formClients" class="form-horizontal" novalidate="">
+                        <div class="display-center">
+                            <form id="formClients" name="formClients" class="form-horizontal" novalidate="">
 
-                            {{ csrf_field() }}
-                            <div class="form-group error">
-                                <label for="dni" class="col-sm-9 control-label">DNI/NIE</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control has-error" id="dni" name="dni" placeholder=" dni/nie" />
+                                {{ csrf_field() }}
+                                <div class="d-flex flex-md-row display-767-column error">
+                                    <div class="group-input">
+                                        <label for="dni" class="col-form-label">DNI/NIE</label>
+                                        <input type="text" class="form-control has-error" id="dni" name="dni" placeholder=" dni/nie" />
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group error">
-                                <label for="name" class="col-sm-9 control-label">Name</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control has-error" id="name" name="name" required/>
+                                <div class="d-flex flex-md-row display-767-column error mt-2">
+                                    <div class="group-input">
+                                        <label for="name" class="col-form-label">Name</label>
+                                        <input type="text" class="form-control has-error" id="name" name="name" required/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group error">
-                                <label for="first_surname" class="col-sm-9 control-label">First Surname</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control has-error" id="first_surname" name="first_surname" value=""  />
+                                <div class="d-flex flex-md-row display-767-column error mt-2">
+                                    <div class="group-input">
+                                        <label for="first_surname" class="col-form-label">First Surname</label>
+                                        <input type="text" class="form-control has-error" id="first_surname" name="first_surname" value=""  />
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group error">
-                                <label for="second_surname" class="col-sm-9 control-label">Second Surname</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control has-error" id="second_surname" name="second_surname" />
+                                <div class="d-flex flex-md-row display-767-column error mt-2">
+                                    <div class="group-input">
+                                        <label for="second_surname" class="col-form-label">Second Surname</label>
+                                        <input type="text" class="form-control has-error" id="second_surname" name="second_surname" />
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <label for="email" class="col-sm-9 control-label">Email</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="email" name="email"  required  />
+                                <div class="d-flex flex-md-row display-767-column mt-2">
+                                    <div class="group-input">
+                                        <label for="email" class="col-form-label">Email</label>
+                                        <input type="text" class="form-control" id="email" name="email"  required  />
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <label for="password" class="col-md-4 control-label">Password</label>
-                                <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control" name="password" placeholder=" set new password" />
+                                <div class="d-flex flex-md-row display-767-column mt-2">
+                                    <div class="group-input">
+                                        <label for="password" class="col-form-label">Password</label>
+                                        <input id="password" type="password" class="form-control" name="password" placeholder=" set new password" />
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <label for="password_confirmation" class="col-md-9 control-label">Confirm Password</label>
-                                <div class="col-md-6">
-                                    <input id="password_confirmation" type="password" class="form-control" name="password_confirmation"  placeholder=" repeat password"/>
+                                <div class="d-flex flex-md-row display-767-column mt-2">
+                                    <div class="group-input">
+                                        <label for="password_confirmation" class="col-form-label">Confirm Password</label>
+                                        <input id="password_confirmation" type="password" class="form-control" name="password_confirmation"  placeholder=" repeat password"/>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <label for="phone_number" class="col-sm-9 control-label">Phone number</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="phone_number" name="phone_number"  />
+                                <div class="d-flex flex-md-row display-767-column mt-2">
+                                    <div class="group-input">
+                                        <label for="phone_number" class="col-form-label">Phone number</label>
+                                        <input type="text" class="form-control" id="phone_number" name="phone_number"  />
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-check">
-                                <label for="plan" class="form-check-label col-sm-9">Plan</label>
-                                <div class="col-sm-4">
-                                    <select class="form-check-input form-control ml-1" type="checkbox" value="1" id="plan" name="plan" required>
-                                        <option value=''>No plan</option>
-                                    </select>
+                                <div class="d-flex flex-md-row display-767-column form-check mt-2 mb-2">
+                                    <div class="group-input">
+                                        <label for="plan" class="col-form-label">Plan</label>
+                                        <select class="form-check-input form-control ml-1" type="checkbox" value="1" id="plan" name="plan" required>
+                                            <option value=''>No plan</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
 
-                    <div class="modal-footer">
+                    <div class="modal-footer mt-3">
                         <button type="button" class="btn btn-primary" id="btn-save" value="add">Save changes</button>
                         <input type="hidden" id="client_id" name="client_id" value="0">
                     </div>

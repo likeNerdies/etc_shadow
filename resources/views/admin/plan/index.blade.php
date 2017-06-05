@@ -68,30 +68,31 @@
         <div id="ajaxerror"></div>
 
         <div class="modal-body">
-          <form id="formPlans" name="formPlans" class="form-horizontal" novalidate="">
-            {{ csrf_field() }}
-            <div class="form-group">
-              <label for="name" class="col-sm-3 control-label">Name</label>
-              <div class="col-sm-9">
-                <input type="text" class="form-control has-error" id="name" name="name" placeholder=" plan name"required />
+          <div class="display-center">
+            <form id="formPlans" name="formPlans" class="form-horizontal" novalidate="">
+              {{ csrf_field() }}
+              <div class="d-flex flex-md-row display-767-column error">
+                <div class="group-input">
+                  <label for="name" class="col-form-label">Name</label>
+                  <input type="text" class="form-control col-md-11 col-12 has-error" id="name" name="name" placeholder=" plan name"required />
+                </div>
               </div>
-            </div>
 
-            <div class="form-group">
-              <label for="price" class="col-sm-3 control-label">Price</label>
-              <div class="col-sm-9">
-                <input type="text" class="form-control" id="price" name="price" placeholder="example: 9.95" required />
+              <div class="d-flex flex-md-row display-767-column">
+                <div class="group-input">
+                  <label for="price" class="col-form-label">Price</label>
+                  <input type="text" class="form-control col-md-11 col-12" id="price" name="price" placeholder="example: 9.95" required />
+                </div>
               </div>
-            </div>
 
-            <div class="form-group">
-              <label for="info" class="col-sm-3 control-label">Info</label>
-              <div class="col-sm-9">
-                <textarea class="form-control" id="info" rows="5" placeholder="Plan information" required></textarea>
+              <div class="d-flex flex-md-row display-767-column">
+                <div class="group-input">
+                  <label for="info" class="col-form-label">Info</label>
+                  <textarea class="form-control col-md-11 col-12" id="info" rows="5" placeholder="Plan information" required></textarea>
+                </div>
               </div>
-            </div>
-
-          </form>
+            </form>
+          </div>
         </div>
 
         <div class="modal-footer">

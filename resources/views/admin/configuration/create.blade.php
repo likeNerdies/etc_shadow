@@ -81,70 +81,72 @@
                     <div id="ajaxerror"></div>
 
                     <div class="modal-body">
-                        <form id="formAdmins" name="formAdmins" class="form-horizontal" novalidate="">
+                        <div class="display-center">
+                            <form id="formAdmins" name="formAdmins" class="form-horizontal" novalidate="">
 
-                            {{ csrf_field() }}
-                            <div class="form-group error">
-                                <label for="dni" class="col-sm-3 control-label">DNI</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control has-error" id="dni" name="dni" placeholder=" dni" value="">
+                                {{ csrf_field() }}
+                                <div class="d-flex flex-md-row display-767-column error">
+                                    <div class="group-input">
+                                        <label for="dni" class="col-form-label">DNI</label>
+                                        <input type="text" class="form-control has-error" id="dni" name="dni" placeholder=" dni" value="">
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group error">
-                                <label for="name" class="col-sm-3 control-label">Name</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control has-error" id="name" name="name" placeholder=" admin name"  required>
+                                <div class="fd-flex flex-md-row display-767-column error mt-2">
+                                    <div class="group-input">
+                                        <label for="name" class="col-form-label">Name</label>
+                                        <input type="text" class="form-control has-error" id="name" name="name" placeholder=" admin name"  required>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group error">
-                                <label for="first_surname" class="col-sm-3 control-label">First Surname</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control has-error" id="first_surname" name="first_surname" placeholder=" first surname"  required>
+                                <div class="d-flex flex-md-row display-767-column error mt-2">
+                                    <div class="group-input">
+                                        <label for="first_surname" class="col-form-label">First Surname</label>
+                                        <input type="text" class="form-control has-error" id="first_surname" name="first_surname" placeholder=" first surname"  required>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group error">
-                                <label for="second_surname" class="col-sm-3 control-label">Second Surname</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control has-error" id="second_surname" name="second_surname" placeholder=" second surname">
+                                <div class="d-flex flex-md-row display-767-column error mt-2">
+                                    <div class="group-input">
+                                        <label for="second_surname" class="col-form-label">Second Surname</label>
+                                        <input type="text" class="form-control has-error" id="second_surname" name="second_surname" placeholder=" second surname">
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <label for="email" class="col-sm-3 control-label">Email</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="email" name="email" placeholder=" example@example.com"  requireds>
+                                <div class="d-flex flex-md-row display-767-column mt-2">
+                                    <div class="group-input">
+                                        <label for="email" class="col-form-label">Email</label>
+                                        <input type="text" class="form-control" id="email" name="email" placeholder=" example@example.com"  requireds>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <label for="password" class="col-md-4 control-label">Password</label>
-                                <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control" name="password" placeholder="set new password" required>
+                                <div class="d-flex flex-md-row display-767-column mt-2">
+                                    <div class="group-input">
+                                        <label for="password" class="col-form-label">Password</label>
+                                        <input id="password" type="password" class="form-control" name="password" placeholder="set new password" required>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <label for="password_confirmation" class="col-md-4 control-label">Confirm Password</label>
-                                <div class="col-md-6">
-                                    <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" placeholder="new password confirm" required>
+                                <div class="d-flex flex-md-row display-767-column mt-2">
+                                    <div class="group-input">
+                                        <label for="password_confirmation" class="col-form-label">Confirm Password</label>
+                                        <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" placeholder="new password confirm" required>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <label for="phone_number" class="col-sm-5 control-label">Phone number</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder=" phone number" value="">
+                                <div class="d-flex flex-md-row display-767-column mt-2">
+                                    <div class="group-input">
+                                        <label for="phone_number" class="col-form-label">Phone number</label>
+                                        <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder=" phone number" value="">
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-check">
-                                <label class="form-check-label" for="can_create">
-                                    <input class="form-check-input" type="checkbox" value="1" id="can_create" name="can_create" required>
-                                    Super Admin Permission
-                                </label>
-                            </div>
-                        </form>
+                                <div class="d-flex flex-md-row display-767-column mt-2">
+                                    <label class="form-check-label" for="can_create">
+                                        <input class="form-check-input" type="checkbox" value="1" id="can_create" name="can_create" required>
+                                        Super Admin Permission
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
                     </div>
 
                     <div class="modal-footer">

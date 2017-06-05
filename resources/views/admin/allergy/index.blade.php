@@ -65,15 +65,17 @@
         <div id="ajaxerror"></div>
 
         <div class="modal-body">
-          <form id="formAllergies" name="formAllergies" class="form-horizontal" novalidate="">
-            {{ csrf_field() }}
-            <div class="form-group error">
-              <label for="name" class="col-sm-3 control-label">Name</label>
-              <div class="col-sm-9">
-                <input type="text" class="form-control has-error" id="name" name="name" placeholder=" allergy name" value="" required/>
+          <div class="display-center">
+            <form id="formAllergies" name="formAllergies" class="form-horizontal" novalidate="">
+              {{ csrf_field() }}
+              <div class="d-flex flex-md-row display-767-column error">
+                <div class="group-input">
+                  <label for="name" class="col-form-label">Name</label>
+                  <input type="text" class="form-control col-md-11 col-12 has-error" id="name" name="name" placeholder=" allergy name" value="" required/>
+                </div>
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" id="btn-save" value="add">Save changes</button>
