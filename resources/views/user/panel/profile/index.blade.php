@@ -57,9 +57,9 @@
 
                     <!-- Box date + Products -->
                     <div id="date_products_box" class="col-md-5 col-sm-12 mr-5 d-inline-block text-left float-md-right vertical-middle">
-                        <h6 class="date-received text-sm-center ml-15">{{ $boxes[$i]["from"] }}</h6>
+                        <h6 class="date-received sm-center ml-15">{{ $boxes[$i]["from"] }}</h6>
                         <?php $productId = "products" . $id ?>
-                        <div class="w-80 mx-auto text-sm-center">
+                        <div class="w-80 mx-auto sm-center">
                           <span class="text-center">
                             <button type="button"
                                   class="date-received btn btn-default text-brown cursor-pointer button-no-decoration mx-auto sm-pl"
