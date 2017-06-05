@@ -1038,7 +1038,6 @@ span.caret-down::after{
         width: auto;
         max-height: 270px;
         margin: auto;
-        transform: translateY(12%);
     }
 
 
@@ -1078,7 +1077,7 @@ span.caret-down::after{
     }
 
     .carousel-indicators{
-        top:100%;
+        top:calc(100% + 5px);
     }
 }
 
@@ -1162,7 +1161,6 @@ span.caret-down::after{
         width: auto;
         max-height: 235px !important;
         margin: auto;
-        transform: translateY(25%);
     }
 
 }
