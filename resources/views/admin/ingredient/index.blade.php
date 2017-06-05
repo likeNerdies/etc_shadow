@@ -108,61 +108,65 @@
         <div id="ajaxerror"></div>
 
           <div class="modal-body">
-            <form id="formIngredients" name="formIngredients" class="form-horizontal" novalidate="">
-              {{ csrf_field() }}
-              <div class="form-group error">
-                <label for="name" class="col-sm-3 control-label">Name</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control has-error" id="name" name="name" placeholder=" ingredient name"  required />
+              <div class="display-center">
+                  <form id="formIngredients" name="formIngredients" class="form-horizontal" novalidate="">
+                      {{ csrf_field() }}
+                      <div class="d-flex flex-md-row display-767-column error">
+                          <div class="group-input">
+                              <label for="name" class="col-form-label">Name</label>
+                              <input type="text" class="form-control col-md-11 col-12 has-error" id="name" name="name" placeholder=" ingredient name"  required />
+                          </div>
 
-                </div>
-              </div>
+                      </div>
 
-              <div class="form-group">
-                <label for="info" class="col-sm-3 control-label">Info</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" id="info" name="info" placeholder=" some information.." />
-                </div>
-              </div>
+                      <div class="d-flex flex-md-row display-767-column mt-2">
+                          <div class="group-input">
+                              <label for="info" class="col-form-label">Info</label>
+                              <input type="text" class="form-control col-md-11 col-12" id="info" name="info" placeholder=" some information.." />
+                          </div>
+                      </div>
 
-              <div class="form-group  col-xs-12">
-                <label for="tag_list">Allergies</label>
-                  <select id="tag_list" name="allergies[]" class="input-group input-group-lg form-group" multiple></select>
-              </div>
+                      <div class="d-flex flex-md-row display-767-column mt-2">
+                          <div class="group-input">
+                              <label style="width: 91.6%;" for="tag_list" class="col-form-label">Allergies</label>
+                              <select style="width: 91.6%;" id="tag_list" name="allergies[]" class="form-control select2-hidden-accessible" multiple></select>
+                          </div>
+                      </div>
 
-              <script>
-                  function preview_image() {
-                      var fileUpload = document.getElementById("image");
-                      if (typeof (FileReader) != "undefined") {
-                          var dvPreview = document.getElementById("dvPreview");
-                          dvPreview.innerHTML = "";
-                          var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
-                          for (var i = 0; i < fileUpload.files.length; i++) {
-                              var file = fileUpload.files[i];
-                              if (regex.test(file.name.toLowerCase())) {
-                                  var reader = new FileReader();
-                                  reader.onload = function (e) {
-                                      var img = document.createElement("IMG");
-                                      img.height = "100";
-                                      img.width = "100";
-                                      img.src = e.target.result;
-                                      dvPreview.appendChild(img);
-                                  };
-                                  reader.readAsDataURL(file);
+                      <script>
+                          function preview_image() {
+                              var fileUpload = document.getElementById("image");
+                              if (typeof (FileReader) != "undefined") {
+                                  var dvPreview = document.getElementById("dvPreview");
+                                  dvPreview.innerHTML = "";
+                                  var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+                                  for (var i = 0; i < fileUpload.files.length; i++) {
+                                      var file = fileUpload.files[i];
+                                      if (regex.test(file.name.toLowerCase())) {
+                                          var reader = new FileReader();
+                                          reader.onload = function (e) {
+                                              var img = document.createElement("IMG");
+                                              img.height = "100";
+                                              img.width = "100";
+                                              img.src = e.target.result;
+                                              dvPreview.appendChild(img);
+                                          };
+                                          reader.readAsDataURL(file);
+                                      }
+                                  }
                               }
                           }
-                      }
-                  }
-              </script>
+                      </script>
 
-            </form>
-            <form id="formImage" class="formImage"  class="form-horizontal" novalidate="" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="image">Upload images</label>
-                    <input type="file" class="image btn btn-info" id="image" name="image" onchange="preview_image()">
-                </div>
-            </form>
-              <div id="dvPreview">
+                  </form>
+                  <form id="formImage" class="formImage"  class="form-horizontal" novalidate="" enctype="multipart/form-data">
+                      <div class="group-input mt-2">
+                          <label for="image" class="col-form-label">Upload images</label>
+                          <input type="file" class="form-control-file" id="image" name="image" onchange="preview_image()">
+                      </div>
+                  </form>
+                  <div id="dvPreview">
+                  </div>
               </div>
           </div>
 
