@@ -57,23 +57,31 @@
 
                     <!-- Box date + Products -->
                     <div id="date_products_box" class="col-md-5 col-sm-12 mr-5 d-inline-block text-left float-md-right vertical-middle">
-                        <h6 class="date-received ml-24p text-sm-center">{{ $boxes[$i]["from"] }}</h6>
+                        <h6 class="date-received text-sm-center ml-15">{{ $boxes[$i]["from"] }}</h6>
                         <?php $productId = "products" . $id ?>
-                        <span class="text-sm-center"><button type="button"
-                                class="date-received btn btn-default text-brown cursor-pointer button-no-decoration px-0 sm-pl"
-                                data-toggle="collapse" data-target=#{{$productId}} aria-expanded="false"
-                                aria-controls="{{$productId}}">
-                                  <i class="fa fa-plus" aria-hidden="true"></i> Products
-                        </button></span>
-                        <div class="collapse" id={{$productId}}>
+                        <div class="w-80 mx-auto text-sm-center">
+                          <span class="text-center">
+                            <button type="button"
+                                  class="date-received btn btn-default text-brown cursor-pointer button-no-decoration mx-auto sm-pl"
+                                  data-toggle="collapse" data-target=#{{$productId}} aria-expanded="false"
+                                  aria-controls="{{$productId}}">
+                                    <i class="fa fa-plus" aria-hidden="true"></i> Products
+                            </button>
+                        </span>
+                        </div>
+
+                      <div class="w-85 mx-auto">
+                        <div class="collapse " id={{$productId}}>
                             <div id="products" class="card card-block ingredients-card pl-0">
-                              <ul class="ul-no-style pl-0">
+                              <ul class="ul-no-style pl-md-0">
                                 @foreach ($boxes[$i]["products"] as $product)
                                     <li><i class="fa fa-envira" aria-hidden="true"></i>{{ $product->name }}</li>
                                 @endforeach
                               </ul>
                             </div>
                         </div>
+                      </div>
+
                     </div>
 
                     <?php $id++; if($i==5){$more=false;} ?>

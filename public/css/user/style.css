@@ -165,6 +165,10 @@ CSS file for logged in users
     font-size: 22px;
   }
 
+  .text-sm-center {
+    text-align: center!important;
+  }
+
   .ml-sm-5, .ml-2_7rem {
     margin-left: 0;
   }
