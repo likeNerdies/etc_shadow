@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','not found')
+@section('title','Not found')
 @section('content')
     @include('layouts.navbar')
     @if(!Auth::check())
@@ -11,17 +11,17 @@
 
         <h1 class="mt-5">Oops!</h1>
 
-        <h2>404 Not Found</h2>
+        <h2>404 @lang('errors.not_found')</h2>
 
         <div class="error-details mt-5">
-            Sorry, an error has occured, Requested page not found!
+            @lang('errors.sry_error')
         </div>
         <div class="error-actions mt-4">
             <a href="/" class="btn btn-primary btn-lg">
-              Take Me Home
+                @lang('errors.home')
             </a>
             <a href="/help" class="btn btn-default btn-lg">
-              Contact Support
+                @lang('errors.help')
             </a>
         </div>
     </div>

@@ -174,7 +174,7 @@
             @if(Auth::user()->address==null)
                 <div class="blurred-address">
                     <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-                        <a class="btn btn-info" href="/user/panel/my-data/address">Add your address</a>
+                        <a class="btn btn-info" href="/user/panel/my-data/address">@lang('user/data/data.addAddress')</a>
                     </div>
                 </div>
             @endif
