@@ -28,10 +28,8 @@
           </div>
           <div class="col-md-3 text-center">
             <a href="/user/panel/plan/subscribe/1" class="mt-3 btn btn-primary page-scroll sans-serif btn-seeProducts cursor-pointer sr-btn btn-subscribe" role="button">@lang("user/plan/plan.btnSubscribe")</a>
-            <!--<a href="/user/panel/plan/subscribe/1"><button class="mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnSubscribe")</button></a>-->
           </div>
         </div>
-
         <!-- Pro -->
         <div class="row section pro-bg-color plan-section p-5">
           <div class="col-md-9">
@@ -42,8 +40,7 @@
             <small class="price">{{$plans[1]->price}}€</small>
           </div>
           <div class="col-md-3 text-center">
-            <a href="/user/panel/plan/subscribe/2" class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sans-serif cursor-pointer sr-btn btn-subscribe" role="button">@lang("user/plan/plan.btnChangePlan")</a>
-            <!--<a href="/user/panel/plan/subscribe/2"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>-->
+            <a href="/user/panel/plan/subscribe/2" class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sans-serif cursor-pointer sr-btn btn-subscribe" role="button">@lang("user/plan/plan.btnSubscribe")</a>
           </div>
         </div>
 
@@ -57,8 +54,7 @@
             <small class="price">{{$plans[2]->price}}€</small>
           </div>
           <div class="col-md-3 text-center">
-            <a href="/user/panel/plan/subscribe/3" class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sans-serif sr-btn btn-subscribe" role="button">@lang("user/plan/plan.btnChangePlan")</a>
-            <!--<a href="/user/panel/plan/subscribe/3"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>-->
+            <a href="/user/panel/plan/subscribe/3" class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sans-serif sr-btn btn-subscribe" role="button">@lang("user/plan/plan.btnSubscribe")</a>
           </div>
         </div>
 
@@ -67,6 +63,19 @@
     @else
 
         @if (Auth::user()->plan->name == "charming")
+            <!-- Charming -->
+            <div class="row section charming-bg-color plan-section p-5">
+              <div class="col-md-9">
+                <h3 class="text-center">@lang("user/plan/plan.charmingTitle")</h3>
+                <h3 class="text-center subtitle">@lang("user/plan/plan.charmingSubtitle")</h3>
+                <h6 class="mt-5">@lang("user/plan/plan.charmingSlogan")</h6>
+                <p class="">@lang("user/plan/plan.charmingProductsList")</p>
+                <small class="price">{{$plans[0]->price}}€</small>
+              </div>
+              <div class="col-md-3 text-center">
+                <a href="/user/panel/plan/subscribe/1" class="mt-3 btn btn-primary page-scroll sans-serif btn-seeProducts cursor-pointer sr-btn btn-subscribe" role="button">@lang("user/plan/plan.btnCancelPlan")</a>
+              </div>
+            </div>
             <!-- Pro -->
             <div class="row section pro-bg-color p-5">
               <div class="col-md-9">
@@ -77,7 +86,6 @@
                 <small class="price">{{$plans[1]->price}}€</small>
               </div>
               <div class="col-md-3 text-center">
-                <!--<a href="/user/panel/plan/subscribe/2"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>-->
                 <a href="/user/panel/plan/subscribe/2" class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sans-serif cursor-pointer sr-btn btn-subscribe" role="button">@lang("user/plan/plan.btnChangePlan")</a>
               </div>
             </div>
@@ -91,7 +99,6 @@
                 <small class="price">{{$plans[2]->price}}€</small>
               </div>
               <div class="col-md-3 text-center">
-                <!--<a href="/user/panel/plan/subscribe/3"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>-->
                 <a href="/user/panel/plan/subscribe/3" class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sans-serif sr-btn btn-subscribe" role="button">@lang("user/plan/plan.btnChangePlan")</a>
               </div>
             </div>
@@ -106,8 +113,20 @@
                   <small class="price">{{$plans[0]->price}}€</small>
                 </div>
                 <div class="col-md-3 text-center">
-                  <!--<a href="/user/panel/plan/subscribe/1"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>-->
                   <a href="/user/panel/plan/subscribe/1" class="mx-auto mt-3 btn btn-primary page-scroll sans-serif btn-seeProducts sr-btn btn-subscribe" role="button">@lang("user/plan/plan.btnChangePlan")</a>
+                </div>
+              </div>
+              <!-- Pro -->
+              <div class="row section pro-bg-color p-5">
+                <div class="col-md-9">
+                  <h3 class="text-center">@lang("user/plan/plan.proTitle")</h3>
+                  <h3 class="text-center subtitle">@lang("user/plan/plan.proSubtitle")</h3>
+                  <h6 class="mt-5">@lang("user/plan/plan.proSlogan")</h6>
+                  <p class="">@lang("user/plan/plan.proProductsList")</p>
+                  <small class="price">{{$plans[1]->price}}€</small>
+                </div>
+                <div class="col-md-3 text-center">
+                  <a href="/user/panel/plan/subscribe/2" class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sans-serif cursor-pointer sr-btn btn-subscribe" role="button">@lang("user/plan/plan.btnCancelPlan")</a>
                 </div>
               </div>
               <!-- Premium -->
@@ -120,7 +139,6 @@
                   <small class="price">{{$plans[2]->price}}€</small>
                 </div>
                 <div class="col-md-3 text-center">
-                  <!--<a href="/user/panel/plan/subscribe/3"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>-->
                   <a href="/user/panel/plan/subscribe/3" class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" role="button">@lang("user/plan/plan.btnChangePlan")</a>
                 </div>
               </div>
@@ -135,7 +153,6 @@
                     <small class="price">{{$plans[0]->price}}€</small>
                   </div>
                   <div class="col-md-3 text-center">
-                    <!--<a href="/user/panel/plan/subscribe/1"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>-->
                     <a href="/user/panel/plan/subscribe/1" class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" role="button">@lang("user/plan/plan.btnChangePlan")</a>
                   </div>
                 </div>
@@ -149,8 +166,20 @@
                     <small class="price">{{$plans[1]->price}}€</small>
                   </div>
                   <div class="col-md-3 text-center">
-                    <!--<a href="/user/panel/plan/subscribe/3"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="submit" name="button">@lang("user/plan/plan.btnChangePlan")</button></a>-->
                     <a href="/user/panel/plan/subscribe/3" class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" role="button">@lang("user/plan/plan.btnChangePlan")</a>
+                  </div>
+                </div>
+                <!-- Premium -->
+                <div class="row section premium-bg-color p-5">
+                  <div class="col-md-9">
+                    <h3 class="text-center">@lang("user/plan/plan.premiumTitle")</h3>
+                    <h3 class="text-center subtitle">@lang("user/plan/plan.premiumSubtitle")</h3>
+                    <h6 class="mt-5">@lang("user/plan/plan.premiumSlogan")</h6>
+                    <p class="">@lang("user/plan/plan.premiumProductsList")</p>
+                    <small class="price">{{$plans[2]->price}}€</small>
+                  </div>
+                  <div class="col-md-3 text-center">
+                    <a href="/user/panel/plan/subscribe/3" class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" role="button">@lang("user/plan/plan.btnCancelPlan")</a>
                   </div>
                 </div>
             @endif
