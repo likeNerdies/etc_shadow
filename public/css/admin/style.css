@@ -179,9 +179,7 @@ p{
   font-size: 20px;
 }
 
-.pagination li.active span {
-  background-color: #eceeef!important;
-}
+
 
 
 .pagination > li > a, .pagination > li > span{

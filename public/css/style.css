@@ -845,6 +845,11 @@ span.caret-down::after{
     border: 1px solid #ddd;
     border-radius: 2px;
 }
+
+li.active > span {
+  background-color: #eceeef!important;
+}
+
 /*PRODUCTS*/
 .height-carousel{
     height:350px;
@@ -1263,6 +1268,10 @@ span.caret-down::after{
 .button-no-decoration:focus {
     -webkit-box-shadow: 0 0 0 2px white;
     box-shadow: 0 0 0 2px white;
+}
+
+.expire-red {
+  background-color: red;
 }
 
 
