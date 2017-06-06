@@ -123,7 +123,7 @@
                   <tbody>
                     @foreach ($productOBED as $prod)
                         <?php $today = date('Y-m-d'); ?>
-                        @if ($product->expiration_date <= $today)
+                        @if ($prod->expiration_date <= $today)
                           <tr class="expire-red">
                         @else
                           <tr>
