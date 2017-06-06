@@ -455,11 +455,12 @@ h5.card-title {
 #needHelpFooter {
     margin-right: 2%;
     margin-top: 5%;
+    float:right;
 }
 
 #needHelpFooter a, #needHelpFooter a:visited {
     color: #FB6A5D;
-
+    float: right;
 }
 
 /* PRODUCT SHOW */

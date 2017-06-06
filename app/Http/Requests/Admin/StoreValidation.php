@@ -13,11 +13,8 @@ class StoreValidation extends FormRequest
      */
     public function authorize()
     {
-        $retorn=false;
-        if(Auth::user()->can_create){
-            $retorn=true;
-        }
-        return $retorn;
+
+           return true;
     }
 
     /**
