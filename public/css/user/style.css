@@ -139,6 +139,7 @@ CSS file for logged in users
       padding-top: 15%;
       overflow-x: hidden;
       overflow-y: hidden;
+      column-count: 1!important;
   }
 
   .card-wrapper {
