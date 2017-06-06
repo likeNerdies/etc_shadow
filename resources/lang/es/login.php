@@ -21,6 +21,7 @@ return [
     'name' => 'Nombre',
     'register' => 'Registrarse',
     'surname' => 'Apellido',
+    'reset_btn'=>"Enviar enlace"
 
 
 ];

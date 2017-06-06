@@ -1,8 +1,12 @@
 @extends('layouts.app')
-
+@section('title','Reset password')
 @section('content')
 <div class="container">
-
+    @include('layouts.navbar')
+    @if(!Auth::check())
+        @include('layouts.register')
+        @include('layouts.login')
+    @endif
     <div class="row justify-content-center mt-5 pt-5">
         <div class="col-md-6 col-xs-12 text-center">
 
@@ -75,4 +79,7 @@
         </div>
     </div>
 </div>
+@endsection
+@section('scriptsPersonalizados')
+    <script src="{{asset('/js/welcome/welcome.js')}}"></script><!-- Includes navbar animations -->
 @endsection

@@ -2,6 +2,10 @@
 @section('title','not found')
 @section('content')
     @include('layouts.navbar')
+    @if(!Auth::check())
+        @include('layouts.register')
+        @include('layouts.login')
+    @endif
 <div class="row text-center mt-15vh">
     <div class="col-12">
 
@@ -22,4 +26,7 @@
         </div>
     </div>
 </div>
+@endsection
+@section('scriptsPersonalizados')
+    <script src="{{asset('/js/welcome/welcome.js')}}"></script><!-- Includes navbar animations -->
 @endsection
