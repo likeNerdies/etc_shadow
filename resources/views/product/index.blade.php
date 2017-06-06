@@ -56,7 +56,7 @@
                     </div>
 
                     <div class="w-100 d-flex justify-content-center mt-5">
-                        <nav>
+                        <nav id="pagquit_search">
                             {{ $products->links() }}
                         </nav>
                     </div>
