@@ -427,6 +427,34 @@ h5.card-title {
     border-bottom: 6px solid mediumspringgreen;
 
 }
+
+/*floating button to top*/
+
+
+.topTop{
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    bottom: 11%;
+    right: 24px;
+    width: 70px;
+    height: 70px;
+    background: rgba(7,7,7,.4);
+    z-index: 999;
+    border-radius: 50%;
+    -webkit-transition: visibility 0s, opacity 0.5s linear;
+    -moz-transition: visibility 0s, opacity 0.5s linear;
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+.topTop > i{
+    position: absolute;
+    top: 15.5%;
+    left: 26.85%;
+    z-index: 1000;
+    color: white;
+}
+
 /* Footer */
 #footer {
     width:100%;
@@ -1151,6 +1179,11 @@ li.active > span {
 
     .carousel-indicators{
         top:calc(100% + 5px);
+    }
+
+    i.fa-cc-visa, i.fa-cc-mastercard, i.fa-cc-amex, i.fa-paypal{
+        font-size: 1.5em;
+        margin-right:10px;
     }
 }
 
