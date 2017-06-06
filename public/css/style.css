@@ -1210,7 +1210,7 @@ span.caret-down::after{
 
     #info{
         width:100%;
-        height:100%;
+        height:100vh;
     }
 
     #info h3, #info h4, #info h5, #info p{

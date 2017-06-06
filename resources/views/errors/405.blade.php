@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('title','not found')
 @section('content')
-<div class="row text-center">
+    @include('layouts.navbar')
+<div class="row text-center mt-15vh">
     <div class="col-12">
 
         <h1 class="mt-5">Oops!</h1>
