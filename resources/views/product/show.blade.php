@@ -1,11 +1,11 @@
 @extends('layouts.app')
+
 @section('title')
-    Product {{$product->name}}
+    Product {{--$product->name--}}
 @endsection
 
 @section('content')
-@include('layouts.navbar')
-
+    @include('layouts.navbar')
     <div id="main-wrapper">
         <div id="content-wrapper-show">
             <div id="wrapper-product" class="d-flex flex-md-row flex-column">
@@ -90,12 +90,15 @@
             </div>
         </div><!-- / content-wrapper-show -->
     </div><!-- / main-wrapper -->
+
+    @if(!Auth::check())
+        @include('layouts.register')
+        @include('layouts.login')
+    @endif
+
 @endsection
 
-@if(!Auth::check())
-    @include('layouts.register')
-    @include('layouts.login')
-@endif
+
 
 <!-- Aquí hi ha el footer -->
 
