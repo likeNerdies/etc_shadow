@@ -10,6 +10,7 @@ return [
   "wannaChange" => "Want to change?",
   "btnChangePlan" => "Change plan",
   "btnSubscribe" => "Subscribe",
+  "btnCancelPlan" => "Cancel plan",
   "notEnough" => "Not enough?",
   "btnMoreInfo" => "More info",
 

@@ -118,7 +118,7 @@
 
         <div class="d-flex flex-md-row display-767-column mb-4">
             <div class="group-input mt-3">
-                <button type="button" class="btn btn-primary float-right" id="btn_save">
+                <button type="button" class="btn btn-primary" id="btn_save">
                    @lang('forms.save')
                 </button>
             </div>
