@@ -1270,10 +1270,6 @@ li.active > span {
     box-shadow: 0 0 0 2px white;
 }
 
-.expire-red {
-  background-color: red;
-}
-
 
 /* For footer */
 @media (min-width: 768px) {
