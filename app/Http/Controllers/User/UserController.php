@@ -314,15 +314,17 @@ class UserController extends Controller
      */
     public function cancelSubscription(Request $request)
     {
+        $retorn=["success"=>false];
         $user = Auth::user();
-        $plan = App\Plan::findOrFail($request->plan_id);
-        $user->plan()->associate($plan);
+      //  $plan = App\Plan::findOrFail($request->plan_id);
+      //  $user->plan()->associate($plan);
         if (isset($user->plan)) {
             $user->plan()->dissociate();
+            $retorn=["success"=>true];
+            $user->subscribed_at = null;
+            $user->save();
         }
-        $user->subscribed_at = null;
-        $user->save();
-        return response()->back();
+        return response()->json($retorn);
     }
 
     /**

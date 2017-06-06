@@ -1,13 +1,17 @@
 @extends('layouts.app')
-
+@section('title','Reset password')
 @section('content')
 <div class="container">
-
+    @include('layouts.navbar')
+    @if(!Auth::check())
+        @include('layouts.register')
+        @include('layouts.login')
+    @endif
     <div class="row justify-content-center mt-5 pt-5">
         <div class="col-md-6 col-xs-12 text-center">
 
             <div class="panel panel-default">
-                <div class="panel-heading"><h4>Reset Password</h4></div>
+                <div class="panel-heading"><h4>@lang('login.reset_pw')</h4></div>
 
                 <div class="panel-body mt-4">
                     @if (session('status'))
@@ -22,7 +26,7 @@
                         <input type="hidden" name="token" value="{{ $token }}">
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label float-left">E-Mail Address</label>
+                            <label for="email" class="col-md-4 control-label float-left">@lang('login.email')</label>
 
                             <div>
                                 <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" required autofocus>
@@ -36,7 +40,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="control-label float-left">Password</label>
+                            <label for="password" class="control-label float-left">@lang('login.password')</label>
 
                             <div>
                                 <input id="password" type="password" class="form-control" name="password" required>
@@ -50,7 +54,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label for="password-confirm" class="control-label float-left">Confirm Password</label>
+                            <label for="password-confirm" class="control-label float-left">@lang('login.passwordConfirm')</label>
                             <div>
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
 
@@ -65,7 +69,7 @@
                         <div class="form-group">
                             <div class="text-right">
                                 <button type="submit" class="btn btn-primary">
-                                    Reset Password
+                                    @lang('login.reset')
                                 </button>
                             </div>
                         </div>
@@ -75,4 +79,7 @@
         </div>
     </div>
 </div>
+@endsection
+@section('scriptsPersonalizados')
+    <script src="{{asset('/js/welcome/welcome_script.js')}}"></script><!-- Includes navbar animations -->
 @endsection

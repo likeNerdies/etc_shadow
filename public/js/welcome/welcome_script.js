@@ -156,6 +156,68 @@ $(document).ready(function (event) {
      });*/
 
 
+    ///////////////////////////////////CANCEL PLAN
+
+    $('.cancel_sub').on('click', function (e) {
+
+      //  e.preventDefault();
+
+
+        $.confirm({
+            title: 'You are going to cancel your plan',
+            content: 'Are you sure?',
+            buttons: {
+                confirm: function () {
+                  //  btnClass: 'btn-danger',
+                  //  var _token = $('input[name="_token"]').val();
+                   // var datas = {"ingredient_id": ingredient_id};
+                    $.ajax({
+                        type: "POST",
+                        url: "user/panel/plan/cancelSub",
+                        data: {_token: $('input[name="_token"]').val()},
+                        dataType: 'json',
+                        success: function (data) {
+                            $.alert('Good luck!');
+                            location.reload();
+                        },
+                        error: function (data) {
+                            $.alert('There was an error. Please write us an email!');
+                        }
+                    });
+                },
+                cancel: function () {
+                   // btnClass: 'btn-success',
+                    $.alert('Good choice!');
+
+
+                }
+              /*  somethingElse: {
+                    text: 'Something else',
+                    btnClass: 'btn-blue',
+                    keys: ['enter', 'shift'],
+                    action: function(){
+                        $.alert('Something else?');
+                    }
+                }*/
+            }
+        });
+
+
+    });
+
+
+
+
+
+
+
+
+
+    ///////////////////////////
+
+
+
+
     ////////////////////////////////////////////////////////SEARCH FILTER
 
     $('#filter_submit_btn').on('click', function (e) {
