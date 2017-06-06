@@ -28,5 +28,5 @@
 </div>
 @endsection
 @section('scriptsPersonalizados')
-    <script src="{{asset('/js/welcome/welcome.js')}}"></script><!-- Includes navbar animations -->
+    <script src="{{asset('/js/welcome/welcome_script.js')}}"></script><!-- Includes navbar animations -->
 @endsection

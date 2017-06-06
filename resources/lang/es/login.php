@@ -21,7 +21,9 @@ return [
     'name' => 'Nombre',
     'register' => 'Registrarse',
     'surname' => 'Apellido',
-    'reset_btn'=>"Enviar enlace"
+    'reset_pw'=>"Recupera tu contraseña",
+    'send'=>"Enviar",
+    'reset'=>"Recuperar"
 
 
 ];

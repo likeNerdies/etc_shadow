@@ -178,6 +178,7 @@ $(document).ready(function (event) {
                         dataType: 'json',
                         success: function (data) {
                             $.alert('Good luck!');
+                            location.reload();
                         },
                         error: function (data) {
                             $.alert('There was an error. Please write us an email!');
