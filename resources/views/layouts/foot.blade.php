@@ -20,6 +20,10 @@
 
 </div>
 
+<a href="#nav-container" class="topTop">
+  <i class="fa fa-angle-double-up fa-3x" aria-hidden="true"></i>
+</a>
+
 @include('layouts.scripts')
 @yield('scriptsPersonalizados')
 
