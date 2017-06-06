@@ -120,11 +120,11 @@ CSS file for logged in users
 }
 
 .like {
-  border: 1px solid #42aa55;
+  //border: 1px solid #42aa55;
 }
 
 .unlike {
-  border: 1px solid #bf2c1b;
+  border: 2px solid #bf2c1b;
 }
 
 /* MEDIA QUERIES */

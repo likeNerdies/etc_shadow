@@ -690,7 +690,7 @@ i.toggle{
 
 .profile-content-show{
     width:300px;
-    background: rgba(158, 130, 130, 0.5);
+    background: rgb(229, 245, 229);
     position: fixed;
     top: 60px;
     right: 0;
