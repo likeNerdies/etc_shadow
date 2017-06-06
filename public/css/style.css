@@ -269,7 +269,7 @@ h5.card-title {
 }
 
 
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
 
   #needHelpFooter {
     text-align: center!important;
@@ -814,7 +814,7 @@ span.caret-down::after{
 
 
     .carousel-indicators{
-        top:75%;
+        top:80%;
         max-height: 10px;
     }
 
@@ -832,7 +832,7 @@ span.caret-down::after{
 /* MEDIA QUERIES */
 
 /* For navbar */
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
 
     #main-app{
         overflow-x: hidden;
@@ -1090,7 +1090,7 @@ span.caret-down::after{
 
 
 
-@media (max-width: 480px){
+@media only screen and (max-width: 480px){
 
   .plan-section {
     padding: 1rem 1rem!important;
