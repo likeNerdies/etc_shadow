@@ -871,6 +871,11 @@ span.caret-down::after{
     border: 1px solid #ddd;
     border-radius: 2px;
 }
+
+li.active > span {
+  background-color: #eceeef!important;
+}
+
 /*PRODUCTS*/
 .height-carousel{
     height:350px;

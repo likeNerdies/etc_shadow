@@ -231,7 +231,8 @@ $(document).ready(function (event) {
                 type: 'GET',
                 data: formData,
                 success: function (data) {
-                    console.log(data)
+                   // console.log(data)
+                    $('#pagquit_search').empty();
                     $('#products').empty();
 
                     var products="";
@@ -267,7 +268,7 @@ $(document).ready(function (event) {
                     $('#products').html(products);
                 },
                 error: function (data) {
-                   console.log(data.responseText);
+                  // console.log(data.responseText);
                 }
             });
 

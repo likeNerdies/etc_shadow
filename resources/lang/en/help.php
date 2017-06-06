@@ -2,7 +2,7 @@
 
 return [
   "needHelp" => "Do you need help?",
-  "toSubscribe" => "How to subscribe to a plan",
+  "toSubscribe" => "How to subscribe to a <a href='/help'>plan</a>",
   "subscribeOptions" => "You have two options:",
   "subscribe1" => "1. Click to the 'Plans' section on your left",
   "subscribe2" => "2. Or click on the 'Plans' navbar item",

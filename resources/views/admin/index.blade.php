@@ -122,11 +122,16 @@
                   </thead>
                   <tbody>
                     @foreach ($productOBED as $prod)
-                        <tr>
-                          <td>  {{ $prod->id }} </td>
-                          <td> {{ $prod->name }} </td>
-                          <td> {{ $prod->stock }} </td>
-                          <td> {{ $prod->expiration_date }} </td>
+                        <?php $today = date('Y-m-d'); ?>
+                        @if ($prod->expiration_date <= $today)
+                          <tr class="expire-red">
+                        @else
+                          <tr>
+                        @endif
+                        <td>  {{ $prod->id }} </td>
+                        <td> {{ $prod->name }} </td>
+                        <td> {{ $prod->stock }} </td>
+                        <td> {{ $prod->expiration_date }} </td>
                         </tr>
                     @endforeach
                   </tbody>

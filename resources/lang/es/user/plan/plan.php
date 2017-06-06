@@ -16,18 +16,17 @@ return [
   "proTitle" => "¿Quieres una caja a conjunto?",
   "proSubtitle" => "¡Podemos con eso!",
   "proSlogan" => "El plan Pro es muy completo y diversificado.",
-  "proProductsList" => "8 productos: Una bebida (leche sin lácteos o zumo natural), un paquete de galletas, una caja de cereales y un paquete de barritas.",
+  "proProductsList" => "8 productos",
 
   "premiumTitle" => "¿Sintiéndote exagerado? Como esta caja.",
   "premiumSubtitle" => "Queremos que estés sano, en plan, exageradamente sano.",
   "premiumSlogan" => "El plan Premium te cambiará, a mejor.",
-  "premiumProductsList" => "12 productos: Una bebida (leche sin lácteos o zumo natural), un paquete de galletas, una caja de cereales y un paquete de barritas.",
+  "premiumProductsList" => "12 productos",
 
   "charmingTitle" => "¿Básico y sencillo pero encantador?",
   "charmingSubtitle" => "¡Tenemos el plan para ti!",
   "charmingSlogan" => "El plan Charming es pequeño pero lleno de encanto.",
-  "charmingProductsList" => "4 productos: Una bebida (leche sin lácteos o zumo natural), un paquete de galletas, una caja de cereales y un paquete de barritas.",
-    "notSufficient"=>"Echa un ojo a otros planes que tenemos para ti"
+  "charmingProductsList" => "4 productos"
 
 ];
 

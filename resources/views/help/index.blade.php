@@ -22,12 +22,13 @@
           <p class="big-p">@lang("help.subscribeOptions")</p>
           <p>@lang("help.subscribe1")</p>
           <p>@lang("help.subscribe2")</p>
+          <p>@lang("help.subscribe3")</p>
       </div>
 
       <div class="mt-5 ml-10 mr-10 ">
         <div class="">
           <h4 class=""><i class="fa fa-thumb-tack" aria-hidden="true"></i>@lang("help.seeProducts")</h4>
-          <p class="big-p">@lang("help.productsOption1")</p>
+          <p>@lang("help.productsOption1")</p>
           <p>@lang("help.productsOption2")</p>
         </div>
       </div>
