@@ -37,7 +37,7 @@
                                 <h2 class="text-center">@lang('user/plan/subscribe.already_subscribed_in')</h2>
                                 <div class="row section p-5">
                                     <div class="col-12 text-center">
-                                        <h3 class="">@lang("user/plan/plan.notSufficient")</h3>
+                                        <h3 class="">@lang("user/plan/plan.wannaChange")</h3>
                                         <a href="/plans"><button class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" type="button" name="button">@lang("user/plan/plan.btnMoreInfo")</button></a>
                                     </div>
                                     <div class="col-md-3 text-center">
