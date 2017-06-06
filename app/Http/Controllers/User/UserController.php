@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\User;
+
 use DB;
 use Auth;
 use Hash;
@@ -30,18 +31,18 @@ class UserController extends Controller
     public function index()
     {
         $id = Auth::user()->id;
-        $user=Auth::user();
-        $deliveries= DB::table('deliveries')->where('user_id', '=', $id)->orderBy('created_at','dsc')->get();
-        $boxes=[];
-        for($index=0;$index<count($deliveries);$index++) {
-            $delivery=App\Delivery::find($deliveries[$index]->id);
-            $boxes[$index]=[
-                "products"=>$delivery->box->products,
-                "from"=>_t($delivery->created_at->diffForHumans(),[],Session::get('locale'))
+        $user = Auth::user();
+        $deliveries = DB::table('deliveries')->where('user_id', '=', $id)->orderBy('created_at', 'dsc')->get();
+        $boxes = [];
+        for ($index = 0; $index < count($deliveries); $index++) {
+            $delivery = App\Delivery::find($deliveries[$index]->id);
+            $boxes[$index] = [
+                "products" => $delivery->box->products,
+                "from" => _t($delivery->created_at->diffForHumans(), [], Session::get('locale'))
             ];
         }
-        $plans=App\Plan::all();
-        return view('user.panel.profile.index', compact(["user","boxes","plans"]));
+        $plans = App\Plan::all();
+        return view('user.panel.profile.index', compact(["user", "boxes", "plans"]));
     }
 
     /**
@@ -60,8 +61,8 @@ class UserController extends Controller
      */
     public function update(UpdatePersonalInfo $request)
     {
-        $retorn=[];
-        try{
+        $retorn = [];
+        try {
             $user = Auth::user();
             $user->dni = $request->dni;
             $user->name = $request->name;
@@ -70,9 +71,9 @@ class UserController extends Controller
             $user->email = $request->email;
             $user->phone_number = $request->phone_number;
             $user->save();
-            $retorn=["success"=>true];
-        }catch(Exception $e){
-            $retorn=["success"=>false];
+            $retorn = ["success" => true];
+        } catch (Exception $e) {
+            $retorn = ["success" => false];
         }
 
         return response()->json($retorn);
@@ -84,19 +85,20 @@ class UserController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function updatePassword(Request $request){
+    public function updatePassword(Request $request)
+    {
 
-     //   return response()->json(['antiguo'=>Hash::make($request->old_password),'pass'=>$user->password]);
+        //   return response()->json(['antiguo'=>Hash::make($request->old_password),'pass'=>$user->password]);
         $this->validate($request, [
-            'old_password'=>'required|min:8',
+            'old_password' => 'required|min:8',
             'password' => 'required|min:8|confirmed',
         ]);
-        $retorn=["success"=>false];
-        $user=Auth::user();
-        if(password_verify($request->old_password,$user->password)){
-           $user->password=bcrypt($request->password);
-           $user->save();
-            $retorn=["success"=>true];
+        $retorn = ["success" => false];
+        $user = Auth::user();
+        if (password_verify($request->old_password, $user->password)) {
+            $user->password = bcrypt($request->password);
+            $user->save();
+            $retorn = ["success" => true];
         }
         return response()->json($retorn);
     }
@@ -136,9 +138,10 @@ class UserController extends Controller
      * Returns the ingredient user view
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function unlikeIngredientShow(){
-        $ingredients=App\Ingredient::all();
-        return view('user.panel.ingredient.index',compact('ingredients'));
+    public function unlikeIngredientShow()
+    {
+        $ingredients = App\Ingredient::all();
+        return view('user.panel.ingredient.index', compact('ingredients'));
     }
 
     /**
@@ -146,22 +149,23 @@ class UserController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function likeIngredientStore(Request $request){
+    public function likeIngredientStore(Request $request)
+    {
         $user = Auth::user();
-        $retorn =[];
-        $exists=false;
-        $ingredients=$user->ingredients;
-        for($i=0;$i<count($ingredients);$i++){
-            if($ingredients[$i]->id==$request->ingredient_id){
-                $exists=true;
+        $retorn = [];
+        $exists = false;
+        $ingredients = $user->ingredients;
+        for ($i = 0; $i < count($ingredients); $i++) {
+            if ($ingredients[$i]->id == $request->ingredient_id) {
+                $exists = true;
             }
         }
-        if($exists){
+        if ($exists) {
             $user->ingredients()->detach([$request->ingredient_id]);
             $user->save();
-            $retorn=['success'=>true];
-        }else{
-            $retorn=['success'=>false];
+            $retorn = ['success' => true];
+        } else {
+            $retorn = ['success' => false];
         }
 
         return response()->json($retorn);
@@ -172,23 +176,24 @@ class UserController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function unlikeIngredientStore(Request $request){
+    public function unlikeIngredientStore(Request $request)
+    {
         $user = Auth::user();
-        $retorn =[];
-        $exists=false;
-        $ingredients=$user->ingredients;
-        if(count($ingredients)>0 || $ingredients!=null)
-        for($i=0;$i<count($ingredients);$i++){
-            if($ingredients[$i]->id==$request->ingredient_id){
-                $exists=true;
+        $retorn = [];
+        $exists = false;
+        $ingredients = $user->ingredients;
+        if (count($ingredients) > 0 || $ingredients != null)
+            for ($i = 0; $i < count($ingredients); $i++) {
+                if ($ingredients[$i]->id == $request->ingredient_id) {
+                    $exists = true;
+                }
             }
-        }
-        if(!$exists){
+        if (!$exists) {
             $user->ingredients()->attach([$request->ingredient_id]);
             $user->save();
-            $retorn=['success'=>true];
-        }else{
-            $retorn=['success'=>false];
+            $retorn = ['success' => true];
+        } else {
+            $retorn = ['success' => false];
         }
         return response()->json($retorn);
 
@@ -198,9 +203,10 @@ class UserController extends Controller
      * Returns the allergy user view
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function userAllergyShow(){
+    public function userAllergyShow()
+    {
         $allergies = App\Allergy::all();
-        return view('user.panel.allergy.index',compact('allergies'));
+        return view('user.panel.allergy.index', compact('allergies'));
     }
 
     /**
@@ -208,23 +214,24 @@ class UserController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function userAllergyStore(Request $request){
+    public function userAllergyStore(Request $request)
+    {
         $user = Auth::user();
-        $retorn =[];
-        $exists=false;
-        $allergies=$user->allergies;
-        if(count($allergies)>0 || $allergies!=null)
-            for($i=0;$i<count($allergies);$i++){
-                if($allergies[$i]->id==$request->allergy_id){
-                    $exists=true;
+        $retorn = [];
+        $exists = false;
+        $allergies = $user->allergies;
+        if (count($allergies) > 0 || $allergies != null)
+            for ($i = 0; $i < count($allergies); $i++) {
+                if ($allergies[$i]->id == $request->allergy_id) {
+                    $exists = true;
                 }
             }
-        if(!$exists){
+        if (!$exists) {
             $user->allergies()->attach([$request->allergy_id]);
             $user->save();
-            $retorn=['success'=>true];
-        }else{
-            $retorn=['success'=>false];
+            $retorn = ['success' => true];
+        } else {
+            $retorn = ['success' => false];
         }
 
         return response()->json($retorn);
@@ -235,23 +242,24 @@ class UserController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function userHasntAllergyStore(Request $request){
+    public function userHasntAllergyStore(Request $request)
+    {
         $user = Auth::user();
-        $retorn =[];
-        $exists=false;
-        $allergies=$user->allergies;
-        if(count($allergies)>0 || $allergies!=null)
-            for($i=0;$i<count($allergies);$i++){
-                if($allergies[$i]->id==$request->allergy_id){
-                    $exists=true;
+        $retorn = [];
+        $exists = false;
+        $allergies = $user->allergies;
+        if (count($allergies) > 0 || $allergies != null)
+            for ($i = 0; $i < count($allergies); $i++) {
+                if ($allergies[$i]->id == $request->allergy_id) {
+                    $exists = true;
                 }
             }
-        if($exists){
+        if ($exists) {
             $user->allergies()->detach([$request->allergy_id]);
             $user->save();
-            $retorn=['success'=>true];
-        }else{
-            $retorn=['success'=>false];
+            $retorn = ['success' => true];
+        } else {
+            $retorn = ['success' => false];
         }
 
         return response()->json($retorn);
@@ -274,34 +282,37 @@ class UserController extends Controller
      */
     public function subscribeToPlan(Request $request)
     {
-        $this->validate($request,[
-            "plan_id"=>array(
+        $this->validate($request, [
+            "plan_id" => array(
                 'required',
                 'regex:/[123]{1}/'
             ),
         ]);
-        $retorn=["succed"=>true];
-        try{
-            $user = Auth::user();
-            $plan = App\Plan::findOrFail($request->plan_id);
-            $user->plan()->associate($plan);
-            $user->subscribed_at = date("Y-m-d");
-            $user->save();
+        $retorn = ["succeed" => false];
 
-            if(Session::get('locale')=='es'){
-                $retorn=[
-                    "succeed"=>true,
-                    "mensaje1"=>"Bien Hecho!",
-                    "mensaje2"=>"Ya estás suscrito en el plan"
-                ];
-            }else{
-                $retorn=[
-                    "succeed"=>true,
-                    "mensaje1"=>"Well done!",
-                    "mensaje2"=>"You are already subscribed to the plan"
-                ];
+        try {
+            $user = Auth::user();
+            if ($user->address != null) {
+                $plan = App\Plan::findOrFail($request->plan_id);
+                $user->plan()->associate($plan);
+                $user->subscribed_at = date("Y-m-d");
+                $user->save();
+
+                if (Session::get('locale') == 'es') {
+                    $retorn = [
+                        "succeed" => true,
+                        "mensaje1" => "Bien Hecho!",
+                        "mensaje2" => "Ya estás suscrito en el plan"
+                    ];
+                } else {
+                    $retorn = [
+                        "succeed" => true,
+                        "mensaje1" => "Well done!",
+                        "mensaje2" => "You are already subscribed to the plan"
+                    ];
+                }
             }
-        }catch(Exception $e){
+        } catch (Exception $e) {
 
         }
 
@@ -314,13 +325,13 @@ class UserController extends Controller
      */
     public function cancelSubscription(Request $request)
     {
-        $retorn=["success"=>false];
+        $retorn = ["success" => false];
         $user = Auth::user();
-      //  $plan = App\Plan::findOrFail($request->plan_id);
-      //  $user->plan()->associate($plan);
+        //  $plan = App\Plan::findOrFail($request->plan_id);
+        //  $user->plan()->associate($plan);
         if (isset($user->plan)) {
             $user->plan()->dissociate();
-            $retorn=["success"=>true];
+            $retorn = ["success" => true];
             $user->subscribed_at = null;
             $user->save();
         }
@@ -331,14 +342,15 @@ class UserController extends Controller
      * Returns the user plan subscribe view
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function subscribeForm($id){
+    public function subscribeForm($id)
+    {
         $plan = null;
 
-        if($id >=1 && $id <=3){
+        if ($id >= 1 && $id <= 3) {
             $plan = App\Plan::find($id);
-            return view('user.panel.plan.subscribe',compact('plan'));
-        }else{
-           return view('errors.404');
+            return view('user.panel.plan.subscribe', compact('plan'));
+        } else {
+            return view('errors.404');
         }
 
     }
@@ -401,8 +413,8 @@ class UserController extends Controller
         $client->second_surname = $request->second_surname;
         $client->email = $request->email;
         $client->phone_number = $request->phone_number;
-        if(isset($request->password)){
-            $client->password=bcrypt($request->password);
+        if (isset($request->password)) {
+            $client->password = bcrypt($request->password);
         }
         if (isset($request->plan)) {
             $client->plan()->associate($request->plan);

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','not found')
+@section('title','Not found')
 @section('content')
     @include('layouts.navbar')
     @if(!Auth::check())
