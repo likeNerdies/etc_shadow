@@ -24,7 +24,7 @@
       <!-- Submit -->
       <div class="d-flex flex-md-row display-767-column mb-4">
           <div class="group-input mt-3">
-              <button type="button" class="btn btn-primary float-right" id="btn_change_pw">
+              <button type="button" class="btn btn-primary" id="btn_change_pw">
                   @lang('forms.save')
               </button>
           </div>

@@ -9,6 +9,7 @@ return [
   "wannaChange" => "¿Quieres cambiar?",
   "btnChangePlan" => "Cambiar plan",
   "btnSubscribe" => "Suscribirse",
+  "btnCancelPlan"  => "Cancelar plan",
   "notEnough" => "¿Aún no te hemos convencido?",
   "btnMoreInfo" => "Más información",
 
