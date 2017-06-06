@@ -4,6 +4,9 @@
   Plans
 @endsection
 
+@section('styles')
+  <link rel="stylesheet" href="{{asset('/css/libraries/jquery/jquery-confirm.min.css')}}">
+@endsection
 @section('content')
   @include('layouts.navbar')
 
@@ -73,7 +76,7 @@
                 <small class="price">{{$plans[0]->price}}€</small>
               </div>
               <div class="col-md-3 text-center">
-                <a href="/user/panel/plan/subscribe/1" class="mt-3 btn btn-primary page-scroll sans-serif btn-seeProducts cursor-pointer sr-btn btn-subscribe" role="button">@lang("user/plan/plan.btnCancelPlan")</a>
+                <button  class="mt-3 btn btn-primary page-scroll sans-serif btn-seeProducts cursor-pointer sr-btn btn-subscribe cancel_sub" value="1" role="button">@lang("user/plan/plan.btnCancelPlan")</button>
               </div>
             </div>
             <!-- Pro -->
@@ -126,7 +129,7 @@
                   <small class="price">{{$plans[1]->price}}€</small>
                 </div>
                 <div class="col-md-3 text-center">
-                  <a href="/user/panel/plan/subscribe/2" class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sans-serif cursor-pointer sr-btn btn-subscribe" role="button">@lang("user/plan/plan.btnCancelPlan")</a>
+                  <button  class="mt-3 btn btn-primary page-scroll sans-serif btn-seeProducts cursor-pointer sr-btn btn-subscribe cancel_sub" value="2" role="button">@lang("user/plan/plan.btnCancelPlan")</button>
                 </div>
               </div>
               <!-- Premium -->
@@ -179,7 +182,7 @@
                     <small class="price">{{$plans[2]->price}}€</small>
                   </div>
                   <div class="col-md-3 text-center">
-                    <a href="/user/panel/plan/subscribe/3" class="mx-auto mt-3 btn btn-primary page-scroll btn-seeProducts sr-btn btn-subscribe" role="button">@lang("user/plan/plan.btnCancelPlan")</a>
+                    <button  class="mt-3 btn btn-primary page-scroll sans-serif btn-seeProducts cursor-pointer sr-btn btn-subscribe cancel_sub" value="3" role="button">@lang("user/plan/plan.btnCancelPlan")</button>
                   </div>
                 </div>
             @endif
@@ -189,4 +192,6 @@
 
 @section('scriptsPersonalizados')
   <script src="{{asset('/js/welcome/welcome_script.js')}}"></script><!-- Includes navbar animations --->
+  <script src="{{asset('/js/libraries/jquery/jquery-confirm.min.js')}}"></script><!-- Includes navbar animations --->
+
 @endSection
