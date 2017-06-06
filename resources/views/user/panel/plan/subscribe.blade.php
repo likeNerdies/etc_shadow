@@ -2,7 +2,7 @@
 @section('title','Subscribe')
 @section('right-panel')
     <div style="height: auto;" class="container justify-content-center ml-3rem">
-        <div class="row">
+        <div class="row pb-2">
             <div class="col-md-6 col-12 mb-2rem">
                 <div class="subscribe-info-outer-wrapper">
                     <div class="subscribe-info-inner-wrapper">

@@ -21,5 +21,8 @@ return [
     'register' => 'Register',
     'name' => 'Name',
     'surname' => 'Surname',
+    'reset_pw'=>"Reset your password",
+    'send'=>"Send Password Reset Link",
+    'reset'=>"Reset"
 
 ];

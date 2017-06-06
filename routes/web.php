@@ -84,7 +84,7 @@ Route::get('/help',function(){
 //Route for plans
 
 Route::get('/plans','Plan\PlanController@indexPlan')->name('our-plans');
-Route::get('/plans/{id}','Plan\PlanController@showPlan')->name('show-main-index-plan');
+//Route::get('/plans/{id}','Plan\PlanController@showPlan')->name('show-main-index-plan');
 //end Route for plans
 
 //ROUTE LOGIN FOR ADMIN
