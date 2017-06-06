@@ -68,6 +68,17 @@
                         <h3 class="product-name pt-5 text-center">{{_t($product->name,[],Session::get('locale'))}}<small class="product-brand">@if(isset($product->brand->name)){{$product->brand->name}}@else  @endif</small></h3>
                         <h5 class="text-left mt-5">@lang('product/product.description')</h5>
                         <p class="text-justify">{{_t($product->description,[],Session::get('locale'))}}</p>
+                        <div class="mt-3">
+                          @if ($product->vegan == 1)
+                              <p class="d-inline diet card-text"><i class="fa fa-check mx-1" aria-hidden="true"></i>@lang('product/product.vegan')</p>
+                          @endif
+                          @if ($product->vegetarian == 1)
+                              <p class="d-inline diet"><i class="fa fa-check mx-1" aria-hidden="true"></i>@lang('product/product.vegetarian')</p>
+                          @endif
+                          @if ($product->organic == 1)
+                              <p class="d-inline diet"><i class="fa fa-check mx-1" aria-hidden="true"></i>@lang('product/product.organic')</p>
+                          @endif
+                        </div>
                         <button type="button" class="btn btn-default text-brown button-no-decoration hidden-md-up" data-toggle="collapse" data-target="#ingredients" aria-expanded="false" aria-controls="ingredients">
                           <i class="fa fa-plus" aria-hidden="true"></i> Ingredients
                         </button>

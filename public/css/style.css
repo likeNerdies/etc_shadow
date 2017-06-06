@@ -1197,10 +1197,9 @@ span.caret-down::after{
 /* For footer */
 @media (min-width: 768px) {
 
-      .pl-md-0 {
-        padding-left: 0!important;
-      }
-
+    .pl-md-0 {
+      padding-left: 0!important;
+    }
 
     #tog-profile{
         left: 86%;
