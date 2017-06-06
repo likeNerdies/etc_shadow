@@ -10,7 +10,7 @@
 @include('layouts.navbar')
   <div class="container mt-80p justify-content-center">
 
-    <div class="offset-md-1 col-md-10 bg-whitesmoke-sutil">
+    <div style="box-shadow: 0px 3px 6px lightgrey;" class="offset-md-1 col-md-10 bg-whitesmoke-sutil">
       <h1 class="text-center red-font lighter-font">@lang("help.needHelp")</h1>
 <!--
   <div class="container mt-5 justify-content-center">
