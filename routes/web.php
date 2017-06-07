@@ -194,10 +194,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin',], function () {
     //end Route Client
 
 
-    Route::post('/box/create', 'Box\BoxController@makeBox')->name('admin.box.create');
-    Route::get('/box', 'Box\BoxController@index')->name('admin.box');
-   // Route::post('/box/create', 'Box\BoxController@makeBox')->middleware('auth:admin');
 
+    Route::get('/box/create', 'Box\BoxController@makeBox')->name('admin.box.create');
+//Route::get('/box', 'Box\BoxController@index')->name('admin.box');
+// Route::post('/box/create', 'Box\BoxController@makeBox')->middleware('auth:admin');
 
 
 });//END ADMIN GROUP ROUTES
