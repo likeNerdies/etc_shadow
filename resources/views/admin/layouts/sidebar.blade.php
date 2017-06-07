@@ -46,7 +46,7 @@
 
 			<a href="#"><!-- ESTA RUTA NO EXISTE -->
 				<li data-toggle="collapse" data-target="#configuration" class="collapsed">
-					<i class="fa fa-cogs mr-2" aria-hidden="true"></i>Configuration
+					<i class="fa fa-cogs mr-2" aria-hidden="true"></i>Configuration<span class="arrow"></span>
 				</li>
 			</a>
 
