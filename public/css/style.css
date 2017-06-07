@@ -1058,11 +1058,13 @@ li.active > span {
     }
 
     #main-wrapper .arrow::after{
-        content: 'FILTER';
+        content: '\f0b0';
+        font-family: FontAwesome;
+        font-size: 22px;
         position: fixed;
         z-index: 1000;
-        top: 43.25vh;
-        left: 0;
+        top: 42vh;
+        left: 10px;
         color: white;
         -webkit-transition: left .75s;
         transition: left .75s;
@@ -1082,11 +1084,13 @@ li.active > span {
     }
 
     #main-wrapper .arrow-show-bg::after{
-        content: 'FILTER';
+        content: '\f0b0';
+        font-family: FontAwesome;
+        font-size: 22px;
         position: fixed;
         z-index: 1000;
-        top: 43.25vh;
-        left: 60%;
+        top: 42vh;
+        left: calc(60% + 10px);
         color: white;
         -webkit-transition: left .75s;
         transition: left .75s;
@@ -1222,11 +1226,13 @@ li.active > span {
     }
 
     #main-wrapper .arrow::after{
-        content: 'FILTER';
+        content: '\f0b0';
+        font-family: FontAwesome;
+        font-size: 22px;
         position: fixed;
         z-index: 1000;
-        top: 16.90vh;
-        left: 0;
+        top: 16.40vh;
+        left: 10px;
         -webkit-transition: left .75s;
         transition: left .75s;
     }
@@ -1245,11 +1251,13 @@ li.active > span {
     }
 
     #main-wrapper .arrow-show-bg::after{
-        content: 'FILTER';
+        content: '\f0b0';
+        font-family: FontAwesome;
+        font-size: 22px;
         position: fixed;
         z-index: 1000;
-        top: 16.90vh;
-        left: 60%;
+        top: 16.40vh;
+        left: calc(60% + 10px);
         -webkit-transition: left .75s;
         transition: left .75s;
     }
