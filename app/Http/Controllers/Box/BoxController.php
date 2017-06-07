@@ -17,7 +17,10 @@ class BoxController extends Controller
      */
     private function products($user)
     {
+        //preparando query
+
         //products with allergies thats user has
+        //dar gracias a joanillo
         $productsWithUserAllergies = DB::table('ingredient_product')
             ->join('allergy_ingredient', 'ingredient_product.ingredient_id', '=', 'allergy_ingredient.ingredient_id')
             ->join('allergy_user', 'allergy_ingredient.allergy_id', '=', 'allergy_user.allergy_id')
@@ -26,19 +29,27 @@ class BoxController extends Controller
             ->distinct()
             ->get();
         $query = DB::table('products');
+
+        //busqueda de productos que no tienen las alergias que tiene el usuario
         foreach ($productsWithUserAllergies as $item) {
             $query->where('products.id', '<>', $item->product_id);
         }
 
+
+        //products que  contienen los ingredientes indicados por el usuario
         $ingProducts = App\Product::whereDoesntHave('ingredients', function ($query) use ($user) {
             foreach ($user->ingredients as $ing) {
                 $query->where('ingredients.id', '!=', $ing->id);
             }
         })->get();
+
+        //quitamos de la quiery products que contienen ingredientes indicados por el usuario
         foreach ($ingProducts as $item) {
             $query->where('products.id', '<>', $item->id);
         }
+        //donde el stock es mayor que 0
         $query->where('stock','>',0);
+        //get the products
         return $query->get();
     }
 
@@ -109,9 +120,16 @@ class BoxController extends Controller
         try {
             DB::beginTransaction();
 
+            //usuarios con plan
             $usersWithPlan = App\User::has("plan")->get();
+
+            //$cont=0;
             foreach ($usersWithPlan as $user) {
+
+                //get products para el usuario
                 $products = $this->products($user);
+
+                //case de plan
                 switch ($user->plan->id) {
                     case 1:
                         $box = $this->putProductIntoBox($products, $user->plan, 1);
@@ -123,10 +141,18 @@ class BoxController extends Controller
                         $box = $this->putProductIntoBox($products, $user->plan, 3);
                         break;
                 }
-                if(is_null($box) || empty($box) || count($products)==0 || is_null($products) || empty($products))
-                    $this->putDefaultProductBox($box);
 
+                //si no se encuentra ningun producto para el usuario
+                if(is_null($box) || empty($box) || count($products)==0 || is_null($products) || empty($products))
+                    $this->putDefaultProductBox($box);//le mandamos las gracias por pagar
+
+                //creamos objeto delivery
                 $this->makeDelivery($user, $box);
+
+               /* $cont++;
+                if($cont==5){
+                    break; //cosas prohibidas
+                }*/
             }
             DB::commit();
         } catch (Exception $e) {
